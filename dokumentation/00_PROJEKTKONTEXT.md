@@ -132,10 +132,14 @@ Vollständige Historie mit Begründungen und verworfenen Wegen: `02_ENTWICKLUNGS
 ## 6. Offene Punkte / Roadmap
 
 **Offen**
-1. **Verteilung an Kollegen** — Hosting-Weg klären (SharePoint als Verteilstelle vs. internes Static-Hosting). Bewusst zurückgestellt (Stand Juli 2026), größter verbleibender Hebel.
+1. **Verteilung an Kollegen** — für die **Lern-App gelöst** via GitHub Pages (siehe unten); für das Wiki selbst weiter offen (SharePoint vs. dieselbe GitHub-Pages-Route — technisch wäre das Wiki unter `/app/` bereits erreichbar, Entscheidung über Sichtbarkeit steht aus).
 2. Ownership/Pflege klären, wenn das Wiki an Kollegen geht
 3. Ggf. Changelog-Mechanismus in der App selbst (wird mit Verteilung relevanter)
-4. Nächster **Fakten-Refresh** ca. Anfang 2027 (halbjährlicher Rhythmus)
+4. Nächster **Fakten-Refresh** ca. Anfang 2027 (halbjährlicher Rhythmus) — **neu:** dabei auch die Lern-App-Checkliste aus `08_LERNAPP_UMSETZUNG.md` §3 abarbeiten (betroffene Quiz-Items über `steckbriefIds` finden)
+
+**Neu seit Juli 2026: Lern-App + Git/GitHub**
+- **Lern-App „Energiewirtschaft meistern"** (Ordner `lern-app/`): PWA-Lernanwendung auf Basis von `app/data.js` (unverändert geladen, Single Source of Truth). MVP = Modul 4 „Verkaufen", 54 Quiz-Items, Leitner-Spaced-Repetition, Vertiefungs-Lesemodus. Konzept: `07_LERNAPP_KONZEPT.md` · Istzustand/Pflege/Release: `08_LERNAPP_UMSETZUNG.md`.
+- **Der Projektordner ist jetzt ein Git-Repository:** https://github.com/ArneGroenewold/Geschaeftsmodelle-der-Energiewirtschaft — GitHub Pages deployt den Root; Lern-App live unter https://arnegroenewold.github.io/Geschaeftsmodelle-der-Energiewirtschaft/lern-app/. Änderungen werden committet und gepusht; für die Lern-App zusätzlich `lern-app/sw.js` → CACHE_NAME hochzählen (sonst bleibt die installierte PWA auf dem alten Stand).
 
 **Erledigt (nicht erneut vorschlagen)**
 - ~~BMC-Ansicht~~ (v1.8/v2.0) · ~~Glossar~~ (v2.0) · ~~Fallbeispiele~~ (v2.1/v2.2) · ~~Quellenangaben~~ (v2.4–v2.6) · ~~Angreifbarkeit-Rollout~~ (v2.6) · ~~Timeline-Lücken 2029+~~ (v2.6)

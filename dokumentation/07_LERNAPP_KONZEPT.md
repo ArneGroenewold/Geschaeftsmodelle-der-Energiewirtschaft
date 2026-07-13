@@ -1,6 +1,6 @@
 # Lern-App „Energiewirtschaft meistern" — Konzept
 
-> **Stand:** Juli 2026 (Session 20) · **Status:** Konzept zur Umsetzung mit Claude Code
+> **Stand:** Juli 2026 (Session 20) · **Status:** MVP umgesetzt und live (Sessions 21–22) — Istzustand, Sync-Regeln und Release-Prozess in `08_LERNAPP_UMSETZUNG.md`; dieses Dokument bleibt das inhaltliche Sollkonzept für die Ausbaustufen 2–4
 > **Ziel:** Die Wiki-Inhalte (v2.7: 75 Steckbriefe, ~115 Glossarbegriffe, 43 Timeline-Events, 23 Quellen) aktiv lernbar machen — Babbel-artig: kapitelweise, mit anspruchsvollen Quiz und einem Zertifizierungs-Abschluss.
 > **Zielgruppe:** Zunächst Arne selbst; von Anfang an so gebaut, dass Kollegen sie später als Onboarding-Werkzeug nutzen können.
 > **Technik:** Bewusst offen gelassen — Claude Code entscheidet. Leitplanken in Abschnitt 10.

@@ -10,11 +10,17 @@
 Energiewirtschaft-GM-Wiki/
 ├── README.md                          ← diese Datei (Einstiegspunkt)
 │
-├── app/                                ← die lauffähige Anwendung (v2.7)
+├── app/                                ← das Wiki (lauffähige Anwendung, v2.7)
 │   ├── index.html
 │   ├── style.css
 │   ├── app.js
-│   └── data.js
+│   └── data.js                         ← Single Source of Truth (auch für die Lern-App!)
+│
+├── lern-app/                           ← die Lern-App „Energiewirtschaft meistern" (PWA, seit Juli 2026)
+│   ├── index.html / lern.css / main.js / …
+│   ├── lern-data.js / lern-quiz-items.js  ← redaktionelle Lernschicht (Curriculum + Quiz)
+│   ├── manifest.json / sw.js              ← PWA/Offline; Release: CACHE_NAME hochzählen!
+│   └── shared/ + assets/
 │
 ├── dokumentation/                      ← Projektkontext & Konzepte
 │   ├── 00_PROJEKTKONTEXT.md            ← Start hier für vollen Kontext
@@ -24,10 +30,16 @@ Energiewirtschaft-GM-Wiki/
 │   ├── 04_BUSINESS_MODEL_CANVAS.md
 │   ├── 05_QUELLEN_KONZEPT.md
 │   ├── 06_BENCHMARKING_KONZEPT.md
-│   └── 07_LERNAPP_KONZEPT.md
+│   ├── 07_LERNAPP_KONZEPT.md           ← Lern-App: Sollkonzept
+│   └── 08_LERNAPP_UMSETZUNG.md         ← Lern-App: Istzustand, Sync-Regeln, Release-Prozess
 │
 └── archiv-aeltere-versionen/           ← frühere ZIP-Stände (v1.1–v2.5; v1.6, v2.0 und v2.2 fehlen)
 ```
+
+**Repo & Hosting (seit Juli 2026):** Der Projektordner ist ein Git-Repository, veröffentlicht unter
+https://github.com/ArneGroenewold/Geschaeftsmodelle-der-Energiewirtschaft (GitHub Pages aus dem Root, Branch `master`).
+Lern-App live: https://arnegroenewold.github.io/Geschaeftsmodelle-der-Energiewirtschaft/lern-app/ (Achtung: URL ist case-sensitive).
+Versionierung der Lern-App läuft über Git; die ZIP-Konvention gilt weiterhin nur für das Wiki.
 
 ---
 
@@ -93,7 +105,8 @@ Features: Steckbriefe mit Tiefenanalyse (Wertschöpfung/Herausforderungen/Ausbli
 | Was ist der Business-Model-Canvas-Plan? | `dokumentation/04_BUSINESS_MODEL_CANVAS.md` |
 | Wie funktioniert das Quellen-Feature? | `dokumentation/05_QUELLEN_KONZEPT.md` |
 | Wie soll das Kunden-Benchmarking funktionieren? | `dokumentation/06_BENCHMARKING_KONZEPT.md` |
-| Wie soll die Lern-App funktionieren? | `dokumentation/07_LERNAPP_KONZEPT.md` |
+| Wie soll die Lern-App funktionieren? (Konzept) | `dokumentation/07_LERNAPP_KONZEPT.md` |
+| Wie ist die Lern-App gebaut, wie pflege/release ich sie? | `dokumentation/08_LERNAPP_UMSETZUNG.md` |
 
 ---
 
@@ -119,4 +132,4 @@ Features: Steckbriefe mit Tiefenanalyse (Wertschöpfung/Herausforderungen/Ausbli
 7. Ggf. Changelog-Mechanismus in der App selbst (wird mit Verteilung relevanter)
 8. Nächster **Fakten-Refresh** ca. Anfang 2027 (halbjährlicher Rhythmus, `GM_FAKTEN_STAND` pflegen)
 9. **Geschäftsmodell-Benchmarking als Kundenwerkzeug** — Konzept in `dokumentation/06_BENCHMARKING_KONZEPT.md` (neu, Juli 2026); nächster Schritt: Pilot mit einem realen Kundenfall
-10. **Lern-App** (Babbel-artig, mit Zertifizierungs-Quiz) — Konzept in `dokumentation/07_LERNAPP_KONZEPT.md` (neu, Juli 2026); Umsetzung via Claude Code geplant, MVP = Modul „Verkaufen" + Quiz-Engine + Spaced-Repetition-Review
+10. ~~Lern-App MVP~~ — **umgesetzt und live** (Juli 2026, Sessions 21–22): Modul 4 „Verkaufen" (7 Einheiten, 54 Quiz-Items, 5 Formate), Leitner-Review, Vertiefungs-Lesemodus, PWA auf GitHub Pages. Istzustand + Pflege: `dokumentation/08_LERNAPP_UMSETZUNG.md`. **Nächste Ausbaustufen:** Modul 1 „Das Spielfeld", Bossquiz, weitere Module, Disruptor-Modus (Roadmap in 08, Abschnitt 8)

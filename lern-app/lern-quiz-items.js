@@ -1727,6 +1727,449 @@ Object.assign(LERN_QUIZ_ITEMS, {
 
 });
 
+// ════════════════════════════════════════════════════════════════════
+// MODUL 5 — FLEXIBILITÄT IST DAS NEUE ÖL
+// ════════════════════════════════════════════════════════════════════
+Object.assign(LERN_QUIZ_ITEMS, {
+
+  // ── U5-VPP ──────────────────────────────────────────────────────
+  "Q-VPP-WE1": {
+    id: "Q-VPP-WE1", unitId: "U5-VPP", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-AGG-VPP-01"],
+    data: {
+      frage: "Warum sinkt der Prognosefehler im großen Portfolio so stark?",
+      optionen: [
+        { text: "Diversifikation: Abweichungen einzelner Anlagen gleichen sich statistisch aus (eine Wolke über Bayern, Wind an der Küste) — im Mittel bleibt viel weniger Fehler übrig.", korrekt: true, erklaerung: "Genau dieser Ausgleichseffekt ist das verkaufte Produkt: 15–25% Einzelfehler werden zu 2–3% Portfoliofehler." },
+        { text: "Weil das VPP für jede Anlage eine eigene, exakte Wettervorhersage kauft.", korrekt: false, erklaerung: "Bessere Wettermodelle helfen, aber der Haupteffekt ist statistischer Ausgleich über viele Anlagen — nicht perfekte Einzelprognose." },
+        { text: "Weil große Portfolien von der BNetzA einen reduzierten Prognosefehler zugestanden bekommen.", korrekt: false, erklaerung: "Prognosefehler wird gemessen, nicht zugestanden — der Effekt ist real-statistisch, nicht regulatorisch." }
+      ]
+    }
+  },
+  "Q-VPP-WE2": {
+    id: "Q-VPP-WE2", unitId: "U5-VPP", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-AGG-VPP-01"],
+    data: {
+      szenario: "Ein VPP erzielt bei 10 GW Portfolio einen Vermarktungs-Mehrerlös von 2 €/MWh über durchschnittlich 2.000 Volllaststunden. Wie groß ist der jährliche Outperformance-Pool (in Mio. €)?",
+      eingabefelder: [{ key: "pool", label: "Outperformance-Pool", einheit: "Mio. €" }],
+      loesung: { pool: { wert: 40, toleranz: 4 } },
+      rechenweg: ["Energiemenge = 10 GW × 2.000 h = 20.000 GWh = 20 Mio. MWh.", "Pool = 20 Mio. MWh × 2 €/MWh = 40 Mio. €.", "Davon behält das VPP 20–40% als Outperformance-Share, der Rest geht an die Anlagenbetreiber — zusätzlich zur festen Managementfee."]
+    }
+  },
+  "Q-VPP-R1": {
+    id: "Q-VPP-R1", unitId: "U5-VPP", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-AGG-VPP-01"],
+    data: {
+      frage: "Woraus setzt sich der Erlös eines EE-Direktvermarktungs-VPP zusammen?",
+      optionen: [
+        { text: "Managementfee (0,15–0,45 ct/kWh) plus Outperformance-Share (20–40% des Mehrerlöses über den Referenzmarktwert).", korrekt: true, erklaerung: "Feste Fee plus erfolgsabhängiger Anteil — das VPP verdient an der besseren Vermarktung, nicht am Strom selbst." },
+        { text: "Eine kWh-Marge auf den weiterverkauften Windstrom, wie bei einem Vollversorger.", korrekt: false, erklaerung: "Das VPP verkauft für die Anlagenbetreiber an die Börse, es kauft und verkauft nicht auf eigene Rechnung mit Marge — es ist ein Dienstleister." },
+        { text: "Die staatliche EEG-Marktprämie, die es als Vermarkter einbehält.", korrekt: false, erklaerung: "Die Marktprämie fließt an den Anlagenbetreiber — das VPP verdient an Fee und Outperformance, nicht an der Prämie." }
+      ]
+    }
+  },
+  "Q-VPP-R2": {
+    id: "Q-VPP-R2", unitId: "U5-VPP", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-AGG-VPP-01"],
+    data: {
+      text: "Next Kraftwerke gehört seit 2021 zu {{a}} und vermarktet über {{b}} GW. Für jede Anlage entscheidet das System stündlich zwischen {{c}}- und Intraday-Vermarktung.",
+      luecken: {
+        a: { loesungen: ["Shell"], erklaerung: "Shell übernahm Next Kraftwerke 2021 — was Interessenkonflikte bei konzernfremden Anlagen schafft." },
+        b: { loesungen: ["14"], erklaerung: ">14 GW in 17 Ländern — europäischer Marktführer." },
+        c: { loesungen: ["Day-Ahead", "Day Ahead"], erklaerung: "Day-Ahead (Preise einen Tag vorher fix) vs. Intraday (bis kurz vor Lieferung handelbar)." }
+      },
+      distraktoren: ["RWE", "50"]
+    }
+  },
+  "Q-VPP-R3": {
+    id: "Q-VPP-R3", unitId: "U5-VPP", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-AGG-VPP-01"],
+    data: {
+      frage: "Warum schmilzt das Outperformance-Potenzial der VPP langfristig — und wer verursacht das?",
+      optionen: [
+        { text: "Die ÜNB verbessern laufend die Referenzmarktwerte; je genauer der RMW den echten Wert trifft, desto weniger Vorsprung bleibt für die Outperformance.", korrekt: true, erklaerung: "Der Regulierer reguliert die Marge schrittweise weg — ein struktureller Gegenwind für alle Direktvermarkter." },
+        { text: "Die Anlagenbetreiber kündigen massenhaft ihre Verträge wegen zu hoher Fees.", korrekt: false, erklaerung: "Die Wechselhürde nach SCADA-Integration ist hoch; das Problem ist nicht Abwanderung, sondern die sinkende RMW-Lücke." },
+        { text: "Die Börse schließt den Intraday-Markt für Direktvermarkter.", korrekt: false, erklaerung: "Der Intraday-Markt bleibt offen — der Vorsprung schrumpft durch bessere Referenzwerte, nicht durch Marktzugangsverlust." }
+      ]
+    }
+  },
+  "Q-VPP-R4": {
+    id: "Q-VPP-R4", unitId: "U5-VPP", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-AGG-VPP-01"],
+    data: {
+      steckbriefId: "L3-AGG-VPP-01",
+      erklaerungenProDimension: {
+        regulierung: "Kein Regulierungsschutz, aber regulierungsnah (EEG-Direktvermarktung) — niedrig.",
+        skalierbarkeit: "Reine Software-Plattform, jede weitere Anlage nahezu grenzkostenfrei — höchste Stufe.",
+        marktrisiko: "Fee-basiert plus Outperformance, das Kernrisiko trägt der Anlagenbetreiber — niedrig-mittel.",
+        digitalisierung: "ML-Wettermodelle, SCADA, Echtzeit-Optimierung sind der Kern — höchste Stufe.",
+        wettbewerb: "Oligopol mit Next Kraftwerke/RWE, aber wachsend umkämpft — mittel.",
+        nachhaltigkeit: "Ermöglicht wirtschaftliche EE-Vermarktung — hoher Enabler-Beitrag."
+      }
+    }
+  },
+  "Q-VPP-T1": {
+    id: "Q-VPP-T1", unitId: "U5-VPP", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-AGG-VPP-01", "L3-ERZ-EE-01"],
+    data: {
+      frage: "Das VPP-Geschäft und die EEG-Marktprämie (Modul 2) beschreiben dieselbe Wertschöpfung aus zwei Blickwinkeln. Wie hängen sie zusammen?",
+      optionen: [
+        { text: "Das VPP IST der Direktvermarkter aus der EEG-Einheit — es bündelt die Anlagen und erwirtschaftet die Outperformance gegenüber dem Referenzmarktwert, die dort beschrieben wurde.", korrekt: true, erklaerung: "Modul 2 sah es aus Sicht des Anlagenbetreibers (Marktprämie + Vermarkter), Modul 5 aus Sicht des Vermarkters (Portfolio + Outperformance) — dieselbe Mechanik." },
+        { text: "Das VPP ersetzt die Marktprämie durch ein eigenes Fördersystem.", korrekt: false, erklaerung: "Das VPP fördert nichts — es vermarktet nur; die Marktprämie kommt weiterhin vom Staat an den Anlagenbetreiber." },
+        { text: "Beide sind völlig unabhängig; VPP handeln nur mit Speichern, nicht mit EE-Anlagen.", korrekt: false, erklaerung: "Das EE-Direktvermarktungs-VPP handelt gerade mit Wind-/Solar-/Biogasanlagen — es ist direkt mit der Marktprämie verbunden." }
+      ]
+    }
+  },
+
+  // ── U5-DEMAND ───────────────────────────────────────────────────
+  "Q-DEMAND-WE1": {
+    id: "Q-DEMAND-WE1", unitId: "U5-DEMAND", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-AGG-VPP-02"],
+    data: {
+      frage: "Was genau verkauft die Aluminiumschmelze am Regelenergiemarkt?",
+      optionen: [
+        { text: "Die Fähigkeit, ihre Last kurzfristig und zuverlässig zu senken — eine Flexibilität, die im Produktionsprozess ohnehin steckt.", korrekt: true, erklaerung: "Demand Response monetarisiert vorhandene Flexibilität; investiert werden muss nur in Steuerung, nicht in Anlagen." },
+        { text: "Überschüssigen selbst erzeugten Strom aus einem eigenen Kraftwerk.", korrekt: false, erklaerung: "Die Schmelze erzeugt keinen Strom — sie verkauft ihre Fähigkeit, Verbrauch zu drosseln, nicht Erzeugung." },
+        { text: "Ihre gesamte Jahresstrommenge im Voraus zu einem Festpreis.", korrekt: false, erklaerung: "Das wäre ein PPA — Demand Response verkauft kurzfristige Laständerung, kein Energievolumen." }
+      ]
+    }
+  },
+  "Q-DEMAND-WE2": {
+    id: "Q-DEMAND-WE2", unitId: "U5-DEMAND", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-AGG-VPP-02"],
+    data: {
+      frage: "Warum ist das Aggregator-Modell so kapitaleffizient?",
+      optionen: [
+        { text: "Der Aggregator investiert nur in Steuerungssoftware und SCADA-Anbindung — die eigentliche Flex-Kapazität (die Industrielast) gehört dem Kunden; Skalierung über mehr Kunden ist margenkonstant.", korrekt: true, erklaerung: "Asset-leicht: Der Aggregator monetarisiert fremde Flexibilität gegen Revenue-Share, ohne eigenes Anlagen-Capex." },
+        { text: "Weil der Aggregator die Industrieanlagen kauft und selbst betreibt.", korrekt: false, erklaerung: "Genau das nicht — der Aggregator besitzt keine Anlagen, das ist der Kern des asset-leichten Modells." },
+        { text: "Weil der ÜNB dem Aggregator die SCADA-Infrastruktur kostenlos stellt.", korrekt: false, erklaerung: "Die Anbindung zahlt der Aggregator selbst — sie ist aber im Verhältnis zu einem Kraftwerksbau minimal." }
+      ]
+    }
+  },
+  "Q-DEMAND-R1": {
+    id: "Q-DEMAND-R1", unitId: "U5-DEMAND", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-AGG-VPP-02"],
+    data: {
+      frage: "Was erlaubt es einem unabhängigen Aggregator, Regelenergie zu verkaufen, ohne Energielieferant zu sein?",
+      optionen: [
+        { text: "Die Rolle des unabhängigen Aggregators (SOGL Art. 182 / EU Clean Energy Package) trennt Flexibilitätsvermarktung von der Stromlieferung.", korrekt: true, erklaerung: "Erst diese regulatorische Entkopplung macht das reine Aggregator-Geschäft ohne eigene Bilanzkreis-/Lieferantenrolle möglich." },
+        { text: "Er muss dafür eine Banklizenz erwerben.", korrekt: false, erklaerung: "Eine Banklizenz ist irrelevant — es geht um die energierechtliche Aggregator-Rolle, nicht um Finanzaufsicht." },
+        { text: "Er kauft die Regelenergie beim ÜNB und verkauft sie mit Aufschlag weiter.", korrekt: false, erklaerung: "Umgekehrt — der Aggregator bietet dem ÜNB Regelleistung an; er kauft sie nicht ein." }
+      ]
+    }
+  },
+  "Q-DEMAND-R2": {
+    id: "Q-DEMAND-R2", unitId: "U5-DEMAND", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-AGG-VPP-02"],
+    data: {
+      text: "Typische Demand-Response-Lasten sind Elektrolyseure, Aluminiumschmelzen, Kühlhäuser und {{a}}. Der Aggregator behält einen {{b}} (20–40%), der Rest geht an den Kunden. Voraussetzung ist eine Zuverlässigkeit über {{c}} der Präqualifikationsstunden.",
+      luecken: {
+        a: { loesungen: ["Rechenzentren", "Rechenzentrum"], erklaerung: "Rechenzentren sind wegen ihrer steuerbaren Kühl- und USV-Lasten attraktive Flex-Quellen." },
+        b: { loesungen: ["Revenue-Share", "Revenue Share"], erklaerung: "Der Revenue-Share ist die Vergütung des Aggregators ohne eigenes Asset." },
+        c: { loesungen: ["99%"], erklaerung: "Reliability >99% ist die Vertrauensschwelle — ein Fehlabruf gefährdet die Kundenbeziehung." }
+      },
+      distraktoren: ["Privathaushalte", "50%"]
+    }
+  },
+  "Q-DEMAND-R3": {
+    id: "Q-DEMAND-R3", unitId: "U5-DEMAND", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-AGG-VPP-02"],
+    data: {
+      frage: "Wodurch ist der Demand-Response-Aggregator angreifbar?",
+      optionen: [
+        { text: "Sobald der Industriekunde selbst marktfähig wird (eigener Flex-Desk) oder sein Lieferant/Contractor die Vermarktung mitbündelt, wird der Aggregator überflüssig; VPP-Software drückt zusätzlich die Vermittlungsmarge.", korrekt: true, erklaerung: "Verteidigungsfähig ist die Präqualifikations- und Prozesskompetenz, nicht der bloße Marktzugang." },
+        { text: "Durch ein Verbot unabhängiger Aggregatoren in der gesamten EU.", korrekt: false, erklaerung: "Das Gegenteil — das EU Clean Energy Package stärkt die Aggregator-Rolle; Deutschland ist nur vergleichsweise restriktiv." },
+        { text: "Weil Industriekunden ihre Flexibilität technisch nicht bereitstellen können.", korrekt: false, erklaerung: "Sie können es (die Flex existiert), das ist ja die Geschäftsgrundlage — die Angreifbarkeit kommt vom möglichen Insourcing." }
+      ]
+    }
+  },
+  "Q-DEMAND-R4": {
+    id: "Q-DEMAND-R4", unitId: "U5-DEMAND", format: "bmc-puzzle", bloom: "K3",
+    steckbriefIds: ["L3-AGG-VPP-02", "L3-AGG-VPP-01"],
+    data: { steckbriefId: "L3-AGG-VPP-02", distraktorSteckbriefId: "L3-AGG-VPP-01" }
+  },
+  "Q-DEMAND-T1": {
+    id: "Q-DEMAND-T1", unitId: "U5-DEMAND", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-AGG-VPP-02", "L3-ERZ-KONV-02"],
+    data: {
+      frage: "Demand Response und thermische Regelenergie (Modul 2) konkurrieren im selben Markt. Wo hat die Industrielast einen strukturellen Vorteil?",
+      optionen: [
+        { text: "Sie monetarisiert bereits vorhandene Flexibilität ohne eigenes Erzeugungs-Capex — während das Gaskraftwerk Brennstoff verbrennen und CO₂-Zertifikate kaufen muss, um dieselbe Regelleistung zu liefern.", korrekt: true, erklaerung: "Grenzkosten nahe null (nur kurzzeitiger Produktionsverzicht) gegen echte Brennstoff-Grenzkosten — dieselbe Kannibalisierungslogik wie beim Batteriespeicher gegen FCR." },
+        { text: "Die Industrielast wird für Regelenergie gesetzlich bevorzugt vor Kraftwerken aktiviert.", korrekt: false, erklaerung: "Es gibt keine gesetzliche Bevorzugung — die Aktivierung folgt dem Merit-Order-Prinzip der Regelenergie, nicht einer Rangfolge nach Anbietertyp." },
+        { text: "Industrielasten müssen keine Präqualifikation durchlaufen.", korrekt: false, erklaerung: "Doch — die aFRR-Präqualifikation ist gerade eine der Hürden; der Vorteil liegt in den niedrigen Grenzkosten, nicht in Regelbefreiung." }
+      ]
+    }
+  },
+
+  // ── U5-ROUTE ────────────────────────────────────────────────────
+  "Q-ROUTE-WE1": {
+    id: "Q-ROUTE-WE1", unitId: "U5-ROUTE", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-AGG-VPP-03"],
+    data: {
+      frage: "Warum baut Kyon Energy Speicher, überlässt aber das Handeln Entrix und Enspired?",
+      optionen: [
+        { text: "Kyons Kompetenz ist Projektentwicklung und Bau; die margenentscheidende Multimarkt-Optimierung ist ein eigenes Spezialgeschäft, das man besser einkauft als selbst aufbaut.", korrekt: true, erklaerung: "Arbeitsteilung: Asset-Bauer und asset-leichter Optimierer — jeder macht, was er am besten kann, oft mit mehreren Optimierern parallel." },
+        { text: "Kyon darf als Projektentwickler gesetzlich nicht selbst an der Börse handeln.", korrekt: false, erklaerung: "Ein solches Verbot gibt es nicht — es ist eine strategische Arbeitsteilung, keine rechtliche Vorgabe." },
+        { text: "Entrix und Enspired stellen die Batterien kostenlos zur Verfügung.", korrekt: false, erklaerung: "Nein — Kyon baut und besitzt die Speicher; die Optimierer liefern nur die Vermarktung." }
+      ]
+    }
+  },
+  "Q-ROUTE-WE2": {
+    id: "Q-ROUTE-WE2", unitId: "U5-ROUTE", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-AGG-VPP-03"],
+    data: {
+      frage: "Was ist der Kern des Tolling/Floor-Modells von terralayr?",
+      optionen: [
+        { text: "Der Eigentümer bekommt einen garantierten Festpreis/Mindesterlös, terralayr behält den Mehrerlös und trägt dafür das Marktrisiko — das macht das Speicherprojekt bankfähig.", korrekt: true, erklaerung: "Die Risikoübernahme wandert zu dem, der sie am besten bepreisen kann; im Gegenzug wird das Projekt finanzierbar." },
+        { text: "terralayr mietet die Batterie und zahlt eine umsatzabhängige Miete ohne jede Garantie.", korrekt: false, erklaerung: "Das Gegenteil des Tolling-Gedankens — der Witz ist gerade die GARANTIE für den Eigentümer, nicht eine variable Miete." },
+        { text: "Der Eigentümer trägt weiterhin das volle Marktrisiko, terralayr nur die Software.", korrekt: false, erklaerung: "Beim reinen Fee-Modell ja — aber Tolling/Floor verlagert das Marktrisiko explizit zum Optimierer, das ist der Unterschied." }
+      ]
+    }
+  },
+  "Q-ROUTE-R1": {
+    id: "Q-ROUTE-R1", unitId: "U5-ROUTE", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-AGG-VPP-03"],
+    data: {
+      frage: "Warum macht ein garantierter Floor ein Speicherprojekt 'bankfähig'?",
+      optionen: [
+        { text: "Fremdkapitalgeber verlangen planbare Mindest-Cashflows; ein garantierter Erlös verwandelt unsicheres Merchant-Risiko in eine finanzierbare Größe.", korrekt: true, erklaerung: "Dieselbe Logik wie bei PPAs und Offshore-Ausschreibungen: Absicherung schafft Bankfähigkeit." },
+        { text: "Weil die Bank dann Miteigentümerin der Batterie wird.", korrekt: false, erklaerung: "Die Bank finanziert gegen Cashflow, nicht gegen Miteigentum — der Floor sichert den Cashflow, mehr braucht es nicht." },
+        { text: "Weil ein Floor die Batterie vor technischem Ausfall schützt.", korrekt: false, erklaerung: "Ein Floor ist ein Erlös-, kein Technikversprechen — er sichert Einnahmen, nicht die Hardware." }
+      ]
+    }
+  },
+  "Q-ROUTE-R2": {
+    id: "Q-ROUTE-R2", unitId: "U5-ROUTE", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-AGG-VPP-03"],
+    data: {
+      text: "Asset-leichte Optimierer vermarkten fremde Speicher über {{a}}, Intraday, FCR und aFRR. Beim {{b}}-Modell garantieren sie dem Eigentümer einen Festpreis und tragen das {{c}} selbst.",
+      luecken: {
+        a: { loesungen: ["Day-Ahead", "Day Ahead"], erklaerung: "Day-Ahead ist einer der vier gestackten Märkte." },
+        b: { loesungen: ["Tolling"], erklaerung: "Tolling (oder Floor): Festpreis für Kapazität, Risiko beim Optimierer." },
+        c: { loesungen: ["Marktrisiko", "Risiko"], erklaerung: "Das Merchant-Risiko wandert vom Bauherrn zum Optimierer." }
+      },
+      distraktoren: ["Terminmarkt", "Ausfallrisiko"]
+    }
+  },
+  "Q-ROUTE-R3": {
+    id: "Q-ROUTE-R3", unitId: "U5-ROUTE", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-AGG-VPP-03"],
+    data: {
+      frage: "Warum ist die Erlösbasis der Speicher-Optimierer strukturell bedroht?",
+      optionen: [
+        { text: "Jeder BESS-Zubau glättet die Spreads, aus denen die Outperformance stammt — der Markt kannibalisiert die eigene Erlösquelle; die Spreads von 2023/24 sind kein verlässlicher Business Case für 2030.", korrekt: true, erklaerung: "Dieselbe Selbstkannibalisierung wie beim BESS selbst (Modul 2) — mehr Speicher, flachere Spreads." },
+        { text: "Die BNetzA plant, Speicher-Optimierung zu verbieten.", korrekt: false, erklaerung: "Kein Verbot in Sicht — die Bedrohung ist ökonomisch (Spread-Kompression), nicht regulatorisch." },
+        { text: "Optimierer dürfen künftig nur noch einen einzigen Markt bedienen.", korrekt: false, erklaerung: "Multi-Market-Stacking bleibt erlaubt und ist gerade ihre Stärke — das Problem ist der schrumpfende Spread, nicht eine Marktbeschränkung." }
+      ]
+    }
+  },
+  "Q-ROUTE-R4": {
+    id: "Q-ROUTE-R4", unitId: "U5-ROUTE", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-AGG-VPP-03"],
+    data: {
+      steckbriefId: "L3-AGG-VPP-03",
+      erklaerungenProDimension: {
+        regulierung: "Reines Marktgeschäft ohne Erlösgarantie — niedrigste Stufe.",
+        skalierbarkeit: "Mehr MW unter Management auf gleicher Plattform, nahezu grenzkostenfrei — höchste Stufe.",
+        marktrisiko: "Bei Tolling/Floor übernimmt der Optimierer das volle Marktrisiko — hoch.",
+        digitalisierung: "KI-Multimarkt-Optimierung ist das gesamte Geschäftsmodell — höchste Stufe.",
+        wettbewerb: "Viele Optimierer, laufendes Performance-Benchmarking, Konsolidierung im Gang — hoch.",
+        nachhaltigkeit: "Macht Speicher wirtschaftlich und damit hohe EE-Anteile möglich — hoher Enabler-Beitrag."
+      }
+    }
+  },
+  "Q-ROUTE-T1": {
+    id: "Q-ROUTE-T1", unitId: "U5-ROUTE", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-AGG-VPP-03", "L3-ERZ-EE-02"],
+    data: {
+      frage: "Das Tolling/Floor-Modell und der Financial PPA (Modul 2) lösen dasselbe Grundproblem. Welches?",
+      optionen: [
+        { text: "Beide verwandeln unsichere Markterlöse in einen gesicherten, planbaren Cashflow und machen so ein kapitalintensives Projekt (Speicher bzw. Windpark) bankfähig — die Absicherung ist das eigentliche Produkt.", korrekt: true, erklaerung: "Ob Strike Price beim PPA oder Floor beim Tolling: Beide sind Preissicherungsinstrumente, die Fremdkapital erst ermöglichen." },
+        { text: "Beide eliminieren jegliches Risiko vollständig aus dem Energiesystem.", korrekt: false, erklaerung: "Das Risiko verschwindet nicht — es wandert nur zu dem Akteur, der es am besten tragen kann (PPA-Gegenpartei bzw. Optimierer)." },
+        { text: "Beide sind reine Spotmarktgeschäfte ohne langfristige Bindung.", korrekt: false, erklaerung: "Das Gegenteil — beide sind gerade langfristige Absicherungen gegen den Spotmarkt." }
+      ]
+    }
+  },
+
+  // ── U5-V2G ──────────────────────────────────────────────────────
+  "Q-V2G-WE1": {
+    id: "Q-V2G-WE1", unitId: "U5-V2G", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-EMOB-V2G-01"],
+    data: {
+      frage: "Warum merkt der ID.-Fahrer im Alltag nichts von der V2G-Nutzung?",
+      optionen: [
+        { text: "Die App speist nur zurück, wenn genug Ladung übrig ist, und lädt das Auto vor der geplanten Abfahrt wieder voll — der Fahrer sieht nur die Gutschrift.", korrekt: true, erklaerung: "Intelligente Steuerung mit Abfahrtszeit-Vorgabe macht V2G für den Nutzer transparent — das ist Voraussetzung für Akzeptanz." },
+        { text: "Weil V2G nur bei abgeschaltetem Fahrzeug funktioniert.", korrekt: false, erklaerung: "V2G funktioniert gerade im geparkten, angesteckten Zustand — der Punkt ist die Rückladung vor Fahrtbeginn, nicht ein Abschaltzwang." },
+        { text: "Weil die zurückgespeiste Menge zu klein ist, um messbar zu sein.", korrekt: false, erklaerung: "Die Mengen sind durchaus relevant (bis zu mehrere kWh) — der Fahrer merkt nichts, weil rechtzeitig nachgeladen wird, nicht weil es zu wenig wäre." }
+      ]
+    }
+  },
+  "Q-V2G-WE2": {
+    id: "Q-V2G-WE2", unitId: "U5-V2G", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-EMOB-V2G-01"],
+    data: {
+      szenario: "Zukunftsszenario: 10 Mio. E-Autos stellen im Schnitt je 30 kWh für V2G bereit. Wie groß ist das Gesamt-Flexibilitätspotenzial (in GWh)?",
+      eingabefelder: [{ key: "potenzial", label: "V2G-Potenzial", einheit: "GWh" }],
+      loesung: { potenzial: { wert: 300, toleranz: 20 } },
+      rechenweg: ["Potenzial = 10.000.000 Fahrzeuge × 30 kWh = 300.000.000 kWh = 300 GWh.", "Das ist rund das Sechsfache aller deutschen Großbatteriespeicher (2024) — deshalb gilt V2G als potenziell größte Flexibilitätsquelle der 2030er.", "Der Haken: Es setzt bidirektionale Ladepunkte (AFIR ab 2027) und OEM-Kooperation voraus."]
+    }
+  },
+  "Q-V2G-R1": {
+    id: "Q-V2G-R1", unitId: "U5-V2G", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-EMOB-V2G-01"],
+    data: {
+      frage: "Was schreibt die AFIR ab 2027 vor — und was nicht?",
+      optionen: [
+        { text: "Neue Ladepunkte müssen bidirektionale Kommunikation unterstützen (technische Voraussetzung für V2G) — eine Nutzungspflicht für V2G ist es aber nicht.", korrekt: true, erklaerung: "AFIR schafft nur die technische Basis; ob der Halter V2G tatsächlich nutzt, bleibt freiwillig." },
+        { text: "Jeder E-Auto-Halter muss ab 2027 sein Fahrzeug für V2G bereitstellen.", korrekt: false, erklaerung: "Keine Nutzungspflicht — AFIR betrifft die Ladepunkt-Technik, nicht das Verhalten der Halter." },
+        { text: "Alle Bestandswallboxen müssen bis 2027 auf bidirektional umgerüstet werden.", korrekt: false, erklaerung: "Die Vorgabe gilt für neue Ladepunkte, nicht rückwirkend für den gesamten Bestand." }
+      ]
+    }
+  },
+  "Q-V2G-R2": {
+    id: "Q-V2G-R2", unitId: "U5-V2G", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-EMOB-V2G-01"],
+    data: {
+      text: "Eine EV-Batterie (~60 kWh) ist rund {{a}} so groß wie ein typischer Heimspeicher. Vom Regelenergie-Erlös fließen {{b}} an den Fahrzeughalter. Der kritische Gatekeeper ist der {{c}}, der die Fahrzeug-API kontrolliert.",
+      luecken: {
+        a: { loesungen: ["fünfmal", "5-mal", "5x", "fünf mal"], erklaerung: "~60 kWh gegen ~10 kWh Heimspeicher — der Größenvorteil ist der Kern des V2G-Versprechens." },
+        b: { loesungen: ["50–70%", "50-70%"], erklaerung: "Der Halter bekommt den Großteil, der Aggregator 30–50% für Plattform und Vermarktung." },
+        c: { loesungen: ["OEM", "Hersteller"], erklaerung: "Der Fahrzeughersteller (OEM) kontrolliert den API-Zugang — die strukturelle Schwäche des unabhängigen Aggregators." }
+      },
+      distraktoren: ["gleich groß", "ÜNB"]
+    }
+  },
+  "Q-V2G-R3": {
+    id: "Q-V2G-R3", unitId: "U5-V2G", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-EMOB-V2G-01"],
+    data: {
+      frage: "Welche technische Sorge bremst V2G heute noch?",
+      optionen: [
+        { text: "Batteriedegradation durch bidirektionales Laden ist noch nicht vollständig gelöst — häufiges Rückspeisen könnte die Lebensdauer der teuren Fahrzeugbatterie beeinträchtigen.", korrekt: true, erklaerung: "Die Sorge um den Akku ist neben dem OEM-Gatekeeping die zweite Bremse; moderne Zellchemie und intelligente Zyklensteuerung mildern sie zunehmend." },
+        { text: "Bidirektionales Laden ist physikalisch unmöglich.", korrekt: false, erklaerung: "Es funktioniert technisch bereits (Nissan Leaf, Hyundai, VW ID mit Update) — die Frage ist die Langzeitwirkung auf den Akku, nicht die Machbarkeit." },
+        { text: "V2G-Strom darf gesetzlich nicht ins öffentliche Netz eingespeist werden.", korrekt: false, erklaerung: "Einspeisung ist erlaubt und geregelt — das Hemmnis ist technisch/wirtschaftlich (Degradation, OEM-Zugang), nicht ein Einspeiseverbot." }
+      ]
+    }
+  },
+  "Q-V2G-R4": {
+    id: "Q-V2G-R4", unitId: "U5-V2G", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-EMOB-V2G-01"],
+    data: {
+      steckbriefId: "L3-EMOB-V2G-01",
+      erklaerungenProDimension: {
+        regulierung: "Kein Regulierungsschutz, Regulierung hinkt der Technik hinterher — niedrig.",
+        skalierbarkeit: "Reine Software-Aggregation über Millionen Fahrzeuge — höchste Stufe.",
+        marktrisiko: "Revenue-Share ohne eigenes Asset, Batterie gehört dem Halter — niedrig-mittel.",
+        digitalisierung: "Aggregations-Plattform und Fahrzeug-API-Anbindung sind der Kern — höchste Stufe.",
+        wettbewerb: "Noch wenige Player und Fahrzeugmodelle, aber OEM-getrieben — niedrig-mittel.",
+        nachhaltigkeit: "Potenziell größte Flexibilitätsquelle der Energiewende — höchste Stufe."
+      }
+    }
+  },
+  "Q-V2G-T1": {
+    id: "Q-V2G-T1", unitId: "U5-V2G", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-EMOB-V2G-01", "L3-ERZ-SPEICHER-02"],
+    data: {
+      frage: "V2G und der Heimspeicher-VPP (Modul 2) folgen demselben Aggregationsmodell. Was macht V2G potenziell überlegen — und wo ist es zugleich schwächer?",
+      optionen: [
+        { text: "Überlegen durch die ~5× größere Batteriekapazität je Einheit; schwächer, weil der OEM die Fahrzeug-API kontrolliert, während der Heimspeicher-Hersteller sein eigenes Gerät steuert.", korrekt: true, erklaerung: "Größenvorteil trifft Gatekeeper-Nachteil — dieselbe VPP-Mechanik, aber mit verschobener Machtverteilung an der Schnittstelle." },
+        { text: "V2G ist in jeder Hinsicht überlegen, weil E-Autos ohnehin überall stehen.", korrekt: false, erklaerung: "Der OEM-Gatekeeper und die Degradationssorge sind reale Nachteile gegenüber dem stationären, herstellereigenen Heimspeicher." },
+        { text: "Beide sind identisch, nur mit anderem Batterietyp.", korrekt: false, erklaerung: "Die Machtverteilung an der Steuerungsschnittstelle unterscheidet sie fundamental — beim Heimspeicher hält der Hersteller die Kontrolle, bei V2G der Auto-OEM." }
+      ]
+    }
+  },
+
+  // ── U5-FLEXKAMPF ────────────────────────────────────────────────
+  "Q-FLEXKAMPF-WE1": {
+    id: "Q-FLEXKAMPF-WE1", unitId: "U5-FLEXKAMPF", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-SPEICHER-02"],
+    data: {
+      frage: "Wie macht der Hersteller aus einzelnen Heimspeichern ein marktfähiges Regelenergie-Asset?",
+      optionen: [
+        { text: "Er bündelt die freigehaltenen Reserven (z.B. 20% SOC je Gerät) tausender Haushalte zu einem präqualifizierten Pool — einzeln wäre jede Batterie viel zu klein.", korrekt: true, erklaerung: "Aggregation ist die Existenzberechtigung: 10.000 Heimspeicher ≈ 100 MWh handelbare Flex-Kapazität." },
+        { text: "Er speist den Strom aller Speicher gleichzeitig ins Netz und verkauft ihn als Grundlast.", korrekt: false, erklaerung: "Es geht um flexible Reserve (Regelenergie), nicht um Grundlast-Einspeisung — und nur um die freigehaltenen 20%, nicht den ganzen Speicher." },
+        { text: "Er verkauft die Batterien nach zwei Jahren an den ÜNB.", korrekt: false, erklaerung: "Die Batterien bleiben beim Kunden — vermarktet wird ihre Flexibilität, nicht die Hardware." }
+      ]
+    }
+  },
+  "Q-FLEXKAMPF-WE2": {
+    id: "Q-FLEXKAMPF-WE2", unitId: "U5-FLEXKAMPF", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-SPEICHER-02", "L3-VNB-NEU-01"],
+    data: {
+      frage: "Aggregator (Markt) und VNB (§14a) greifen auf dasselbe Gerät zu. Warum ist das ein echter Konflikt und keine bloße Koordinationsfrage?",
+      optionen: [
+        { text: "Ihre Ziele können sich direkt widersprechen: Der Aggregator will in einer teuren Börsenstunde einspeisen, genau dann kann aber ein lokaler Netzengpass die netzdienliche Drosselung erfordern — wessen Logik Vorrang hat, ist regulatorisch offen.", korrekt: true, erklaerung: "Marktoptimum und Netzoptimum fallen nicht immer zusammen — die Priorisierung ist die zentrale offene Frage der Flex-Regulierung." },
+        { text: "Es ist kein echter Konflikt, weil beide immer dasselbe wollen.", korrekt: false, erklaerung: "Gerade nicht — Börsenpreis-Logik und Netzzustand-Logik können in derselben Stunde gegensätzliche Handlungen verlangen." },
+        { text: "Der Konflikt löst sich, weil §14a die Marktsteuerung grundsätzlich verbietet.", korrekt: false, erklaerung: "§14a verbietet die Marktsteuerung nicht — es gibt dem VNB nur ein Eingriffsrecht bei Engpässen; die Koexistenz beider ist ungelöst." }
+      ]
+    }
+  },
+  "Q-FLEXKAMPF-R1": {
+    id: "Q-FLEXKAMPF-R1", unitId: "U5-FLEXKAMPF", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-SPEICHER-02"],
+    data: {
+      frage: "Warum ist der Heimspeicher-Hersteller (Sonnen, SENEC) durch offene Aggregatoren angreifbar?",
+      optionen: [
+        { text: "Herstellerübergreifende Aggregatoren und HEMS-Plattformen können Flex herstellerunabhängig bündeln — der Kunde muss dann nicht mehr beim Hardware-Verkäufer ins VPP, das Lock-in bröckelt.", korrekt: true, erklaerung: "Wer die Steuerungsschicht öffnet, entkoppelt Hardware-Verkauf und Flex-Vermarktung — die margenstärkere zweite Ebene wandert weg." },
+        { text: "Weil Heimspeicher gesetzlich nicht am VPP teilnehmen dürfen.", korrekt: false, erklaerung: "Sie dürfen — die Angreifbarkeit ist wirtschaftlich (offene Aggregatoren), nicht rechtlich." },
+        { text: "Weil offene Aggregatoren die Batterien billiger herstellen.", korrekt: false, erklaerung: "Aggregatoren stellen keine Hardware her — sie greifen die Vermarktungsschicht an, nicht die Fertigung." }
+      ]
+    }
+  },
+  "Q-FLEXKAMPF-R2": {
+    id: "Q-FLEXKAMPF-R2", unitId: "U5-FLEXKAMPF", format: "lueckentext", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-SPEICHER-02", "L3-VNB-NEU-01"],
+    data: {
+      text: "Um dasselbe Flex-Asset kämpfen mehrere: Der {{a}} steuert nach Börsenpreis, der {{b}} per §14a nach Netzzustand. Entscheidend ist, wer die {{c}} zum Gerät kontrolliert.",
+      luecken: {
+        a: { loesungen: ["Aggregator"], erklaerung: "Der Aggregator optimiert marktlich (maximaler Erlös)." },
+        b: { loesungen: ["VNB", "Verteilnetzbetreiber"], erklaerung: "Der VNB steuert netzdienlich (Engpassvermeidung)." },
+        c: { loesungen: ["Kundenschnittstelle", "Schnittstelle"], erklaerung: "Wer die Schnittstelle zum Asset hält, bestimmt die Priorisierung." }
+      },
+      distraktoren: ["Lieferant", "Batteriezelle"]
+    }
+  },
+  "Q-FLEXKAMPF-R3": {
+    id: "Q-FLEXKAMPF-R3", unitId: "U5-FLEXKAMPF", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-ERZ-SPEICHER-02", "L3-EMOB-V2G-01"],
+    data: {
+      frage: "Über alle Flex-Modelle (VPP, Demand Response, BESS, V2G, Heimspeicher) hinweg: Was ist der wiederkehrende Schlüsselfaktor für die Marge?",
+      optionen: [
+        { text: "Die Kontrolle der Steuerungs-/Kundenschnittstelle zum Asset — nicht der Besitz der Hardware. Wer die Schnittstelle hält (App, API, Präqualifikation), verdient; der Rest wird austauschbares Backend.", korrekt: true, erklaerung: "Das ist die Kernlektion von Modul 5: Flexibilität wird durch Software und Schnittstellenkontrolle monetarisiert, nicht durch Asset-Eigentum." },
+        { text: "Der physische Besitz möglichst vieler Batterien und Anlagen.", korrekt: false, erklaerung: "Gerade die asset-leichten Modelle (Optimierer, Aggregatoren) zeigen, dass Besitz nicht der Hebel ist — die Schnittstelle ist es." },
+        { text: "Die Nähe zum ÜNB-Hauptsitz.", korrekt: false, erklaerung: "Geografische Nähe ist irrelevant — Flex-Märkte sind digital und überregional." }
+      ]
+    }
+  },
+  "Q-FLEXKAMPF-R4": {
+    id: "Q-FLEXKAMPF-R4", unitId: "U5-FLEXKAMPF", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-ERZ-SPEICHER-02"],
+    data: {
+      steckbriefId: "L3-ERZ-SPEICHER-02",
+      erklaerungenProDimension: {
+        regulierung: "Geringer Regulierungsschutz, aber §14a-Kontext — niedrig-mittel.",
+        skalierbarkeit: "Jeder verkaufte Speicher wird dauerhafter VPP-Baustein — hoch.",
+        marktrisiko: "Hardware-Einmalmarge plus stabiler Flatrate-Erlös dämpfen das Risiko — niedrig-mittel.",
+        digitalisierung: "App, VPP-Steuerung und Flatrate-Abrechnung sind digital-nativ — höchste Stufe.",
+        wettbewerb: "OEMs, offene Aggregatoren und Neolieferanten greifen von mehreren Seiten an — mittel-hoch.",
+        nachhaltigkeit: "Macht Prosumer-Flexibilität und hohe EE-Anteile nutzbar — hoch."
+      }
+    }
+  },
+  "Q-FLEXKAMPF-T1": {
+    id: "Q-FLEXKAMPF-T1", unitId: "U5-FLEXKAMPF", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-ERZ-SPEICHER-02", "L3-VERTRIEB-NEO-01"],
+    data: {
+      frage: "Tibber (Modul 4), der Heimspeicher-Hersteller und der V2G-Aggregator ringen letztlich um dieselbe Ressource. Welche?",
+      optionen: [
+        { text: "Die Kontrolle über die steuerbaren Geräte im Haushalt (Wallbox, Wärmepumpe, Speicher, E-Auto) — wer diese Automatisierungsschnittstelle besitzt, macht die anderen zum austauschbaren Backend.", korrekt: true, erklaerung: "Genau davor warnt schon Tibbers Angreifbarkeit: HEMS-Plattformen und OEM-Apps besetzen dieselbe Schnittstelle. Modul 4 und Modul 5 kämpfen um denselben Kontrollpunkt." },
+        { text: "Um den günstigsten Einkauf von Strom an der Börse.", korrekt: false, erklaerung: "Der Börseneinkauf ist für alle gleich — der Kampf geht um die Gerätesteuerung im Haushalt, nicht um den Beschaffungspreis." },
+        { text: "Um die meisten physischen Ladesäulen im öffentlichen Raum.", korrekt: false, erklaerung: "Öffentliche Ladesäulen sind ein anderes Geschäft (CPO) — hier geht es um die steuerbaren Assets beim Endkunden zuhause." }
+      ]
+    }
+  }
+
+});
+
 // ── Validierung (Konsole): prüft, dass alle Referenzen auflösen ──────
 (function validateLernData() {
   const errors = [];

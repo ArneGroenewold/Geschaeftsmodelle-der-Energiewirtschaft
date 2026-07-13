@@ -25,6 +25,13 @@ const LERN_MODULES = [
     description: "Vollversorger, Neolieferanten, Ökostrom, Stadtwerke und Vergleichsplattformen — wie fließt das Geld beim Endkundenvertrieb?",
     unitIds: ["U-VOLL", "U-TIBBER", "U-TRANSPARENZ", "U-OCTOPUS", "U-IMPACT", "U-STADTWERK", "U-VERGLEICH"],
     bossQuizId: null // Stage 2
+  },
+  {
+    id: "M5-FLEX",
+    title: "Flexibilität ist das neue Öl",
+    description: "Virtuelle Kraftwerke, Demand Response, Batterie-Optimierung und Vehicle-to-Grid — wie aus Software und verteilten Assets Geld wird.",
+    unitIds: ["U5-VPP", "U5-DEMAND", "U5-ROUTE", "U5-V2G", "U5-FLEXKAMPF"],
+    bossQuizId: null // Stage 2
   }
 ];
 
@@ -590,6 +597,161 @@ const LERN_UNITS = [
     merkeDirEinenSatz: {
       prompt: "Formuliere in einem Satz: Was ist die 'Death Spiral' des Gasnetzes?",
       musterantwort: "Sinkende Durchleitungsmengen bei fixen Netzkosten treiben die Netzentgelte je Kunde nach oben, was weitere Kunden zum Ausstieg (Elektrifizierung) motiviert — ein sich selbst verstärkender Abwärtssog, der ohne H2-Repurposing im Stranded Asset endet."
+    }
+  },
+  {
+    id: "U5-VPP",
+    moduleId: "M5-FLEX",
+    title: "Virtuelles Kraftwerk — Wie aus tausend Anlagen ein Kraftwerk wird",
+    primarySteckbriefId: "L3-AGG-VPP-01",
+    vertiefungSteckbriefIds: ["L3-AGG-VPP-01"],
+    hook: { text: "Ein Unternehmen betreibt über 14 Gigawatt Kraftwerksleistung — und besitzt kein einziges Kraftwerk. Was verkauft es eigentlich?" },
+    kernidee: {
+      text: "Ein <strong>virtuelles Kraftwerk (VPP)</strong> bündelt tausende dezentrale EE-Anlagen per Software zu einem steuerbaren Portfolio. Next Kraftwerke (Shell) vermarktet so >14 GW: Für jede Anlage entscheidet das System stündlich, ob Day-Ahead oder Intraday-Verkauf mehr bringt. Der Erlös ist eine <strong>Managementfee</strong> (0,15–0,45 ct/kWh) plus ein <strong>Outperformance-Split</strong> (20–40% des Mehrerlöses über den Referenzmarktwert). Das eigentliche Produkt ist der <strong>Diversifikationseffekt</strong>: Der Prognosefehler sinkt von 15–25% (Einzelanlage) auf 2–3% (großes Portfolio).",
+      geldfluss: {
+        nodes: [{ id: "anlagen", label: "1000e Anlagen" }, { id: "vpp", label: "VPP" }, { id: "boerse", label: "Börse" }],
+        edges: [
+          { from: "anlagen", to: "vpp", label: "Fee + Outperformance-Split" },
+          { from: "vpp", to: "boerse", label: "optimierte Vermarktung" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-AGG-VPP-01",
+      steps: [
+        { text: "Eine einzelne Windturbine hat einen Prognosefehler von 15–25%. Im Bündel mit tausenden anderen Anlagen (Wind Nord, Solar Süd, Biogas) sinkt er auf 2–3%.", questionId: "Q-VPP-WE1" },
+        { text: "Bei 10 GW Portfolio bringt die laufende Day-Ahead/Intraday-Umverteilung rund 2 €/MWh Mehrerlös — über das Jahr rund 80 Mio. €.", questionId: "Q-VPP-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-VPP-R1", "Q-VPP-R2", "Q-VPP-R3", "Q-VPP-R4"],
+    transferItemId: "Q-VPP-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Was ist das eigentlich verkaufte Produkt eines EE-Direktvermarktungs-VPP?",
+      musterantwort: "Nicht die einzelne Anlage, sondern der Diversifikationseffekt des großen Portfolios: Er senkt den Prognosefehler von 15–25% auf 2–3% und damit die teuren Ausgleichsenergiekosten, die eine Einzelanlage allein nie erreichen würde."
+    }
+  },
+  {
+    id: "U5-DEMAND",
+    moduleId: "M5-FLEX",
+    title: "Demand Response — Geld verdienen mit Flexibilität, die man schon hat",
+    primarySteckbriefId: "L3-AGG-VPP-02",
+    vertiefungSteckbriefIds: ["L3-AGG-VPP-02"],
+    hook: { text: "Eine Aluminiumschmelze verdient Geld, indem sie gelegentlich für ein paar Minuten weniger produziert — ohne einen Cent zu investieren. Wie kann das ein Geschäft sein?" },
+    kernidee: {
+      text: "Große Industrielasten (Elektrolyse, Kühlhäuser, Rechenzentren) besitzen <strong>Flexibilität, die sie ohnehin haben</strong>. Ein <strong>Demand-Response-Aggregator</strong> bündelt diese Lasten zu einem virtuellen Regelenergie-Asset und vermarktet sie am aFRR/mFRR-Markt — ganz ohne eigene Anlagen zu bauen. Der Aggregator behält einen Revenue-Share (20–40%), der Industriekunde bekommt den Rest für Flexibilität, die er bisher ungenutzt liegen ließ. Der eigentliche Engpass ist nicht die Technik, sondern das <strong>Vertrauen</strong>: Zuverlässigkeit über 99% ist Pflicht.",
+      geldfluss: {
+        nodes: [{ id: "industrie", label: "Industrielast" }, { id: "agg", label: "Aggregator" }, { id: "uenb", label: "ÜNB" }],
+        edges: [
+          { from: "uenb", to: "agg", label: "Regelenergie-Erlös" },
+          { from: "agg", to: "industrie", label: "Revenue-Share (Rest)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-AGG-VPP-02",
+      steps: [
+        { text: "Eine Aluminiumschmelze hat sich präqualifiziert, in 5 Minuten 10 MW Last zu reduzieren (Drosselung einzelner Elektrolysezellen). Der ÜNB meldet aFRR-Down-Bedarf, Sympower schickt automatisch das Steuersignal.", questionId: "Q-DEMAND-WE1" },
+        { text: "Sympower hat in diese 10 MW keinen Cent investiert — die Flexibilität existierte in der Fabrik bereits, nur ungenutzt.", questionId: "Q-DEMAND-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-DEMAND-R1", "Q-DEMAND-R2", "Q-DEMAND-R3", "Q-DEMAND-R4"],
+    transferItemId: "Q-DEMAND-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum ist Vertrauen der eigentliche Engpass des Demand-Response-Modells?",
+      musterantwort: "Weil ein Industriekunde einen Dritten nur dann auf seine Produktionslast zugreifen lässt, wenn die Zuverlässigkeit über viele Abrufe nachweislich über 99% liegt — ein einziger Fehlabruf mit Produktionsschaden würde die Kundenbeziehung beenden."
+    }
+  },
+  {
+    id: "U5-ROUTE",
+    moduleId: "M5-FLEX",
+    title: "Route-to-Market — Wenn der Optimierer das Risiko kauft",
+    primarySteckbriefId: "L3-AGG-VPP-03",
+    vertiefungSteckbriefIds: ["L3-AGG-VPP-03"],
+    hook: { text: "Ein Batterieentwickler baut Speicher für hunderte Millionen — und überlässt das Geldverdienen komplett einem anderen. Warum ist das clever?" },
+    kernidee: {
+      text: "Asset-leichte Spezialisten (Entrix, Enspired, terralayr) vermarkten <strong>fremde</strong> Großbatterien per KI-Multimarkt-Optimierung — gegen Fee plus Outperformance-Share. Die zweite, wichtigere Wertschicht ist das <strong>Tolling/Floor-Modell</strong>: Der Optimierer garantiert dem Speicher-Eigentümer einen Festpreis bzw. Mindesterlös und trägt das Marktrisiko selbst. Das macht Speicherprojekte <strong>bankfähig</strong> (Banken verlangen gesicherte Cashflows) — das Merchant-Risiko wandert zu dem, der es am besten bepreisen kann. Nicht die Optimierung allein, sondern die <strong>Risikoübernahme</strong> wird zum eigentlichen Produkt.",
+      geldfluss: {
+        nodes: [{ id: "eigner", label: "Speicher-Eigner" }, { id: "opt", label: "Optimierer" }, { id: "markt", label: "Märkte" }],
+        edges: [
+          { from: "opt", to: "eigner", label: "garantierter Floor/Tolling-Festpreis" },
+          { from: "markt", to: "opt", label: "Erlöse (Risiko beim Optimierer)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-AGG-VPP-03",
+      steps: [
+        { text: "Kyon Energy baut Großspeicher (2026 u.a. 273 MW / 552 MWh), handelt aber nicht selbst — es hat Rahmenverträge mit den Optimierern Entrix und Enspired geschlossen, die viertelstündlich zwischen FCR, Intraday und aFRR wählen.", questionId: "Q-ROUTE-WE1" },
+        { text: "Alternativ bietet terralayr ein Tolling-Modell: fester Preis pro MW und Monat für den Eigentümer, terralayr behält den Mehrerlös — und trägt das Marktrisiko.", questionId: "Q-ROUTE-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-ROUTE-R1", "Q-ROUTE-R2", "Q-ROUTE-R3", "Q-ROUTE-R4"],
+    transferItemId: "Q-ROUTE-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Was macht das Tolling/Floor-Modell für den Speicher-Eigentümer so wertvoll?",
+      musterantwort: "Es verwandelt unsichere Merchant-Erlöse in einen garantierten Mindesterlös und macht das Speicherprojekt dadurch bankfähig — das Marktrisiko übernimmt der Optimierer, der es am besten bepreisen kann."
+    }
+  },
+  {
+    id: "U5-V2G",
+    moduleId: "M5-FLEX",
+    title: "Vehicle-to-Grid — Das rollende Kraftwerk in der Garage",
+    primarySteckbriefId: "L3-EMOB-V2G-01",
+    vertiefungSteckbriefIds: ["L3-EMOB-V2G-01"],
+    hook: { text: "10 Millionen E-Autos könnten das Sechsfache aller deutschen Großbatterien speichern — meistens stehen sie nur herum. Wer hebt diesen Schatz, und wer kassiert dafür?" },
+    kernidee: {
+      text: "<strong>Vehicle-to-Grid (V2G)</strong> nutzt E-Auto-Batterien bidirektional: Steht das Auto an einer bidirektionalen Wallbox, kann es bei Netzbedarf Strom zurückspeisen. Ein Aggregator bündelt tausende Fahrzeuge zum Regelenergie-Asset; der Halter bekommt 50–70% der Erlöse für Kapazität, die ohnehin herumsteht. Der Hebel: Eine EV-Batterie (~60 kWh) ist rund <strong>fünfmal größer</strong> als ein Heimspeicher. Die <strong>AFIR</strong> schreibt ab 2027 bidirektionale Ladepunkte vor (technische Voraussetzung, keine Nutzungspflicht). Die Schwachstelle: Der <strong>OEM kontrolliert die Fahrzeug-API</strong> — wer sie nicht hält, wird austauschbares Backend.",
+      geldfluss: {
+        nodes: [{ id: "halter", label: "EV-Halter" }, { id: "agg", label: "Aggregator" }, { id: "netz", label: "Netz/Markt" }],
+        edges: [
+          { from: "netz", to: "agg", label: "Regelenergie-Erlös" },
+          { from: "agg", to: "halter", label: "50–70% Revenue-Share" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-EMOB-V2G-01",
+      steps: [
+        { text: "Ein ID.-Fahrer steht abends mit 80% Ladung (~60 kWh) an seiner bidirektionalen Wallbox. Die Elli-App meldet das Fahrzeug als verfügbare Flexibilität; bei ÜNB-Bedarf speist es zurück und wird vor der Morgenfahrt wieder geladen.", questionId: "Q-V2G-WE1" },
+        { text: "Von den Regelenergie-Erlösen fließen 50–70% an den Fahrzeughalter zurück, der Rest bleibt beim Aggregator.", questionId: "Q-V2G-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-V2G-R1", "Q-V2G-R2", "Q-V2G-R3", "Q-V2G-R4"],
+    transferItemId: "Q-V2G-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum sitzt der unabhängige V2G-Aggregator in einer strukturell schwachen Position?",
+      musterantwort: "Weil der OEM die Fahrzeug-API kontrolliert und die Aggregation jederzeit selbst übernehmen kann, während Versorger V2G in ihre Tarife bündeln — wer weder Fahrzeugzugang noch Kundenvertrag exklusiv hält, wird zum austauschbaren Optimierungs-Backend."
+    }
+  },
+  {
+    id: "U5-FLEXKAMPF",
+    moduleId: "M5-FLEX",
+    title: "Wer kontrolliert die Flexibilität? — Der Kampf um dasselbe Gerät",
+    primarySteckbriefId: "L3-ERZ-SPEICHER-02",
+    vertiefungSteckbriefIds: ["L3-ERZ-SPEICHER-02", "L3-VNB-NEU-01"],
+    hook: { text: "Deine Heimbatterie will gleichzeitig drei Herren dienen: dem Börsenpreis, dem Netz und dir selbst. Wer gewinnt — und warum ist das noch ungeklärt?" },
+    kernidee: {
+      text: "Dieselbe Flexibilität wird von mehreren Seiten umkämpft. Der <strong>Aggregator</strong> steuert nach Börsenpreis (maximaler Markterlös), der <strong>VNB</strong> per §14a nach Netzzustand (Engpassvermeidung), der <strong>Kunde</strong> will Eigenverbrauch — und der <strong>OEM/Hersteller</strong> besitzt oft die Geräte-Schnittstelle. Wer die <strong>Kundenschnittstelle zum Flex-Asset</strong> kontrolliert, entscheidet, wessen Optimierung Vorrang hat. Genau diese Priorisierung (marktlich vs. netzdienlich) ist regulatorisch noch nicht abschließend geklärt — der eigentliche Machtkampf der Flexibilitätswelt.",
+      geldfluss: {
+        nodes: [{ id: "asset", label: "Flex-Asset" }, { id: "agg", label: "Aggregator (Markt)" }, { id: "vnb", label: "VNB (Netz)" }],
+        edges: [
+          { from: "agg", to: "asset", label: "steuert nach Börsenpreis" },
+          { from: "vnb", to: "asset", label: "steuert nach Netzzustand (§14a)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-ERZ-SPEICHER-02",
+      steps: [
+        { text: "Ein Sonnen-Kunde hält 20% seines Heimspeichers für das virtuelle Kraftwerk frei; Sonnen bündelt tausende solcher Reserven zu einem präqualifizierten Regelenergie-Paket und teilt die Erlöse ~60:40.", questionId: "Q-FLEXKAMPF-WE1" },
+        { text: "Gleichzeitig darf der VNB per §14a dasselbe Gerät bei lokalem Netzengpass drosseln — zwei Steuerungslogiken greifen auf dasselbe physische Asset zu.", questionId: "Q-FLEXKAMPF-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-FLEXKAMPF-R1", "Q-FLEXKAMPF-R2", "Q-FLEXKAMPF-R3", "Q-FLEXKAMPF-R4"],
+    transferItemId: "Q-FLEXKAMPF-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Worum geht der eigentliche Machtkampf in der Flexibilitätswelt?",
+      musterantwort: "Um die Kontrolle der Kundenschnittstelle zum Flex-Asset: Wer sie besitzt, entscheidet, ob das Gerät marktlich (Aggregator, nach Börsenpreis) oder netzdienlich (VNB, §14a) gesteuert wird — eine regulatorisch noch offene Priorisierungsfrage."
     }
   },
   {

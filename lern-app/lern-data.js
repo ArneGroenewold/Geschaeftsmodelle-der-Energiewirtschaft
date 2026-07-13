@@ -6,6 +6,13 @@
 
 const LERN_MODULES = [
   {
+    id: "M2-ERZEUGEN",
+    title: "Erzeugen & Speichern",
+    description: "Vom Gaskraftwerk über EEG und PPAs bis zum Batteriespeicher — wo entsteht Erzeugungs-Marge, und wer sichert sie ab?",
+    unitIds: ["U2-MERIT", "U2-REGELENERGIE", "U2-EEG", "U2-PPA", "U2-SPEICHER", "U2-GROSSKLEIN"],
+    bossQuizId: null // Stage 2
+  },
+  {
     id: "M4-VERKAUFEN",
     title: "Verkaufen",
     description: "Vollversorger, Neolieferanten, Ökostrom, Stadtwerke und Vergleichsplattformen — wie fließt das Geld beim Endkundenvertrieb?",
@@ -231,6 +238,196 @@ const LERN_UNITS = [
     merkeDirEinenSatz: {
       prompt: "Formuliere in einem Satz: Woran verdienen Verivox/Check24 wirklich, und was bedeutet das für die 'Bestenliste', die ein Kunde sieht?",
       musterantwort: "Sie verdienen an einer Provision pro vermitteltem Vertrag, weshalb die angezeigte Reihenfolge auch von der Provisionshöhe und nicht nur vom günstigsten Preis beeinflusst wird."
+    }
+  },
+
+  // ════════════════════════════════════════════════════════
+  // MODUL 2 — ERZEUGEN & SPEICHERN
+  // ════════════════════════════════════════════════════════
+  {
+    id: "U2-MERIT",
+    moduleId: "M2-ERZEUGEN",
+    title: "Merit Order — Wann läuft ein Kraftwerk, wann steht es?",
+    primarySteckbriefId: "L3-ERZ-KONV-01",
+    vertiefungSteckbriefIds: ["L3-ERZ-KONV-01"],
+    hook: { text: "Ein Gaskraftwerk, das früher fast durchlief, verdient heute nur noch in wenigen hundert Stunden im Jahr Geld – und in genau diesen Stunden mehr als je zuvor. Wie passt das zusammen?" },
+    kernidee: {
+      text: "An der Strombörse setzt das <strong>teuerste noch benötigte</strong> Kraftwerk den Preis für alle (Merit Order) – günstigere Erzeuger kassieren die Differenz als Inframarginalrente. Ein Merchant-Erzeuger verdient den Spread zwischen seinen variablen Grenzkosten (Brennstoff + CO₂ + O&M) und dem Spotpreis: Liegt der Preis darüber, läuft die Anlage; liegt er darunter, bleibt sie stehen. Je mehr Wind- und Solarstrom einspeist, desto seltener werden diese profitablen Stunden – dafür sind sie umso wertvoller.",
+      geldfluss: {
+        nodes: [{ id: "boerse", label: "Börse (EPEX)" }, { id: "kraftwerk", label: "Gaskraftwerk" }, { id: "lieferant", label: "Gas + CO₂" }],
+        edges: [
+          { from: "boerse", to: "kraftwerk", label: "Spotpreis je MWh" },
+          { from: "kraftwerk", to: "lieferant", label: "Grenzkosten (Brennstoff, Zertifikate)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-ERZ-KONV-01",
+      steps: [
+        { text: "Ein RWE-Gaskraftwerk rechnet stündlich: Gaspreis 30 €/MWh, Wirkungsgrad 58%, CO₂-Preis 80 €/t – daraus ergeben sich variable Grenzkosten von rund 67 €/MWh.", questionId: "Q-MERIT-WE1" },
+        { text: "Diese Fahr-oder-Steh-Entscheidung trifft kein Mensch mehr von Hand, sondern ein automatisiertes Handelssystem – für jede Stunde des Folgetags neu.", questionId: "Q-MERIT-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-MERIT-R1", "Q-MERIT-R2", "Q-MERIT-R3", "Q-MERIT-R4"],
+    transferItemId: "Q-MERIT-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum verdient ein Gaskraftwerk heute nur noch in wenigen Stunden – aber dann besonders viel?",
+      musterantwort: "Weil Wind- und Solarstrom die profitablen Stunden verdrängen: Nur wenn der Spotpreis über den Grenzkosten liegt, läuft die Anlage – und in diesen Knappheitsstunden setzt das Gaskraftwerk als teuerstes benötigtes Kraftwerk selbst den (hohen) Preis."
+    }
+  },
+  {
+    id: "U2-REGELENERGIE",
+    moduleId: "M2-ERZEUGEN",
+    title: "Regelenergie — Verdienen am Bereitstehen",
+    primarySteckbriefId: "L3-ERZ-KONV-02",
+    vertiefungSteckbriefIds: ["L3-ERZ-KONV-02"],
+    hook: { text: "Ein Kraftwerk bekommt Woche für Woche Geld dafür, dass es NICHT läuft, sondern nur bereitsteht. Was ist hier das Produkt?" },
+    kernidee: {
+      text: "Das Stromnetz braucht permanent Reserven gegen Frequenzabweichungen: <strong>FCR</strong> (Reaktion unter 30 Sekunden), <strong>aFRR</strong> (unter 5 Minuten) und <strong>mFRR</strong> (unter 15 Minuten), ausgeschrieben über regelleistung.net. Bezahlt wird zweistufig: Der <strong>Leistungspreis</strong> (€/MW/h) vergütet das reine Vorhalten – unabhängig vom Abruf –, der <strong>Arbeitspreis</strong> (€/MWh) die tatsächlich gelieferte Energie. Der FCR-Leistungspreis war lange die attraktivste Komponente – bis Batteriespeicher den Markt fluteten.",
+      geldfluss: {
+        nodes: [{ id: "uenb", label: "ÜNB" }, { id: "anbieter", label: "Kraftwerk/BESS" }],
+        edges: [
+          { from: "uenb", to: "anbieter", label: "Leistungspreis (Vorhaltung)" },
+          { from: "uenb", to: "anbieter", label: "Arbeitspreis (nur bei Abruf)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-ERZ-KONV-02",
+      steps: [
+        { text: "Ein RWE-Kraftwerk bietet wöchentlich einen Teil seiner Kapazität für FCR an: Es verpflichtet sich, innerhalb von 30 Sekunden auf Frequenzabweichungen zu reagieren – ob die Reserve je abgerufen wird, weiß es vorher nicht.", questionId: "Q-REGEL-WE1" },
+        { text: "Seit 2021 ist der FCR-Leistungspreis von über 25 €/MW/h auf zeitweise unter 10 €/MW/h gefallen.", questionId: "Q-REGEL-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-REGEL-R1", "Q-REGEL-R2", "Q-REGEL-R3", "Q-REGEL-R4"],
+    transferItemId: "Q-REGEL-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Was ist der Unterschied zwischen Leistungspreis und Arbeitspreis?",
+      musterantwort: "Der Leistungspreis vergütet das Vorhalten von Kapazität (€/MW/h, unabhängig vom Abruf), der Arbeitspreis die tatsächlich gelieferte Energie bei einem Abruf (€/MWh)."
+    }
+  },
+  {
+    id: "U2-EEG",
+    moduleId: "M2-ERZEUGEN",
+    title: "EEG-Marktprämie — Die Wette gegen den Referenzwert",
+    primarySteckbriefId: "L3-ERZ-EE-01",
+    vertiefungSteckbriefIds: ["L3-ERZ-EE-01"],
+    hook: { text: "Der Staat garantiert einem Windpark 6 Cent je Kilowattstunde – aber der Scheck kommt nur, wenn der Markt weniger hergibt. Wie funktioniert diese Konstruktion?" },
+    kernidee: {
+      text: "Anlagen über 100 kW müssen ihren Strom selbst vermarkten und erhalten eine <strong>gleitende Marktprämie</strong>: anzulegender Wert (AW, aus der BNetzA-Ausschreibung, 20 Jahre gesichert) minus monatlicher Referenzmarktwert (RMW). Die Vermarktung übernehmen <strong>Direktvermarkter</strong>, die tausende Anlagen bündeln – ihre Marge liegt nicht in der Prämie, sondern darin, den Strom <strong>besser zu verkaufen</strong>, als der pauschale Monats-RMW unterstellt (Prognose-Outperformance, davon 20–40% Erfolgsanteil).",
+      geldfluss: {
+        nodes: [{ id: "boerse", label: "Börse" }, { id: "betreiber", label: "Windpark" }, { id: "uenb", label: "ÜNB (EEG)" }],
+        edges: [
+          { from: "boerse", to: "betreiber", label: "Spoterlös" },
+          { from: "uenb", to: "betreiber", label: "Marktprämie = AW − RMW" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-ERZ-EE-01",
+      steps: [
+        { text: "Ein Windpark hat einen anzulegenden Wert von 6 ct/kWh aus der Ausschreibung gewonnen. Im laufenden Monat liegt der Referenzmarktwert für Windstrom bei 4 ct/kWh.", questionId: "Q-EEG-WE1" },
+        { text: "Der Direktvermarkter des Parks verkauft die Erzeugung einer windstarken Stunde gezielt am Intraday-Markt, statt sie zum Monatsdurchschnitt zu bewerten.", questionId: "Q-EEG-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-EEG-R1", "Q-EEG-R2", "Q-EEG-R3", "Q-EEG-R4"],
+    transferItemId: "Q-EEG-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Woran verdient der Direktvermarkter wirklich?",
+      musterantwort: "Nicht an der staatlichen Marktprämie (die geht an den Anlagenbetreiber), sondern an einer Managementfee plus einem Erfolgsanteil an der Outperformance gegenüber dem Referenzmarktwert."
+    }
+  },
+  {
+    id: "U2-PPA",
+    moduleId: "M2-ERZEUGEN",
+    title: "PPAs — Preissicherheit als Produkt",
+    primarySteckbriefId: "L3-ERZ-EE-02",
+    vertiefungSteckbriefIds: ["L3-ERZ-KONV-03", "L3-ERZ-EE-02"],
+    hook: { text: "Zwei Unternehmen schließen einen Stromliefervertrag über 15 Jahre – ohne dass je eine Kilowattstunde zwischen ihnen fließt. Was kaufen sie wirklich voneinander?" },
+    kernidee: {
+      text: "Ein <strong>PPA</strong> (Power Purchase Agreement) ist ein langfristiger bilateraler Vertrag über 5–15 Jahre. Beim dominierenden <strong>Financial PPA</strong> fließt kein Strom zwischen den Parteien: Der Windpark verkauft normal an die Börse, der Abnehmer kauft normal bei seinem Lieferanten – vertraglich gleichen beide nur die Differenz zwischen Börsenpreis und vereinbartem <strong>Strike Price</strong> aus. Der eigentliche Wert: Der Erzeuger bekommt bankfähige, planbare Cashflows (günstigere Finanzierung), der Abnehmer einen Preishedge plus grüne Zusätzlichkeit für RE100/CSRD.",
+      geldfluss: {
+        nodes: [{ id: "windpark", label: "Windpark" }, { id: "boerse", label: "Börse" }, { id: "abnehmer", label: "Industrie" }],
+        edges: [
+          { from: "windpark", to: "boerse", label: "physischer Verkauf" },
+          { from: "abnehmer", to: "windpark", label: "Differenzzahlung um Strike Price (beide Richtungen)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-ERZ-EE-02",
+      steps: [
+        { text: "RWE Renewables und BASF vereinbaren einen Financial PPA mit Strike Price 55 €/MWh. In einer bestimmten Stunde liegt der Börsenpreis bei 70 €/MWh.", questionId: "Q-PPA-WE1" },
+        { text: "Mit dem unterschriebenen 15-Jahres-PPA geht RWE zur Bank, um den neuen Windpark zu finanzieren.", questionId: "Q-PPA-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-PPA-R1", "Q-PPA-R2", "Q-PPA-R3", "Q-PPA-R4"],
+    transferItemId: "Q-PPA-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Was kauft der Industriekunde bei einem Financial PPA wirklich?",
+      musterantwort: "Keinen physischen Strom, sondern Preissicherheit (Hedge über die Differenzzahlung um den Strike Price) plus nachweisbare grüne Zusätzlichkeit einer neuen Anlage."
+    }
+  },
+  {
+    id: "U2-SPEICHER",
+    moduleId: "M2-ERZEUGEN",
+    title: "Batteriespeicher — Erlös-Stacking & der Wert des Algorithmus",
+    primarySteckbriefId: "L3-ERZ-SPEICHER-01",
+    vertiefungSteckbriefIds: ["L3-ERZ-SPEICHER-01", "L3-ERZ-SPEICHER-02"],
+    hook: { text: "Zwei baugleiche Batterien am selben Netzknoten – die eine verdient 50% mehr als die andere. Der Unterschied wiegt nichts und ist unsichtbar." },
+    kernidee: {
+      text: "Großbatterien (BESS) verdienen durch <strong>simultanes Stacking</strong>: Ein Teil der Kapazität kassiert den FCR-Leistungspreis fürs Bereitstehen, der Rest macht Intraday-<strong>Arbitrage</strong> (günstig laden bei viel EE-Einspeisung, teuer entladen im Abendpeak, Spread 15–50 €/MWh). Die Software entscheidet stündlich, welcher Markt mehr abwirft – schlechte Optimierung lässt 30–50% der Erlöse liegen. Heimspeicher spielen dasselbe Spiel im Kleinen: Hersteller wie Sonnen bündeln tausende Geräte zum virtuellen Kraftwerk und teilen die Regelenergie-Erlöse ~60:40 mit den Kunden.",
+      geldfluss: {
+        nodes: [{ id: "uenb", label: "ÜNB" }, { id: "bess", label: "BESS" }, { id: "boerse", label: "Börse" }],
+        edges: [
+          { from: "uenb", to: "bess", label: "FCR-Leistungspreis" },
+          { from: "boerse", to: "bess", label: "Arbitrage-Spread (laden↔entladen)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-ERZ-SPEICHER-01",
+      steps: [
+        { text: "Der WEMAG-Speicher in Schwerin (10 MW / 15 MWh) reserviert einen Teil für FCR; die restliche Kapazität lädt in Stunden hoher Wind-/Solareinspeisung und entlädt im Abendpeak – bei einem Spread von z.B. 30 €/MWh.", questionId: "Q-SPEICHER-WE1" },
+        { text: "In der Praxis erzielen zwei baugleiche Batterien am selben Standort teils 30–50% unterschiedliche Jahreserlöse.", questionId: "Q-SPEICHER-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-SPEICHER-R1", "Q-SPEICHER-R2", "Q-SPEICHER-R3", "Q-SPEICHER-R4", "Q-SPEICHER-R5"],
+    transferItemId: "Q-SPEICHER-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum ist beim Batteriespeicher die Software wichtiger als die Zelle?",
+      musterantwort: "Weil die Hardware austauschbar ist, aber der Optimierungsalgorithmus stündlich entscheidet, welcher Markt (FCR, Arbitrage, aFRR) mehr abwirft – schlechte Optimierung lässt 30–50% der möglichen Erlöse liegen."
+    }
+  },
+  {
+    id: "U2-GROSSKLEIN",
+    moduleId: "M2-ERZEUGEN",
+    title: "Offshore-Milliarden & Bürgerenergie — zwei Extreme, eine Energiewende",
+    primarySteckbriefId: "L3-ERZ-EE-03",
+    vertiefungSteckbriefIds: ["L3-ERZ-EE-03", "L3-ERZ-EE-04"],
+    hook: { text: "Das eine Projekt kostet 3 Milliarden Euro, das andere beginnt bei 100 Euro Genossenschaftsanteil – beide bauen dieselbe Energiewende. Wer verdient wie?" },
+    kernidee: {
+      text: "<strong>Offshore-Wind</strong> ist die kapitalintensivste EE-Kategorie (2.500–4.000 €/kW): Finanzierbar wird ein Milliardenprojekt nur durch den für 20 Jahre gesicherten Ausschreibungs-Gebotspreis – und die profitabelste Phase ist nicht der Bau, sondern der jahrzehntelange O&M-Betrieb (20–25% der Projekterlöse). <strong>Bürgerenergiegenossenschaften</strong> arbeiten am anderen Ende der Skala: Mitgliedseinlagen als günstiges, geduldiges Kapital, Identifikation statt Renditemaximierung, Churn unter 5% – und Mechaniken wie der EWS-Sonnencent, der Neuanlagen direkt aus dem Tarif finanziert.",
+      geldfluss: {
+        nodes: [{ id: "mitglied", label: "Mitglied/Kunde" }, { id: "geno", label: "Genossenschaft" }, { id: "anlage", label: "Neue EE-Anlage" }],
+        edges: [
+          { from: "mitglied", to: "geno", label: "Einlage + Sonnencent je kWh" },
+          { from: "geno", to: "anlage", label: "direkte Projektfinanzierung" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-ERZ-EE-03",
+      steps: [
+        { text: "Ørsted plant einen 1-GW-Offshore-Park in der Nordsee. Die Investitionskosten liegen bei rund 3.000 € je Kilowatt installierter Leistung.", questionId: "Q-GROSSKLEIN-WE1" },
+        { text: "Am anderen Ende der Skala: Die EWS Schönau erhebt auf jede verkaufte Kilowattstunde einen festen 'Sonnencent' – 2022 kamen so über die rund 224.000 Kunden etwa 2,3 Mio. € zusammen.", questionId: "Q-GROSSKLEIN-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-GROSSKLEIN-R1", "Q-GROSSKLEIN-R2", "Q-GROSSKLEIN-R3", "Q-GROSSKLEIN-R4"],
+    transferItemId: "Q-GROSSKLEIN-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Was macht ein 3-Milliarden-Euro-Offshore-Projekt überhaupt erst finanzierbar?",
+      musterantwort: "Der für 20 Jahre gesicherte Ausschreibungs-Gebotspreis: Er verwandelt ein offenes Marktpreisrisiko in einen planbaren Cashflow, den Banken finanzieren können."
     }
   }
 ];

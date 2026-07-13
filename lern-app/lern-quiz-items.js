@@ -651,6 +651,537 @@ Object.assign(LERN_QUIZ_ITEMS, {
 
 });
 
+// ════════════════════════════════════════════════════════════════════
+// MODUL 2 — ERZEUGEN & SPEICHERN
+// ════════════════════════════════════════════════════════════════════
+Object.assign(LERN_QUIZ_ITEMS, {
+
+  // ── U2-MERIT ────────────────────────────────────────────────────
+  "Q-MERIT-WE1": {
+    id: "Q-MERIT-WE1", unitId: "U2-MERIT", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-KONV-01"],
+    data: {
+      szenario: "Die Grenzkosten des Gaskraftwerks liegen bei 67 €/MWh. In der kommenden Stunde steht der EPEX-Spotpreis bei 90 €/MWh. Wie hoch ist der Spread, den das Kraftwerk je MWh verdient – und sollte es laufen?",
+      eingabefelder: [{ key: "spread", label: "Spread", einheit: "€/MWh" }],
+      loesung: { spread: { wert: 23, toleranz: 2 } },
+      rechenweg: ["Spread = Spotpreis − Grenzkosten = 90 − 67 = 23 €/MWh.", "Da der Spread positiv ist, läuft das Kraftwerk mit voller Leistung.", "Läge der Spotpreis unter 67 €/MWh, bliebe die Anlage besser abgeschaltet – jede erzeugte MWh würde Verlust machen."]
+    }
+  },
+  "Q-MERIT-WE2": {
+    id: "Q-MERIT-WE2", unitId: "U2-MERIT", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-KONV-01"],
+    data: {
+      frage: "In einer Stunde liegt der Spotpreis bei 60 €/MWh – unter den Grenzkosten von 67 €/MWh. Das Kraftwerk hat hohe Fixkosten (Personal, Kapitaldienst). Was ist die richtige Entscheidung?",
+      optionen: [
+        { text: "Stehen bleiben – für die Fahr-Entscheidung zählen nur die variablen Grenzkosten; die Fixkosten fallen so oder so an.", korrekt: true, erklaerung: "Genau: Fixkosten sind in dieser Stunde nicht entscheidungsrelevant (sunk). Laufen würde pro MWh 7 € zusätzlichen Verlust erzeugen – stehen ist das kleinere Übel." },
+        { text: "Trotzdem laufen – jede verkaufte MWh trägt wenigstens einen Teil zur Deckung der Fixkosten bei.", korrekt: false, erklaerung: "Verbreiteter Denkfehler: Bei 60 € Erlös und 67 € variablen Kosten verliert die Anlage mit jeder MWh 7 € ZUSÄTZLICH – sie deckt nichts, sie vergrößert den Verlust." },
+        { text: "Auf Mindestlast drosseln, um bei Preisanstieg schneller hochfahren zu können – die Anfahrkosten wären sonst höher als der Verlust.", korrekt: false, erklaerung: "Das kann in Grenzfällen tatsächlich rational sein (Anfahrkosten!), ist aber nicht die Grundregel – im Basisfall dieser Einheit entscheidet der einfache Grenzkosten-Vergleich, und der sagt: stehen." }
+      ]
+    }
+  },
+  "Q-MERIT-R1": {
+    id: "Q-MERIT-R1", unitId: "U2-MERIT", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-KONV-01"],
+    data: {
+      frage: "Was ist die Inframarginalrente?",
+      optionen: [
+        { text: "Die Differenz zwischen dem Merit-Order-Räumungspreis (den das teuerste benötigte Kraftwerk setzt) und den eigenen, niedrigeren Grenzkosten.", korrekt: true, erklaerung: "Genau: Alle Erzeuger bekommen denselben Preis – wer günstiger produziert als der Preissetzer, kassiert die Differenz als Rente." },
+        { text: "Der staatlich garantierte Mindestpreis für Grundlastkraftwerke, die durchgehend am Netz sind.", korrekt: false, erklaerung: "Einen staatlichen Mindestpreis für Grundlast gibt es nicht – die Rente entsteht rein marktlich aus der Einheitspreis-Auktion." },
+        { text: "Der Aufschlag, den das teuerste Kraftwerk auf seine Grenzkosten erheben darf, um Fixkosten zu decken.", korrekt: false, erklaerung: "Das preissetzende Kraftwerk bekommt gerade KEINE Rente – es erlöst nur seine Grenzkosten. Die Rente fließt an alle günstigeren Anbieter darunter." }
+      ]
+    }
+  },
+  "Q-MERIT-R2": {
+    id: "Q-MERIT-R2", unitId: "U2-MERIT", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-ERZ-KONV-01"],
+    data: {
+      text: "In der Merit Order setzt das {{a}} noch benötigte Kraftwerk den Preis für alle. Der Merchant-Erlös eines Erzeugers ist der Spread zwischen seinen variablen {{b}} und dem {{c}}.",
+      luecken: {
+        a: { loesungen: ["teuerste"], erklaerung: "Das teuerste noch benötigte Kraftwerk räumt den Markt – sein Preis gilt für alle (Einheitspreisverfahren)." },
+        b: { loesungen: ["Grenzkosten"], erklaerung: "Variable Grenzkosten = Brennstoff + CO₂-Zertifikat + variable O&M." },
+        c: { loesungen: ["Spotpreis", "Marktpreis"], erklaerung: "Der Spotpreis an der EPEX entscheidet stündlich über Fahren oder Stehen." }
+      },
+      distraktoren: ["günstigste", "Vollkosten"]
+    }
+  },
+  "Q-MERIT-R3": {
+    id: "Q-MERIT-R3", unitId: "U2-MERIT", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-KONV-01"],
+    data: {
+      frage: "Wer greift die Knappheitsstunden-Marge der Gaskraftwerke strukturell an – und womit?",
+      optionen: [
+        { text: "Batteriespeicher und Flex-Aggregatoren: Sie bedienen Preisspitzen schneller und mit geringeren Grenzkosten – und glätten damit genau die Stunden, aus denen sich das Merchant-Modell refinanziert.", korrekt: true, erklaerung: "Der Angreifer braucht kein Kraftwerk, sondern Prognose- und Handelskompetenz plus Speicher-Capex. Die Verteidigungslinie der Etablierten ist der kommende Kapazitätsmarkt (StromVKG)." },
+        { text: "Kohlekraftwerke, die dank gesunkener CO₂-Preise wieder niedrigere Grenzkosten haben als Gas.", korrekt: false, erklaerung: "Das Gegenteil ist die Tendenz: CO₂-Preise über 80 €/t belasten Kohle stärker als Gas, und der Kohleausstieg verknappt diese Kapazität ohnehin." },
+        { text: "Neue Atomkraftwerke im EU-Ausland, deren Grundlaststrom die deutschen Preisspitzen über Interkonnektoren wegimportiert.", korrekt: false, erklaerung: "Importe dämpfen Spitzen zwar punktuell, aber der im Steckbrief beschriebene strukturelle Angreifer ist der heimische Speicherzubau mit nahezu null Grenzkosten." }
+      ]
+    }
+  },
+  "Q-MERIT-R4": {
+    id: "Q-MERIT-R4", unitId: "U2-MERIT", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-ERZ-KONV-01"],
+    data: {
+      steckbriefId: "L3-ERZ-KONV-01",
+      erklaerungenProDimension: {
+        regulierung: "Reiner Wettbewerbsmarkt ohne Erlösgarantie – kein regulatorischer Schutz (der kommende Kapazitätsmarkt würde das ändern).",
+        skalierbarkeit: "Jedes zusätzliche MW braucht physisches Kraftwerk – lineare Kostenstruktur, keine Plattform-Skalierung.",
+        marktrisiko: "Volles Preis-Exposure: Der gesamte Erlös hängt am stündlichen Spotpreis – höchste Risikostufe.",
+        digitalisierung: "Automatisierte Handelssysteme ja, aber der Kern bleibt eine thermische Anlage – begrenzt digital.",
+        wettbewerb: "Merit-Order-Konkurrenz gegen alle anderen Erzeuger plus neue Speicher – intensiv.",
+        nachhaltigkeit: "Fossile Erzeugung mit CO₂-Emissionen – niedrigste Stufe, auch wenn Gas als Brückentechnologie gilt."
+      }
+    }
+  },
+  "Q-MERIT-T1": {
+    id: "Q-MERIT-T1", unitId: "U2-MERIT", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-ERZ-KONV-01", "L3-VERTRIEB-NEO-01"],
+    data: {
+      frage: "Tibber (Modul 4) verschiebt E-Auto-Ladevorgänge automatisch in günstige Nachtstunden. Was bedeutet massenhafte Lastverschiebung dieser Art für das Merchant-Geschäftsmodell der Gaskraftwerke?",
+      optionen: [
+        { text: "Sie glättet die Preisspitzen von der Nachfrageseite – und greift damit denselben Knappheitsstunden-Erlös an wie Batteriespeicher von der Angebotsseite.", korrekt: true, erklaerung: "Genau: Ob Speicher Strom in den Peak verkaufen oder Verbraucher ihre Last aus dem Peak verschieben – beides senkt die Spitzenpreise, aus denen sich Gaskraftwerke refinanzieren." },
+        { text: "Sie hilft den Gaskraftwerken, weil nachts mehr Strom verbraucht wird und sie dann länger laufen können.", korrekt: false, erklaerung: "Die zusätzliche Nachtlast wird typischerweise von Wind (nahe null Grenzkosten) gedeckt, nicht von Gas – und die verlorenen Peak-Erlöse wiegen für Gas viel schwerer." },
+        { text: "Sie ist für Erzeuger irrelevant, weil Tibber nur die Abrechnung ändert, nicht den physischen Verbrauchszeitpunkt.", korrekt: false, erklaerung: "Doch – die App steuert den tatsächlichen Ladezeitpunkt. Genau diese physische Lastverschiebung ist der Systemeffekt." }
+      ]
+    }
+  },
+
+  // ── U2-REGELENERGIE ─────────────────────────────────────────────
+  "Q-REGEL-WE1": {
+    id: "Q-REGEL-WE1", unitId: "U2-REGELENERGIE", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-KONV-02"],
+    data: {
+      frage: "Woran verdient das Kraftwerk in diesem FCR-Geschäft primär?",
+      optionen: [
+        { text: "Am Leistungspreis für die Vorhaltung – er fließt unabhängig davon, ob die Reserve je abgerufen wird.", korrekt: true, erklaerung: "Das Kraftwerk verdient am Bereitstehen, nicht am Liefern – der Leistungspreis (€/MW/h) ist die attraktive Komponente." },
+        { text: "Am Arbeitspreis für die gelieferte Regelenergie – je öfter abgerufen wird, desto besser das Geschäft.", korrekt: false, erklaerung: "Plausibel, aber bei FCR ist der Arbeitspreis-Anteil nachrangig – der planbare Leistungspreis für die reine Bereitschaft trägt das Geschäft." },
+        { text: "An einer Kapazitätsprämie aus dem StromVKG-Kapazitätsmarkt.", korrekt: false, erklaerung: "Vorsicht, Verwechslung: Der Kapazitätsmarkt (ab 2032 geplant) vergütet Kraftwerks-Existenz, Regelenergie vergütet kurzfristige Reaktionsbereitschaft – zwei verschiedene Instrumente." }
+      ]
+    }
+  },
+  "Q-REGEL-WE2": {
+    id: "Q-REGEL-WE2", unitId: "U2-REGELENERGIE", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-KONV-02"],
+    data: {
+      frage: "Was hat den FCR-Preisverfall von über 25 auf zeitweise unter 10 €/MW/h ausgelöst?",
+      optionen: [
+        { text: "Massiver Markteintritt von Batteriespeichern, die die Produktanforderung (Reaktion <30 s) schlicht besser erfüllen als thermische Kraftwerke.", korrekt: true, erklaerung: "Batterien reagieren in Millisekunden – für sie ist FCR das natürliche Produkt. Das Überangebot drückte den Auktionspreis." },
+        { text: "Die ÜNB haben ihren Regelenergiebedarf durch bessere Prognosen halbiert.", korrekt: false, erklaerung: "Der Bedarf ist relativ stabil – der Preisverfall kam von der Angebotsseite (mehr Anbieter), nicht von der Nachfrageseite." },
+        { text: "Die EU hat Preisobergrenzen für Systemdienstleistungen eingeführt.", korrekt: false, erklaerung: "Es gibt keine solche Preisobergrenze – die europäische Integration (PICASSO/MARI) vergrößert zwar das Angebot, aber der Haupttreiber war der BESS-Zubau." }
+      ]
+    }
+  },
+  "Q-REGEL-R1": {
+    id: "Q-REGEL-R1", unitId: "U2-REGELENERGIE", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-ERZ-KONV-02"],
+    data: {
+      text: "Die drei Regelenergie-Produkte nach Reaktionszeit: FCR unter {{a}}, aFRR unter {{b}}, mFRR unter 15 Minuten. Ausgeschrieben wird über die Plattform {{c}}.",
+      luecken: {
+        a: { loesungen: ["30 Sekunden"], erklaerung: "FCR (Frequency Containment Reserve) muss in unter 30 Sekunden voll wirken – deshalb sind Batterien hier so stark." },
+        b: { loesungen: ["5 Minuten"], erklaerung: "aFRR (automatic Frequency Restoration Reserve) löst FCR nach wenigen Minuten ab." },
+        c: { loesungen: ["regelleistung.net"], erklaerung: "Die gemeinsame Ausschreibungsplattform der vier deutschen ÜNB." }
+      },
+      distraktoren: ["15 Minuten", "EPEX SPOT"]
+    }
+  },
+  "Q-REGEL-R2": {
+    id: "Q-REGEL-R2", unitId: "U2-REGELENERGIE", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-KONV-02"],
+    data: {
+      szenario: "Ein Kraftwerk hält eine Woche lang (168 Stunden) 50 MW für FCR vor. Der Leistungspreis der Auktion liegt bei 12 €/MW/h. Wie hoch ist der Vorhaltungs-Erlös dieser Woche – ganz ohne einen einzigen Abruf?",
+      eingabefelder: [{ key: "erloes", label: "Wochen-Erlös", einheit: "€" }],
+      loesung: { erloes: { wert: 100800, toleranz: 2000 } },
+      rechenweg: ["Erlös = Leistung × Preis × Stunden = 50 MW × 12 €/MW/h × 168 h = 100.800 €.", "Dieser Betrag fließt für die reine Bereitschaft – der Arbeitspreis käme bei tatsächlichen Abrufen noch dazu.", "Bei den alten Preisen von 25 €/MW/h wären es 210.000 € gewesen – so konkret wirkt der BESS-getriebene Preisverfall."]
+    }
+  },
+  "Q-REGEL-R3": {
+    id: "Q-REGEL-R3", unitId: "U2-REGELENERGIE", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-KONV-02"],
+    data: {
+      frage: "Warum weichen Großkraftwerke auf aFRR/mFRR aus, statt den FCR-Markt zurückzuerobern?",
+      optionen: [
+        { text: "Bei längeren Abrufen über Minuten bis Stunden sind Batterien wegen ihrer begrenzten Energiekapazität strukturell im Nachteil – dort zählt dauerhafte Lieferfähigkeit.", korrekt: true, erklaerung: "Eine 1-Stunden-Batterie ist nach einer Stunde Volllast-Abruf leer; ein Gaskraftwerk läuft weiter. Genau deshalb sind aFRR/mFRR die verteidigungsfähigen Segmente." },
+        { text: "aFRR und mFRR zahlen gesetzlich festgelegte, höhere Leistungspreise als FCR.", korrekt: false, erklaerung: "Es gibt keine gesetzlich festgelegten Preise – alle Produkte werden auktioniert. Der Unterschied liegt in der Wettbewerbsintensität, nicht in einer Preisgarantie." },
+        { text: "Batteriespeicher dürfen für aFRR und mFRR nicht präqualifiziert werden.", korrekt: false, erklaerung: "Doch, sie dürfen und tun es zunehmend – aber die Produktanforderung (Energie über längere Zeit) passt schlechter zu ihrer Physik als FCR." }
+      ]
+    }
+  },
+  "Q-REGEL-R4": {
+    id: "Q-REGEL-R4", unitId: "U2-REGELENERGIE", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-KONV-02"],
+    data: {
+      frage: "Welche neuen Systemdienstleistungen bleiben voraussichtlich eine Domäne thermischer Kraftwerke – und warum?",
+      optionen: [
+        { text: "Trägheitsemulation, Kurzschlussleistung und Blindleistung – dafür braucht es rotierende Synchronmaschinen, die Wechselrichter-basierte Anlagen physikalisch nicht gleichwertig liefern.", korrekt: true, erklaerung: "Die rotierende Masse einer Turbine stabilisiert die Frequenz inhärent – das ist die verbleibende physikalische Nische der Thermalkraftwerke." },
+        { text: "Schwarzstartfähigkeit – nur Kohlekraftwerke können ein kollabiertes Netz wieder aufbauen.", korrekt: false, erklaerung: "Schwarzstart ist wichtig, aber gerade nicht kohlespezifisch – Wasserkraft, Gasturbinen und zunehmend auch Batterien mit Grid-Forming-Wechselrichtern können das." },
+        { text: "Die Spannungshaltung im Verteilnetz, die per Gesetz Großkraftwerken vorbehalten ist.", korrekt: false, erklaerung: "Eine solche gesetzliche Reservierung gibt es nicht – Spannungshaltung leisten zunehmend auch dezentrale Anlagen und regelbare Ortsnetztrafos." }
+      ]
+    }
+  },
+  "Q-REGEL-T1": {
+    id: "Q-REGEL-T1", unitId: "U2-REGELENERGIE", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-ERZ-KONV-02", "L3-ERZ-KONV-01"],
+    data: {
+      frage: "Batteriespeicher tauchen als Angreifer sowohl in der Merit-Order-Einheit (Spotmarkt-Spitzen) als auch hier (FCR) auf. Was ist der gemeinsame Mechanismus?",
+      optionen: [
+        { text: "Sie erfüllen die jeweilige Kernanforderung (Schnelligkeit bzw. Flexibilität) mit nahezu null Grenzkosten – und drücken damit genau die Preise, aus denen sich die etablierten Anbieter refinanzieren.", korrekt: true, erklaerung: "Ein Muster, zwei Märkte: Der Speicher braucht weder Brennstoff noch CO₂-Zertifikate und unterbietet damit strukturell jede thermische Anlage, wo immer seine Physik zum Produkt passt." },
+        { text: "Sie werden über das EEG subventioniert und können deshalb unter ihren echten Kosten anbieten.", korrekt: false, erklaerung: "Grid-Scale-Batterien erhalten keine EEG-Vergütung – sie sind reine Merchant-Anlagen. Ihr Vorteil ist physikalisch-ökonomisch, nicht subventionsgetrieben." },
+        { text: "Sie umgehen die Präqualifikationspflicht und können dadurch schneller in die Märkte eintreten.", korrekt: false, erklaerung: "Auch Batterien müssen vollständig präqualifiziert werden – der Markteintritt ist regelkonform, nur eben technisch überlegen." }
+      ]
+    }
+  },
+
+  // ── U2-EEG ──────────────────────────────────────────────────────
+  "Q-EEG-WE1": {
+    id: "Q-EEG-WE1", unitId: "U2-EEG", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-EE-01"],
+    data: {
+      szenario: "Anzulegender Wert (AW) des Windparks: 6 ct/kWh. Referenzmarktwert (RMW) diesen Monat: 4 ct/kWh. Wie hoch ist die Marktprämie je kWh, die der Betreiber zusätzlich zum Börsenerlös erhält?",
+      eingabefelder: [{ key: "praemie", label: "Marktprämie", einheit: "ct/kWh" }],
+      loesung: { praemie: { wert: 2, toleranz: 0.2 } },
+      rechenweg: ["Marktprämie = AW − RMW = 6 − 4 = 2 ct/kWh.", "Der Betreiber bekommt: Börsenerlös (≈ RMW bei durchschnittlicher Vermarktung) + 2 ct Prämie ≈ 6 ct gesamt — der AW wirkt wie ein garantierter Mindesterlös.", "Steigt der RMW über 6 ct, sinkt die Prämie auf null — der Betreiber behält aber den höheren Markterlös (Upside)."]
+    }
+  },
+  "Q-EEG-WE2": {
+    id: "Q-EEG-WE2", unitId: "U2-EEG", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-EE-01"],
+    data: {
+      frage: "Woran verdient der Direktvermarkter bei dieser Intraday-Optimierung?",
+      optionen: [
+        { text: "An der Outperformance: Verkauft er besser als der pauschale Monats-RMW unterstellt, behält er typischerweise 20–40% der Differenz als Erfolgsanteil – plus Managementfee.", korrekt: true, erklaerung: "Die Marktprämie geht vollständig an den Anlagenbetreiber – der Direktvermarkter lebt von Fee und Outperformance-Share." },
+        { text: "An der Marktprämie selbst, die er als Vermarktungsdienstleister vom ÜNB ausgezahlt bekommt.", korrekt: false, erklaerung: "Verbreiteter Irrtum: Die Prämie fließt an den Anlagenbetreiber, nicht an den Vermarkter – der verdient nur an seiner Vermarktungsleistung." },
+        { text: "Am Weiterverkauf des Windstroms mit Aufschlag an eigene Endkunden.", korrekt: false, erklaerung: "Direktvermarkter verkaufen an die Börse, nicht an Endkunden – das Endkundengeschäft ist ein völlig anderes Geschäftsmodell (Modul 4)." }
+      ]
+    }
+  },
+  "Q-EEG-R1": {
+    id: "Q-EEG-R1", unitId: "U2-EEG", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-ERZ-EE-01"],
+    data: {
+      text: "Anlagen über {{a}} müssen ihren Strom direkt vermarkten. Die gleitende Marktprämie berechnet sich als {{b}} minus {{c}}; der erste Wert stammt aus der BNetzA-Ausschreibung und ist 20 Jahre gesichert.",
+      luecken: {
+        a: { loesungen: ["100 kW"], erklaerung: "Seit dem EEG 2021 gilt die Direktvermarktungspflicht ab 100 kW installierter Leistung." },
+        b: { loesungen: ["anzulegender Wert", "AW", "anzulegendem Wert"], erklaerung: "Der AW ist das Ausschreibungsergebnis – die eigentliche 'Förderhöhe'." },
+        c: { loesungen: ["Referenzmarktwert", "RMW"], erklaerung: "Der RMW ist der durchschnittliche monatliche Börsenwert der jeweiligen Technologie." }
+      },
+      distraktoren: ["30 kW", "Spotpreis"]
+    }
+  },
+  "Q-EEG-R2": {
+    id: "Q-EEG-R2", unitId: "U2-EEG", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-EE-01"],
+    data: {
+      frage: "Was regelt §51 EEG (verschärft durch das Solarspitzengesetz 2025) – und wen trifft es?",
+      optionen: [
+        { text: "Bei negativen Börsenpreisen entfällt der anzulegende Wert – das Preisrisiko dieser Stunden liegt damit beim Anlagenbetreiber, für Neuanlagen praktisch ab der ersten negativen Stunde.", korrekt: true, erklaerung: "Je mehr EE einspeist, desto häufiger werden negative Stunden – §51 macht Speicher- und Flexibilitätskompetenz für Betreiber immer wichtiger." },
+        { text: "Anlagen müssen bei negativen Preisen zwangsabgeregelt werden, erhalten dafür aber eine Entschädigung vom ÜNB.", korrekt: false, erklaerung: "Verwechslung mit Redispatch/Einspeisemanagement: §51 regelt keinen Eingriff, sondern streicht schlicht die Förderung in negativen Stunden – abregeln oder weiterlaufen entscheidet der Betreiber wirtschaftlich selbst." },
+        { text: "Negative Gebote in BNetzA-Ausschreibungen sind unzulässig – kein Bieter darf unter 0 ct/kWh bieten.", korrekt: false, erklaerung: "§51 betrifft den laufenden Betrieb bei negativen BÖRSENpreisen, nicht die Ausschreibungsgebote." }
+      ]
+    }
+  },
+  "Q-EEG-R3": {
+    id: "Q-EEG-R3", unitId: "U2-EEG", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-EE-01"],
+    data: {
+      frage: "Warum senkt ein Portfolio aus 10.000 Anlagen die Kosten des Direktvermarkters überproportional?",
+      optionen: [
+        { text: "Prognosefehler einzelner Anlagen gleichen sich statistisch aus (Wind Nord vs. Solar Süd) – die Abweichung zwischen Fahrplan und Ist sinkt auf 2–3%, und mit ihr die teuren Ausgleichsenergiekosten.", korrekt: true, erklaerung: "Diversifikation ist der Skaleneffekt dieses Geschäfts: Nicht der Einkauf wird billiger, sondern der Prognosefehler kleiner." },
+        { text: "Die Börse gewährt Großvermarktern Mengenrabatte auf die Handelsentgelte.", korrekt: false, erklaerung: "Handelsentgelte sind für alle gleich und ohnehin marginal – der echte Hebel liegt in der Ausgleichsenergie." },
+        { text: "Die BNetzA vergibt an große Portfolien höhere anzulegende Werte.", korrekt: false, erklaerung: "Der AW hängt am Ausschreibungsgebot der einzelnen Anlage, nicht an der Portfoliogröße des Vermarkters." }
+      ]
+    }
+  },
+  "Q-EEG-R4": {
+    id: "Q-EEG-R4", unitId: "U2-EEG", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-ERZ-EE-01"],
+    data: {
+      steckbriefId: "L3-ERZ-EE-01",
+      erklaerungenProDimension: {
+        regulierung: "Der 20 Jahre gesicherte AW ist ein starker regulatorischer Schutz – deshalb die hohe Einstufung.",
+        skalierbarkeit: "Direktvermarktungs-Portfolien skalieren gut über Software, aber jede Anlage braucht individuelle SCADA-Anbindung.",
+        marktrisiko: "Der AW puffert das Preisrisiko weitgehend ab – nur §51-Stunden und Prognosefehler bleiben beim Betreiber.",
+        digitalisierung: "Wetter-ML-Modelle und Intraday-Automatisierung sind zentral, aber die Anlage selbst ist klassische Technik.",
+        wettbewerb: "Der Direktvermarktungsmarkt konsolidiert zum Oligopol (Next Kraftwerke/Shell >35%) – moderater Wettbewerb.",
+        nachhaltigkeit: "Kern der Energiewende – höchste Stufe."
+      }
+    }
+  },
+  "Q-EEG-T1": {
+    id: "Q-EEG-T1", unitId: "U2-EEG", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-ERZ-EE-01", "L3-VERGL-B2C-02"],
+    data: {
+      frage: "Der Direktvermarkter verdient einen Erfolgsanteil (20–40%) an der Outperformance gegenüber dem Referenzwert. Welches Modell aus Modul 4 folgt derselben Erlöslogik?",
+      optionen: [
+        { text: "Wechselpilot – die Erfolgsprovision als Anteil der für den Kunden erzielten Ersparnis.", korrekt: true, erklaerung: "Beide verdienen performance-basiert: ein Prozentsatz des Mehrwerts, den sie gegenüber einer Referenz (Monats-RMW bzw. alter Tarif) erwirtschaften." },
+        { text: "Check24 – die CPA-Provision pro vermitteltem Neukunden.", korrekt: false, erklaerung: "CPA ist eine einmalige, feste Transaktionsgebühr – unabhängig davon, wie gut der vermittelte Tarif für den Kunden tatsächlich ist. Das ist gerade NICHT performance-basiert." },
+        { text: "Tibber – die fixe monatliche Abogebühr.", korrekt: false, erklaerung: "Das Abo ist bewusst von jeder Leistungsgröße entkoppelt – das Gegenteil eines Erfolgsanteils." }
+      ]
+    }
+  },
+
+  // ── U2-PPA ──────────────────────────────────────────────────────
+  "Q-PPA-WE1": {
+    id: "Q-PPA-WE1", unitId: "U2-PPA", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-EE-02"],
+    data: {
+      szenario: "Financial PPA mit Strike Price 55 €/MWh. In dieser Stunde: Börsenpreis 70 €/MWh. Wie hoch ist die Differenzzahlung je MWh – und überlege dir: wer zahlt an wen?",
+      eingabefelder: [{ key: "differenz", label: "Differenzzahlung", einheit: "€/MWh" }],
+      loesung: { differenz: { wert: 15, toleranz: 1 } },
+      rechenweg: ["Differenz = Börsenpreis − Strike = 70 − 55 = 15 €/MWh.", "Der Börsenpreis liegt ÜBER dem Strike → der Erzeuger (RWE) zahlt die 15 €/MWh an BASF aus. BASF zahlt real 70 an seinen Lieferanten, bekommt 15 zurück → effektiv 55.", "Bei einem Börsenpreis von 40 €/MWh liefe es umgekehrt: BASF zahlt 15 €/MWh an RWE – und landet wieder bei effektiv 55. Der Strike wirkt in beide Richtungen."]
+    }
+  },
+  "Q-PPA-WE2": {
+    id: "Q-PPA-WE2", unitId: "U2-PPA", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-EE-02"],
+    data: {
+      frage: "Warum verbessert der 15-Jahres-PPA die Finanzierungskonditionen für den Windpark spürbar (~1–2% Zinsvorteil)?",
+      optionen: [
+        { text: "Die Bank sieht statt eines offenen Marktpreisrisikos einen kalkulierbaren, vertraglich gesicherten Cashflow – und bepreist das Kreditrisiko entsprechend niedriger.", korrekt: true, erklaerung: "Bei 20 Jahren Laufzeit summiert sich 1–2% Zinsvorteil zu einem erheblichen Teil der Projektrendite – der PPA ist primär ein Finanzierungsinstrument." },
+        { text: "PPA-finanzierte Projekte erhalten von der KfW automatisch zinsvergünstigte Förderkredite.", korrekt: false, erklaerung: "Es gibt keine automatische KfW-Kopplung an PPAs – der Zinsvorteil entsteht rein aus der Risikobewertung der finanzierenden Bank." },
+        { text: "Die Bank erhält den erzeugten Strom als physische Sicherheit und kann ihn bei Ausfall selbst vermarkten.", korrekt: false, erklaerung: "Banken besichern über Projektrechte und Cashflow-Abtretung, nicht über physischen Strom – beim Financial PPA fließt ohnehin kein Strom an Vertragspartner." }
+      ]
+    }
+  },
+  "Q-PPA-R1": {
+    id: "Q-PPA-R1", unitId: "U2-PPA", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-EE-02"],
+    data: {
+      frage: "Was unterscheidet ein Financial PPA von einem Physical PPA?",
+      optionen: [
+        { text: "Beim Financial PPA fließt kein Strom zwischen den Parteien – nur die Differenz zum Strike Price wird bilateral ausgeglichen; Anlage und Abnehmer handeln physisch weiter mit Börse bzw. Lieferant.", korrekt: true, erklaerung: "Deshalb dominieren Financial PPAs in Deutschland: kein Lieferantenwechsel, keine Bilanzkreis-Komplexität – ein reines Preissicherungsgeschäft (CfD)." },
+        { text: "Financial PPAs sind kürzer (1–3 Jahre) und dienen der kurzfristigen Preisabsicherung, Physical PPAs der langfristigen.", korrekt: false, erklaerung: "Beide Formen laufen typisch 10–15 Jahre – der Unterschied liegt im Mechanismus (Differenzausgleich vs. physische Lieferung), nicht in der Laufzeit." },
+        { text: "Nur Physical PPAs erfüllen die RE100-Anforderungen, weil dort echter Grünstrom fließt.", korrekt: false, erklaerung: "Auch Financial PPAs zählen für RE100/CSRD – entscheidend ist der Herkunftsnachweis und die Zusätzlichkeit der Anlage, nicht der physische Lieferweg." }
+      ]
+    }
+  },
+  "Q-PPA-R2": {
+    id: "Q-PPA-R2", unitId: "U2-PPA", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-ERZ-EE-02"],
+    data: {
+      text: "Das größte Strukturierungsproblem von EE-PPAs ist das {{a}}-Risiko: Das Erzeugungsprofil der Anlage passt selten zur {{b}} des Industriekunden. Beim Financial PPA wird die Differenz zwischen Börsenpreis und {{c}} ausgeglichen.",
+      luecken: {
+        a: { loesungen: ["Shape"], erklaerung: "Shape-Risiko: Solar liefert mittags, die Fabrik läuft nachts – die Lücke muss teuer residual beschafft werden." },
+        b: { loesungen: ["Last", "Industrielast"], erklaerung: "Das Lastprofil des Abnehmers bestimmt, wie gut das EE-Profil passt." },
+        c: { loesungen: ["Strike Price", "Strike"], erklaerung: "Der vereinbarte Festpreis, um den herum die Differenzzahlungen laufen." }
+      },
+      distraktoren: ["Bonitäts", "Arbeitspreis"]
+    }
+  },
+  "Q-PPA-R3": {
+    id: "Q-PPA-R3", unitId: "U2-PPA", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-EE-02"],
+    data: {
+      frage: "Wodurch ist die Strukturierungsmarge im PPA-Geschäft angreifbar – und wer bleibt verteidigungsfähig?",
+      optionen: [
+        { text: "PPA-Matching-Plattformen und Standardverträge (EFET) drücken die Intermediärsgebühr, große Abnehmer bauen eigene PPA-Desks – verteidigungsfähig bleiben Player mit eigener Bilanz, die Shape-/Kreditrisiko übernehmen und Firming als Produkt bündeln.", korrekt: true, erklaerung: "Wer nur vermittelt, wird zum austauschbaren Broker – wer Risiken auf die eigene Bilanz nimmt (Utilities, große Händler), verkauft etwas, das eine Plattform nicht kopieren kann." },
+        { text: "Die BNetzA plant eine Deckelung der PPA-Vermittlungsgebühren analog zur Netzentgeltregulierung.", korrekt: false, erklaerung: "PPAs sind bilaterale Verträge außerhalb der Entgeltregulierung – der Druck auf die Marge kommt vom Wettbewerb, nicht vom Regulierer." },
+        { text: "EE-Anlagen fallen ab 2027 zurück in die EEG-Vollvergütung, wodurch der PPA-Markt austrocknet.", korrekt: false, erklaerung: "Das Gegenteil ist der Trend: Auslaufende EEG-Anlagen und sinkende Ausschreibungswerte treiben immer mehr Volumen in den PPA-Markt." }
+      ]
+    }
+  },
+  "Q-PPA-R4": {
+    id: "Q-PPA-R4", unitId: "U2-PPA", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-KONV-03", "L3-ERZ-EE-02"],
+    data: {
+      frage: "Warum verdrängen EE-PPAs die konventionellen PPAs zunehmend aus dem Markt?",
+      optionen: [
+        { text: "Steigende CO₂-Kosten fressen den Preisvorteil fossiler Bandlieferung auf, und Abnehmer mit Dekarbonisierungszielen zahlen gezielt für grüne Herkunft.", korrekt: true, erklaerung: "Dem konventionellen PPA bleibt die Nische als 24/7-Backup-Komponente hybrider Lieferkonstrukte – als eigenständiges Produkt verliert es seinen Käufermarkt." },
+        { text: "Konventionelle PPAs sind seit der EU-Strommarktreform nur noch mit Laufzeiten unter 3 Jahren zulässig.", korrekt: false, erklaerung: "Eine solche Laufzeitbeschränkung existiert nicht – die Verdrängung ist marktgetrieben (CO₂-Kosten + Nachfragepräferenz), nicht regulatorisch verordnet." },
+        { text: "EE-PPAs sind wegen der EEG-Förderung immer billiger als konventionelle PPAs.", korrekt: false, erklaerung: "Corporate PPAs laufen gerade OHNE EEG-Förderung – ihr Preisvorteil kommt aus gesunkenen EE-Gestehungskosten, nicht aus Subventionen." }
+      ]
+    }
+  },
+  "Q-PPA-T1": {
+    id: "Q-PPA-T1", unitId: "U2-PPA", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-ERZ-EE-02", "L3-VERTRIEB-NEO-02"],
+    data: {
+      frage: "Corporate PPAs werben mit 'Additionality' (die Anlage entsteht nur durch den Vertrag). Welches Konzept aus Modul 4 entspricht dem – und mit demselben Gegner?",
+      optionen: [
+        { text: "Die Zusätzlichkeit bei Fünf Grad und Naturstrom: echte neue Klimawirkung bzw. Neuanlagen-Verträge – jeweils in Abgrenzung zum billigen HKN-Zertifikat ohne Zusatzeffekt.", korrekt: true, erklaerung: "Gleiches Muster auf B2B- wie B2C-Ebene: Der Premium-Preis rechtfertigt sich nur, wenn nachweislich etwas Neues entsteht – der gemeinsame Gegner ist das Altanlagen-HKN-Greenwashing." },
+        { text: "Ostroms Preistransparenz: Beide Modelle leben davon, dem Kunden die Kalkulation vollständig offenzulegen.", korrekt: false, erklaerung: "Transparenz ist ein anderes Wertversprechen – bei Additionality geht es um Wirkungsnachweis, nicht um Kalkulationsoffenlegung." },
+        { text: "Der Stadtwerke-Querverbund: Beide sichern langfristige Investitionen durch interne Quersubvention ab.", korrekt: false, erklaerung: "Der Querverbund ist ein steuerlicher Verrechnungsmechanismus innerhalb eines Konzerns – mit dem Zusätzlichkeitsnachweis gegenüber Kunden hat er nichts zu tun." }
+      ]
+    }
+  },
+
+  // ── U2-SPEICHER ─────────────────────────────────────────────────
+  "Q-SPEICHER-WE1": {
+    id: "Q-SPEICHER-WE1", unitId: "U2-SPEICHER", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-SPEICHER-01"],
+    data: {
+      szenario: "Der Speicher nutzt seine vollen 15 MWh für einen Arbitrage-Zyklus: günstig laden, im Abendpeak entladen. Der Spread beträgt 30 €/MWh. Wie viel bringt dieser eine Zyklus?",
+      eingabefelder: [{ key: "erloes", label: "Zyklus-Erlös", einheit: "€" }],
+      loesung: { erloes: { wert: 450, toleranz: 30 } },
+      rechenweg: ["Erlös = Kapazität × Spread = 15 MWh × 30 €/MWh = 450 €.", "Das läuft parallel zum FCR-Leistungspreis der reservierten Kapazität – Stacking heißt: beide Erlösströme gleichzeitig.", "Bei ~300 Zyklen im Jahr und schwankenden Spreads (15–50 €/MWh) wird klar, warum die Marktwahl je Stunde den Jahreserlös bestimmt."]
+    }
+  },
+  "Q-SPEICHER-WE2": {
+    id: "Q-SPEICHER-WE2", unitId: "U2-SPEICHER", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-SPEICHER-01"],
+    data: {
+      frage: "Wie erklären sich 30–50% Erlösunterschied zwischen zwei baugleichen Batterien?",
+      optionen: [
+        { text: "Durch die Optimierungsgüte der Software: Sie entscheidet stündlich, welcher Markt (FCR, Arbitrage, aFRR) den höheren Grenzerlös bietet – schlechte Optimierung lässt Erlöse schlicht liegen.", korrekt: true, erklaerung: "Der Algorithmus ist der eigentliche Wettbewerbsvorteil, nicht die Hardware – deshalb entstehen asset-leichte Optimierer als eigenes Geschäftsmodell." },
+        { text: "Durch unterschiedliche Degradation: Die schlechtere Batterie hat bereits Kapazität verloren.", korrekt: false, erklaerung: "Degradation wirkt über Jahre und erklärt einstellige Prozentunterschiede – nicht 30–50% zwischen baugleichen, gleichaltrigen Anlagen." },
+        { text: "Durch die Netzentgelte, die je nach Anschlusspunkt stark variieren.", korrekt: false, erklaerung: "Am selben Netzknoten (wie im Szenario) sind die Anschlussbedingungen identisch – und der große Hebel liegt ohnehin auf der Erlös-, nicht der Kostenseite." }
+      ]
+    }
+  },
+  "Q-SPEICHER-R1": {
+    id: "Q-SPEICHER-R1", unitId: "U2-SPEICHER", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-SPEICHER-01"],
+    data: {
+      frage: "Warum ist der größte Angreifer des BESS-Geschäftsmodells der eigene Erfolg?",
+      optionen: [
+        { text: "Jedes zusätzliche BESS glättet die Preisspitzen und drückt die FCR-Preise – First Movers ernten hohe Spreads, Nachzügler kaufen in fallende Erlöskurven.", korrekt: true, erklaerung: "Der Markt kannibalisiert sich selbst: Genau die Volatilität, von der Speicher leben, wird durch Speicherzubau reduziert." },
+        { text: "Die Batteriehersteller erhöhen die Preise, sobald die Nachfrage steigt – der Capex-Vorteil verschwindet.", korrekt: false, erklaerung: "Das Gegenteil passiert: Li-Ion-Kosten fallen mit ~15% Lernrate pro Verdopplung – die Hardware wird billiger, nicht teurer." },
+        { text: "Die ÜNB begrenzen die Zahl der Präqualifikationen pro Marktgebiet.", korrekt: false, erklaerung: "Eine solche Mengenbegrenzung gibt es nicht – der Erlösdruck entsteht durch Marktmechanik, nicht durch Zugangsbeschränkung." }
+      ]
+    }
+  },
+  "Q-SPEICHER-R2": {
+    id: "Q-SPEICHER-R2", unitId: "U2-SPEICHER", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-ERZ-SPEICHER-02"],
+    data: {
+      text: "Beim Heimspeicher-VPP hält der Kunde z.B. {{a}} Ladestand für den Aggregator frei. Die Regelenergie-Erlöse werden etwa im Verhältnis 60:40 zugunsten des {{b}} geteilt; der Kunde erhält im Gegenzug oft eine {{c}} statt einer kWh-Abrechnung.",
+      luecken: {
+        a: { loesungen: ["20%"], erklaerung: "Typisch 20% State of Charge – die freie Kapazität wird zum Poolbaustein." },
+        b: { loesungen: ["Aggregators", "Aggregator"], erklaerung: "Der Aggregator trägt Präqualifikation, Handel und Technik – dafür der größere Anteil." },
+        c: { loesungen: ["Flatrate"], erklaerung: "Die Sonnen-Flatrate ist das Binde-Instrument: fixer Monatsbetrag, mehrjährige Kundenbindung." }
+      },
+      distraktoren: ["80%", "Einmalzahlung"]
+    }
+  },
+  "Q-SPEICHER-R3": {
+    id: "Q-SPEICHER-R3", unitId: "U2-SPEICHER", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-SPEICHER-02"],
+    data: {
+      frage: "Warum kann ein einzelner 10-kWh-Heimspeicher nicht selbst an den Regelenergiemärkten teilnehmen?",
+      optionen: [
+        { text: "Die Präqualifikation erfordert Mindestgrößen und Nachweise, die nur ein gebündeltes Portfolio erfüllt – erst Tausende Einheiten ergeben ein marktfähiges Regelenergie-Asset.", korrekt: true, erklaerung: "Genau das ist die Existenzberechtigung des Aggregators: 10.000 Heimspeicher ≈ 100 MWh präqualifizierbare Flex-Kapazität." },
+        { text: "Heimspeicher reagieren zu langsam für die 30-Sekunden-Anforderung von FCR.", korrekt: false, erklaerung: "Im Gegenteil – Batterien reagieren in Millisekunden. Das Problem ist die Größe, nicht die Geschwindigkeit." },
+        { text: "Privatpersonen dürfen aus energierechtlichen Gründen keine Systemdienstleistungen erbringen.", korrekt: false, erklaerung: "Ein grundsätzliches Verbot gibt es nicht – praktisch scheitert es an Mindestlosgrößen, Messtechnik und Prozessanforderungen, die der Aggregator übernimmt." }
+      ]
+    }
+  },
+  "Q-SPEICHER-R4": {
+    id: "Q-SPEICHER-R4", unitId: "U2-SPEICHER", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-ERZ-SPEICHER-01"],
+    data: {
+      steckbriefId: "L3-ERZ-SPEICHER-01",
+      erklaerungenProDimension: {
+        regulierung: "Reines Merchant-Geschäft ohne Erlösgarantien – kein regulatorischer Schutz.",
+        skalierbarkeit: "Projekte lassen sich seriell entwickeln, aber jedes MW braucht physisches Capex – mittlere Skalierbarkeit.",
+        marktrisiko: "FCR-Preisverfall und Arbitrage-Volatilität – hohes, selbstkannibalisierendes Marktrisiko.",
+        digitalisierung: "Der Optimierungsalgorithmus IST das Geschäftsmodell – höchste Stufe.",
+        wettbewerb: "Explosiver Zubau, viele Player, fallende Markteintrittshürden – intensiv.",
+        nachhaltigkeit: "Speicher sind der Schlüssel-Enabler für hohe EE-Anteile – hoher Beitrag."
+      }
+    }
+  },
+  "Q-SPEICHER-R5": {
+    id: "Q-SPEICHER-R5", unitId: "U2-SPEICHER", format: "bmc-puzzle", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-SPEICHER-02", "L3-ERZ-SPEICHER-01"],
+    data: { steckbriefId: "L3-ERZ-SPEICHER-02", distraktorSteckbriefId: "L3-ERZ-SPEICHER-01" }
+  },
+  "Q-SPEICHER-T1": {
+    id: "Q-SPEICHER-T1", unitId: "U2-SPEICHER", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-ERZ-SPEICHER-02", "L3-VERTRIEB-NEO-01"],
+    data: {
+      frage: "Die Sonnen-Flatrate entkoppelt die Stromrechnung vom Verbrauch. Welches Modell aus Modul 4 folgt derselben Erlöslogik – und welches wäre das Gegenbeispiel?",
+      optionen: [
+        { text: "Tibber folgt derselben Logik (fixer Monatsbetrag, von der Energiemenge entkoppelt) – das Gegenbeispiel ist Ostrom, dessen fixer Aufschlag pro kWh gerade an der Menge hängt.", korrekt: true, erklaerung: "Die Unterscheidung Abo (mengenunabhängig) vs. Aufschlag je kWh (mengenabhängig) ist eine der wichtigsten Erlöslogik-Trennlinien im Energievertrieb." },
+        { text: "Check24 folgt derselben Logik – die CPA-Provision ist ebenfalls vom Stromverbrauch des Kunden entkoppelt.", korrekt: false, erklaerung: "Die CPA ist zwar verbrauchsunabhängig, aber einmalig pro Vermittlung – eine Flatrate ist dagegen ein wiederkehrender Erlös aus einer laufenden Beziehung. Die Logiken sind grundverschieden." },
+        { text: "Der Stadtwerke-Querverbund – auch dort ist die Rechnung vom Verbrauch entkoppelt.", korrekt: false, erklaerung: "Nein, Stadtwerke rechnen klassisch je kWh ab – der Querverbund betrifft die interne Gewinnverwendung, nicht die Tarifstruktur." }
+      ]
+    }
+  },
+
+  // ── U2-GROSSKLEIN ───────────────────────────────────────────────
+  "Q-GROSSKLEIN-WE1": {
+    id: "Q-GROSSKLEIN-WE1", unitId: "U2-GROSSKLEIN", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-EE-03"],
+    data: {
+      szenario: "1 GW installierte Leistung bei 3.000 € je kW Investitionskosten. Wie hoch ist das Gesamt-Capex des Offshore-Parks in Milliarden Euro?",
+      eingabefelder: [{ key: "capex", label: "Capex", einheit: "Mrd. €" }],
+      loesung: { capex: { wert: 3, toleranz: 0.2 } },
+      rechenweg: ["1 GW = 1.000.000 kW.", "Capex = 1.000.000 kW × 3.000 €/kW = 3 Mrd. €.", "Dieses Kapital ist über Jahre gebunden, bevor die erste kWh verkauft wird – ohne den 20 Jahre gesicherten Ausschreibungspreis würde keine Bank ein solches Risiko finanzieren."]
+    }
+  },
+  "Q-GROSSKLEIN-WE2": {
+    id: "Q-GROSSKLEIN-WE2", unitId: "U2-GROSSKLEIN", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-EE-04"],
+    data: {
+      frage: "Was unterscheidet den EWS-Sonnencent strukturell von einem Konzern-Ökotarif?",
+      optionen: [
+        { text: "Der Mechanismus liegt im Tarif selbst: Ein fester Betrag je verkaufter kWh fließt automatisch in neue bürgereigene Anlagen – statt dass der grüne Charakter über zugekaufte HKN hergestellt wird.", korrekt: true, erklaerung: "Der Kunde finanziert Neuanlagen mit, ohne selbst aktiv zu werden – die Zahlung erzeugt direkt neue Erzeugung, nicht nur ein Zertifikat." },
+        { text: "Der Sonnencent ist eine freiwillige Spende, die Kunden zusätzlich zur Rechnung leisten können.", korrekt: false, erklaerung: "Gerade nicht – er ist fest in den Tarif eingebaut. Die Wirkung hängt nicht vom Spendenverhalten ab, das ist der Clou." },
+        { text: "Der Sonnencent ersetzt die EEG-Umlage für EWS-Kunden.", korrekt: false, erklaerung: "Die EEG-Finanzierung läuft seit 2022 über den Bundeshaushalt – der Sonnencent ist ein davon unabhängiges, genossenschaftseigenes Förderinstrument." }
+      ]
+    }
+  },
+  "Q-GROSSKLEIN-R1": {
+    id: "Q-GROSSKLEIN-R1", unitId: "U2-GROSSKLEIN", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-EE-03"],
+    data: {
+      frage: "Warum gilt der O&M-Betrieb (Wartung) als profitabelste Phase eines Offshore-Projekts?",
+      optionen: [
+        { text: "Er macht 20–25% der gesamten Projekterlöse über 20 Jahre aus – und ohne funktionierende Wartung erreicht der Park seine 4.000–4.500 Volllaststunden gar nicht.", korrekt: true, erklaerung: "Bau ist Durchlaufgeschäft mit Lieferkettenrisiko – der planbare, margenstarke Teil ist der jahrzehntelange Betrieb." },
+        { text: "O&M-Verträge werden staatlich bezuschusst, um die Verfügbarkeit kritischer Infrastruktur zu sichern.", korrekt: false, erklaerung: "Es gibt keinen O&M-Zuschuss – die Marge entsteht aus langfristigen Serviceverträgen und Spezialisierungsvorteilen (Schiffe, Techniker, Ersatzteile)." },
+        { text: "In der Betriebsphase entfallen die Netzentgelte, die während des Baus fällig waren.", korrekt: false, erklaerung: "Erzeuger zahlen in Deutschland ohnehin keine Einspeise-Netzentgelte – die O&M-Marge hat mit Netzentgelten nichts zu tun." }
+      ]
+    }
+  },
+  "Q-GROSSKLEIN-R2": {
+    id: "Q-GROSSKLEIN-R2", unitId: "U2-GROSSKLEIN", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-ERZ-EE-03"],
+    data: {
+      frage: "Die hohen Eintrittsbarrieren schützen Offshore-Entwickler vor Newcomern – aber nicht vor wem?",
+      optionen: [
+        { text: "Vor Öl- und Gaskonzernen (BP, TotalEnergies) mit günstigerem Kapital, die die Gebotslogik in Auktionen verschoben haben – während die Marge zugleich in die Lieferkette (Turbinen, Kabel, Schiffe) wandert.", korrekt: true, erklaerung: "Der Angriff kommt nicht von unten (Startups), sondern von der Kapitalseite – und die Engpass-Lieferanten halten die Preissetzungsmacht." },
+        { text: "Vor chinesischen Turbinenherstellern, die eigene Parks in der deutschen Nordsee entwickeln.", korrekt: false, erklaerung: "Chinesische Hersteller drücken auf die Turbinenpreise, treten aber bislang nicht als Parkentwickler in deutschen Ausschreibungen auf – der beschriebene Angreifer ist Big Oil." },
+        { text: "Vor Bürgerenergiegenossenschaften, die über Sonderquoten bevorzugten Zugang zu Offshore-Flächen erhalten.", korrekt: false, erklaerung: "Offshore-Sonderquoten für Genossenschaften gibt es nicht – die Kapitalintensität schließt kleine Akteure hier faktisch aus (anders als onshore)." }
+      ]
+    }
+  },
+  "Q-GROSSKLEIN-R3": {
+    id: "Q-GROSSKLEIN-R3", unitId: "U2-GROSSKLEIN", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-ERZ-EE-03"],
+    data: {
+      text: "Die deutschen Offshore-Ziele: {{a}} bis 2030 und {{b}} bis 2045 (Stand heute: ~8 GW). Die Volllaststunden in der Nordsee liegen bei {{c}} pro Jahr – deutlich über Onshore-Wind.",
+      luecken: {
+        a: { loesungen: ["30 GW"], erklaerung: "Das WindSeeG-Ziel für 2030 – fast eine Vervierfachung des heutigen Bestands." },
+        b: { loesungen: ["70 GW"], erklaerung: "Das Langfristziel 2045 macht die Nordsee zur europäischen Energiedrehscheibe." },
+        c: { loesungen: ["4.000–4.500", "4000-4500", "4.000 bis 4.500"], erklaerung: "Offshore-Wind läuft fast doppelt so viele Volllaststunden wie gute Onshore-Standorte." }
+      },
+      distraktoren: ["15 GW", "2.000"]
+    }
+  },
+  "Q-GROSSKLEIN-R4": {
+    id: "Q-GROSSKLEIN-R4", unitId: "U2-GROSSKLEIN", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-ERZ-EE-04"],
+    data: {
+      frage: "Worin liegt der strukturelle Kapitalkostenvorteil einer Bürgerenergiegenossenschaft?",
+      optionen: [
+        { text: "Genossenschaftseinlagen sind günstiges, geduldiges Kapital: Mitglieder erwarten moderate Dividenden statt Marktrenditen – und sind zugleich loyale Kunden (Churn <5%).", korrekt: true, erklaerung: "Die Doppelrolle Mitglied = Kapitalgeber = Kunde ersetzt teures Fremdkapital und teures Marketing gleichzeitig." },
+        { text: "Genossenschaften sind von der Körperschaftsteuer befreit und können dadurch günstiger kalkulieren.", korrekt: false, erklaerung: "Eine generelle Steuerbefreiung gibt es nicht – Genossenschaften zahlen regulär Körperschaftsteuer (nur Rückvergütungen an Mitglieder sind teils begünstigt)." },
+        { text: "Die KfW vergibt an Energiegenossenschaften zinsfreie Sonderkredite.", korrekt: false, erklaerung: "Zinsfreie Sonderprogramme für Genossenschaften existieren nicht – der Vorteil kommt aus den Einlagen der eigenen Mitglieder." }
+      ]
+    }
+  },
+  "Q-GROSSKLEIN-T1": {
+    id: "Q-GROSSKLEIN-T1", unitId: "U2-GROSSKLEIN", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-ERZ-EE-04", "L3-VERTRIEB-OEKO-01"],
+    data: {
+      frage: "Bürgerenergiegenossenschaften und Premium-Ökostromanbieter (Modul 4) verteidigen sich mit demselben Muster gegen Konzern-Kopien. Welches?",
+      optionen: [
+        { text: "Strukturelle Kriterien, die ein Konzern nicht erfüllen KANN: Konzernunabhängigkeit, demokratische Mitbestimmung, Neuanlagen-Direktverträge – kopierbar wäre nur das Marketing, nicht die Substanz.", korrekt: true, erklaerung: "Naturstroms 'kein Atom/Kohle im Mutterkonzern' und die Genossenschaftsstruktur schließen große Versorger per Definition aus – das ist der seltene Fall eines wirklich nicht kopierbaren Differenzierungsmerkmals." },
+        { text: "Exklusive EEG-Fördersätze, die nur werteorientierten Anbietern zustehen.", korrekt: false, erklaerung: "Das EEG kennt keine Werte-Boni – die Förderlogik ist anbieterneutral. Der Schutz liegt in der Organisationsform, nicht in der Förderung." },
+        { text: "Beide sichern sich über langfristige Exklusivverträge mit den Netzbetreibern ihrer Region ab.", korrekt: false, erklaerung: "Exklusivverträge zwischen Lieferanten und Netzbetreibern wären ein Unbundling-Verstoß – Netz und Vertrieb sind strikt getrennt." }
+      ]
+    }
+  }
+
+});
+
 // ── Validierung (Konsole): prüft, dass alle Referenzen auflösen ──────
 (function validateLernData() {
   const errors = [];

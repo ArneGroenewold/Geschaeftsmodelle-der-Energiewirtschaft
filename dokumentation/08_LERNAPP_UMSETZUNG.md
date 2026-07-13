@@ -7,9 +7,10 @@
 
 ---
 
-## 1. Was ist umgesetzt (MVP + Iteration 2)
+## 1. Was ist umgesetzt (MVP + Iteration 2 + Modul 2)
 
 - **Modul 4 „Verkaufen"** komplett: 7 Lerneinheiten über die 11 Steckbriefe der Domänen `L1-VERTRIEB` und `L1-VERGLEICH`, 54 Quiz-Items.
+- **Modul 2 „Erzeugen & Speichern"** (seit Session 23): 6 Lerneinheiten über die 9 Steckbriefe der Domäne `L1-ERZ` (Merit Order, Regelenergie, EEG-Marktprämie, PPAs, Batteriespeicher-Stacking, Offshore/Bürgerenergie), 43 Quiz-Items. **Gesamt: 2 Module, 13 Einheiten, 97 Quiz-Items.** Home-Screen zeigt jetzt eine Modul-Auswahl (mehrere Module).
 - **Einheiten-Flow** nach Konzept §4: Hook → Kernidee (mit Geldfluss-Diagramm) → **Vertiefung** (voller Wiki-Steckbrief lesbar in der App, seit Iteration 2) → Worked Example (2 Schritte mit Zwischenfragen) → Retrieval (4–6 Fragen) → Transfer (1 Frage, referenziert frühere Einheit) → „Merke dir einen Satz" (Freitext + Musterantwort, unbewertet) → Zusammenfassung.
 - **5 Quiz-Formate:** Multiple Choice, Lückentext (Tap-Wortbank), BMC-Puzzle (Bausteine + Distraktor-Steckbrief), Radar-Schätzen (6 Slider + Overlay), Fallbeispiel-Rechnung (Zahleneingabe mit Toleranz). Feedback-Regel eingehalten: **jede** Antwortoption hat eine Erklärung, nie nur richtig/falsch.
 - **Leitner-Spaced-Repetition:** 5 Boxen, Intervalle 1/3/7/16/35 Tage; Karten entstehen lazy beim ersten Beantworten (Quiz-Items + automatisch abgeleitete Glossar-Karten). Täglicher Review-Stapel (max. 18 Karten), Streak-Zählung.
@@ -113,9 +114,13 @@ Versionierung läuft über **Git** (Commits/History), nicht über ZIP-Stände wi
 
 ## 8. Roadmap (Konzept §11, priorisierter Vorschlag)
 
-1. **Modul 1 „Das Spielfeld"** (Strommarkt-Grundlagen: Merit Order, Börse, Bilanzkreise) — laut Konzept das Fundament, ohne das andere Module in der Tiefe schwer verständlich sind; alle weiteren Module setzen es voraus.
-2. **Bossquiz-Mechanik** (schwerer, mischt alle Einheiten eines Moduls; Freischalt-Logik) — ab 2 Modulen sinnvoll.
-3. **Weitere Module** in Konzept-Reihenfolge (2 Erzeugen & Speichern, 5 Flexibilität, 6 Prosumer …) — je Modul: Einheiten-Zuschnitt, ~8–10 Items/Einheit nach Autorenleitfaden.
+Erledigt: ~~Modul 4 „Verkaufen"~~ (Sessions 21–22), ~~Modul 2 „Erzeugen & Speichern"~~ (Session 23).
+
+1. **Bossquiz-Mechanik** (schwerer, mischt alle Einheiten eines Moduls; Freischalt-Logik) — mit jetzt 2 fertigen Modulen sinnvoll umsetzbar.
+2. **Modul 1 „Das Spielfeld"** (Strommarkt-Grundlagen: Merit Order, Börse, Bilanzkreise) — laut Konzept das Fundament; ein Teil (Merit Order) ist in Modul 2 bereits angerissen und könnte referenziert werden.
+3. **Weitere Module** in Konzept-Reihenfolge (3 Die Netze, 5 Flexibilität, 6 Prosumer …) — je Modul: Einheiten-Zuschnitt, ~8–10 Items/Einheit nach Autorenleitfaden.
 4. **Disruptor-Modus + Szenario-Missionen** (K4-Formate, machen laut Konzept „am meisten Spaß").
-5. **Stufe 3:** Zertifizierungs-Quiz (Pool ≥200 Fragen nötig → erst nach mehreren Modulen), Confidence-Rating.
+5. **Stufe 3:** Zertifizierungs-Quiz (Pool ≥200 Fragen nötig → mit 97 Items etwa zur Hälfte erreicht), Confidence-Rating.
 6. **Stufe 4:** Einstufungstest, Rollen-Lernpfade entlang der Personas (`01_PERSONAS.md`), Kollegen-Verteilung.
+
+**Muster für ein neues Modul** (aus Session 23, als Blaupause): (1) Modulobjekt in `LERN_MODULES` (`lern-data.js`) mit `unitIds`; (2) Einheiten in `LERN_UNITS` mit `vertiefungSteckbriefIds` auf die realen Steckbrief-IDs; (3) Quiz-Items in `LERN_QUIZ_ITEMS` (`lern-quiz-items.js`) nach Feld→Format-Mapping (§6), jede Einheit ~7–8 Items, mindestens ein Transfer-Item das auf ein anderes Modul verweist; (4) `sw.js` CACHE_NAME +1; (5) Browser-Test (Validierungs-Log, ein Durchlauf je neuem Format), commit + push.

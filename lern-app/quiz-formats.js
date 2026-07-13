@@ -215,7 +215,12 @@
       slots.forEach((k) => {
         const slotEl = grid.querySelector(`.bmc-slot[data-key="${k}"]`);
         const placedCard = placements[k];
-        const isRight = placedCard && !placedCard.decoy && placedCard.key === k;
+        // Bewertung nach TEXT statt nach verstecktem Key: buildBMC erzeugt für
+        // manche Bausteine identischen Text (z.B. Schlüsselaktivitäten und
+        // Schlüsselressourcen = wertschoepfung). Zwei optisch gleiche Karten
+        // müssen in beiden zugehörigen Slots als richtig gelten — sonst wäre es
+        // ein Münzwurf für den Lerner.
+        const isRight = placedCard && !placedCard.decoy && placedCard.text === bmc[k];
         if (isRight) correctCount++;
         slotEl.classList.add(isRight ? 'correct' : 'incorrect');
       });

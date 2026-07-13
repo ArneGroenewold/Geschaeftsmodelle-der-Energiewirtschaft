@@ -45,7 +45,7 @@
   // ── Home: Modul- und Einheitenliste ─────────────────────────────
   function renderHome() {
     viewHome.innerHTML = '';
-    viewHome.appendChild(el(`<div class="hero"><h2>⚡ Verkaufen</h2><p>Vollversorger, Neolieferanten, Ökostrom, Stadtwerke und Vergleichsplattformen — wie fließt das Geld beim Endkundenvertrieb?</p></div>`));
+    viewHome.appendChild(el(`<div class="hero"><h2>⚡ Energiewirtschaft meistern</h2><p>Wähle ein Modul — jede Einheit passt in eine Kaffeepause (5–10 Minuten).</p></div>`));
 
     LERN_MODULES.forEach((mod) => {
       const units = mod.unitIds.map(findUnit);
@@ -54,6 +54,7 @@
 
       const card = el(`<div class="module-card">
         <div class="module-card-title">${mod.title}</div>
+        <p class="module-card-desc">${mod.description}</p>
         <div class="module-progress-bar"><div class="module-progress-fill" style="width:${pct}%"></div></div>
         <div class="module-progress-label">${doneCount} / ${units.length} Einheiten abgeschlossen</div>
       </div>`);

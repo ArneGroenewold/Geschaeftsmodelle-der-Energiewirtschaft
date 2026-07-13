@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Energiewirtschaft · Geschäftsmodell-Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-mark">⚡</div>
+      <div class="logo-text">
+        <span class="logo-title">Geschäftsmodell</span>
+        <span class="logo-sub">Wiki · Energiewirtschaft</span>
+      </div>
+    </div>
+    <div class="sidebar-search">
+      <input type="text" id="searchInput" placeholder="Suchen…" autocomplete="off" />
+      <span class="search-icon">⌕</span>
+    </div>
+    <div class="sidebar-tabs">
+      <button class="tab-btn active" data-tab="wiki">Wiki</button>
+      <button class="tab-btn" data-tab="matrix">Matrix</button>
+      <button class="tab-btn" data-tab="akteure">Akteure</button>
+      <button class="tab-btn" data-tab="timeline">Timeline</button>
+      <button class="tab-btn" data-tab="methodik">Methodik</button>
+      <button class="tab-btn" data-tab="glossar">Glossar</button>
+      <button class="tab-btn" data-tab="quellen">Quellen</button>
+      <button class="tab-btn" data-tab="export">Export</button>
+    </div>
+    <nav class="sidebar-nav" id="sidebarNav"></nav>
+    <div class="sidebar-footer"><span id="versionTag"></span></div>
+  </aside>
+
+  <main class="main" id="main">
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-eyebrow">Deutsche Energiewirtschaft</div>
+      <h1 class="hero-title">Geschäftsmodell<br/><em>Wiki</em></h1>
+      <p class="hero-sub">Ein strukturierter Überblick über alle Wertschöpfungsstufen der deutschen Energiewirtschaft — von Übertragungsnetzen und DSOs über digitale Neolieferanten bis zu Projektentwicklern, Infrastrukturfonds und Regulierungsbehörden.</p>
+      <div class="hero-stats" id="heroStats"></div>
+      <div class="hero-cards-row">
+        <div class="hero-nav-card" data-tab="methodik">
+          <div class="hnc-icon">📖</div>
+          <div class="hnc-title">Neu hier? Methodik lesen</div>
+          <div class="hnc-desc">Wie ist das Wiki aufgebaut, was bedeuten die Felder und Radar-Werte? Einstieg für neue Nutzer.</div>
+        </div>
+        <div class="hero-nav-card" data-tab="matrix">
+          <div class="hnc-icon">⊞</div>
+          <div class="hnc-title">Vergleichsmatrix</div>
+          <div class="hnc-desc">Alle GMs nach Erlöstyp gefiltert mit Radar-Dimensionen auf einen Blick</div>
+        </div>
+        <div class="hero-nav-card" data-tab="akteure">
+          <div class="hnc-icon">◎</div>
+          <div class="hnc-title">Akteurs-Vernetzung</div>
+          <div class="hnc-desc">Wer ist in welchen Segmenten aktiv — alle Querverbindungen</div>
+        </div>
+        <div class="hero-nav-card" data-tab="timeline">
+          <div class="hnc-icon">↦</div>
+          <div class="hnc-title">Regulierungs-Timeline</div>
+          <div class="hnc-desc">Regulatorische Meilensteine 2021–2032</div>
+        </div>
+      </div>
+      <div class="hero-hint">← Wähle eine Domäne aus der Navigation oder starte mit der Methodik-Seite</div>
+    </section>
+
+    <!-- Domain view -->
+    <section class="domain-view hidden" id="domainView">
+      <div class="domain-header" id="domainHeader"></div>
+      <div class="capability-grid" id="capabilityGrid"></div>
+    </section>
+
+    <!-- Detail view -->
+    <section class="detail-view hidden" id="detailView">
+      <button class="back-btn no-print" id="backBtn">← Zurück</button>
+      <div class="detail-content" id="detailContent"></div>
+    </section>
+
+    <!-- Matrix view -->
+    <section class="matrix-view hidden" id="matrixView">
+      <div class="section-header">
+        <div class="section-eyebrow">Vergleichsansicht</div>
+        <h2 class="section-title">Geschäftsmodell-Matrix</h2>
+        <p class="section-desc">Alle Geschäftsmodelle im direkten Vergleich — filterbar nach Erlöstyp und Status. Klick auf eine Zeile öffnet das Detail.</p>
+      </div>
+      <div id="matrixContainer"></div>
+    </section>
+
+    <!-- Akteure view -->
+    <section class="akteure-view hidden" id="akteureView">
+      <div class="section-header">
+        <div class="section-eyebrow">Akteurs-Vernetzung</div>
+        <h2 class="section-title">Wer macht was?</h2>
+        <p class="section-desc">Unternehmen und ihre Querverbindungen über alle Wertschöpfungsstufen. Klick auf einen Eintrag öffnet das Geschäftsmodell.</p>
+      </div>
+      <div id="akteureContainer"></div>
+    </section>
+
+    <!-- Timeline view -->
+    <section class="timeline-view hidden" id="timelineView">
+      <div class="section-header">
+        <div class="section-eyebrow">Regulierungs-Timeline</div>
+        <h2 class="section-title">Meilensteine 2021–2032</h2>
+        <p class="section-desc">Regulatorische Ereignisse, Fristen und Ziele — nach Thema und Domäne filterbar. Klick auf „Zur Domäne" öffnet das betreffende Kapitel.</p>
+      </div>
+      <div id="timelineContainer"></div>
+    </section>
+
+    <!-- Methodik view -->
+    <section class="methodik-view hidden" id="methodik-view">
+      <div id="methodik-content"></div>
+    </section>
+
+    <!-- Glossar view -->
+    <section class="glossar-view hidden" id="glossarView">
+      <div class="section-header">
+        <div class="section-eyebrow">Nachschlagewerk</div>
+        <h2 class="section-title">Glossar</h2>
+        <p class="section-desc">Abkürzungen und Fachbegriffe aus den Steckbriefen, alphabetisch und nach Themen geordnet. Im Fließtext sind diese Begriffe gepunktet unterstrichen — ein Klick zeigt die Definition direkt an der Stelle.</p>
+      </div>
+      <div id="glossarContainer"></div>
+    </section>
+
+    <!-- Quellen view -->
+    <section class="glossar-view hidden" id="quellenView">
+      <div class="section-header">
+        <div class="section-eyebrow">Belege & Nachweise</div>
+        <h2 class="section-title">Quellen</h2>
+        <p class="section-desc">Belegte Primär- und Behördenquellen zu Schlüsselzahlen (Stand-Datum, Herausgeber, Link), nach Typ filterbar und durchsuchbar. Im Fließtext markiert ein hochgestelltes <sup class="source-ref" style="cursor:default">Q</sup> eine belegte Zahl — ein Klick zeigt die Quelle direkt an der Stelle. <em>Schrittweiser Ausbau: belegt sind die fachlich kritischsten Kennzahlen und die zentralen regulatorischen Weichenstellungen (u.a. NEST, AgNes, Kraftwerksstrategie, CSRD-Omnibus).</em></p>
+      </div>
+      <div id="quellenContainer"></div>
+    </section>
+
+    <!-- Export view -->
+    <section class="export-view hidden" id="exportView">
+      <div class="section-header">
+        <div class="section-eyebrow">Export</div>
+        <h2 class="section-title">Daten exportieren</h2>
+        <p class="section-desc">Wiki-Inhalte als Markdown oder CSV — für Präsentationen, Berichte oder externe Analyse-Tools.</p>
+      </div>
+      <div id="exportPanel"></div>
+    </section>
+
+  </main>
+
+  <button class="mobile-toggle no-print" id="mobileToggle" aria-label="Navigation öffnen">☰</button>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('click', e => {
+      const card = e.target.closest('.hero-nav-card');
+      if (card) document.querySelector(`.tab-btn[data-tab="${card.dataset.tab}"]`).click();
+    });
+  </script>
+</body>
+</html>

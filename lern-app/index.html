@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+  Energiewirtschaft Lern-App — lern-app/index.html
+  Lädt app/data.js aus dem Wiki-Ordner UNVERÄNDERT als Single Source of Truth
+  (siehe dokumentation/07_LERNAPP_KONZEPT.md, Abschnitt 9 "Ein Fakt, eine Quelle").
+  WICHTIG: lern-app/ muss beim Deployment ein Geschwisterordner von app/ bleiben —
+  der relative Pfad ../app/data.js unten hängt davon ab.
+-->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>Energiewirtschaft meistern</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="EnergieLernen">
+<meta name="theme-color" content="#111111">
+<meta name="mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="lern.css">
+</head>
+<body>
+
+<header class="app-header">
+  <h1>⚡ Energiewirtschaft meistern</h1>
+  <div class="streak-pill" id="streak-pill">🔥 <span id="streak-count">0</span></div>
+</header>
+
+<main class="view" id="view-home"></main>
+<main class="view" id="view-player" hidden></main>
+<main class="view" id="view-review" hidden></main>
+<main class="view" id="view-progress" hidden></main>
+
+<nav class="bottom-nav">
+  <button class="bottom-nav-btn active" data-view="home"><span class="bn-icon">📖</span>Lernen</button>
+  <button class="bottom-nav-btn" data-view="review"><span class="bn-icon">🔁</span>Review</button>
+  <button class="bottom-nav-btn" data-view="progress"><span class="bn-icon">📊</span>Fortschritt</button>
+</nav>
+
+<!-- Wiki-Datenmodell (Single Source of Truth, unverändert) -->
+<script src="../app/data.js"></script>
+
+<!-- Lern-App: redaktionelle Schicht + Engine -->
+<script src="lern-data.js"></script>
+<script src="lern-quiz-items.js"></script>
+<script src="storage.js"></script>
+<script src="leitner.js"></script>
+<script src="shared/render-kit.js"></script>
+<script src="shared/flow-diagram.js"></script>
+<script src="quiz-formats.js"></script>
+<script src="lern-engine.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

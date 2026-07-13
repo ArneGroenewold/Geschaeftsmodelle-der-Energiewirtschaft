@@ -1182,6 +1182,551 @@ Object.assign(LERN_QUIZ_ITEMS, {
 
 });
 
+// ════════════════════════════════════════════════════════════════════
+// MODUL 3 — DIE NETZE
+// ════════════════════════════════════════════════════════════════════
+Object.assign(LERN_QUIZ_ITEMS, {
+
+  // ── U3-AREGV ────────────────────────────────────────────────────
+  "Q-AREGV-WE1": {
+    id: "Q-AREGV-WE1", unitId: "U3-AREGV", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-UNB-NETZ-01"],
+    data: {
+      szenario: "Ein Netzbetreiber investiert 10 Mrd. € in eine neue Leitung. Die BNetzA gesteht darauf eine kalkulatorische Eigenkapitalrendite von 5,07% (Neuanlagen) zu. Wie hoch ist der jährliche regulierte Renditezufluss aus dieser Investition (in Mio. €, vereinfacht auf die volle Basis gerechnet)?",
+      eingabefelder: [{ key: "rendite", label: "Jährliche Rendite", einheit: "Mio. €" }],
+      loesung: { rendite: { wert: 507, toleranz: 20 } },
+      rechenweg: ["Rendite = Investition × EK-Zinssatz = 10.000 Mio. € × 5,07% = 507 Mio. € pro Jahr.", "Dieser Zufluss wiederholt sich über die regulatorische Nutzungsdauer (35–40 Jahre) — deshalb ist Investieren für einen Netzbetreiber attraktiv.", "(Vereinfachung: In der Praxis wird die RAB über die Nutzungsdauer abgeschrieben, die Rendite bezieht sich auf den jeweiligen Restbuchwert.)"]
+    }
+  },
+  "Q-AREGV-WE2": {
+    id: "Q-AREGV-WE2", unitId: "U3-AREGV", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-UNB-NETZ-01"],
+    data: {
+      frage: "Der Netzbetreiber wirtschaftet in seinen Betriebskosten günstiger als der von der BNetzA gesetzte Benchmark-Referenzwert. Was passiert?",
+      optionen: [
+        { text: "Er darf die Einsparung für die Dauer der Regulierungsperiode (mehrere Jahre) als zusätzlichen Gewinn behalten, bevor der Wert neu festgesetzt wird.", korrekt: true, erklaerung: "Genau dieser Nachlauf ist der eingebaute Effizienzanreiz der Anreizregulierung — Kostensenkung lohnt sich, weil die Erlösobergrenze nicht sofort mitsinkt." },
+        { text: "Die BNetzA senkt sofort die Erlösobergrenze, sodass der Vorteil vollständig an die Netznutzer weitergegeben wird.", korrekt: false, erklaerung: "Das wäre eine reine Kostendurchreichung ohne Anreiz — die ARegV lässt dem Betreiber die Einsparung bewusst für die Periode, um Effizienz zu belohnen." },
+        { text: "Der Betreiber muss die Differenz als 'Übergewinn' an einen Netzentgelt-Ausgleichsfonds abführen.", korrekt: false, erklaerung: "Einen solchen Fonds gibt es nicht — die Effizienzrendite bleibt beim Betreiber bis zur nächsten Kostenprüfung." }
+      ]
+    }
+  },
+  "Q-AREGV-R1": {
+    id: "Q-AREGV-R1", unitId: "U3-AREGV", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-UNB-NETZ-01"],
+    data: {
+      frage: "Was bedeutet die RAB (regulatorische Kapitalbasis) für die Erlöse eines Netzbetreibers?",
+      optionen: [
+        { text: "Sie ist der verzinste Kapitalstock: Auf sie gewährt die BNetzA die kalkulatorische Eigenkapitalrendite — je größer die RAB, desto höher der erlaubte Return.", korrekt: true, erklaerung: "Deshalb erhöht jede genehmigte Investition die RAB und damit die Erlösobergrenze über die gesamte Nutzungsdauer." },
+        { text: "Sie ist die maximale Strommenge, die der Netzbetreiber pro Jahr durchleiten darf.", korrekt: false, erklaerung: "Netzbetreiber haben keine Mengenobergrenze — die RAB ist eine Kapitalgröße (Anlagevermögen), keine Energiemenge." },
+        { text: "Sie ist der gesetzlich fixierte Gewinn, den jeder Netzbetreiber unabhängig von Investitionen erhält.", korrekt: false, erklaerung: "Es gibt keinen fixen Pauschalgewinn — der Return hängt an der Höhe der (investitionsgetriebenen) Kapitalbasis." }
+      ]
+    }
+  },
+  "Q-AREGV-R2": {
+    id: "Q-AREGV-R2", unitId: "U3-AREGV", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-UNB-NETZ-01"],
+    data: {
+      text: "Die {{a}} legt per Anreizregulierung (ARegV) eine {{b}} fest. Das Netzentgelt ergibt sich, indem man diese durch die transportierte {{c}} teilt.",
+      luecken: {
+        a: { loesungen: ["BNetzA", "Bundesnetzagentur"], erklaerung: "Die Bundesnetzagentur ist der Regulierer, der die Erlösobergrenze genehmigt." },
+        b: { loesungen: ["Erlösobergrenze", "EOG"], erklaerung: "Die Erlösobergrenze (EOG) begrenzt die Gesamteinnahmen des Netzbetreibers." },
+        c: { loesungen: ["Energiemenge", "Menge"], erklaerung: "Entgelt = Erlösobergrenze / Menge — deshalb ist die Mengenerosion (weniger Durchleitung) ein Problem." }
+      },
+      distraktoren: ["EU-Kommission", "Anlagenzahl"]
+    }
+  },
+  "Q-AREGV-R3": {
+    id: "Q-AREGV-R3", unitId: "U3-AREGV", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-UNB-NETZ-01"],
+    data: {
+      frage: "Warum trägt ein regulierter Netzbetreiber 'kein Marktrisiko, aber Regulierungsrisiko'?",
+      optionen: [
+        { text: "Sein Erlös hängt nicht vom Strompreis oder Wettbewerb ab, sondern von der BNetzA-Festlegung — deren Änderung (z.B. niedrigerer EK-Zins, neue NEST/AgNes-Regeln) ist das eigentliche Risiko.", korrekt: true, erklaerung: "Jede Regulierungsperiode ist faktisch eine Neuverhandlung der Marge — das ersetzt das Marktrisiko durch politisch-regulatorische Unsicherheit." },
+        { text: "Weil er per Termingeschäft gegen alle Strompreisschwankungen abgesichert ist.", korrekt: false, erklaerung: "Netzbetreiber handeln keinen Strom — sie haben schlicht gar kein Preis-Exposure, deshalb braucht es auch keine Absicherung." },
+        { text: "Weil der Staat jeden Verlust des Netzbetreibers ausgleicht.", korrekt: false, erklaerung: "Eine staatliche Verlustgarantie gibt es nicht — die Erlösobergrenze sichert die Erlösseite, aber die BNetzA kann die Konditionen verschärfen." }
+      ]
+    }
+  },
+  "Q-AREGV-R4": {
+    id: "Q-AREGV-R4", unitId: "U3-AREGV", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-UNB-NETZ-01"],
+    data: {
+      steckbriefId: "L3-UNB-NETZ-01",
+      erklaerungenProDimension: {
+        regulierung: "Reguliertes Monopol mit gesicherter Erlösobergrenze — höchster Regulierungsschutz aller Geschäftsmodelle.",
+        skalierbarkeit: "Netz ist an physische Trassen gebunden, keine Plattform-Skalierung — niedrigste Stufe.",
+        marktrisiko: "Kein Preis- oder Mengenrisiko im Marktsinn (Erlös ist reguliert garantiert) — niedrigste Stufe.",
+        digitalisierung: "Systemführung ist digital, aber der Kern bleibt physische Infrastruktur — mittel-niedrig.",
+        wettbewerb: "Natürliches Monopol, kein direkter Wettbewerb — niedrigste Stufe.",
+        nachhaltigkeit: "Das Netz ist Enabler der Energiewende (HGÜ-Ausbau), aber selbst kein grünes Produkt — mittel."
+      }
+    }
+  },
+  "Q-AREGV-R5": {
+    id: "Q-AREGV-R5", unitId: "U3-AREGV", format: "bmc-puzzle", bloom: "K3",
+    steckbriefIds: ["L3-UNB-NETZ-01", "L3-VNB-KLASSISCH-01"],
+    data: { steckbriefId: "L3-UNB-NETZ-01", distraktorSteckbriefId: "L3-VNB-KLASSISCH-01" }
+  },
+  "Q-AREGV-T1": {
+    id: "Q-AREGV-T1", unitId: "U3-AREGV", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-UNB-NETZ-01", "L3-ERZ-KONV-01"],
+    data: {
+      frage: "Ein Merchant-Gaskraftwerk (Modul 2) und ein Übertragungsnetzbetreiber stehen für zwei gegensätzliche Erlöslogiken. Worin?",
+      optionen: [
+        { text: "Das Kraftwerk trägt volles Marktrisiko (Erlös = schwankender Spread), der Netzbetreiber trägt keins (Erlös = regulierte Obergrenze) — dafür Regulierungsrisiko.", korrekt: true, erklaerung: "Merchant vs. Reguliert ist die grundlegendste Erlöstyp-Unterscheidung der Energiewirtschaft — maximales Marktrisiko gegen maximalen Regulierungsschutz." },
+        { text: "Beide verdienen an der Merit Order, nur auf unterschiedlichen Spannungsebenen.", korrekt: false, erklaerung: "Die Merit Order betrifft nur die Erzeugung — der Netzbetreiber verdient völlig unabhängig davon an regulierten Entgelten." },
+        { text: "Beide sind reguliert, das Kraftwerk über das EEG, das Netz über die ARegV.", korrekt: false, erklaerung: "Ein Merchant-Gaskraftwerk erhält gerade keine EEG-Förderung — es ist reines Marktgeschäft. Nur das Netz ist reguliert." }
+      ]
+    }
+  },
+
+  // ── U3-REDISPATCH ───────────────────────────────────────────────
+  "Q-REDISPATCH-WE1": {
+    id: "Q-REDISPATCH-WE1", unitId: "U3-REDISPATCH", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-UNB-NETZ-02"],
+    data: {
+      frage: "Warum bleibt die Gesamteinspeisung ins Netz beim Redispatch konstant, obwohl der Windpark gedrosselt wird?",
+      optionen: [
+        { text: "Weil südlich des Engpasses gleichzeitig ein Kraftwerk um denselben Betrag hochgefahren wird — es wird nur der Erzeugungsort verschoben, nicht die Menge.", korrekt: true, erklaerung: "Genau das ist die Idee: Der Engpass ist ein Transport-, kein Mengenproblem. Down im Norden + Up im Süden = Netz entlastet, Versorgung gesichert." },
+        { text: "Weil die abgeregelte Windenergie in einer Batterie zwischengespeichert und später eingespeist wird.", korrekt: false, erklaerung: "Redispatch speichert nichts — die Windenergie geht in dieser Stunde verloren (der Betreiber bekommt sie nur vergütet), ein anderes Kraftwerk springt ein." },
+        { text: "Weil der Verbrauch südlich des Engpasses automatisch gesenkt wird.", korrekt: false, erklaerung: "Redispatch greift auf der Erzeugungsseite ein (Kraftwerke hoch/runter), nicht am Verbrauch." }
+      ]
+    }
+  },
+  "Q-REDISPATCH-WE2": {
+    id: "Q-REDISPATCH-WE2", unitId: "U3-REDISPATCH", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-UNB-NETZ-02"],
+    data: {
+      frage: "Was ist die eigentliche Ursache für die Verfünffachung des Redispatch-Volumens seit 2014?",
+      optionen: [
+        { text: "Der Netzausbau hinkt dem EE-Zubau strukturell 5–10 Jahre hinterher — es wird viel Windstrom im Norden erzeugt, aber die Leitungen nach Süden fehlen.", korrekt: true, erklaerung: "Redispatch ist das Symptom des Netzausbaustaus; Projekte wie SuedLink sollen das strukturell lösen." },
+        { text: "Die Kraftwerke werden absichtlich falsch eingesetzt, um höhere Erstattungen zu kassieren.", korrekt: false, erklaerung: "Redispatch wird vom ÜNB angeordnet, nicht von Kraftwerken ausgelöst — die Ursache ist physikalischer Netzengpass, kein Missbrauch." },
+        { text: "Die Strommnachfrage ist seit 2014 um das Fünffache gestiegen.", korrekt: false, erklaerung: "Die Stromnachfrage ist weitgehend stabil — nicht der Verbrauch, sondern die räumliche Diskrepanz zwischen Erzeugung (Nord) und Last (Süd) treibt das Volumen." }
+      ]
+    }
+  },
+  "Q-REDISPATCH-R1": {
+    id: "Q-REDISPATCH-R1", unitId: "U3-REDISPATCH", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-UNB-NETZ-02"],
+    data: {
+      frage: "Bekommt der abgeregelte Windpark beim Redispatch Geld?",
+      optionen: [
+        { text: "Ja — die entgangene Erzeugung (Ausfallarbeit) wird ihm erstattet, inklusive der EEG-Vergütung, die er sonst erhalten hätte.", korrekt: true, erklaerung: "Sonst würde niemand in Windkraft in engpassgefährdeten Regionen investieren — die Erstattung hält das Investitionssignal aufrecht." },
+        { text: "Nein — abgeregelte Anlagen tragen den Netzengpass als eigenes Risiko.", korrekt: false, erklaerung: "Das wäre investitionsfeindlich; tatsächlich wird die Ausfallarbeit erstattet und über die Netzentgelte sozialisiert." },
+        { text: "Nur wenn die Abregelung länger als 24 Stunden dauert.", korrekt: false, erklaerung: "Es gibt keine solche Mindestdauer — jede angeordnete Abregelung wird erstattet." }
+      ]
+    }
+  },
+  "Q-REDISPATCH-R2": {
+    id: "Q-REDISPATCH-R2", unitId: "U3-REDISPATCH", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-UNB-NETZ-02"],
+    data: {
+      text: "Beim Redispatch weist der ÜNB nördlich des Engpasses '{{a}}' (Einspeisung reduzieren) und südlich '{{b}}' (Einspeisung erhöhen) an. Die Kosten dafür werden über die {{c}} auf alle Verbraucher umgelegt.",
+      luecken: {
+        a: { loesungen: ["Einsatz-Down", "Down"], erklaerung: "Einsatz-Down: die Anlage vor dem Engpass drosselt." },
+        b: { loesungen: ["Einsatz-Up", "Up"], erklaerung: "Einsatz-Up: eine Anlage hinter dem Engpass springt ein." },
+        c: { loesungen: ["Netzentgelte", "Netzentgelt"], erklaerung: "Sozialisierung über die Netzentgelte — deshalb zahlen alle Stromkunden mit." }
+      },
+      distraktoren: ["Einsatz-Stopp", "EEG-Umlage"]
+    }
+  },
+  "Q-REDISPATCH-R3": {
+    id: "Q-REDISPATCH-R3", unitId: "U3-REDISPATCH", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-UNB-NETZ-02"],
+    data: {
+      frage: "Warum sanken die Netzengpasskosten von ~4,2 Mrd. € (2022) auf ~3,1 Mrd. € (2023), obwohl das Eingriffsvolumen weiter stieg?",
+      optionen: [
+        { text: "Gesunkene Brennstoffpreise: Die per Einsatz-Up hochgefahrenen (meist Gas-)Kraftwerke waren 2023 deutlich billiger im Betrieb als im Krisenjahr 2022.", korrekt: true, erklaerung: "Die Kosten hängen an zwei Faktoren — Eingriffsmenge UND Brennstoffpreis. 2023 überwog der Preisrückgang das Mengenwachstum." },
+        { text: "Der Netzausbau war 2023 abgeschlossen, sodass weniger eingegriffen werden musste.", korrekt: false, erklaerung: "Im Gegenteil — das Eingriffsvolumen stieg weiter; SuedLink & Co. sind erst gegen Ende der 2020er fertig." },
+        { text: "Die BNetzA hat 2023 eine Kostenobergrenze für Redispatch eingeführt.", korrekt: false, erklaerung: "Eine solche Obergrenze existiert nicht — der Rückgang kam allein aus niedrigeren Brennstoffpreisen." }
+      ]
+    }
+  },
+  "Q-REDISPATCH-R4": {
+    id: "Q-REDISPATCH-R4", unitId: "U3-REDISPATCH", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-UNB-NETZ-02"],
+    data: {
+      steckbriefId: "L3-UNB-NETZ-02",
+      erklaerungenProDimension: {
+        regulierung: "Vollständig regulierter, gesetzlich verankerter Prozess (§13/14 EnWG) — höchste Stufe.",
+        skalierbarkeit: "An das physische Netz gebunden, keine Skalierung im Plattformsinn — niedrigste Stufe.",
+        marktrisiko: "Reine Kostenerstattung ohne Marktexposure für den ÜNB — niedrigste Stufe.",
+        digitalisierung: "Standardisierte Datenkommunikation zwischen ÜNB und 900+ VNBs, Prognose-Software zentral — relativ hoch.",
+        wettbewerb: "Hoheitliche Aufgabe des ÜNB, kein Wettbewerb — niedrigste Stufe.",
+        nachhaltigkeit: "Ermöglicht hohe EE-Einspeisung trotz Netzengpässen (Enabler), aber selbst kein grünes Produkt — mittel."
+      }
+    }
+  },
+  "Q-REDISPATCH-T1": {
+    id: "Q-REDISPATCH-T1", unitId: "U3-REDISPATCH", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-UNB-NETZ-02", "L3-ERZ-SPEICHER-01"],
+    data: {
+      frage: "Lokale Flexmärkte und 'Nutzen statt Abregeln' sollen Redispatch teilweise ersetzen. Welches Asset aus Modul 2 profitiert davon am direktesten?",
+      optionen: [
+        { text: "Der Batteriespeicher: Er kann überschüssigen Windstrom vor dem Engpass aufnehmen, statt dass abgeregelt wird — und ihn später wieder abgeben.", korrekt: true, erklaerung: "'Nutzen statt Abregeln' verwandelt Redispatch-Kosten in ein Marktsignal, das Speicher am Engpass wirtschaftlich macht — Modul 2 trifft Modul 3." },
+        { text: "Das konventionelle PPA, weil es langfristige Festpreise bietet.", korrekt: false, erklaerung: "Ein PPA ist ein Preissicherungsvertrag ohne Bezug zum lokalen Netzengpass — es kann Redispatch nicht ersetzen." },
+        { text: "Die Bürgerenergiegenossenschaft, weil sie lokal verankert ist.", korrekt: false, erklaerung: "Lokale Verankerung allein löst keinen Netzengpass — dafür braucht es steuerbare Flexibilität (Speicher/Last), nicht eine Organisationsform." }
+      ]
+    }
+  },
+
+  // ── U3-BILANZ ───────────────────────────────────────────────────
+  "Q-BILANZ-WE1": {
+    id: "Q-BILANZ-WE1", unitId: "U3-BILANZ", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-UNB-NETZ-03"],
+    data: {
+      frage: "Was ist die 'Unterdeckung' im Bilanzkreis des Stadtwerks?",
+      optionen: [
+        { text: "Die Kunden verbrauchen mehr, als das Stadtwerk für diese Stunde angemeldet (prognostiziert) hatte — die Differenz muss als Ausgleichsenergie beschafft werden.", korrekt: true, erklaerung: "Der Bilanzkreis muss stündlich ausgeglichen sein; jede Abweichung nach oben ist eine teuer nachzukaufende Unterdeckung." },
+        { text: "Das Stadtwerk hat weniger Eigenkapital als gesetzlich für Lieferanten vorgeschrieben.", korrekt: false, erklaerung: "Unterdeckung ist ein energiewirtschaftlicher, kein bilanzieller Begriff — es geht um Strommengen pro Stunde, nicht um Eigenkapital." },
+        { text: "Das Stadtwerk hat zu wenige Kunden, um seinen Bilanzkreis zu füllen.", korrekt: false, erklaerung: "Die Kundenzahl ist irrelevant — Unterdeckung entsteht durch Prognosefehler, nicht durch Portfoliogröße." }
+      ]
+    }
+  },
+  "Q-BILANZ-WE2": {
+    id: "Q-BILANZ-WE2", unitId: "U3-BILANZ", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-UNB-NETZ-03"],
+    data: {
+      szenario: "Ein Stadtwerk mit 500 GWh Jahresabsatz hat einen durchschnittlichen Prognosefehler von 1%. Die Ausgleichsenergie kostet im Schnitt 60 €/MWh mehr als der geplante Beschaffungspreis. Wie hoch sind die jährlichen Mehrkosten durch den Prognosefehler (in €)?",
+      eingabefelder: [{ key: "kosten", label: "Mehrkosten/Jahr", einheit: "€" }],
+      loesung: { kosten: { wert: 300000, toleranz: 30000 } },
+      rechenweg: ["Fehlmenge = 1% von 500 GWh = 5 GWh = 5.000 MWh.", "Mehrkosten = 5.000 MWh × 60 €/MWh = 300.000 €.", "Ein Wettbewerber mit 0,5% Prognosefehler hätte nur die Hälfte — deshalb ist Prognosegüte ein direkter, harter Margenhebel."]
+    }
+  },
+  "Q-BILANZ-R1": {
+    id: "Q-BILANZ-R1", unitId: "U3-BILANZ", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-UNB-NETZ-03"],
+    data: {
+      frage: "Ist Ausgleichsenergie für den ÜNB ein Gewinnmodell?",
+      optionen: [
+        { text: "Nein — für den ÜNB ist es ein Nullsummen-Durchleitungssystem; die Zahlungen fließen zwischen den Bilanzkreisen, nicht in die ÜNB-Kasse.", korrekt: true, erklaerung: "Der ÜNB organisiert nur den Ausgleich; sein Nutzen ist Systemstabilität und Datenqualität, kein Handelsgewinn." },
+        { text: "Ja — der ÜNB verdient an der Spanne zwischen Unterdeckungs- und Überdeckungspreis.", korrekt: false, erklaerung: "Diese Spanne wird nicht vom ÜNB vereinnahmt — das System ist als Nullsumme konstruiert, nicht als Ertragsquelle." },
+        { text: "Ja — der ÜNB erhält eine gesetzliche Provision auf jede MWh Ausgleichsenergie.", korrekt: false, erklaerung: "Eine solche Provision existiert nicht; die Prozesskosten deckt der ÜNB über die regulierten Netzentgelte, nicht über Ausgleichsenergie." }
+      ]
+    }
+  },
+  "Q-BILANZ-R2": {
+    id: "Q-BILANZ-R2", unitId: "U3-BILANZ", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-UNB-NETZ-03"],
+    data: {
+      text: "Jeder Lieferant führt einen {{a}} beim ÜNB und meldet stündlich einen Fahrplan. Weicht der reale Verbrauch ab, entsteht {{b}}. Die geplante Umstellung von stündlicher auf {{c}}-Bilanzierung ist ein EU-Ziel.",
+      luecken: {
+        a: { loesungen: ["Bilanzkreis"], erklaerung: "Der Bilanzkreis ist das Konto, auf dem Einspeisung und Entnahme ausgeglichen werden müssen." },
+        b: { loesungen: ["Ausgleichsenergie"], erklaerung: "Ausgleichsenergie ist der Preis für die Abweichung vom Fahrplan." },
+        c: { loesungen: ["15-Minuten", "viertelstündliche", "15-Minuten-"], erklaerung: "Die 15-Minuten-Bilanzierung erhöht die Genauigkeit — und die Anforderungen an Prognose und IT." }
+      },
+      distraktoren: ["Sparplan", "Sekunden"]
+    }
+  },
+  "Q-BILANZ-R3": {
+    id: "Q-BILANZ-R3", unitId: "U3-BILANZ", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-UNB-NETZ-03"],
+    data: {
+      frage: "Wodurch ist die Bilanzkreis-Wertschöpfung des ÜNB angreifbar?",
+      optionen: [
+        { text: "Durch 'BKV-as-a-Service'-Dienstleister: Über offene APIs (MaBiS 2.0) übernehmen Dritte für kleine Lieferanten die Prognose und das Ausgleichsenergie-Risikomanagement — die wertschöpfende Analytik entsteht bei ihnen, nicht beim ÜNB.", korrekt: true, erklaerung: "Dem ÜNB bleibt die Infrastrukturrolle; die margenträchtige Optimierung wandert zu spezialisierten Dienstleistern." },
+        { text: "Durch neue Wettbewerber, die eigene Bilanzkreissysteme parallel zum ÜNB betreiben.", korrekt: false, erklaerung: "Das Bilanzkreissystem ist ein natürliches Monopol des ÜNB — niemand baut ein Konkurrenzsystem; angegriffen wird die Analytik-Schnittstelle." },
+        { text: "Durch Verbraucher, die ihren Strom ohne Bilanzkreis direkt an der Börse kaufen.", korrekt: false, erklaerung: "Auch Börsenstrom läuft über Bilanzkreise — man kann das System nicht umgehen, nur die Dienstleistung darüber auslagern." }
+      ]
+    }
+  },
+  "Q-BILANZ-R4": {
+    id: "Q-BILANZ-R4", unitId: "U3-BILANZ", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-UNB-NETZ-03"],
+    data: {
+      steckbriefId: "L3-UNB-NETZ-03",
+      erklaerungenProDimension: {
+        regulierung: "Bilanzkreismanagement ist eine regulierte ÜNB-Hoheitsaufgabe (StromNZV/MaBiS) — höchste Stufe.",
+        skalierbarkeit: "An die zentrale Marktinfrastruktur gebunden, keine Plattform-Skalierung — niedrigste Stufe.",
+        marktrisiko: "Für den ÜNB ein Nullsummen-Durchleitungssystem ohne eigenes Marktexposure — niedrigste Stufe.",
+        digitalisierung: "Datenintensiv, Umstellung auf API-basierte Echtzeit-Kommunikation (MaBiS 2.0) — relativ hoch.",
+        wettbewerb: "Zentrale Monopolfunktion des ÜNB, kein Wettbewerb — niedrigste Stufe.",
+        nachhaltigkeit: "Neutrale Marktinfrastruktur ohne direkten Energiewende-Beitrag — niedrig."
+      }
+    }
+  },
+  "Q-BILANZ-T1": {
+    id: "Q-BILANZ-T1", unitId: "U3-BILANZ", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-UNB-NETZ-03", "L3-VERTRIEB-NEO-01"],
+    data: {
+      frage: "Tibber (Modul 4) steuert Verbrauch automatisch in günstige Stunden. Welchen doppelten Vorteil hat das für Tibbers Bilanzkreis?",
+      optionen: [
+        { text: "Gesteuerte Lasten sind besser prognostizierbar UND lassen sich gezielt dorthin verschieben, wo Tibber ohnehin Strom eingeplant hat — beides senkt die Ausgleichsenergiekosten.", korrekt: true, erklaerung: "Steuerbarkeit reduziert den Prognosefehler an der Wurzel — ein unterschätzter Nebeneffekt des Tibber-Modells, der direkt auf die Bilanzkreis-Marge wirkt." },
+        { text: "Tibber muss als App-Anbieter keinen Bilanzkreis führen.", korrekt: false, erklaerung: "Doch — Tibber ist ein Stromlieferant und führt einen Bilanzkreis wie jeder andere; die Steuerbarkeit hilft ihm nur, ihn genauer zu treffen." },
+        { text: "Tibber kann durch die App die Ausgleichsenergiepreise des ÜNB senken.", korrekt: false, erklaerung: "Einzelne Lieferanten setzen die Ausgleichsenergiepreise nicht — Tibber kann nur die eigene Abweichung minimieren, nicht den Preis beeinflussen." }
+      ]
+    }
+  },
+
+  // ── U3-14A ──────────────────────────────────────────────────────
+  "Q-14A-WE1": {
+    id: "Q-14A-WE1", unitId: "U3-14A", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-VNB-NEU-01"],
+    data: {
+      frage: "Darf der VNB die Wallbox per §14a komplett abschalten?",
+      optionen: [
+        { text: "Nein — er darf sie nur auf eine Mindestleistung von 4,2 kW dimmen (max. 2h am Stück); das Auto lädt langsamer, aber es lädt weiter.", korrekt: true, erklaerung: "Der 'Modulationsrahmen' garantiert eine Mindestleistung — vollständige Abschaltung ist nicht erlaubt, das schützt den Kunden." },
+        { text: "Ja — bei akuter Netzüberlastung darf die Wallbox vollständig vom Netz getrennt werden.", korrekt: false, erklaerung: "§14a erlaubt nur Dimmen auf 4,2 kW, keine Vollabschaltung — der Kunde behält immer eine nutzbare Mindestleistung." },
+        { text: "Ja, aber nur nachts zwischen 0 und 6 Uhr.", korrekt: false, erklaerung: "Es gibt kein festes Zeitfenster — die Steuerung erfolgt situativ bei lokalem Engpass, begrenzt auf 4,2 kW und max. 2h am Stück." }
+      ]
+    }
+  },
+  "Q-14A-WE2": {
+    id: "Q-14A-WE2", unitId: "U3-14A", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-VNB-NEU-01"],
+    data: {
+      frage: "Warum rechnet sich §14a für den VNB gleich doppelt?",
+      optionen: [
+        { text: "Er spart den teuren Trafo-Ausbau (30.000–100.000 €) UND die dafür nötige Steuer-Infrastruktur (CLS) wird regulatorisch als RAB-relevantes Betriebsmittel anerkannt — er darf sie also verzinsen.", korrekt: true, erklaerung: "Capex-Vermeidung plus verzinsbares Smart-Grid-Investment: der VNB gewinnt auf der Kosten- und der Erlösseite gleichzeitig." },
+        { text: "Er kassiert die Netzentgeltnachlässe der Kunden als zusätzliche Einnahme.", korrekt: false, erklaerung: "Umgekehrt — der Netzentgeltnachlass ist eine Zahlung AN den Kunden, keine Einnahme des VNB." },
+        { text: "Er verkauft die abgeregelte Energie an der Börse weiter.", korrekt: false, erklaerung: "§14a regelt Netzsteuerung, keinen Energiehandel — der VNB handelt aus Unbundling-Gründen ohnehin keinen Strom." }
+      ]
+    }
+  },
+  "Q-14A-R1": {
+    id: "Q-14A-R1", unitId: "U3-14A", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-VNB-KLASSISCH-02"],
+    data: {
+      frage: "Was ist der Unterschied zwischen gMSB und iMSB beim Messstellenbetrieb?",
+      optionen: [
+        { text: "Der grundzuständige gMSB (per Default der VNB) baut automatisch ein; ein wettbewerblicher iMSB (z.B. inexogy, ista) kann den Kunden aktiv abwerben.", korrekt: true, erklaerung: "Der gMSB ist der Default mit reguliertem Entgelt, der iMSB muss über Mehrwertdienste überzeugen — eine klassische Opt-out-Hürde." },
+        { text: "gMSB messen Strom, iMSB messen Gas und Wärme.", korrekt: false, erklaerung: "Die Unterscheidung ist rechtlich (grundzuständig vs. wettbewerblich), nicht nach Energieträger." },
+        { text: "gMSB sind privat, iMSB sind staatlich.", korrekt: false, erklaerung: "Beide sind Marktrollen; der gMSB ist meist der (kommunale oder private) VNB, der iMSB ein wettbewerblicher Anbieter — mit Eigentum hat das nichts zu tun." }
+      ]
+    }
+  },
+  "Q-14A-R2": {
+    id: "Q-14A-R2", unitId: "U3-14A", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-VNB-NEU-01", "L3-VNB-KLASSISCH-02"],
+    data: {
+      text: "Voraussetzung für die §14a-Steuerung ist das intelligente Messsystem mit einem {{a}} (SMGW). Als Gegenleistung fürs Dimmen erhält der Kunde einen {{b}} von 100–190 €/Jahr. Statt einen Trafo für {{c}} auszubauen, verschiebt der VNB die Investition.",
+      luecken: {
+        a: { loesungen: ["Smart Meter Gateway", "SMGW", "Gateway"], erklaerung: "Das SMGW ist die sichere Kommunikationszentrale des intelligenten Messsystems." },
+        b: { loesungen: ["Netzentgeltnachlass", "Nachlass"], erklaerung: "Der Netzentgeltnachlass entschädigt den Kunden für die Steuerbarkeit." },
+        c: { loesungen: ["30.000–100.000 €", "30000-100000", "30.000 bis 100.000 €"], erklaerung: "Genau diesen Trafo-Ausbau vermeidet oder verschiebt das Lastmanagement." }
+      },
+      distraktoren: ["Ladekabel", "Bonuszertifikat"]
+    }
+  },
+  "Q-14A-R3": {
+    id: "Q-14A-R3", unitId: "U3-14A", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-VNB-NEU-01"],
+    data: {
+      frage: "Wer greift die Steuerungshoheit des VNB über die flexiblen Geräte an — und mit welchem Ziel?",
+      optionen: [
+        { text: "Aggregatoren, HEMS-Anbieter und Neolieferanten wollen dieselben Geräte marktlich (nach Börsenpreis) statt netzdienlich steuern — wer die Kundenschnittstelle besitzt, bestimmt, wessen Optimierung Vorrang hat.", korrekt: true, erklaerung: "§14a ist eine Schnittstelle, kein fertiges Geschäftsmodell — der Kampf um die Gerätesteuerung ist ein Kampf um die Kundenschnittstelle." },
+        { text: "Andere VNB, die in fremde Netzgebiete expandieren wollen.", korrekt: false, erklaerung: "VNB haben Gebietsmonopole und expandieren nicht in fremde Netze — der Angriff kommt von marktlichen Flex-Vermarktern, nicht von anderen Netzbetreibern." },
+        { text: "Die BNetzA, die den VNB die §14a-Steuerung wieder entziehen will.", korrekt: false, erklaerung: "Die BNetzA hat §14a gerade eingeführt — die Spannung liegt zwischen netzdienlicher (VNB) und marktlicher (Aggregator) Steuerung, nicht in einem Entzug." }
+      ]
+    }
+  },
+  "Q-14A-R4": {
+    id: "Q-14A-R4", unitId: "U3-14A", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-VNB-NEU-01"],
+    data: {
+      steckbriefId: "L3-VNB-NEU-01",
+      erklaerungenProDimension: {
+        regulierung: "Regulatorisch verankert (§14a, BK6-22-300), aber weniger monopolistisch geschützt als das Kernnetzentgelt — hoch, nicht maximal.",
+        skalierbarkeit: "Mehr sVE-Anschlüsse ohne proportionalen Capex möglich — mittlere Skalierbarkeit durch Flex statt Kupfer.",
+        marktrisiko: "Regulierte Capex-Vermeidung ohne Marktexposure — niedrigste Stufe.",
+        digitalisierung: "CLS/SMGW-Steuerung ist hochdigital — das Netz lernt steuern statt bauen, höchste Stufe.",
+        wettbewerb: "Netzbetrieb bleibt Monopol, aber die Gerätesteuerung ist umkämpft (Aggregatoren) — niedrig.",
+        nachhaltigkeit: "Ermöglicht mehr Wärmepumpen und E-Autos am selben Netz — hoher Enabler-Beitrag."
+      }
+    }
+  },
+  "Q-14A-T1": {
+    id: "Q-14A-T1", unitId: "U3-14A", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-VNB-NEU-01", "L3-ERZ-SPEICHER-02"],
+    data: {
+      frage: "Der Heimspeicher (Modul 2) wird vom Aggregator marktlich gesteuert, der VNB will ihn per §14a netzdienlich steuern. Worin besteht der Grundkonflikt?",
+      optionen: [
+        { text: "Beide wollen dasselbe Gerät steuern, aber nach unterschiedlicher Logik: der Aggregator nach Börsenpreis (maximaler Erlös), der VNB nach Netzzustand (Engpassvermeidung) — die Priorisierung ist regulatorisch noch nicht abschließend geklärt.", korrekt: true, erklaerung: "Genau diese Doppelsteuerung ist die offene Flanke: Modul 2 (Flex-Vermarktung) und Modul 3 (Netzsteuerung) greifen auf dasselbe physische Asset zu." },
+        { text: "Der Heimspeicher kann technisch nur von einer Partei gleichzeitig genutzt werden, nie von beiden.", korrekt: false, erklaerung: "Technisch ist geteilte Nutzung möglich (z.B. 20% für VPP, Rest für Eigenverbrauch) — der Konflikt ist die Steuerungspriorität, nicht die physische Exklusivität." },
+        { text: "§14a verbietet Heimspeichern die Teilnahme an virtuellen Kraftwerken.", korrekt: false, erklaerung: "Kein solches Verbot — §14a und VPP-Teilnahme koexistieren, ihre Koordination ist nur noch nicht vollständig geregelt." }
+      ]
+    }
+  },
+
+  // ── U3-BETREIB ──────────────────────────────────────────────────
+  "Q-BETREIB-WE1": {
+    id: "Q-BETREIB-WE1", unitId: "U3-BETREIB", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-VNB-BETREIB-05"],
+    data: {
+      frage: "Was ermöglicht der Kommune überhaupt, das Netz am Konzessionsende zurückzukaufen?",
+      optionen: [
+        { text: "Die Konzession (§46 EnWG) — das Wegerecht fürs Netz — wird nur befristet (meist 20 Jahre) vergeben; bei Auslauf kann die Kommune neu vergeben oder selbst übernehmen.", korrekt: true, erklaerung: "Das befristete Konzessionsrecht ist der einzige reguläre Hebel, mit dem ein sonst festes Netzmonopol den Betreiber wechseln kann." },
+        { text: "Die BNetzA versteigert die Netze alle 20 Jahre neu an den Meistbietenden.", korrekt: false, erklaerung: "Es gibt keine BNetzA-Versteigerung — die Kommune vergibt die Wegekonzession selbst, das ist ein kommunalrechtliches Verfahren." },
+        { text: "Jeder Netzbetreiber muss sein Netz nach 20 Jahren gesetzlich abgeben.", korrekt: false, erklaerung: "Es gibt keine Abgabepflicht — der Betreiber kann sich um die Konzession erneut bewerben; die Kommune entscheidet." }
+      ]
+    }
+  },
+  "Q-BETREIB-WE2": {
+    id: "Q-BETREIB-WE2", unitId: "U3-BETREIB", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-VNB-BETREIB-01", "L3-VNB-BETREIB-05"],
+    data: {
+      frage: "Was ist die zentrale finanzielle Motivation hinter einer Rekommunalisierung?",
+      optionen: [
+        { text: "Der regulierte, planbare Return auf die RAB fließt in den kommunalen Haushalt statt an einen externen Netzkonzern — plus Steuerungshoheit über die lokale Wärme-/Energiewende.", korrekt: true, erklaerung: "Das Netz ist eine stabile, regulierte Ertragsquelle — sie in kommunale Hand zu holen, verbindet finanzielle mit strategischen Motiven." },
+        { text: "Die Kommune kann als Netzbetreiberin die Netzentgelte frei senken, um Wähler zu gewinnen.", korrekt: false, erklaerung: "Auch ein kommunaler VNB ist an die ARegV gebunden — die Entgelte sind reguliert, nicht politisch frei setzbar." },
+        { text: "Rekommunalisierte Netze sind von der ARegV-Regulierung befreit.", korrekt: false, erklaerung: "Nein — die Regulierung gilt unabhängig vom Eigentümer; nur der Empfänger des Returns ändert sich." }
+      ]
+    }
+  },
+  "Q-BETREIB-R1": {
+    id: "Q-BETREIB-R1", unitId: "U3-BETREIB", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-VNB-BETREIB-01"],
+    data: {
+      frage: "Was kennzeichnet den kommunalen Eigenbetrieb als Betreibermodell?",
+      optionen: [
+        { text: "Eigentum, operativer Betrieb und Konzession liegen vollständig in einer Hand (Kommune/Stadtwerk) — volle vertikale Integration, voller Return bleibt im Konzern.", korrekt: true, erklaerung: "Kein Pacht- oder Betriebsführungsentgelt geht an Dritte ab; dafür trägt die Kommune die volle Kapitalbindung." },
+        { text: "Die Kommune besitzt das Netz, lässt es aber von einem privaten Konzern betreiben.", korrekt: false, erklaerung: "Das wäre ein Pacht-/Betriebsführungsmodell — beim Eigenbetrieb macht die Kommune alles selbst." },
+        { text: "Ein privater Investor besitzt das Netz, die Kommune hält nur die Konzession.", korrekt: false, erklaerung: "Das ist die Asset-Trennung (Pachtmodell) — der Eigenbetrieb hält gerade alles selbst zusammen." }
+      ]
+    }
+  },
+  "Q-BETREIB-R2": {
+    id: "Q-BETREIB-R2", unitId: "U3-BETREIB", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-VNB-BETREIB-05"],
+    data: {
+      text: "Die Netzkonzession nach {{a}} EnWG wird für meist {{b}} Jahre vergeben. Läuft sie aus, kann die Kommune das Netz zurückkaufen — dieser Vorgang heißt {{c}}.",
+      luecken: {
+        a: { loesungen: ["§46", "Paragraph 46", "46"], erklaerung: "§46 EnWG regelt die Wegenutzungsrechte (Konzessionen) für Strom- und Gasnetze." },
+        b: { loesungen: ["20"], erklaerung: "20 Jahre ist die übliche maximale Konzessionslaufzeit." },
+        c: { loesungen: ["Rekommunalisierung"], erklaerung: "Rekommunalisierung: Rückkauf des Netzes in kommunale Hand nach Konzessionsende." }
+      },
+      distraktoren: ["§14a", "10"]
+    }
+  },
+  "Q-BETREIB-R3": {
+    id: "Q-BETREIB-R3", unitId: "U3-BETREIB", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-VNB-BETREIB-01"],
+    data: {
+      frage: "Warum bestraft der ARegV-Effizienzbenchmark kleine kommunale Eigenbetriebe strukturell?",
+      optionen: [
+        { text: "Ihnen fehlen die Skaleneffekte größerer VNB; im Benchmarking gegen effizientere, größere Netzbetreiber schneiden sie schlechter ab und erhalten niedrigere anerkannte Kosten.", korrekt: true, erklaerung: "Genau deshalb suchen kleine Eigenbetriebe unter Capex-Druck zunehmend Kooperations- oder Betriebsführungsmodelle." },
+        { text: "Kleine Betreiber müssen einen gesetzlichen Strafzuschlag auf ihre Netzentgelte zahlen.", korrekt: false, erklaerung: "Einen Strafzuschlag gibt es nicht — der Nachteil entsteht indirekt über den Effizienzvergleich, nicht über eine Abgabe." },
+        { text: "Die BNetzA erlaubt kleinen Betreibern keine Investitionen in die RAB.", korrekt: false, erklaerung: "Auch kleine Betreiber dürfen investieren — das Problem ist die Effizienzbewertung ihrer Betriebskosten, nicht ein Investitionsverbot." }
+      ]
+    }
+  },
+  "Q-BETREIB-R4": {
+    id: "Q-BETREIB-R4", unitId: "U3-BETREIB", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-VNB-BETREIB-05", "L3-VNB-BETREIB-01"],
+    data: {
+      frage: "Warum ist gerade das Konzessionsende der 'natürliche Angriffszeitpunkt' auf einen etablierten Netzbetreiber?",
+      optionen: [
+        { text: "Weil das Netzmonopol sonst fest ist — nur beim Auslaufen der befristeten Konzession kann die Kommune neu vergeben, rekommunalisieren oder einen anderen Betreiber wählen.", korrekt: true, erklaerung: "Zwischen zwei Konzessionsrunden ist der Betreiber praktisch unangreifbar; die Vergabe alle ~20 Jahre ist das einzige reguläre Wechselfenster." },
+        { text: "Weil die BNetzA am Konzessionsende die Erlösobergrenze auf null setzt.", korrekt: false, erklaerung: "Die ARegV-Regulierung läuft betreiberunabhängig weiter — sie wird durch das Konzessionsende nicht ausgesetzt." },
+        { text: "Weil Netze am Konzessionsende technisch erneuert werden müssen und dabei stillstehen.", korrekt: false, erklaerung: "Das Netz läuft im Betreiberübergang normal weiter — der Angriffspunkt ist rechtlich-wirtschaftlich (Vergabe), nicht technisch." }
+      ]
+    }
+  },
+  "Q-BETREIB-T1": {
+    id: "Q-BETREIB-T1", unitId: "U3-BETREIB", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-VNB-BETREIB-01", "L3-VERTRIEB-STADTWERK-01"],
+    data: {
+      frage: "Der kommunale Netz-Eigenbetrieb und das Stadtwerke-Mehrsparten-Modell (Modul 4) teilen einen strukturellen Vorteil. Welchen?",
+      optionen: [
+        { text: "Den Querverbund: Das regulierte Netz liefert stabile Erträge, die im kommunalen Konzern mit anderen Sparten (Wärme, ÖPNV) verrechnet und für die lokale Energiewende eingesetzt werden können.", korrekt: true, erklaerung: "Beide Male ist die stabile, regulierte Netzbasis der Anker, der defizitärere Sparten und langfristige Investitionen trägt — Modul 3 und Modul 4 beschreiben zwei Seiten desselben Stadtwerke-Konstrukts." },
+        { text: "Beide sind vom Wettbewerb durch Neolieferanten vollständig geschützt.", korrekt: false, erklaerung: "Das Vertriebsgeschäft der Stadtwerke ist sehr wohl angreifbar (Rosinenpicken) — nur das Netz ist Monopol. Der gemeinsame Vorteil ist der Querverbund, nicht Wettbewerbsfreiheit." },
+        { text: "Beide dürfen ihre Preise frei kalkulieren.", korrekt: false, erklaerung: "Das Netz ist streng reguliert (ARegV) — gerade nicht frei kalkulierbar. Der Vorteil liegt in der Ertragsstabilität, nicht in Preisfreiheit." }
+      ]
+    }
+  },
+
+  // ── U3-GAS ──────────────────────────────────────────────────────
+  "Q-GAS-WE1": {
+    id: "Q-GAS-WE1", unitId: "U3-GAS", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-GAS-FNB-02"],
+    data: {
+      frage: "Worin besteht das Henne-Ei-Problem beim H2-Kernnetz?",
+      optionen: [
+        { text: "Niemand bezieht Wasserstoff, solange keine Leitung da ist — aber niemand baut die Leitung, solange keine zahlenden Kunden da sind.", korrekt: true, erklaerung: "Genau dieses klassische Infrastruktur-Dilemma soll das Amortisationskonto durchbrechen." },
+        { text: "Wasserstoff kann technisch nicht durch bestehende Gasleitungen transportiert werden.", korrekt: false, erklaerung: "Rund 60% des Kernnetzes sind umgewidmete Gasleitungen — technisch geht es, das Problem ist die Marktanlaufphase." },
+        { text: "Es gibt zu wenige FNB, die eine H2-Leitung bauen könnten.", korrekt: false, erklaerung: "Die etablierten Gas-FNB (OGE, Gascade …) stehen bereit — das Hindernis ist das Investitionsrisiko der Anlaufphase, nicht ein Mangel an Betreibern." }
+      ]
+    }
+  },
+  "Q-GAS-WE2": {
+    id: "Q-GAS-WE2", unitId: "U3-GAS", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-GAS-FNB-02"],
+    data: {
+      frage: "Wer trägt beim Amortisationskonto das Hauptrisiko der Anlaufphase — und warum ist das clever?",
+      optionen: [
+        { text: "Der Staat trägt die frühe Kostenlücke vorübergehend; steigt die Auslastung, zahlt der FNB die Vorfinanzierung über höhere H2-Netzentgelte zurück — das senkt das FNB-Investitionsrisiko und beschleunigt den Netzbau.", korrekt: true, erklaerung: "Das Modell verlagert das Henne-Ei-Risiko auf den Staat, der es am besten tragen kann, ohne den FNB von der Rückzahlung zu entbinden." },
+        { text: "Die ersten H2-Kunden zahlen einen Strafaufschlag, der die gesamte Leitung sofort finanziert.", korrekt: false, erklaerung: "Das Gegenteil ist der Zweck: Die Anfangskunden zahlen zunächst niedrige Entgelte — genau deshalb springt der Staat als Zwischenfinanzierer ein." },
+        { text: "Der FNB verzichtet dauerhaft auf jede Rendite aus dem H2-Netz.", korrekt: false, erklaerung: "Der FNB erhält weiterhin einen regulierten Return — das Konto überbrückt nur die ertragsschwache Anlaufphase, es enteignet den Betreiber nicht." }
+      ]
+    }
+  },
+  "Q-GAS-R1": {
+    id: "Q-GAS-R1", unitId: "U3-GAS", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-GAS-FNB-01"],
+    data: {
+      frage: "Was ist die 'Death Spiral' des Erdgasnetzes?",
+      optionen: [
+        { text: "Sinkende Durchleitungsmengen (durch Elektrifizierung) bei fixen Netzkosten treiben das Entgelt je Kunde nach oben, was weitere Kunden zum Ausstieg motiviert — ein sich selbst verstärkender Sog.", korrekt: true, erklaerung: "Weil das Entgelt = Fixkosten / Menge ist, wirkt jede abwandernde Kilowattstunde verteuernd auf die verbleibenden — der klassische Netz-Teufelskreis." },
+        { text: "Ein plötzlicher technischer Totalausfall des gesamten Gasnetzes.", korrekt: false, erklaerung: "Death Spiral ist ein ökonomischer, kein technischer Begriff — es geht um die Entgeltdynamik, nicht um einen Blackout." },
+        { text: "Der Rückgang der Gaspreise unter die Förderkosten.", korrekt: false, erklaerung: "Es geht um Netzentgelte (Durchleitung), nicht um den Gas-Rohstoffpreis." }
+      ]
+    }
+  },
+  "Q-GAS-R2": {
+    id: "Q-GAS-R2", unitId: "U3-GAS", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-GAS-FNB-02"],
+    data: {
+      text: "Das H2-Kernnetz umfasst rund {{a}} km, davon etwa {{b}} umgewidmete Erdgasleitungen (Repurposing). Die Vorfinanzierung sichert ein {{c}}, das der Staat in der Anlaufphase stützt.",
+      luecken: {
+        a: { loesungen: ["9.040", "9040"], erklaerung: "Rund 9.040 km wurden von der BNetzA im Oktober 2024 genehmigt." },
+        b: { loesungen: ["60%"], erklaerung: "~60% Repurposing bestehender Leitungen — Betreiber mit geeignetem Rohrnetz haben einen Vorteil." },
+        c: { loesungen: ["Amortisationskonto", "Amortisationskontomodell"], erklaerung: "Das Amortisationskonto überbrückt die ertragsschwache Anlaufphase." }
+      },
+      distraktoren: ["50.000", "20%"]
+    }
+  },
+  "Q-GAS-R3": {
+    id: "Q-GAS-R3", unitId: "U3-GAS", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-GAS-FNB-02"],
+    data: {
+      frage: "Wodurch könnte das H2-Kernnetz-Modell trotz staatlicher Absicherung angreifbar werden?",
+      optionen: [
+        { text: "Durch alternative Logistiken (Ammoniak-/LOHC-Importe über Häfen, On-site-Elektrolyse), die Ankerkunden abfangen, bevor das Netz sie erreicht — und durch einen H2-Hochlauf, der hinter dem Amortisationspfad zurückbleibt.", korrekt: true, erklaerung: "Bleibt die Nachfrage aus, wird die Refinanzierung politisch angreifbar — das Modell hängt am Vertrauen, dass künftige Nutzer die heutigen Vorleistungen tragen." },
+        { text: "Durch neue private H2-Fernleitungsnetze, die in direkte Preiskonkurrenz treten.", korrekt: false, erklaerung: "Das Kernnetz ist als nationales Monopol konzipiert — paralleler Netzbau ist unwahrscheinlich; die Konkurrenz kommt von anderen Transportformen, nicht von Konkurrenznetzen." },
+        { text: "Durch die BNetzA, die dem Kernnetz die Regulierung entzieht.", korrekt: false, erklaerung: "Die Regulierung ist die Grundlage des Modells — das Risiko liegt in der Marktnachfrage, nicht in einem Regulierungsentzug." }
+      ]
+    }
+  },
+  "Q-GAS-R4": {
+    id: "Q-GAS-R4", unitId: "U3-GAS", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-GAS-FNB-02"],
+    data: {
+      steckbriefId: "L3-GAS-FNB-02",
+      erklaerungenProDimension: {
+        regulierung: "Reguliertes Infrastrukturmonopol mit staatlicher Absicherung — höchste Stufe.",
+        skalierbarkeit: "An physische Pipelines gebunden, aber mit Repurposing-Hebel — niedrig-mittel.",
+        marktrisiko: "Abhängig vom H2-Hochlauf; das Amortisationskonto dämpft, eliminiert das Nachfragerisiko aber nicht — mittel.",
+        digitalisierung: "Verdichtersteuerung und Kapazitätsvermarktung digital, Kern bleibt physisch — mittel.",
+        wettbewerb: "Nationales Monopol beim Netz, Konkurrenz nur durch alternative Logistik — niedrig.",
+        nachhaltigkeit: "Rückgrat der Wasserstoffwirtschaft für Stahl/Chemie — höchste Stufe."
+      }
+    }
+  },
+  "Q-GAS-T1": {
+    id: "Q-GAS-T1", unitId: "U3-GAS", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-GAS-FNB-02", "L3-ERZ-EE-03"],
+    data: {
+      frage: "Das H2-Kernnetz und die Offshore-Windprojekte (Modul 2) lösen dasselbe Grundproblem auf ähnliche Weise. Welches?",
+      optionen: [
+        { text: "Beide sind extrem kapitalintensiv und werden erst durch eine staatlich/regulatorisch abgesicherte, langfristige Erlösgarantie finanzierbar (Amortisationskonto bzw. 20-Jahres-Ausschreibungspreis).", korrekt: true, erklaerung: "Milliardeninfrastruktur mit langem Vorlauf braucht ein Instrument, das das offene Marktrisiko in einen bankfähigen Cashflow verwandelt — das eint H2-Netz und Offshore-Wind." },
+        { text: "Beide finanzieren sich vollständig über kurzfristige Spotmarkterlöse.", korrekt: false, erklaerung: "Das Gegenteil — gerade weil Spoterlöse zu unsicher wären, brauchen beide langfristige Absicherungsinstrumente." },
+        { text: "Beide sind reine Merchant-Geschäfte ohne staatliche Beteiligung.", korrekt: false, erklaerung: "Beide sind das Gegenteil von Merchant — reguliert bzw. staatlich abgesichert, um die Kapitalintensität überhaupt finanzierbar zu machen." }
+      ]
+    }
+  }
+
+});
+
 // ── Validierung (Konsole): prüft, dass alle Referenzen auflösen ──────
 (function validateLernData() {
   const errors = [];

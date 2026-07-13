@@ -13,6 +13,13 @@ const LERN_MODULES = [
     bossQuizId: null // Stage 2
   },
   {
+    id: "M3-NETZE",
+    title: "Die Netze",
+    description: "Das regulierte Geld: Wie ÜNB und VNB an Netzentgelten verdienen, was Redispatch kostet, und warum das Gasnetz um seine Zukunft ringt.",
+    unitIds: ["U3-AREGV", "U3-REDISPATCH", "U3-BILANZ", "U3-14A", "U3-BETREIB", "U3-GAS"],
+    bossQuizId: null // Stage 2
+  },
+  {
     id: "M4-VERKAUFEN",
     title: "Verkaufen",
     description: "Vollversorger, Neolieferanten, Ökostrom, Stadtwerke und Vergleichsplattformen — wie fließt das Geld beim Endkundenvertrieb?",
@@ -397,6 +404,192 @@ const LERN_UNITS = [
     merkeDirEinenSatz: {
       prompt: "Formuliere in einem Satz: Warum ist beim Batteriespeicher die Software wichtiger als die Zelle?",
       musterantwort: "Weil die Hardware austauschbar ist, aber der Optimierungsalgorithmus stündlich entscheidet, welcher Markt (FCR, Arbitrage, aFRR) mehr abwirft – schlechte Optimierung lässt 30–50% der möglichen Erlöse liegen."
+    }
+  },
+  {
+    id: "U3-AREGV",
+    moduleId: "M3-NETZE",
+    title: "ARegV — Wie man an einem Monopol reguliert Geld verdient",
+    primarySteckbriefId: "L3-UNB-NETZ-01",
+    vertiefungSteckbriefIds: ["L3-UNB-NETZ-01", "L3-VNB-KLASSISCH-01"],
+    hook: { text: "Ein Netzbetreiber hat keine Konkurrenz und kann seinen Preis trotzdem nicht frei setzen — und verdient gerade dann mehr, wenn er baut. Wer bestimmt hier die Marge?" },
+    kernidee: {
+      text: "Netzbetreiber sind natürliche Monopole — deshalb legt die BNetzA per <strong>Anreizregulierung (ARegV)</strong> eine Erlösobergrenze fest: anerkannte Kapitalkosten (eine kalkulatorische Eigenkapitalrendite auf die <strong>regulatorische Kapitalbasis / RAB</strong>) plus anerkannte Betriebskosten. Zwei Hebel treiben den Gewinn: <strong>Investieren</strong> (jeder gebaute Euro erhöht die RAB und damit den erlaubten Return über Jahrzehnte) und <strong>Effizienz</strong> (wer unter dem BNetzA-Benchmark liegt, behält die Einsparung mehrere Jahre). Kein Marktrisiko — dafür Regulierungsrisiko.",
+      geldfluss: {
+        nodes: [{ id: "kunde", label: "Netznutzer" }, { id: "netz", label: "Netzbetreiber" }, { id: "bnetza", label: "BNetzA" }],
+        edges: [
+          { from: "bnetza", to: "netz", label: "genehmigt Erlösobergrenze" },
+          { from: "kunde", to: "netz", label: "Netzentgelt = EOG / Menge" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-UNB-NETZ-01",
+      steps: [
+        { text: "TenneT/TransnetBW bauen SuedLink für ~10 Mrd. €. Jeder investierte Euro erhöht die regulatorische Kapitalbasis (RAB), auf die die BNetzA eine kalkulatorische Eigenkapitalrendite von 5,07% (Neuanlagen) zugesteht.", questionId: "Q-AREGV-WE1" },
+        { text: "Der zweite Hebel ist der Effizienzvergleich: Die BNetzA setzt per Benchmarking einen Referenzwert für die Betriebskosten.", questionId: "Q-AREGV-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-AREGV-R1", "Q-AREGV-R2", "Q-AREGV-R3", "Q-AREGV-R4", "Q-AREGV-R5"],
+    transferItemId: "Q-AREGV-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Über welche zwei Hebel steigert ein regulierter Netzbetreiber seinen Gewinn?",
+      musterantwort: "Erstens durch Investitionen (jeder Euro erhöht die RAB und damit den regulierten Return über Jahrzehnte), zweitens durch Effizienz (Betrieb unter dem BNetzA-Benchmark erlaubt es, die Einsparung mehrere Jahre zu behalten)."
+    }
+  },
+  {
+    id: "U3-REDISPATCH",
+    moduleId: "M3-NETZE",
+    title: "Redispatch — Was es kostet, wenn der Wind am falschen Ort weht",
+    primarySteckbriefId: "L3-UNB-NETZ-02",
+    vertiefungSteckbriefIds: ["L3-UNB-NETZ-02"],
+    hook: { text: "Ein Windpark wird abgeregelt, obwohl der Wind perfekt weht — und bekommt trotzdem sein Geld. Gleichzeitig fährt ein Gaskraftwerk hoch. Wer zahlt für dieses Paradox?" },
+    kernidee: {
+      text: "Wenn der Netzausbau dem EE-Zubau hinterherhinkt, entstehen <strong>Engpässe</strong>: Der ÜNB kann nicht allen erzeugten Strom durchleiten. Beim <strong>Redispatch</strong> weist er nördlich des Engpasses Erzeugung an, herunterzufahren ('Einsatz-Down', z.B. Windpark), und südlich hoch ('Einsatz-Up', z.B. Gaskraftwerk) — die Gesamteinspeisung bleibt gleich, nur der Ort verschiebt sich. Der abgeregelte Betreiber bekommt seine Ausfallarbeit erstattet, das hochgefahrene Kraftwerk seine Mehrkosten. Beides landet als <strong>sozialisierter Kostenblock</strong> in den Netzentgelten aller.",
+      geldfluss: {
+        nodes: [{ id: "wind", label: "Windpark (Nord)" }, { id: "uenb", label: "ÜNB" }, { id: "gas", label: "Gaskraftwerk (Süd)" }],
+        edges: [
+          { from: "uenb", to: "wind", label: "Einsatz-Down + Ausfallerstattung" },
+          { from: "uenb", to: "gas", label: "Einsatz-Up + Kostenerstattung" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-UNB-NETZ-02",
+      steps: [
+        { text: "Ein Windpark im 50Hertz-Gebiet meldet 100 MW an, aber eine Leitung Richtung Süden würde überlastet. 50Hertz weist den Windpark auf 60 MW herunter und ein Gaskraftwerk südlich des Engpasses auf +40 MW.", questionId: "Q-REDISPATCH-WE1" },
+        { text: "Bundesweit hat sich das Eingriffsvolumen von 4.249 GWh (2014) auf rund 22.000 GWh (2022) mehr als verfünffacht.", questionId: "Q-REDISPATCH-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-REDISPATCH-R1", "Q-REDISPATCH-R2", "Q-REDISPATCH-R3", "Q-REDISPATCH-R4"],
+    transferItemId: "Q-REDISPATCH-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum hat der ÜNB kaum finanziellen Anreiz, die Redispatch-Kosten zu minimieren?",
+      musterantwort: "Weil die Kosten vollständig über die Netzentgelte auf alle Verbraucher umgelegt (sozialisiert) werden — der ÜNB trägt sie nicht selbst, deshalb drängen Politik und Regulierer auf marktliche Alternativen."
+    }
+  },
+  {
+    id: "U3-BILANZ",
+    moduleId: "M3-NETZE",
+    title: "Bilanzkreise — Warum gute Prognose bares Geld ist",
+    primarySteckbriefId: "L3-UNB-NETZ-03",
+    vertiefungSteckbriefIds: ["L3-UNB-NETZ-03"],
+    hook: { text: "Zwei Stadtwerke verkaufen denselben Strom an ähnliche Kunden. Das eine verdient zuverlässig, das andere verliert regelmäßig Geld — der Unterschied liegt in der Wettervorhersage. Wie das?" },
+    kernidee: {
+      text: "Der Strommarkt ist über <strong>Bilanzkreise</strong> organisiert: Jeder Lieferant meldet dem ÜNB für jede Stunde, wie viel seine Kunden verbrauchen werden. Weicht der tatsächliche Verbrauch ab, entsteht <strong>Ausgleichsenergie</strong> — Unterdeckung muss teuer nachgekauft werden (Preis in Knappheitsstunden weit über Spot), Überdeckung wird nur gering vergütet. Für den ÜNB ist das ein Nullsummen-Durchleitungssystem; für den Lieferanten ist die <strong>Prognosegüte</strong> ein direkter Margenhebel.",
+      geldfluss: {
+        nodes: [{ id: "lieferant", label: "Lieferant (BKV)" }, { id: "uenb", label: "ÜNB" }],
+        edges: [
+          { from: "lieferant", to: "uenb", label: "Fahrplan (Prognose)" },
+          { from: "uenb", to: "lieferant", label: "Ausgleichsenergie bei Abweichung" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-UNB-NETZ-03",
+      steps: [
+        { text: "Ein Stadtwerk führt einen Bilanzkreis bei Amprion. Es wird kälter als prognostiziert, die Kunden verbrauchen mehr als gemeldet — eine Unterdeckung entsteht.", questionId: "Q-BILANZ-WE1" },
+        { text: "Diese Unterdeckung muss das Stadtwerk zum Ausgleichsenergiepreis decken, der in Knappheitsstunden deutlich über dem Spotpreis liegt.", questionId: "Q-BILANZ-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-BILANZ-R1", "Q-BILANZ-R2", "Q-BILANZ-R3", "Q-BILANZ-R4"],
+    transferItemId: "Q-BILANZ-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum lohnt sich für einen Lieferanten die Investition in bessere Lastprognose direkt?",
+      musterantwort: "Weil jede Abweichung zwischen gemeldetem Fahrplan und tatsächlichem Verbrauch teure Ausgleichsenergie auslöst — schon 1% Prognosefehler kann bei einem mittelgroßen Portfolio mehrere hunderttausend Euro im Jahr kosten."
+    }
+  },
+  {
+    id: "U3-14A",
+    moduleId: "M3-NETZE",
+    title: "§14a & Smart Meter — Das Netz lernt steuern statt bauen",
+    primarySteckbriefId: "L3-VNB-NEU-01",
+    vertiefungSteckbriefIds: ["L3-VNB-NEU-01", "L3-VNB-KLASSISCH-02"],
+    hook: { text: "Ein Verteilnetzbetreiber darf deine Wärmepumpe für zwei Stunden drosseln — und zahlt dir dafür bis zu 190 € im Jahr. Warum ist das für ihn ein gutes Geschäft?" },
+    kernidee: {
+      text: "Wärmepumpen und E-Auto-Wallboxen verdoppeln lokal die Netzlast. Statt jeden Trafo teuer auszubauen, darf der VNB seit 2024 per <strong>§14a EnWG</strong> solche steuerbaren Verbrauchseinrichtungen bei Engpässen temporär auf 4,2 kW dimmen (max. 2h am Stück) — der Kunde bekommt dafür einen Netzentgeltnachlass (100–190 €/Jahr). Voraussetzung ist der <strong>Smart-Meter-Rollout</strong>: Ohne Smart Meter Gateway (SMGW) keine Steuerung. Die eigentliche Marge wandert vom reinen Messen hin zu den Datenservices über dem Zähler.",
+      geldfluss: {
+        nodes: [{ id: "vnb", label: "VNB" }, { id: "kunde", label: "Kunde (WP/EV)" }],
+        edges: [
+          { from: "vnb", to: "kunde", label: "Dimmen bei Engpass + Netzentgeltnachlass" },
+          { from: "kunde", to: "vnb", label: "Flexibilität statt Trafo-Ausbau" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-VNB-NEU-01",
+      steps: [
+        { text: "Im Netze-BW-Gebiet lädt ein Haushalt um 18 Uhr mit 11 kW, während viele Nachbarn ihre Wärmepumpen hochfahren — der lokale Trafo droht zu überlasten. Der VNB dimmt die Wallbox per Steuersignal für maximal zwei Stunden auf 4,2 kW.", questionId: "Q-14A-WE1" },
+        { text: "Ein einzelner Trafo-Tausch in dieser Straße hätte 30.000–100.000 € gekostet.", questionId: "Q-14A-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-14A-R1", "Q-14A-R2", "Q-14A-R3", "Q-14A-R4"],
+    transferItemId: "Q-14A-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum ist §14a für den VNB wirtschaftlich attraktiv?",
+      musterantwort: "Weil er teuren Trafo-Ausbau (30.000–100.000 €) durch temporäres Dimmen ersetzt und die dafür nötige Steuer-Infrastruktur regulatorisch als RAB-relevantes Betriebsmittel anerkannt wird — er spart Capex und darf die Flex-Technik trotzdem verzinsen."
+    }
+  },
+  {
+    id: "U3-BETREIB",
+    moduleId: "M3-NETZE",
+    title: "Wem gehört das Netz? — Betreibermodelle & Rekommunalisierung",
+    primarySteckbriefId: "L3-VNB-BETREIB-05",
+    vertiefungSteckbriefIds: ["L3-VNB-BETREIB-01", "L3-VNB-BETREIB-05"],
+    hook: { text: "Alle 20 Jahre können Städte ihr Stromnetz zurückkaufen — und viele tun es. Was steckt hinter dieser stillen Rückabwicklung der Privatisierung?" },
+    kernidee: {
+      text: "Hinter der einheitlichen ARegV-Regulierung steht eine offene Strukturfrage: Wer hält <strong>Eigentum, Betrieb und Konzession</strong>? Beim kommunalen Eigenbetrieb bleibt der volle regulierte Return im Stadtwerke-Konzern. Die <strong>Konzession</strong> (§46 EnWG, Wegerecht fürs Netz) wird aber nur befristet (meist 20 Jahre) vergeben — läuft sie aus, kann die Kommune das Netz zurückkaufen (<strong>Rekommunalisierung</strong>), um Wertschöpfung, Gewinne und Steuerungshoheit über die Wärmewende in kommunale Hand zu holen. Jede Konzessionsrunde ist damit ein natürlicher Angriffs- und Wechselpunkt.",
+      geldfluss: {
+        nodes: [{ id: "kommune", label: "Kommune" }, { id: "netz", label: "Netz" }, { id: "return", label: "Reg. Return" }],
+        edges: [
+          { from: "kommune", to: "netz", label: "Rückkauf bei Konzessionsende" },
+          { from: "netz", to: "return", label: "RAB-Rendite bleibt kommunal" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-VNB-BETREIB-05",
+      steps: [
+        { text: "Eine Stadt lässt ihre 20-jährige Netzkonzession auslaufen und kauft das Verteilnetz vom bisherigen Betreiber zurück, statt die Konzession erneut zu vergeben.", questionId: "Q-BETREIB-WE1" },
+        { text: "Der regulierte Return auf die RAB fließt nun vollständig in den kommunalen Haushalt statt an einen externen Netzkonzern.", questionId: "Q-BETREIB-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-BETREIB-R1", "Q-BETREIB-R2", "Q-BETREIB-R3", "Q-BETREIB-R4"],
+    transferItemId: "Q-BETREIB-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Was macht das Konzessionsende (§46 EnWG) zum kritischen Moment im Netzgeschäft?",
+      musterantwort: "Weil die Konzession nur befristet (meist 20 Jahre) vergeben wird und bei Auslauf die Kommune das Netz zurückkaufen (rekommunalisieren) kann — der einzige Zeitpunkt, an dem ein sonst festes Monopol den Betreiber wechseln kann."
+    }
+  },
+  {
+    id: "U3-GAS",
+    moduleId: "M3-NETZE",
+    title: "Gasnetz & H2-Kernnetz — Stranded Asset oder Backbone der Zukunft?",
+    primarySteckbriefId: "L3-GAS-FNB-02",
+    vertiefungSteckbriefIds: ["L3-GAS-FNB-01", "L3-GAS-FNB-02"],
+    hook: { text: "Ein Netzbetreiber baut eine Milliarden-Leitung für einen Markt, den es noch gar nicht gibt — und trägt trotzdem kaum Risiko. Wie kann das sein?" },
+    kernidee: {
+      text: "Das Erdgas-Fernleitungsnetz steht vor einer <strong>Mengenerosion</strong>: Elektrifizierung (Wärmepumpen, Prozesswärme) entzieht ihm die Durchleitung, auf der die Entgeltbasis ruht — sinkende Mengen bei fixen Kosten treiben die Entgelte und beschleunigen die Abwanderung (<strong>Death Spiral</strong>). Der Ausweg ist das <strong>H2-Kernnetz</strong> (~9.040 km, 2024 genehmigt, ~60% umgewidmete Gasleitungen): Über ein staatlich abgesichertes <strong>Amortisationskonto</strong> baut der FNB die Leitung vor, bevor genügend H2-Kunden da sind — der Staat trägt das Henne-Ei-Risiko der Anlaufphase.",
+      geldfluss: {
+        nodes: [{ id: "fnb", label: "FNB" }, { id: "konto", label: "Amortisationskonto" }, { id: "kunde", label: "H2-Kunden (später)" }],
+        edges: [
+          { from: "konto", to: "fnb", label: "deckt frühe Kostenlücke (Staat)" },
+          { from: "kunde", to: "fnb", label: "H2-Netzentgelte (nach Ramp-up)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-GAS-FNB-02",
+      steps: [
+        { text: "OGE baut eine H2-Leitung, bevor genug zahlende Industriekunden angeschlossen sind — ein klassisches Henne-Ei-Problem: keine Kunden ohne Leitung, keine Leitung ohne Kunden.", questionId: "Q-GAS-WE1" },
+        { text: "Das Amortisationskonto lässt den Staat die Differenz zwischen echten Leitungskosten und den anfangs niedrigen H2-Netzentgelten vorübergehend tragen.", questionId: "Q-GAS-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-GAS-R1", "Q-GAS-R2", "Q-GAS-R3", "Q-GAS-R4"],
+    transferItemId: "Q-GAS-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Was ist die 'Death Spiral' des Gasnetzes?",
+      musterantwort: "Sinkende Durchleitungsmengen bei fixen Netzkosten treiben die Netzentgelte je Kunde nach oben, was weitere Kunden zum Ausstieg (Elektrifizierung) motiviert — ein sich selbst verstärkender Abwärtssog, der ohne H2-Repurposing im Stranded Asset endet."
     }
   },
   {

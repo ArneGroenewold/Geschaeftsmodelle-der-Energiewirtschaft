@@ -5,7 +5,7 @@
 //
 // Release-Prozedur: CACHE_NAME hochzählen, um alte Caches zu invalidieren.
 // ══════════════════════════════════════════════════════════
-const CACHE_NAME = 'lernapp-shell-v3';
+const CACHE_NAME = 'lernapp-shell-v4';
 
 const SHELL_FILES = [
   './index.html',

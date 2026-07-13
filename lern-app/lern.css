@@ -236,6 +236,22 @@ main.view{ padding:20px; max-width:640px; margin:0 auto; }
 }
 .musterantwort-box .ma-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);display:block;margin-bottom:6px}
 
+/* ── Vertiefung (Steckbrief-Lesemodus) ─────────────────── */
+.vertiefung-card{padding:16px 18px}
+.vertiefung-title{font-family:var(--font-display);font-size:19px;letter-spacing:-.4px;margin-bottom:10px}
+.vertiefung-section{border-top:1px solid var(--border);padding:10px 0}
+.vertiefung-section:first-of-type{border-top:none}
+.vertiefung-section summary{
+  font-size:13px;font-weight:700;cursor:pointer;color:var(--ink-mid);
+  list-style:none;display:flex;align-items:center;justify-content:space-between;
+  -webkit-tap-highlight-color:transparent;
+}
+.vertiefung-section summary::after{content:'+';font-size:16px;color:var(--ink-light);font-weight:400}
+.vertiefung-section[open] summary::after{content:'–'}
+.vertiefung-section summary::-webkit-details-marker{display:none}
+.vertiefung-text{font-size:13.5px;line-height:1.6;color:var(--ink);padding-top:8px}
+.vertiefung-meta-row{margin-bottom:6px}
+
 .feedback-banner{
   border-radius:var(--radius);padding:11px 14px;font-size:13px;font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:8px;
 }

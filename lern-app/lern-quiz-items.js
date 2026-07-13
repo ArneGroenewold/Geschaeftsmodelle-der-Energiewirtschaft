@@ -22,11 +22,11 @@ Object.assign(LERN_QUIZ_ITEMS, {
     id: "Q-VOLL-WE2", unitId: "U-VOLL", format: "mc", bloom: "K2",
     steckbriefIds: ["L3-VERTRIEB-VOLL-01"],
     data: {
-      frage: "Warum lohnt sich für E.ON ausgerechnet der Zusatzverkauf einer Wallbox an einen bestehenden Kunden besonders?",
+      frage: "Warum investiert E.ON massiv in Wallbox-, Wärmepumpen- und PV-Angebote für Bestandskunden, obwohl das Kerngeschäft Strom kaum Marge bringt?",
       optionen: [
-        { text: "Weil dafür kein neuer Kunde akquiriert werden muss und die Zusatzmarge die dünne Strommarge deutlich übersteigt.", korrekt: true, erklaerung: "Genau das ist der Hebel: Akquisitionskosten entfallen, die Zusatzmarge ist ein Vielfaches der 1-2 ct/kWh Strommarge." },
-        { text: "Weil Wallboxen gesetzlich an den Grundversorger gebunden sind.", korrekt: false, erklaerung: "Es gibt keine gesetzliche Bindung – Kunden können Wallboxen frei bei jedem Anbieter kaufen." },
-        { text: "Weil der Stromverbrauch durch die Wallbox die Netzentgelte des Versorgers senkt.", korrekt: false, erklaerung: "Netzentgelte gehen an den Netzbetreiber, nicht an den Versorger – sie werden durch mehr Verbrauch nicht für den Versorger günstiger." }
+        { text: "Weil beim Bestandskunden keine Akquisitionskosten anfallen und die Zusatzmarge dieser Produkte die dünne Strommarge um ein Vielfaches übersteigt.", korrekt: true, erklaerung: "Genau das ist der Cross-Selling-Hebel: Der Kunde ist schon da, und eine Wallbox oder ein PV-Pachtvertrag bringt mehr als viele Jahre Strommarge." },
+        { text: "Weil die Wallbox den Stromverbrauch des Kunden erhöht und E.ON dadurch mehr kWh-Marge verdient.", korrekt: false, erklaerung: "Klingt plausibel, greift aber zu kurz: Bei 1–2 ct/kWh bringt selbst der Mehrverbrauch eines E-Autos (~2.500 kWh/Jahr) nur ~25–50 € zusätzlich – die Gerätemarge und Vertragsbindung sind der eigentliche Hebel." },
+        { text: "Weil §41a EnWG Versorger verpflichtet, ihren Kunden Komplettlösungen für Elektromobilität anzubieten.", korrekt: false, erklaerung: "§41a verpflichtet nur zu dynamischen Tarifen, nicht zu Hardware-Angeboten – das Cross-Selling ist eine rein wirtschaftliche Entscheidung." }
       ]
     }
   },
@@ -74,9 +74,9 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Warum bleiben viele Kunden jahrelang im teureren Grundversorgungstarif (GVT), obwohl ein Sondertarif günstiger wäre?",
       optionen: [
-        { text: "Weil ein Wechsel für sie keinen erkennbaren Mehrwert verspricht und sie nie aktiv einen Vertrag abgeschlossen haben.", korrekt: true, erklaerung: "Genau das ist die 'stille' Trägheit des Grundversorgungsstatus – ohne aktiven Impuls bleiben Kunden im GVT, selbst wenn er teurer ist." },
-        { text: "Weil ein Wechsel aus dem GVT gesetzlich verboten ist.", korrekt: false, erklaerung: "Ein Wechsel ist jederzeit möglich – GPKE regelt den Prozess, es gibt kein Verbot." },
-        { text: "Weil der GVT immer der günstigste verfügbare Tarif ist.", korrekt: false, erklaerung: "Der GVT ist oft teurer als Sondertarife – er ist nur transparent kalkulierbar, nicht zwingend günstig." }
+        { text: "Weil sie nie aktiv einen Vertrag abgeschlossen haben und ein Wechsel für sie keinen erkennbaren Mehrwert verspricht – Trägheit statt Entscheidung.", korrekt: true, erklaerung: "Genau das ist die 'stille' Trägheit des Grundversorgungsstatus – ohne aktiven Impuls bleiben Kunden im GVT, selbst wenn er teurer ist." },
+        { text: "Weil der GVT als einziger Tarif eine gesetzlich garantierte Preisobergrenze bietet, die vielen Kunden Sicherheit gibt.", korrekt: false, erklaerung: "Der GVT hat keine gesetzliche Preisobergrenze – er ist nur transparent kalkulierbar (StromGVV), kann aber jederzeit angepasst werden und ist oft teurer als Sondertarife." },
+        { text: "Weil die Kündigungsfrist in der Grundversorgung mehrere Monate beträgt und einen schnellen Wechsel praktisch verhindert.", korrekt: false, erklaerung: "Das Gegenteil stimmt: Die Grundversorgung ist mit zwei Wochen Frist besonders leicht kündbar – die Hürde ist psychologisch (Trägheit), nicht vertraglich." }
       ]
     }
   },
@@ -93,6 +93,18 @@ Object.assign(LERN_QUIZ_ITEMS, {
         wettbewerb: "Vergleichsportale und Neolieferanten sorgen für sehr hohe Wettbewerbsintensität um jeden Kunden.",
         nachhaltigkeit: "Reiner Commodity-Stromverkauf ohne besonderen Nachhaltigkeitsbeitrag über den Strommix hinaus."
       }
+    }
+  },
+  "Q-VOLL-R6": {
+    id: "Q-VOLL-R6", unitId: "U-VOLL", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-VERTRIEB-VOLL-01"],
+    data: {
+      frage: "Sind 'Vollversorger' und 'Grundversorger' dasselbe?",
+      optionen: [
+        { text: "Nein – Vollversorgung beschreibt die Vertragsform (Lieferant deckt den gesamten Bedarf), Grundversorgung ist ein gesetzlicher Status nach §36 EnWG. Jeder Grundversorger ist Vollversorger, aber nicht umgekehrt.", korrekt: true, erklaerung: "Genau: Auch Tibber oder Octopus liefern 'Vollversorgung' im Vertragssinn – Grundversorger ist aber nur, wer im Netzgebiet die meisten Haushaltskunden hat und deshalb per Gesetz jeden Vertragslosen beliefern muss." },
+        { text: "Ja – beide Begriffe bezeichnen den gesetzlich bestellten Lieferanten eines Netzgebiets, nur in unterschiedlichen Gesetzen.", korrekt: false, erklaerung: "Nein – nur die Grundversorgung ist ein gesetzlicher Status (§36 EnWG). 'Vollversorgung' ist keine gesetzliche Bestellung, sondern beschreibt lediglich, dass der Lieferant den kompletten Bedarf des Kunden deckt." },
+        { text: "Nein – Vollversorger beliefern Haushalte, Grundversorger ausschließlich Gewerbe- und Industriekunden.", korrekt: false, erklaerung: "Umgekehrt wird ein Schuh draus: Die Grundversorgung gilt gerade für Haushaltskunden (in Niederspannung); Industriekunden mit strukturierter Beschaffung sind das klassische Gegenbeispiel zur Vollversorgung." }
+      ]
     }
   },
   "Q-VOLL-T1": {
@@ -113,11 +125,11 @@ Object.assign(LERN_QUIZ_ITEMS, {
     id: "Q-TIBBER-WE1", unitId: "U-TIBBER", format: "mc", bloom: "K2",
     steckbriefIds: ["L3-VERTRIEB-NEO-01"],
     data: {
-      frage: "Warum verschiebt die Tibber-App das Laden des E-Autos ausgerechnet in die Nachtstunden?",
+      frage: "Die App wählt für das E-Auto-Laden meist Stunden tief in der Nacht. Was ist der Grund?",
       optionen: [
-        { text: "Weil dort die Strompreise an der Börse meist am niedrigsten sind – oft wegen hohem Windstromanteil bei geringer Nachfrage.", korrekt: true, erklaerung: "Genau – niedrige Nachfrage und viel Windstrom drücken den Spotpreis in der Nacht meist deutlich." },
-        { text: "Weil Tibber nachts eine höhere eigene Marge auf den Strompreis aufschlägt.", korrekt: false, erklaerung: "Tibber schlägt zu keiner Uhrzeit eine Marge auf den Strompreis auf – der Spotpreis wird 1:1 durchgereicht." },
-        { text: "Weil das Nachtladen gesetzlich vorgeschrieben ist.", korrekt: false, erklaerung: "Es gibt keine gesetzliche Nachtlade-Pflicht – die Optimierung ist rein wirtschaftlich durch die App gesteuert." }
+        { text: "Der Börsen-Spotpreis ist nachts meist am niedrigsten – geringe Nachfrage trifft oft auf hohen Windstromanteil.", korrekt: true, erklaerung: "Genau – niedrige Nachfrage und viel Windstrom drücken den Spotpreis in der Nacht meist deutlich. Die App optimiert rein auf den stündlichen Preis." },
+        { text: "Nachts gelten niedrigere Netzentgelte, die den Strompreis für den Kunden senken.", korrekt: false, erklaerung: "Plausibel klingend, aber falsch: Netzentgelte sind (noch) zeitunabhängig fix – die Ersparnis kommt allein aus dem schwankenden Börsenpreis. Zeitvariable Netzentgelte (§14a) sind erst im Kommen." },
+        { text: "Tibber kauft nachts größere Strommengen im Voraus ein und gibt den Mengenrabatt weiter.", korrekt: false, erklaerung: "Tibber kauft nicht auf Vorrat mit Rabatt – der stündliche EPEX-Spotpreis wird 1:1 ohne Aufschlag oder Abschlag durchgereicht." }
       ]
     }
   },
@@ -172,11 +184,11 @@ Object.assign(LERN_QUIZ_ITEMS, {
     id: "Q-TIBBER-R4", unitId: "U-TIBBER", format: "mc", bloom: "K3",
     steckbriefIds: ["L3-VERTRIEB-NEO-01"],
     data: {
-      frage: "Warum schmilzt Tibbers regulatorischer Vorsprung durch §41a langfristig?",
+      frage: "§41a EnWG validiert Tibbers Modell – warum ist derselbe Paragraph zugleich eine Bedrohung für Tibber?",
       optionen: [
-        { text: "Weil dynamische Tarife zur Pflicht für alle Lieferanten werden – auch Stadtwerke und Vollversorger können sie dann anbieten.", korrekt: true, erklaerung: "Genau das beschreibt die Angreifbarkeit: Der Vorsprung war ein First-Mover-Vorteil, der durch die Pflicht für alle verschwindet." },
-        { text: "Weil Tibber die Lizenz für dynamische Tarife verliert.", korrekt: false, erklaerung: "Es gibt keine Lizenzbeschränkung für dynamische Tarife, die Tibber verlieren könnte." },
-        { text: "Weil die EPEX-Börse dynamische Tarife verbietet.", korrekt: false, erklaerung: "Die Strombörse verbietet keine Tarifform – sie ist im Gegenteil die Grundlage für dynamische Preise." }
+        { text: "Weil dynamische Tarife zur Pflicht für alle Lieferanten werden – Stadtwerke und Vollversorger können das einstige Alleinstellungsmerkmal dann mit ihrer bestehenden Kundenbasis bündeln.", korrekt: true, erklaerung: "Genau das beschreibt die Angreifbarkeit: Der First-Mover-Vorteil verschwindet, wenn das Produkt zur Pflichtausstattung wird – verteidigungsfähig bleiben nur App-Qualität und Ökosystem." },
+        { text: "Weil §41a Höchstgrenzen für Grundgebühren einführt, die Tibbers Abo-Modell direkt begrenzen.", korrekt: false, erklaerung: "§41a regelt keine Grundgebühren-Obergrenzen – er verpflichtet Lieferanten lediglich, dynamische Tarife anzubieten." },
+        { text: "Weil §41a die Weitergabe stündlicher Börsenpreise an Haushaltskunden an strenge Risikoprüfungen knüpft, die Tibbers Kostenvorteil auffressen.", korrekt: false, erklaerung: "Solche Risikoprüfungen sieht §41a nicht vor – die Bedrohung liegt nicht in Auflagen für Tibber, sondern darin, dass alle Wettbewerber dasselbe Produkt anbieten müssen." }
       ]
     }
   },
@@ -185,15 +197,25 @@ Object.assign(LERN_QUIZ_ITEMS, {
     steckbriefIds: ["L3-VERTRIEB-NEO-01", "L3-VERTRIEB-NEO-03"],
     data: { steckbriefId: "L3-VERTRIEB-NEO-01", distraktorSteckbriefId: "L3-VERTRIEB-NEO-03" }
   },
+  "Q-TIBBER-R6": {
+    id: "Q-TIBBER-R6", unitId: "U-TIBBER", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-VERTRIEB-NEO-01"],
+    data: {
+      szenario: "Ein Tibber-Kunde kündigt nach genau 12 Monaten. Die Akquise hatte 100 € gekostet (CAC), das Abo bringt 5,99 €/Monat. Wie viel Verlust macht Tibber mit diesem Kunden (in €, gerundet)? Und ab welchem Monat wäre der Kunde profitabel geworden?",
+      eingabefelder: [{ key: "verlust", label: "Verlust mit diesem Kunden", einheit: "€" }, { key: "breakeven", label: "Breakeven ab Monat", einheit: "" }],
+      loesung: { verlust: { wert: 28, toleranz: 3 }, breakeven: { wert: 17, toleranz: 1 } },
+      rechenweg: ["Erlös in 12 Monaten = 12 × 5,99 € = 71,88 €.", "Verlust = 100 € CAC − 71,88 € ≈ 28 €.", "Breakeven: 100 € ÷ 5,99 €/Monat ≈ 16,7 → ab dem 17. Monat ist der Kunde profitabel.", "Genau deshalb ist niedriger Churn für Tibber überlebenswichtig: Jeder Kunde, der vor Monat 17 geht, ist ein Verlustgeschäft."]
+    }
+  },
   "Q-TIBBER-T1": {
     id: "Q-TIBBER-T1", unitId: "U-TIBBER", format: "mc", bloom: "K4",
     steckbriefIds: ["L3-VERTRIEB-NEO-01", "L3-VERTRIEB-VOLL-01"],
     data: {
       frage: "Ein klassischer Vollversorger überlegt, kurzfristig ein eigenes Tibber-ähnliches Abo-Produkt zu launchen. Was aus der Vollversorger-Lerneinheit erklärt, warum das nicht über Nacht gelingt?",
       optionen: [
-        { text: "Der Vollversorger müsste seine IT-Altlasten (z.B. SAP IS-U) durch eine Architektur ersetzen, die stündliche Abrechnung und Automatisierung überhaupt technisch kann.", korrekt: true, erklaerung: "Genau das wurde in der Vollversorger-Einheit als Herausforderung genannt: IT-Legacy erfordert eine teure Migration, bevor dynamische Tarife überhaupt möglich sind." },
-        { text: "Der Vollversorger darf laut EnWG keine Abo-Modelle anbieten.", korrekt: false, erklaerung: "Es gibt kein gesetzliches Verbot von Abo-Modellen für Vollversorger." },
-        { text: "Der Vollversorger hat keine Kunden mit Smart Metern und kann deshalb nie ein solches Produkt anbieten.", korrekt: false, erklaerung: "Der Smart-Meter-Rollout betrifft alle Versorger gleichermaßen und schreitet voran – das ist eine zeitliche, keine dauerhafte Hürde." }
+        { text: "Der Vollversorger müsste seine IT-Altlasten (z.B. SAP IS-U) durch eine Architektur ersetzen, die stündliche Abrechnung und Automatisierung überhaupt technisch kann.", korrekt: true, erklaerung: "Genau das wurde in der Vollversorger-Einheit als Herausforderung genannt: IT-Legacy erfordert eine teure, mehrjährige Migration, bevor dynamische Tarife im Massengeschäft überhaupt möglich sind." },
+        { text: "Ein Abo-Produkt würde die bestehende kWh-Marge des Vollversorgers kannibalisieren – das kann er sich wirtschaftlich nicht leisten.", korrekt: false, erklaerung: "Kannibalisierung ist ein reales strategisches Dilemma, aber kein technisches Hindernis – und bei 0,5–2 ct/kWh Marge ist wenig zu kannibalisieren. Die harte Hürde ist die IT-Architektur." },
+        { text: "Tibbers App-Funktionen sind patentrechtlich geschützt und dürfen nicht nachgebaut werden.", korrekt: false, erklaerung: "Dynamische Tarife und Ladeoptimierung sind nicht patentgeschützt – der Schutz liegt in Ausführung, UX und Ökosystem, nicht in Schutzrechten." }
       ]
     }
   },
@@ -215,11 +237,11 @@ Object.assign(LERN_QUIZ_ITEMS, {
     id: "Q-TRANSPARENZ-WE2", unitId: "U-TRANSPARENZ", format: "mc", bloom: "K2",
     steckbriefIds: ["L3-VERTRIEB-NEO-03"],
     data: {
-      frage: "Warum liegt Ostroms Kündigungsquote bei nur ~5%/Jahr, obwohl der Tarif im direkten Vergleich mit einem Lockangebot oft teurer wirkt?",
+      frage: "Wie erklärt sich Ostroms Kündigungsquote von nur ~5%/Jahr, obwohl der Tarif im Portalvergleich oft teurer wirkt als Lockangebote?",
       optionen: [
-        { text: "Kunden, die einmal die transparente Preislogik verstanden haben, lassen sich kaum noch von einem neuen Lockangebot eines anderen Anbieters überzeugen.", korrekt: true, erklaerung: "Das ist Ostroms zentrale Vertrauens-These: Verständnis der Preisbildung erzeugt Loyalität, die Lockangebote nicht brechen können." },
-        { text: "Ostrom verlangt eine mehrjährige Mindestvertragslaufzeit.", korrekt: false, erklaerung: "Ostrom wirbt explizit mit dem Verzicht auf Lockangebote UND Vertragsbindung – die niedrige Kündigungsquote kommt aus Vertrauen, nicht aus Zwang." },
-        { text: "Ostrom ist gesetzlich vor Kündigungen geschützt.", korrekt: false, erklaerung: "Es gibt keinen gesetzlichen Kündigungsschutz für Energielieferanten." }
+        { text: "Kunden, die die transparente Preislogik einmal verstanden haben, durchschauen auch die Lockangebots-Mechanik anderer Anbieter – und wechseln deshalb nicht mehr.", korrekt: true, erklaerung: "Das ist Ostroms zentrale Vertrauens-These: Verständnis der Preisbildung erzeugt eine Loyalität, die ein kurzfristiger Bonuspreis nicht brechen kann." },
+        { text: "Ostroms Tarif ist über die Vertragslaufzeit gerechnet fast immer der objektiv günstigste – Kunden bleiben aus reinem Preisvorteil.", korrekt: false, erklaerung: "Nein, Ostrom kommuniziert selbst 'Wir sind nicht der günstigste – aber immer fair.' Die Bindung entsteht aus Vertrauen und Verständnis, nicht aus garantierter Preisführerschaft." },
+        { text: "Ostrom-Kunden erhalten einen jährlich wachsenden Treuebonus, der bei Kündigung verfällt.", korrekt: false, erklaerung: "Ostrom arbeitet gerade ohne Boni jeder Art – das ist der Kern der Positionierung. Es gibt keinen Treuebonus als Lock-in-Mechanismus." }
       ]
     }
   },
@@ -254,9 +276,9 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Warum ist 'Transparenz' laut Angreifbarkeits-Analyse kein dauerhaft verteidigungsfähiger Wettbewerbsvorteil für Ostrom?",
       optionen: [
-        { text: "Ein offen ausgewiesener Kostenaufschlag lässt sich von jedem Wettbewerber genauso leicht kopieren oder unterbieten.", korrekt: true, erklaerung: "Transparenz ist ein Kommunikationsversprechen, kein technischer oder rechtlicher Schutzwall – jeder Wettbewerber kann dieselbe Offenlegung anbieten." },
-        { text: "Transparenz ist inzwischen gesetzlich nur noch Ostrom erlaubt.", korrekt: false, erklaerung: "Es gibt kein Exklusivrecht auf transparente Preisausweisung – im Gegenteil, EU-Regulierung fördert sie für alle Anbieter." },
-        { text: "Ostrom hat inzwischen sein transparentes Preismodell aufgegeben.", korrekt: false, erklaerung: "Ostrom hält weiterhin an seinem transparenten Preismodell fest – die Angreifbarkeit liegt in der fehlenden Kopierschutzwirkung, nicht in einer Modelländerung." }
+        { text: "Ein offen ausgewiesener Kostenaufschlag lässt sich von jedem Wettbewerber kopieren oder unterbieten – und ohne Hardware-Ökosystem fehlt das Lock-in.", korrekt: true, erklaerung: "Transparenz ist ein Kommunikationsversprechen, kein struktureller Schutzwall – die Nische 'ehrlich und einfach' muss über Marke verteidigt werden, nicht über Mechanik." },
+        { text: "Weil Kunden Transparenz in der Praxis nicht honorieren und am Ende doch nur auf den Endpreis schauen.", korrekt: false, erklaerung: "Ostroms sehr niedriger Churn (~5%/Jahr) zeigt, dass die Zielgruppe Transparenz durchaus honoriert – das Problem ist nicht die Nachfrage, sondern die Kopierbarkeit des Versprechens." },
+        { text: "Weil die EU-Preistransparenz-Vorgaben Ostroms Modell zum Marktstandard machen und damit den Aufpreis dafür verbieten.", korrekt: false, erklaerung: "EU-Vorgaben schieben den Markt zwar in Richtung Transparenz, verbieten aber keinen Aufschlag – die Bedrohung ist Nachahmung durch Wettbewerber, kein regulatorisches Verbot." }
       ]
     }
   },
@@ -293,11 +315,11 @@ Object.assign(LERN_QUIZ_ITEMS, {
     id: "Q-OCTOPUS-WE1", unitId: "U-OCTOPUS", format: "mc", bloom: "K2",
     steckbriefIds: ["L3-VERTRIEB-NEO-05"],
     data: {
-      frage: "Warum kann ein Octopus-Service-Agent ein Vielfaches der Kunden betreuen, die bei einem klassischen Versorger auf einen Sachbearbeiter kommen?",
+      frage: "Was bedeutet dieser IT-Unterschied für die Produktivität eines Octopus-Service-Agents im Vergleich zum Sachbearbeiter eines Incumbents?",
       optionen: [
-        { text: "Weil Kraken Standardprozesse wie Umzug/Zählerwechsel als einen durchgängigen, automatisierten Vorgang abbildet statt vieler manueller Schritte in getrennten Systemen.", korrekt: true, erklaerung: "Genau das ist der Kern des Kostenvorteils: Prozessautomatisierung statt Alt-IT-Fragmentierung." },
-        { text: "Weil Octopus in Deutschland weniger Kunden hat als die Konkurrenz.", korrekt: false, erklaerung: "Das Gegenteil ist der Fall – Octopus ist in Deutschland stark gewachsen (>1 Mio. Kunden seit Sept. 2025)." },
-        { text: "Weil Octopus den Kundenservice komplett outsourct.", korrekt: false, erklaerung: "Der Effizienzgewinn kommt aus der eigenen Kraken-Plattform, nicht aus Outsourcing." }
+        { text: "Der Agent muss Standardfälle kaum noch anfassen, weil Kraken sie durchgängig automatisiert – er betreut dadurch ein Vielfaches der Kunden.", korrekt: true, erklaerung: "Genau das ist der Kern des Kostenvorteils: Der Agent greift nur im Ausnahmefall ein, statt jeden Vorgang manuell durch mehrere Systeme zu tragen." },
+        { text: "Der Agent arbeitet schneller, weil Kraken ihm alle Kundendaten auf einer einzigen Bildschirmmaske anzeigt – die Bearbeitung selbst bleibt aber manuell.", korrekt: false, erklaerung: "Eine einheitliche Oberfläche allein wäre nur ein kleiner Effizienzgewinn – der eigentliche Hebel ist, dass Kraken Standardvorgänge komplett automatisch abwickelt, ohne dass ein Mensch sie bearbeitet." },
+        { text: "Octopus verlagert Standardfälle in ein günstigeres Offshore-Servicecenter, während der Incumbent teure lokale Sachbearbeiter einsetzt.", korrekt: false, erklaerung: "Der Kostenvorteil kommt aus der Plattform-Automatisierung, nicht aus Verlagerung – Octopus wirbt im Gegenteil mit persönlichem Support-Ton ('Octopus-Kultur')." }
       ]
     }
   },
@@ -305,11 +327,11 @@ Object.assign(LERN_QUIZ_ITEMS, {
     id: "Q-OCTOPUS-WE2", unitId: "U-OCTOPUS", format: "mc", bloom: "K3",
     steckbriefIds: ["L3-VERTRIEB-NEO-05"],
     data: {
-      frage: "Was macht Octopus mit den durch Kraken eingesparten Betriebskosten strategisch?",
+      frage: "Wie hängen der Kostenvorteil durch Kraken und das Verdopplungswachstum in Deutschland strategisch zusammen?",
       optionen: [
-        { text: "Investiert sie in aggressivere Tarife, die trotzdem dieselbe Marge tragen wie teurere Angebote der Konkurrenz.", korrekt: true, erklaerung: "Das ist das Flywheel: niedrigere Kosten -> aggressivere Preise -> mehr Wachstum -> mehr Skaleneffekte." },
-        { text: "Zahlt sie vollständig als Dividende an Aktionäre aus.", korrekt: false, erklaerung: "Der Steckbrief beschreibt eine Wachstumsstrategie über Preisaggressivität, nicht eine Dividendenstrategie." },
-        { text: "Investiert sie ausschließlich in TV-Werbung.", korrekt: false, erklaerung: "Die Differenzierung liegt im Kostenvorteil und in Bundles, nicht primär in Werbeausgaben." }
+        { text: "Die eingesparten Betriebskosten fließen in aggressivere Tarife, die trotzdem Marge tragen – das Wachstum verstärkt wiederum die Skaleneffekte (Flywheel).", korrekt: true, erklaerung: "Genau diese Selbstverstärkung ist der Kern: niedrigere Kosten → bessere Preise → mehr Kunden → noch niedrigere Stückkosten." },
+        { text: "Die Kraken-Lizenzerlöse von Wettbewerbern subventionieren die deutschen Kampftarife quer.", korrekt: false, erklaerung: "Plausibel, aber nicht die beschriebene Mechanik: Der deutsche Preisvorteil kommt aus den eigenen niedrigen Betriebskosten je Kunde, nicht aus einer Quersubvention durch Lizenzgeschäft." },
+        { text: "Octopus kauft mit den Einsparungen kleinere Wettbewerber samt Kundenbestand auf – das erklärt die Verdopplung.", korrekt: false, erklaerung: "Das deutsche Wachstum war organisch über Preis und Produkt, keine Übernahme-Serie – die Verdopplung binnen zwölf Monaten kam aus Neuakquise." }
       ]
     }
   },
@@ -319,9 +341,9 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Was passiert Mitte 2026 mit der Kraken-Plattform?",
       optionen: [
-        { text: "Sie wird als eigenständiges Unternehmen abgespalten (Bewertung ~8,65 Mrd. $), Octopus Retail bleibt Ankerkunde mit Restbeteiligung.", korrekt: true, erklaerung: "Der Kraken-Spin-off zeigt, dass der Unternehmenswert stärker in der Software als im Energievertrieb liegt." },
-        { text: "Sie wird eingestellt, weil sie zu teuer im Betrieb ist.", korrekt: false, erklaerung: "Im Gegenteil – Kraken wird als eigenständiges, hochbewertetes Unternehmen abgespalten, nicht eingestellt." },
-        { text: "Sie wird exklusiv nur noch für Octopus selbst genutzt, nicht mehr lizenziert.", korrekt: false, erklaerung: "Kraken wird bereits an mehrere Wettbewerber (EDF, E.ON Next, Origin, Tokyo Gas) lizenziert und bleibt das auch nach dem Spin-off." }
+        { text: "Sie wird als eigenständiges Unternehmen abgespalten (Bewertung ~8,65 Mrd. $), Octopus Retail bleibt Ankerkunde mit Restbeteiligung.", korrekt: true, erklaerung: "Der Kraken-Spin-off zeigt, dass der Unternehmenswert stärker in der Software als im Energievertrieb liegt – ein Signal Richtung Plattform-Ökonomie für den gesamten Retail-Markt." },
+        { text: "Sie wird mehrheitlich an E.ON verkauft, das Kraken bereits für Millionen eigener Kunden nutzt.", korrekt: false, erklaerung: "E.ON Next ist zwar ein großer Kraken-Lizenznehmer (in UK), aber es gibt keinen Verkauf an E.ON – Kraken wird als unabhängiges Unternehmen abgespalten." },
+        { text: "Die Lizenzierung an Wettbewerber wird beendet, um den eigenen Kostenvorteil nicht länger zu verkaufen.", korrekt: false, erklaerung: "Das Gegenteil: Der Spin-off macht die Lizenzierung an Dritte gerade zum Hauptgeschäft – die 'eigene Waffe' wird bewusst zur Ware." }
       ]
     }
   },
@@ -386,11 +408,11 @@ Object.assign(LERN_QUIZ_ITEMS, {
     id: "Q-IMPACT-WE2", unitId: "U-IMPACT", format: "mc", bloom: "K2",
     steckbriefIds: ["L3-VERTRIEB-NEO-02"],
     data: {
-      frage: "Warum kann ein Konzern-Ökotarif mit HKN-Zertifikaten aus einem 30 Jahre alten norwegischen Wasserkraftwerk keine 'neue' Klimawirkung nachweisen?",
+      frage: "Was ist der inhaltliche Kern des Vorwurfs an HKN-basierte Konzern-Ökotarife?",
       optionen: [
-        { text: "Weil das Wasserkraftwerk ohnehin schon längst gebaut und abgeschrieben ist – der Zertifikatskauf finanziert keine zusätzliche Erzeugung oder neues Projekt.", korrekt: true, erklaerung: "Genau das ist der 'Zusätzlichkeits'-Einwand: Ohne neue Investition entsteht keine zusätzliche Klimawirkung." },
-        { text: "Weil norwegischer Strom physikalisch nicht nach Deutschland fließen kann.", korrekt: false, erklaerung: "Das Stromnetz ist europäisch verbunden – die physikalische Herkunft ist ohnehin nicht das Kernproblem, sondern die fehlende Zusätzlichkeit." },
-        { text: "Weil HKN-Zertifikate gesetzlich verboten sind.", korrekt: false, erklaerung: "HKN-Zertifikate sind ein legales, etabliertes System (RECS) – der Kritikpunkt ist inhaltlich, nicht rechtlich." }
+        { text: "Das Wasserkraftwerk ist längst gebaut und abgeschrieben – der Zertifikatskauf löst keine einzige zusätzliche grüne Kilowattstunde und kein neues Projekt aus.", korrekt: true, erklaerung: "Genau das ist der 'Zusätzlichkeits'-Einwand: Ohne neue Investition entsteht keine neue Klimawirkung, nur eine buchhalterische Umetikettierung bestehender Erzeugung." },
+        { text: "Norwegischer Wasserkraftstrom hat eine schlechtere CO₂-Bilanz als deutscher Windstrom, was die Ökobilanz des Tarifs verfälscht.", korrekt: false, erklaerung: "Wasserkraft ist CO₂-arm – das Problem ist nicht die Emissionsbilanz der Anlage, sondern dass der Zertifikatskauf nichts Neues bewirkt (fehlende Zusätzlichkeit)." },
+        { text: "HKN dürfen rechtlich nur innerhalb des Erzeugungslandes verwendet werden – der grenzüberschreitende Handel ist eine Grauzone.", korrekt: false, erklaerung: "Der europaweite HKN-Handel ist ausdrücklich legal und standardisiert (RECS) – der Kritikpunkt ist inhaltlich (Greenwashing-Verdacht), nicht rechtlich." }
       ]
     }
   },
@@ -400,9 +422,9 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Was unterscheidet Naturstroms Beschaffung strukturell von einem Konzern-Ökotarif?",
       optionen: [
-        { text: "Direktlieferverträge ausschließlich mit maximal 10 Jahre alten EE-Anlagen statt HKN-Zukauf von Altanlagen.", korrekt: true, erklaerung: "Das ist Naturstroms strengster Qualitätsstandard, der große Versorger strukturell ausschließt." },
-        { text: "Naturstrom liefert ausschließlich Strom aus dem Ausland.", korrekt: false, erklaerung: "Im Gegenteil – der Fokus liegt gerade auf deutschen bzw. europäischen Neuanlagen mit Zusätzlichkeit." },
-        { text: "Naturstrom garantiert einen niedrigeren Preis als jeder Konzerntarif.", korrekt: false, erklaerung: "Naturstrom positioniert sich als Premium-Anbieter mit Glaubwürdigkeitsprämie, nicht als Billiganbieter." }
+        { text: "Direktlieferverträge ausschließlich mit maximal 10 Jahre alten EE-Anlagen statt HKN-Zukauf von Altanlagen – plus Konzernunabhängigkeit ohne Atom/Kohle im Mutterkonzern.", korrekt: true, erklaerung: "Diese Kriterien schließen alle großen Versorger strukturell aus – kein Konzern mit Kohle-Vergangenheit kann sie erfüllen." },
+        { text: "Naturstrom betreibt alle seine Erzeugungsanlagen selbst, während Konzerne den Strom nur einkaufen.", korrekt: false, erklaerung: "Naturstrom arbeitet primär über Direktlieferverträge mit fremden Neuanlagen, nicht über vollständigen Eigenbesitz – der Unterschied liegt im Beschaffungsmechanismus, nicht im Eigentum." },
+        { text: "Naturstrom speist seinen Strom in ein physisch getrenntes Ökostromnetz ein, sodass Kunden garantiert grünen Strom aus der Steckdose beziehen.", korrekt: false, erklaerung: "Ein getrenntes Netz gibt es nicht – physikalisch bekommt jeder den gleichen Netzmix. Der Unterschied ist vertraglich (Beschaffung), nicht physikalisch." }
       ]
     }
   },
@@ -464,11 +486,11 @@ Object.assign(LERN_QUIZ_ITEMS, {
     id: "Q-STADTWERK-WE1", unitId: "U-STADTWERK", format: "mc", bloom: "K1",
     steckbriefIds: ["L3-VERTRIEB-STADTWERK-01"],
     data: {
-      frage: "Was genau erlaubt §4 Abs. 6 KStG einem Stadtwerk wie SWM?",
+      frage: "Was genau erlaubt §4 Abs. 6 KStG einem Stadtwerk wie SWM – und was hätte ein privates Unternehmen so nicht?",
       optionen: [
-        { text: "Steuerliche Verrechnung von Gewinnen aus profitablen Sparten (Strom-/Gas-/Wärmenetz) mit Verlusten aus dem ÖPNV innerhalb desselben Konzerns.", korrekt: true, erklaerung: "Das ist der Kern des Querverbunds – eine Möglichkeit, die ein eigenständiges privates ÖPNV-Unternehmen so nicht hätte." },
-        { text: "Eine Befreiung von der Umsatzsteuer auf Fernwärme.", korrekt: false, erklaerung: "§4 Abs. 6 KStG betrifft die körperschaftsteuerliche Verlustverrechnung zwischen Sparten, nicht die Umsatzsteuer." },
-        { text: "Ein Monopol auf den lokalen ÖPNV-Betrieb.", korrekt: false, erklaerung: "Der Paragraph regelt eine steuerliche Verrechnungsmöglichkeit, kein Marktzugangsmonopol." }
+        { text: "Die steuerliche Verrechnung von Gewinnen aus profitablen Sparten mit ÖPNV-Verlusten innerhalb desselben Konzerns – ein eigenständiges privates ÖPNV-Unternehmen könnte seine Verluste nicht mit branchenfremden Gewinnen verrechnen.", korrekt: true, erklaerung: "Das ist der Kern des Querverbunds: eine steuerliche Sonderstellung kommunaler Mehrsparten-Unternehmen." },
+        { text: "Einen staatlichen Verlustausgleich: Der Bund erstattet kommunalen Unternehmen die ÖPNV-Defizite aus Steuermitteln.", korrekt: false, erklaerung: "§4 Abs. 6 KStG ist keine Subvention – es fließt kein Geld vom Staat. Er erlaubt nur, dass Gewinne und Verluste verschiedener Sparten steuerlich saldiert werden." },
+        { text: "Eine reduzierte Konzessionsabgabe für Stadtwerke, die gleichzeitig den ÖPNV betreiben.", korrekt: false, erklaerung: "Konzessionsabgaben sind ein anderes Instrument (Zahlung an die Kommune für Wegerechte) – §4 Abs. 6 KStG regelt ausschließlich die körperschaftsteuerliche Verlustverrechnung." }
       ]
     }
   },
@@ -490,9 +512,9 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Wie lange dauern typische Kundenbeziehungen bei Stadtwerken laut Steckbrief?",
       optionen: [
-        { text: "30-50 Jahre, geprägt durch kommunale Identität.", korrekt: true, erklaerung: "Diese sehr lange Bindungsdauer ist strukturell einzigartig gegenüber bundesweiten Vollversorgern oder Neolieferanten." },
-        { text: "1-2 Jahre, ähnlich wie bei Neolieferanten.", korrekt: false, erklaerung: "Das Gegenteil ist der Fall – Stadtwerke-Kundenbeziehungen sind besonders langfristig und stabil." },
-        { text: "Es gibt keine Kundenbindung, da alle Kunden gesetzlich jährlich neu zugeteilt werden.", korrekt: false, erklaerung: "Es gibt keine gesetzliche Neuzuteilung – die lange Bindung entsteht aus kommunaler Identität und Vertrauen." }
+        { text: "30-50 Jahre, geprägt durch kommunale Identität und Vertrauen.", korrekt: true, erklaerung: "Diese sehr lange Bindungsdauer ist strukturell einzigartig gegenüber bundesweiten Vollversorgern oder Neolieferanten." },
+        { text: "10-15 Jahre, entsprechend der Laufzeit der Konzessionsverträge mit der Kommune.", korrekt: false, erklaerung: "Vorsicht, Verwechslung: Konzessionsverträge (Wegerechte fürs Netz, §46 EnWG, meist 20 Jahre) regeln das Netz, nicht die Vertriebskundenbeziehung – die hält mit 30-50 Jahren sogar länger." },
+        { text: "5-8 Jahre – länger als bei Discountern, aber die Energiekrise hat auch Stadtwerke-Kunden wechselwillig gemacht.", korrekt: false, erklaerung: "Die Krise hat die Wechselquote zwar zeitweise erhöht, aber die typische Stadtwerke-Kundenbeziehung ist mit 30-50 Jahren deutlich länger – oft über Generationen." }
       ]
     }
   },
@@ -518,11 +540,11 @@ Object.assign(LERN_QUIZ_ITEMS, {
     id: "Q-STADTWERK-R4", unitId: "U-STADTWERK", format: "mc", bloom: "K3",
     steckbriefIds: ["L3-VERTRIEB-STADTWERK-01"],
     data: {
-      frage: "Was greift laut Angreifbarkeits-Analyse gezielt die träge, loyale Stadtwerke-Kundenbasis an?",
+      frage: "Was macht das 'Rosinenpicken' durch Neolieferanten für Stadtwerke so gefährlich, obwohl die meisten Kunden gar nicht wechseln?",
       optionen: [
-        { text: "Vergleichsportale und Neolieferanten picken die wechselwilligen, margenstärksten Kunden heraus ('Rosinenpicken').", korrekt: true, erklaerung: "Genau das beschreibt die Angreifbarkeit – die stabile Basis bleibt zwar meist treu, aber die margenstärksten, wechselwilligen Kunden werden gezielt abgeworben." },
-        { text: "Der Bund verbietet Stadtwerken den Betrieb von Wärmenetzen.", korrekt: false, erklaerung: "Es gibt kein solches Verbot – im Gegenteil, Wärmenetze werden als wachsendes Alleinstellungsmerkmal genannt." },
-        { text: "Stadtwerke verlieren automatisch ihre Konzession nach 10 Jahren.", korrekt: false, erklaerung: "Konzessionslaufzeiten sind länger und nicht der im Steckbrief genannte Angriffsvektor." }
+        { text: "Es gehen gezielt die margenstärksten, digitalaffinen Kunden verloren – zurück bleibt eine alternde Basis, während ÖPNV-Defizite weiter aus der schrumpfenden Energiemarge finanziert werden müssen.", korrekt: true, erklaerung: "Genau diese Asymmetrie ist das Problem: Der Querverbund trägt nur, solange die Energiemarge die Verluste deckt – und die wandert selektiv ab." },
+        { text: "Jeder gewechselte Kunde erhöht automatisch die Netzentgelte der verbleibenden Kunden, was eine Abwärtsspirale auslöst.", korrekt: false, erklaerung: "Der Lieferantenwechsel ändert nichts an den Netzentgelten – das Netzgeschäft (reguliert) bleibt vom Vertriebswettbewerb unberührt. Die Gefahr liegt in der Vertriebsmarge." },
+        { text: "Neolieferanten übernehmen mit den Kunden auch anteilig die Konzessionsrechte am Verteilnetz.", korrekt: false, erklaerung: "Konzessionen für das Netz sind vom Vertrieb völlig getrennt (Unbundling) – ein Lieferantenwechsel berührt keinerlei Netzrechte." }
       ]
     }
   },
@@ -544,11 +566,11 @@ Object.assign(LERN_QUIZ_ITEMS, {
     id: "Q-VERGLEICH-WE1", unitId: "U-VERGLEICH", format: "mc", bloom: "K2",
     steckbriefIds: ["L3-VERGL-B2C-01"],
     data: {
-      frage: "Wonach richtet sich in erster Linie, welche Tarife ein Vergleichsportal einem Nutzer prominent anzeigt?",
+      frage: "Der Kunde hält die Liste für einen neutralen Marktvergleich. Was stimmt daran nicht ganz?",
       optionen: [
-        { text: "Vor allem nach bestehenden Provisionsvereinbarungen mit Lieferanten – eine höhere CPA-Rate kann zu besserer Platzierung führen.", korrekt: true, erklaerung: "Genau das ist der im Steckbrief beschriebene Mechanismus: Sichtbarkeit ist teilweise käuflich, unabhängig vom zugrunde liegenden Tarif." },
-        { text: "Ausschließlich nach dem niedrigsten Gesamtpreis über alle am Markt verfügbaren Tarife.", korrekt: false, erklaerung: "Das wäre ein rein neutraler Vergleich – tatsächlich beeinflusst die Provisionshöhe die Platzierung mit." },
-        { text: "Nach dem CO₂-Fußabdruck des jeweiligen Tarifs.", korrekt: false, erklaerung: "Nachhaltigkeit ist kein primäres Ranking-Kriterium der beschriebenen CPA-Portale." }
+        { text: "Die Liste zeigt primär Tarife von Lieferanten mit Provisionsvereinbarung, und eine höhere CPA-Rate kann die Platzierung verbessern – Sichtbarkeit ist teilweise käuflich.", korrekt: true, erklaerung: "Genau das ist der Mechanismus: Das Portal optimiert auf vermittelte Verträge, nicht zwingend auf den günstigsten Preis am Gesamtmarkt. Seit einem Gerichtsverfahren 2016/2017 muss die Maklerrolle offengelegt werden." },
+        { text: "Die Liste ist nach Preis korrekt sortiert, unterschlägt aber grundsätzlich alle Ökostrom-Tarife, die eigene Vertriebswege bevorzugen.", korrekt: false, erklaerung: "Ökostromanbieter wie Naturstrom sind zwar tatsächlich kaum auf Portalen präsent – aber das ist deren eigene Entscheidung, kein systematisches Unterschlagen durch das Portal. Der Kernpunkt ist die provisionsgetriebene Sortierung." },
+        { text: "Das Portal zeigt bewusst zuerst teurere Tarife, um beim späteren 'Rabatt' einen Anker-Effekt zu erzeugen.", korrekt: false, erklaerung: "Diese Anker-Taktik ist nicht der beschriebene Mechanismus – das Portal lebt von vermittelten Abschlüssen (CPA), nicht von psychologischen Preisankern." }
       ]
     }
   },
@@ -593,9 +615,9 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Warum sind Vergleichsportale wie Verivox/Check24 selbst angreifbar, obwohl sie die Vollversorger-Marge angreifen?",
       optionen: [
-        { text: "Neolieferanten wie Tibber, die bewusst nicht auf Portalen listen und über Direktmarketing wachsen, umgehen die CPA-Abhängigkeit vollständig.", korrekt: true, erklaerung: "Das ist einer der drei im Steckbrief genannten Angriffsvektoren – Direct-to-Consumer-Wachstum ohne Portal-Provisionsabhängigkeit." },
-        { text: "Vergleichsportale dürfen laut EnWG keine Provisionen mehr verlangen.", korrekt: false, erklaerung: "Es gibt kein solches gesetzliches Verbot – Provisionsmodelle sind weiterhin zulässig, nur transparenzpflichtig." },
-        { text: "Alle Energielieferanten haben sich zusammengeschlossen, um Vergleichsportale zu boykottieren.", korrekt: false, erklaerung: "Es gibt keinen bekannten koordinierten Boykott – viele Lieferanten nutzen Portale weiterhin aktiv." }
+        { text: "Neolieferanten, die bewusst nicht listen und über Direktmarketing wachsen, umgehen die CPA-Abhängigkeit – und Auto-Switching-Dienste brauchen das Portal nur noch zur Erstvermittlung.", korrekt: true, erklaerung: "Das sind zwei der drei im Steckbrief genannten Angriffsvektoren; der dritte ist regulatorischer Druck auf das Modell 'bezahlte Sichtbarkeit statt neutraler Vergleich'." },
+        { text: "Check24 und Verivox konkurrieren sich gegenseitig die CPA-Raten herunter, bis das Modell für beide unprofitabel wird.", korrekt: false, erklaerung: "Plausibel, aber nicht der beschriebene Vektor: Das Duopol ist eher stabil, die CPA-Raten werden von Lieferanten gezahlt und sind kein Preiskampf-Feld zwischen den Portalen selbst." },
+        { text: "Die Lieferanten bauen gemeinsame eigene Vergleichsplattformen auf, um die Provisionen zu sparen.", korrekt: false, erklaerung: "Ein herstellergetriebenes Gemeinschaftsportal gibt es nicht (und hätte ein Glaubwürdigkeitsproblem) – die realen Angreifer sind D2C-Neolieferanten, Auto-Switcher und die Regulierung." }
       ]
     }
   },
@@ -604,15 +626,25 @@ Object.assign(LERN_QUIZ_ITEMS, {
     steckbriefIds: ["L3-VERGL-B2C-01", "L3-VERGL-B2C-02"],
     data: { steckbriefId: "L3-VERGL-B2C-01", distraktorSteckbriefId: "L3-VERGL-B2C-02" }
   },
+  "Q-VERGLEICH-R5": {
+    id: "Q-VERGLEICH-R5", unitId: "U-VERGLEICH", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-VERGL-B2C-01", "L3-VERTRIEB-VOLL-01"],
+    data: {
+      szenario: "Ein Lieferant zahlt Check24 eine CPA von 60 € pro vermitteltem Stromkunden. Der Kunde (3.500 kWh/Jahr) bringt 1,5 ct/kWh Marge und bleibt erfahrungsgemäß 18 Monate. Wie viel Marge erwirtschaftet der Kunde über die gesamte Verweildauer – und lohnt sich die Akquise?",
+      eingabefelder: [{ key: "margeGesamt", label: "Marge über 18 Monate", einheit: "€" }],
+      loesung: { margeGesamt: { wert: 78.75, toleranz: 6 } },
+      rechenweg: ["Marge/Jahr = 1,5 ct/kWh × 3.500 kWh = 5.250 ct = 52,50 €.", "Marge über 18 Monate = 52,50 € × 1,5 = 78,75 €.", "Nach Abzug der 60 € CPA bleiben nur ~19 € – und davon sind Service- und Abrechnungskosten noch nicht bezahlt.", "Genau diese Rechnung erklärt, warum portalvermittelte Wechselkunden für Lieferanten oft ein Verlustgeschäft sind und warum Anbieter wie Tibber oder Ostrom den Portalvertrieb bewusst meiden."]
+    }
+  },
   "Q-VERGLEICH-T1": {
     id: "Q-VERGLEICH-T1", unitId: "U-VERGLEICH", format: "mc", bloom: "K4",
     steckbriefIds: ["L3-VERGL-B2C-01", "L3-VERTRIEB-NEO-01"],
     data: {
       frage: "Tibber vertreibt bewusst nicht über Vergleichsportale. Was aus dieser Lerneinheit erklärt, warum sich das für Tibber lohnen kann?",
       optionen: [
-        { text: "Tibber spart die CPA-Provision (20-60 €/Kunde) komplett, was bei einem eh schon dünnen Abo-Erlös strukturell viel ausmacht.", korrekt: true, erklaerung: "Genau das ist der Zusammenhang: Direktvertrieb vermeidet die CPA-Kosten, die bei Tibbers CAC-Rechnung (~100 €/Kunde) sonst noch höher ausfallen würden." },
-        { text: "Vergleichsportale listen grundsätzlich keine Neolieferanten.", korrekt: false, erklaerung: "Portale listen durchaus auch Neolieferanten – es ist eine bewusste strategische Entscheidung Tibbers, nicht eine Ausgrenzung durch die Portale." },
-        { text: "Tibber hat exklusiv das Recht, außerhalb von Portalen zu werben.", korrekt: false, erklaerung: "Es gibt kein Exklusivrecht – jeder Anbieter kann sich für oder gegen Portalvertrieb entscheiden." }
+        { text: "Tibber spart die CPA-Provision (20-60 €/Kunde) komplett – und portalvermittelte Schnäppchenjäger wären für ein Abo-Modell mit 17 Monaten Breakeven ohnehin die falschen Kunden.", korrekt: true, erklaerung: "Beides greift ineinander: Direktvertrieb senkt die Akquisitionskosten, und die selbst gewonnenen, überzeugten Kunden bleiben länger – was bei Tibbers langer Amortisationszeit entscheidend ist." },
+        { text: "Ein dynamischer Tarif ohne Preisgarantie lässt sich in den Vergleichsrechnern der Portale technisch gar nicht abbilden.", korrekt: false, erklaerung: "Portale können und wollen zunehmend auch dynamische Tarife vergleichen (§41a schafft dafür sogar neuen Bedarf) – Tibbers Verzicht ist eine strategische Entscheidung, keine technische Notwendigkeit." },
+        { text: "Tibber vermeidet die Portale, weil deren AGB eine parallele App-Bindung des Kunden untersagen.", korrekt: false, erklaerung: "Solche AGB-Klauseln gibt es nicht – der Grund ist wirtschaftlich: CPA-Kosten und die falsche Kundenzielgruppe für ein langfristiges Abo-Modell." }
       ]
     }
   }

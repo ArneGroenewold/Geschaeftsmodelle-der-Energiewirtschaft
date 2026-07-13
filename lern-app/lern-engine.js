@@ -14,6 +14,7 @@
   // Baut die lineare Screen-Liste einer Einheit.
   function buildScreens(unit) {
     const screens = [{ type: 'HOOK' }, { type: 'KERNIDEE' }];
+    if (unit.vertiefungSteckbriefIds && unit.vertiefungSteckbriefIds.length) screens.push({ type: 'VERTIEFUNG' });
     unit.workedExample.steps.forEach((step, i) => screens.push({ type: 'WORKED_EXAMPLE', step, index: i }));
     unit.retrievalItemIds.forEach((qid, i) => screens.push({ type: 'RETRIEVAL', questionId: qid, index: i }));
     screens.push({ type: 'TRANSFER', questionId: unit.transferItemId });
@@ -24,7 +25,7 @@
 
   function phaseLabel(type) {
     return {
-      HOOK: 'Einstieg', KERNIDEE: 'Kernidee', WORKED_EXAMPLE: 'Worked Example',
+      HOOK: 'Einstieg', KERNIDEE: 'Kernidee', VERTIEFUNG: 'Vertiefung', WORKED_EXAMPLE: 'Worked Example',
       RETRIEVAL: 'Retrieval', TRANSFER: 'Transfer', MERKE_SATZ: 'Merke dir einen Satz', SUMMARY: 'Zusammenfassung'
     }[type] || type;
   }
@@ -74,6 +75,41 @@
         }
         container.appendChild(card);
         container.appendChild(nextBtn());
+      } else if (screen.type === 'VERTIEFUNG') {
+        const intro = el(`<div class="feedback-banner info">📚 Lies dich hier in die Tiefe ein — der volle Wiki-Steckbrief, direkt in der App. Danach kommen die Fragen.</div>`);
+        container.appendChild(intro);
+        unit.vertiefungSteckbriefIds.forEach((sid, sIdx) => {
+          const sb = window.RenderKit.getSteckbrief(sid);
+          if (!sb) return;
+          const card = el(`<div class="card vertiefung-card"><div class="vertiefung-title">${sb.title}</div></div>`);
+          const sections = [
+            ['Definition', sb.definition, sIdx === 0],
+            ['💡 Wertschöpfung', sb.wertschoepfung, false],
+            ['⚠️ Herausforderungen', sb.herausforderungen, false],
+            ['🎯 Angreifbarkeit', sb.angreifbarkeit, false],
+            ['📖 Praxisbeispiel (Deep Dive)', sb.fallbeispiel, false],
+            ['→ Ausblick', sb.ausblick, false]
+          ];
+          sections.forEach(([label, text, open]) => {
+            if (!text) return;
+            card.appendChild(el(`<details class="vertiefung-section"${open ? ' open' : ''}>
+              <summary>${label}</summary>
+              <div class="vertiefung-text">${window.RenderKit.highlightGlossary(text)}</div>
+            </details>`));
+          });
+          const meta = [
+            ['Erlösmodell', sb.erloesmodell], ['Regulierung', sb.regulierung],
+            ['Kundensegment', sb.kundensegment], ['Differenzierung', sb.differenzierung]
+          ].filter(([, v]) => v);
+          if (meta.length) {
+            card.appendChild(el(`<details class="vertiefung-section">
+              <summary>Steckbrief-Daten</summary>
+              <div class="vertiefung-text">${meta.map(([k, v]) => `<div class="vertiefung-meta-row"><strong>${k}:</strong> ${window.RenderKit.highlightGlossary(v)}</div>`).join('')}</div>
+            </details>`));
+          }
+          container.appendChild(card);
+        });
+        container.appendChild(nextBtn('Weiter zu den Fragen'));
       } else if (screen.type === 'WORKED_EXAMPLE') {
         const card = el(`<div class="card"><div class="step-label">Schritt ${screen.index + 1}</div><div class="worked-example-text">${window.RenderKit.highlightGlossary(screen.step.text)}</div><div class="we-question"></div></div>`);
         container.appendChild(card);

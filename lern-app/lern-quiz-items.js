@@ -2170,6 +2170,551 @@ Object.assign(LERN_QUIZ_ITEMS, {
 
 });
 
+// ════════════════════════════════════════════════════════════════════
+// MODUL 6 — PROSUMER & NEUE SPIELER
+// ════════════════════════════════════════════════════════════════════
+Object.assign(LERN_QUIZ_ITEMS, {
+
+  // ── U6-PV ───────────────────────────────────────────────────────
+  "Q-PV-WE1": {
+    id: "Q-PV-WE1", unitId: "U6-PV", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-PROSUM-HAUS-01"],
+    data: {
+      szenario: "Der Haushalt bezieht Strom für 30 ct/kWh und bekommt für Einspeisung 8,2 ct/kWh. Wie groß ist der Wertunterschied (in ct/kWh), wenn er eine kWh selbst verbraucht statt sie einzuspeisen?",
+      eingabefelder: [{ key: "diff", label: "Wertunterschied", einheit: "ct/kWh" }],
+      loesung: { diff: { wert: 21.8, toleranz: 1 } },
+      rechenweg: ["Selbstverbrauch spart den Bezugspreis: 30 ct/kWh.", "Einspeisung bringt nur die Vergütung: 8,2 ct/kWh.", "Unterschied = 30 − 8,2 = 21,8 ct/kWh — genau diese Differenz macht Eigenverbrauch so viel wertvoller als Einspeisung."]
+    }
+  },
+  "Q-PV-WE2": {
+    id: "Q-PV-WE2", unitId: "U6-PV", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-PROSUM-HAUS-01"],
+    data: {
+      frage: "Der Speicher erzeugt keine einzige kWh. Warum steigert er den Wert der PV-Anlage trotzdem so stark?",
+      optionen: [
+        { text: "Er verschiebt mittags erzeugten Überschuss in den Abend, sodass er selbst verbraucht statt für ~8 ct eingespeist wird — jede verschobene kWh springt auf ~30 ct Wert.", korrekt: true, erklaerung: "Der Speicher ist ein Wert-Verschieber, kein Erzeuger: Er hebt die Eigenverbrauchsquote von ~30% auf 60–80%." },
+        { text: "Er erhöht die Einspeisevergütung, weil gespeicherter Strom höher vergütet wird.", korrekt: false, erklaerung: "Gespeicherter Strom bekommt keine höhere Einspeisevergütung — der Vorteil ist der vermiedene Netzbezug, nicht eine bessere Vergütung." },
+        { text: "Er verbessert den Wirkungsgrad der Solarmodule.", korrekt: false, erklaerung: "Der Modulwirkungsgrad bleibt unverändert — der Speicher wirkt rein auf die zeitliche Nutzung, nicht auf die Erzeugung." }
+      ]
+    }
+  },
+  "Q-PV-R1": {
+    id: "Q-PV-R1", unitId: "U6-PV", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-PROSUM-HAUS-01"],
+    data: {
+      frage: "Wie verändert ein Heimspeicher die Eigenverbrauchsquote typischerweise?",
+      optionen: [
+        { text: "Von 25–35% (ohne Speicher) auf 60–80% (mit Speicher).", korrekt: true, erklaerung: "Diese Verdopplung der Eigenverbrauchsquote ist der Kern des wirtschaftlichen Speichervorteils." },
+        { text: "Von 60% auf praktisch 100%.", korrekt: false, erklaerung: "100% sind unrealistisch — auch mit Speicher bleibt ein Rest, der eingespeist oder zugekauft wird; realistisch sind 60–80%." },
+        { text: "Sie bleibt unverändert, der Speicher erhöht nur die Einspeisung.", korrekt: false, erklaerung: "Genau das Gegenteil — der Speicher senkt die Einspeisung und erhöht den Eigenverbrauch." }
+      ]
+    }
+  },
+  "Q-PV-R2": {
+    id: "Q-PV-R2", unitId: "U6-PV", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-PROSUM-HAUS-01"],
+    data: {
+      text: "Für den Prosumer ist {{a}} wirtschaftlich optimal, weil der Bezugspreis (~30 ct/kWh) deutlich über der {{b}} (~8,2 ct/kWh) liegt. Die Amortisationszeit einer PV+Speicher-Anlage liegt bei {{c}} Jahren.",
+      luecken: {
+        a: { loesungen: ["Eigenverbrauch", "maximaler Eigenverbrauch"], erklaerung: "Maximaler Eigenverbrauch spart den teuren Netzbezug." },
+        b: { loesungen: ["Einspeisevergütung"], erklaerung: "Die Einspeisevergütung ist deutlich niedriger als der Bezugspreis." },
+        c: { loesungen: ["8–12", "8-12", "8 bis 12"], erklaerung: "8–12 Jahre (2024) — sinkt mit fallenden Solarkosten weiter." }
+      },
+      distraktoren: ["Netzeinspeisung", "20–30"]
+    }
+  },
+  "Q-PV-R3": {
+    id: "Q-PV-R3", unitId: "U6-PV", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-PROSUM-HAUS-01"],
+    data: {
+      frage: "Warum ist der PV-Eigenverbrauch 'kein Geschäftsmodell mit Burggraben, sondern ein regulatorisch begünstigter Arbitrage-Case'?",
+      optionen: [
+        { text: "Der Vorteil beruht auf der Differenz zwischen Bezugspreis und Einspeisevergütung; sinkt die Vergütung und greift die §51-Nullvergütung, wandert der Wert zur Flexibilität — und die Marge zu Ökosystem-Anbietern wie Enpal oder Tibber.", korrekt: true, erklaerung: "Der einzelne Prosumer hat keinen Schutzwall — die Wertschöpfung verschiebt sich zu denen, die Hardware, Tarif und Optimierung bündeln." },
+        { text: "Weil PV-Anlagen technisch leicht zu kopieren sind und deshalb jeder eine bauen kann.", korrekt: false, erklaerung: "Die Kopierbarkeit der Hardware ist nicht der Punkt — es geht um die regulatorisch getriebene Preisdifferenz, die den Case trägt und erodieren kann." },
+        { text: "Weil der Eigenverbrauch gesetzlich verboten werden soll.", korrekt: false, erklaerung: "Eigenverbrauch bleibt erlaubt und gefördert — die Angreifbarkeit liegt in der schrumpfenden Arbitrage, nicht in einem Verbot." }
+      ]
+    }
+  },
+  "Q-PV-R4": {
+    id: "Q-PV-R4", unitId: "U6-PV", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-PROSUM-HAUS-01"],
+    data: {
+      steckbriefId: "L3-PROSUM-HAUS-01",
+      erklaerungenProDimension: {
+        regulierung: "Einspeisevergütung ist gesetzlich, aber sinkend und ohne echten Schutz — niedrig.",
+        skalierbarkeit: "Millionen Eigenheime als Markt, aber jede Anlage einzeln installiert — mittel-hoch.",
+        marktrisiko: "Der Eigenverbrauchsvorteil ist stabil, kaum Preisexposure für den Prosumer — niedrigste Stufe.",
+        digitalisierung: "Smart-Home-Integration möglich, aber kein digital-natives Produkt — mittel.",
+        wettbewerb: "Viele Installateure und Hersteller, harter Preiswettbewerb — hoch.",
+        nachhaltigkeit: "Direkte dezentrale EE-Erzeugung — höchste Stufe."
+      }
+    }
+  },
+  "Q-PV-T1": {
+    id: "Q-PV-T1", unitId: "U6-PV", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-PROSUM-HAUS-01", "L3-ERZ-SPEICHER-02"],
+    data: {
+      frage: "Der Heimspeicher steigert beim Prosumer den Eigenverbrauch — beim Heimspeicher-VPP (Modul 2) wird dieselbe Batterie zusätzlich vermarktet. Wie ergänzen sich die beiden Werthebel?",
+      optionen: [
+        { text: "Der Speicher liefert zuerst den Eigenverbrauchsvorteil (~22 ct/kWh Differenz); die freigehaltene Restkapazität (z.B. 20%) bringt darüber hinaus VPP-Erlöse — zwei Erlösschichten auf demselben Gerät.", korrekt: true, erklaerung: "Genau dieses Stacking macht das Ökosystem-Modell (Sonnen-Flatrate) attraktiv: Eigenverbrauch plus Flex-Vermarktung aus einer Batterie." },
+        { text: "Sie schließen sich aus — ein Speicher kann entweder Eigenverbrauch ODER VPP, nie beides.", korrekt: false, erklaerung: "Sie koexistieren: Der Großteil dient dem Eigenverbrauch, ein reservierter Anteil dem VPP — genau das ist das Sonnen-Modell." },
+        { text: "Die VPP-Vermarktung ersetzt den Eigenverbrauchsvorteil vollständig.", korrekt: false, erklaerung: "Der Eigenverbrauch bleibt der Haupthebel; die VPP-Erlöse kommen aus der kleinen freigehaltenen Reserve obendrauf." }
+      ]
+    }
+  },
+
+  // ── U6-BALKON ───────────────────────────────────────────────────
+  "Q-BALKON-WE1": {
+    id: "Q-BALKON-WE1", unitId: "U6-BALKON", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-PROSUM-HAUS-02"],
+    data: {
+      frage: "Was hat sich seit dem Solarpaket I (2024) bei der Anmeldung eines Balkonkraftwerks geändert?",
+      optionen: [
+        { text: "Die Anmeldung beim Netzbetreiber entfällt — es genügt die vereinfachte Registrierung im Marktstammdatenregister (MaStR).", korrekt: true, erklaerung: "Diese Entbürokratisierung ist ein zentraler Treiber des Balkonkraftwerk-Booms (>500.000 Anlagen 2024)." },
+        { text: "Balkonkraftwerke müssen seither von einer Elektrofachkraft installiert werden.", korrekt: false, erklaerung: "Im Gegenteil — plug-and-play ohne Handwerker ist gerade der Kern; die Regeln wurden vereinfacht, nicht verschärft." },
+        { text: "Die Leistungsgrenze wurde auf 300 W gesenkt.", korrekt: false, erklaerung: "Umgekehrt — die Grenze wurde 2024 auf 800 W angehoben; eine weitere Anhebung auf 2.000 W wird diskutiert." }
+      ]
+    }
+  },
+  "Q-BALKON-WE2": {
+    id: "Q-BALKON-WE2", unitId: "U6-BALKON", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-PROSUM-HAUS-02"],
+    data: {
+      frage: "Warum lohnt sich beim Balkonkraftwerk fast nur der direkte Eigenverbrauch, nicht die Einspeisung?",
+      optionen: [
+        { text: "Überschuss, der ins Netz zurückfließt, wird ohne Zweirichtungszähler praktisch nicht vergütet — der Wert entsteht nur, wenn der Strom sofort im Haushalt verbraucht wird.", korrekt: true, erklaerung: "Deshalb dimensioniert man Balkonkraftwerke auf die Grundlast (Kühlschrank, Router), die immer läuft." },
+        { text: "Weil eingespeister Balkonstrom gesetzlich verboten ist.", korrekt: false, erklaerung: "Einspeisung ist nicht verboten, sie wird nur ohne passenden Zähler nicht vergütet — ein wirtschaftlicher, kein rechtlicher Grund." },
+        { text: "Weil Balkonkraftwerke nur nachts Strom erzeugen.", korrekt: false, erklaerung: "Sie erzeugen tagsüber bei Sonne — der Punkt ist die fehlende Vergütung für Überschuss, nicht die Erzeugungszeit." }
+      ]
+    }
+  },
+  "Q-BALKON-R1": {
+    id: "Q-BALKON-R1", unitId: "U6-BALKON", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-PROSUM-HAUS-02"],
+    data: {
+      frage: "Wer verdient am Balkonkraftwerk-Boom — und wie viel?",
+      optionen: [
+        { text: "Hersteller (Anker, EcoFlow) an einer dünnen Hardware-Marge auf ein Massenprodukt, Plattformen (Amazon, Aldi) an der Verkaufs-/Marktplatz-Provision — der eigentliche Nutzen bleibt beim Kunden.", korrekt: true, erklaerung: "Reines Commodity mit Preisverfall: harte Konkurrenz, flache Marge, kaum Differenzierung." },
+        { text: "Die Netzbetreiber über hohe Anmeldegebühren.", korrekt: false, erklaerung: "Die Netzbetreiber-Anmeldung ist gerade entfallen — sie verdienen daran nichts." },
+        { text: "Die Stromlieferanten über einen Balkonkraftwerk-Aufschlag im Tarif.", korrekt: false, erklaerung: "Es gibt keinen solchen Aufschlag — Balkonstrom senkt im Gegenteil den Netzbezug des Kunden." }
+      ]
+    }
+  },
+  "Q-BALKON-R2": {
+    id: "Q-BALKON-R2", unitId: "U6-BALKON", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-PROSUM-HAUS-02"],
+    data: {
+      text: "Ein Balkonkraftwerk liefert maximal {{a}} W Wechselrichterleistung und kostet {{b}} €. Es macht Eigenerzeugung erstmals für {{c}} ohne eigenes Dach zugänglich.",
+      luecken: {
+        a: { loesungen: ["800"], erklaerung: "800 W Wechselrichterleistung seit der Gesetzesänderung 2024." },
+        b: { loesungen: ["300–600", "300-600", "300 bis 600"], erklaerung: "300–600 € — sehr niedrige Einstiegshürde, Amortisation in 3–5 Jahren." },
+        c: { loesungen: ["Mieter", "Mieter und Wohnungseigentümer"], erklaerung: "Mieter ohne Dachfläche sind die neue Zielgruppe, die vorher keine PV nutzen konnte." }
+      },
+      distraktoren: ["3.000", "Industriekunden"]
+    }
+  },
+  "Q-BALKON-R3": {
+    id: "Q-BALKON-R3", unitId: "U6-BALKON", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-PROSUM-HAUS-02"],
+    data: {
+      frage: "Wodurch ist das Balkonkraftwerk-Geschäft nach oben hin angreifbar?",
+      optionen: [
+        { text: "Sobald Mini-PV mit Speicher und Messkonzept wächst, konkurriert sie mit 'richtiger' Dach-PV samt professionellem Ökosystem — die Grenze zum größeren, margenstärkeren Segment verschwimmt.", korrekt: true, erklaerung: "Das Commodity-Segment wird von oben (Dach-PV-Ökosysteme) und von der Kostenseite (asiatische Hersteller, Discounter) zugleich gedrückt." },
+        { text: "Durch ein drohendes EU-weites Verbot von Steckersolar.", korrekt: false, erklaerung: "Die EU-Solarstrategie fördert Prosumer-Modelle — ein Verbot steht nicht im Raum." },
+        { text: "Weil Balkonkraftwerke technisch nicht mit Smart Homes kompatibel sind.", korrekt: false, erklaerung: "Sie lassen sich in Smart-Home-Plattformen (Tibber, Home Assistant) integrieren — das ist sogar ein Wachstumspfad, kein Hindernis." }
+      ]
+    }
+  },
+  "Q-BALKON-R4": {
+    id: "Q-BALKON-R4", unitId: "U6-BALKON", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-PROSUM-HAUS-02"],
+    data: {
+      steckbriefId: "L3-PROSUM-HAUS-02",
+      erklaerungenProDimension: {
+        regulierung: "Kaum Regulierung, seit 2024 sogar entbürokratisiert — niedrigste Stufe.",
+        skalierbarkeit: "Massenprodukt über Online-/Discounter-Vertrieb, plug-and-play — höchste Stufe.",
+        marktrisiko: "Für den Käufer risikoarm (fixe Einsparung); für den Hersteller Commodity-Risiko — aus Modellsicht niedrig.",
+        digitalisierung: "App-Anbindung optional, aber die Hardware ist simpel — mittel.",
+        wettbewerb: "Extrem hart: viele Hersteller, Discounter, Preisverfall — höchste Stufe.",
+        nachhaltigkeit: "Direkte dezentrale Solarerzeugung, demokratisiert PV — höchste Stufe."
+      }
+    }
+  },
+  "Q-BALKON-T1": {
+    id: "Q-BALKON-T1", unitId: "U6-BALKON", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-PROSUM-HAUS-02", "L3-VERGL-B2C-01"],
+    data: {
+      frage: "Balkonkraftwerk und Tarifvergleichsportal (Modul 4) sind völlig verschiedene Geschäfte, teilen aber eine strukturelle Schwäche. Welche?",
+      optionen: [
+        { text: "Beide sind Commodity-nah mit dünner Differenzierung: Das Balkonkraftwerk konkurriert über den Preis austauschbarer Hardware, das Portal über die Provisionshöhe austauschbarer Vermittlung — Marge entsteht nur über Skalierung, nicht über einen Burggraben.", korrekt: true, erklaerung: "Beide leben von Masse statt von Verteidigungsfähigkeit — ein wiederkehrendes Muster margenschwacher Intermediäre und Commodities." },
+        { text: "Beide sind streng reguliert wie ein Netzbetreiber.", korrekt: false, erklaerung: "Beide sind gerade schwach reguliert — das ist Teil ihres harten Wettbewerbs, nicht ein Schutz." },
+        { text: "Beide brauchen Milliarden-Capex wie ein Offshore-Windpark.", korrekt: false, erklaerung: "Beide sind asset-leicht bzw. geringinvestiv — das Gegenteil kapitalintensiver Modelle." }
+      ]
+    }
+  },
+
+  // ── U6-MIETERSTROM ──────────────────────────────────────────────
+  "Q-MIETERSTROM-WE1": {
+    id: "Q-MIETERSTROM-WE1", unitId: "U6-MIETERSTROM", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-PROSUM-MIETER-01"],
+    data: {
+      frage: "Welche Rolle übernimmt der Mieterstrom-Dienstleister (z.B. Buzzn) für den Vermieter?",
+      optionen: [
+        { text: "Er wird für den Vermieter zum Energielieferanten mit allen EnWG-Pflichten (Bilanzkreis, Marktkommunikation, GPKE) — gegen eine Marge auf den an die Mieter verkauften Strom.", korrekt: true, erklaerung: "Der Vermieter will die Lieferantenrolle nicht selbst tragen; der Dienstleister nimmt sie ihm gegen Marge ab." },
+        { text: "Er kauft dem Vermieter die PV-Anlage ab und betreibt sie auf eigene Rechnung.", korrekt: false, erklaerung: "Die Anlage bleibt meist beim Vermieter — der Dienstleister übernimmt die Lieferanten- und Abrechnungsrolle, nicht das Anlageneigentum." },
+        { text: "Er senkt die Netzentgelte des gesamten Gebäudes.", korrekt: false, erklaerung: "Netzentgelte setzt der Dienstleister nicht — der Mieterstromvorteil kommt aus dem Direktverbrauch und dem Zuschlag, nicht aus Entgeltsenkung." }
+      ]
+    }
+  },
+  "Q-MIETERSTROM-WE2": {
+    id: "Q-MIETERSTROM-WE2", unitId: "U6-MIETERSTROM", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-PROSUM-MIETER-02"],
+    data: {
+      frage: "Warum verdient Lumenaza bei der GGV an Software statt an Strom?",
+      optionen: [
+        { text: "Bei der GGV wird niemand zum Energielieferanten — der Solarstrom wird nur über einen virtuellen Zähler anteilig gutgeschrieben; Lumenaza verkauft die Abrechnungsplattform als SaaS an die WEG, der Reststrom läuft über die eigenen Lieferanten der Mieter.", korrekt: true, erklaerung: "Kein GPKE, keine Bilanzkreispflicht — das Geschäft ist Software, nicht Stromhandel." },
+        { text: "Weil Lumenaza gesetzlich keinen Strom verkaufen darf.", korrekt: false, erklaerung: "Nicht ein Verbot, sondern das GGV-Modell selbst verzichtet auf die Lieferantenrolle — deshalb bleibt nur die Software-Ebene." },
+        { text: "Weil Solarstrom in der GGV kostenlos abgegeben werden muss.", korrekt: false, erklaerung: "Der Strom wird sehr wohl bewertet und gutgeschrieben — nur eben ohne dass Lumenaza als Lieferant Marge nimmt; es verdient an der Plattformgebühr." }
+      ]
+    }
+  },
+  "Q-MIETERSTROM-R1": {
+    id: "Q-MIETERSTROM-R1", unitId: "U6-MIETERSTROM", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-PROSUM-MIETER-01"],
+    data: {
+      frage: "Welche Preisvorgabe gilt beim Mieterstrom nach §42a EnWG?",
+      optionen: [
+        { text: "Der Mieterstromtarif muss mindestens 10% unter dem lokalen Grundversorgungstarif liegen.", korrekt: true, erklaerung: "Diese verpflichtende Preisuntergrenze soll sicherstellen, dass Mieter tatsächlich profitieren." },
+        { text: "Der Tarif muss exakt dem Grundversorgungstarif entsprechen.", korrekt: false, erklaerung: "Er muss mindestens 10% darunter liegen — Gleichpreisigkeit wäre kein Mieterstromvorteil." },
+        { text: "Der Tarif ist frei wählbar, ohne jede Vorgabe.", korrekt: false, erklaerung: "Es gibt sehr wohl eine gesetzliche Untergrenze (10% Rabatt) — sonst gäbe es das Mieterstromprivileg nicht." }
+      ]
+    }
+  },
+  "Q-MIETERSTROM-R2": {
+    id: "Q-MIETERSTROM-R2", unitId: "U6-MIETERSTROM", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-PROSUM-MIETER-01", "L3-PROSUM-MIETER-02"],
+    data: {
+      text: "Mieterstrom läuft über {{a}} EnWG — der Anbieter wird Energielieferant. Die einfachere Alternative {{b}} EnWG (seit 2024) verzichtet darauf. Zusätzlich gibt es beim Mieterstrom den {{c}} nach §21 EEG (~1,6–2,6 ct/kWh).",
+      luecken: {
+        a: { loesungen: ["§42a", "42a", "Paragraph 42a"], erklaerung: "§42a EnWG ist das klassische Mieterstromprivileg." },
+        b: { loesungen: ["§42b", "42b", "Paragraph 42b"], erklaerung: "§42b EnWG regelt die Gemeinschaftliche Gebäudeversorgung (GGV)." },
+        c: { loesungen: ["Mieterstromzuschlag", "Zuschlag"], erklaerung: "Der Mieterstromzuschlag ist eine zusätzliche EEG-Förderung obendrauf." }
+      },
+      distraktoren: ["§14a", "Netzbonus"]
+    }
+  },
+  "Q-MIETERSTROM-R3": {
+    id: "Q-MIETERSTROM-R3", unitId: "U6-MIETERSTROM", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-PROSUM-MIETER-01", "L3-PROSUM-MIETER-02"],
+    data: {
+      frage: "Wie 'unterhöhlt' die GGV das klassische Mieterstrommodell von innen?",
+      optionen: [
+        { text: "Vermieter, die nicht Energielieferant werden wollen, weichen auf die einfachere GGV aus; SaaS-Anbieter bieten die GGV-Abwicklung günstig an und nehmen den Vollservice-Mieterstromern ihr Kernargument 'wir nehmen euch die Komplexität ab'.", korrekt: true, erklaerung: "Die regulatorische Vereinfachung entwertet genau die Dienstleistung, für die Mieterstrom-Vollservicer bezahlt wurden." },
+        { text: "Die GGV verbietet klassischen Mieterstrom.", korrekt: false, erklaerung: "Beide bestehen parallel — die GGV verdrängt marktlich, nicht per Verbot." },
+        { text: "Die GGV zahlt höhere Mieterstromzuschläge.", korrekt: false, erklaerung: "Die GGV verzichtet gerade auf das Lieferantenmodell; sie konkurriert über Einfachheit, nicht über höhere Zuschläge." }
+      ]
+    }
+  },
+  "Q-MIETERSTROM-R4": {
+    id: "Q-MIETERSTROM-R4", unitId: "U6-MIETERSTROM", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-PROSUM-COMMUNITY-01"],
+    data: {
+      frage: "Was ist der ökonomische Kern einer lokalen Energie-Community (EU EMD Art. 16)?",
+      optionen: [
+        { text: "Strom, der die Community nicht verlässt (lokal erzeugt und verbraucht), zahlt reduzierte Netzentgelte — die Einsparung (8–15 ct/kWh) wird zwischen Erzeuger und Verbraucher geteilt.", korrekt: true, erklaerung: "Ohne die Netzentgelt-Privilegierung lokalen Verbrauchs fehlt dem Modell der ökonomische Kern — genau das ist auch seine Angreifbarkeit (AgNes-Diskussion)." },
+        { text: "Die Community erhält eine staatliche Pauschalförderung pro Mitglied.", korrekt: false, erklaerung: "Es gibt keine Kopfpauschale — der Vorteil entsteht aus vermiedenen Netzentgelten für lokalen Stromfluss." },
+        { text: "Mitglieder werden von der Stromsteuer befreit.", korrekt: false, erklaerung: "Keine Stromsteuerbefreiung — der Hebel ist die Netzentgeltreduktion für lokal gehandelten Strom." }
+      ]
+    }
+  },
+  "Q-MIETERSTROM-R5": {
+    id: "Q-MIETERSTROM-R5", unitId: "U6-MIETERSTROM", format: "bmc-puzzle", bloom: "K3",
+    steckbriefIds: ["L3-PROSUM-MIETER-01", "L3-PROSUM-MIETER-02"],
+    data: { steckbriefId: "L3-PROSUM-MIETER-01", distraktorSteckbriefId: "L3-PROSUM-MIETER-02" }
+  },
+  "Q-MIETERSTROM-T1": {
+    id: "Q-MIETERSTROM-T1", unitId: "U6-MIETERSTROM", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-PROSUM-MIETER-02", "L3-VERTRIEB-NEO-05"],
+    data: {
+      frage: "Die GGV-Plattform (Lumenaza) und Octopus' Kraken (Modul 4) folgen demselben strategischen Prinzip. Welchem?",
+      optionen: [
+        { text: "Beide verkaufen Software statt Strom: Sie kommoditisieren einen aufwendigen Abwicklungsprozess (GGV-Abrechnung bzw. Versorger-Backoffice) als skalierbare Plattform und verdienen an der Effizienz, nicht an der kWh.", korrekt: true, erklaerung: "Der Wandel von Commodity- zu Plattform-/SaaS-Erlösen ist ein Leitmotiv der ganzen Branche — von der WEG bis zum Millionen-Versorger." },
+        { text: "Beide werden zum Energielieferanten mit voller EnWG-Pflicht.", korrekt: false, erklaerung: "Gerade nicht — beide vermeiden bzw. modernisieren die Lieferantenlast und verkaufen die Abwicklung als Software." },
+        { text: "Beide leben ausschließlich von staatlichen Zuschlägen.", korrekt: false, erklaerung: "Beide verdienen an Plattform-/SaaS-Erlösen, nicht an Subventionen." }
+      ]
+    }
+  },
+
+  // ── U6-ENPAL ────────────────────────────────────────────────────
+  "Q-ENPAL-WE1": {
+    id: "Q-ENPAL-WE1", unitId: "U6-ENPAL", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-PROSUM-MIETER-03"],
+    data: {
+      frage: "Warum kann der Enpal-Kunde ab dem ersten Monat sparen, obwohl er eine Miete zahlt?",
+      optionen: [
+        { text: "Die eingesparten Stromkosten (weil ein Teil des Bedarfs aus eigener Solarerzeugung statt teurem Netzbezug kommt) übersteigen die monatliche Mietrate.", korrekt: true, erklaerung: "Miete < Einsparung ab Monat 1 — das ist das zentrale Verkaufsargument des Mietmodells ohne Kapitaleinsatz." },
+        { text: "Weil Enpal die Stromrechnung des Kunden komplett übernimmt.", korrekt: false, erklaerung: "Enpal übernimmt nicht die Stromrechnung — der Kunde spart, weil er weniger Netzstrom zukaufen muss." },
+        { text: "Weil die Miete staatlich zu 100% erstattet wird.", korrekt: false, erklaerung: "Es gibt keine vollständige Mieterstattung — der Vorteil entsteht rein aus den vermiedenen Stromkosten." }
+      ]
+    }
+  },
+  "Q-ENPAL-WE2": {
+    id: "Q-ENPAL-WE2", unitId: "U6-ENPAL", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-PROSUM-MIETER-03"],
+    data: {
+      frage: "Warum bekommt Enpal für die Vorfinanzierung besonders günstiges Kapital?",
+      optionen: [
+        { text: "Der über 20 Jahre durch EEG-Vergütung und Mietraten abgesicherte Cashflow gilt institutionellen Investoren (Green Bonds, KfW) als risikoarm — das senkt die Zinsen.", korrekt: true, erklaerung: "Planbare, langfristige Cashflows sind bankfähig — dasselbe Prinzip wie bei PPAs und Offshore-Ausschreibungen." },
+        { text: "Weil Enpal als Unicorn keine Zinsen zahlen muss.", korrekt: false, erklaerung: "Auch Unicorns zahlen Zinsen — der Vorteil kommt aus der Cashflow-Sicherheit, nicht aus dem Startup-Status." },
+        { text: "Weil der Staat alle Enpal-Kredite garantiert.", korrekt: false, erklaerung: "Es gibt keine pauschale Staatsgarantie — die niedrigen Zinsen resultieren aus der Risikobewertung des abgesicherten Cashflows." }
+      ]
+    }
+  },
+  "Q-ENPAL-R1": {
+    id: "Q-ENPAL-R1", unitId: "U6-ENPAL", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-PROSUM-MIETER-03"],
+    data: {
+      frage: "Was ist laut Steckbrief Enpals eigentlicher Wachstumsengpass?",
+      optionen: [
+        { text: "Die eigene Installationsflotte (3.000+ Mitarbeiter) — jeder Neukunde braucht physische Installateure vor Ort, und dieser Flaschenhals wächst langsamer als die Nachfrage.", korrekt: true, erklaerung: "Nicht Kapital, sondern Handwerkerkapazität limitiert das Wachstum — ein physischer Engpass in einem Finanzierungs-getriebenen Modell." },
+        { text: "Fehlende Nachfrage nach dem kapitalfreien Einstieg.", korrekt: false, erklaerung: "Die Nachfrage ist gerade der Treiber — der Engpass ist die Installationskapazität, sie zu bedienen." },
+        { text: "Ein gesetzliches Verbot von PV-Mietmodellen.", korrekt: false, erklaerung: "PV-Miete ist erlaubt und wächst stark — kein Verbot; der Engpass ist operativ (Installateure)." }
+      ]
+    }
+  },
+  "Q-ENPAL-R2": {
+    id: "Q-ENPAL-R2", unitId: "U6-ENPAL", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-PROSUM-MIETER-03"],
+    data: {
+      text: "Enpal vermietet PV, Speicher, Wallbox und Wärmepumpe als {{a}} ab ~79 €/Monat über {{b}} Jahre. Refinanziert wird die Vorfinanzierung über {{c}} an institutionelle Investoren.",
+      luecken: {
+        a: { loesungen: ["Bundle"], erklaerung: "Das Bundle maximiert den Share-of-Wallet je Kunde." },
+        b: { loesungen: ["20"], erklaerung: "20-Jahres-Verträge liefern den stabilen, bankfähigen Cashflow." },
+        c: { loesungen: ["Green Bonds", "Green-Bonds", "Grüne Anleihen"], erklaerung: "Green Bonds bringen günstiges Kapital dank abgesichertem Cashflow." }
+      },
+      distraktoren: ["Einmalkauf", "5"]
+    }
+  },
+  "Q-ENPAL-R3": {
+    id: "Q-ENPAL-R3", unitId: "U6-ENPAL", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-PROSUM-MIETER-03"],
+    data: {
+      frage: "Was ist der schärfste Angriff auf das Enpal-Mietmodell?",
+      optionen: [
+        { text: "Fallende Hardwarepreise stärken den Kauf-Case: Warum 20 Jahre mieten, was deutlich billiger geworden ist? Dazu kommt die Zinsabhängigkeit des vorfinanzierten Modells.", korrekt: true, erklaerung: "Sinkende Anschaffungskosten untergraben die Grundlogik 'kein Kapital nötig' — die Verteidigung liegt im Ökosystem und der Installationskapazität." },
+        { text: "Ein Verbot von Green Bonds in der EU.", korrekt: false, erklaerung: "Green Bonds werden gefördert, nicht verboten — die Bedrohung ist der attraktiver werdende Direktkauf, nicht ein Finanzierungsverbot." },
+        { text: "Der komplette Wegfall der EEG-Einspeisevergütung.", korrekt: false, erklaerung: "Die Vergütung sinkt, fällt aber nicht komplett weg; der Hauptangriff ist der günstiger werdende Kauf-Case." }
+      ]
+    }
+  },
+  "Q-ENPAL-R4": {
+    id: "Q-ENPAL-R4", unitId: "U6-ENPAL", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-PROSUM-MIETER-03"],
+    data: {
+      steckbriefId: "L3-PROSUM-MIETER-03",
+      erklaerungenProDimension: {
+        regulierung: "Nutzt EEG-Cashflows, aber kein regulatorischer Schutz des Modells — niedrig.",
+        skalierbarkeit: "Skaliert über Kapital und Bundles, aber durch physische Installation gebremst — mittel-hoch.",
+        marktrisiko: "20-Jahres-Verträge und Green-Bond-Finanzierung dämpfen, aber Zinsabhängigkeit bleibt — niedrig-mittel.",
+        digitalisierung: "Energiemanagement (1KOMMA5° 'Heartbeat'), aber Kern ist physische Installation — mittel-hoch.",
+        wettbewerb: "Regionale Installateure von unten, Utilities mit Bundles von oben — mittel.",
+        nachhaltigkeit: "Bringt PV, Speicher und Wärmepumpe kapitalfrei in Haushalte — höchste Stufe."
+      }
+    }
+  },
+  "Q-ENPAL-T1": {
+    id: "Q-ENPAL-T1", unitId: "U6-ENPAL", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-PROSUM-MIETER-03", "L3-ERZ-EE-03"],
+    data: {
+      frage: "Enpal und ein Offshore-Windpark (Modul 2) sind völlig verschieden groß — nutzen aber dasselbe Finanzierungsprinzip. Welches?",
+      optionen: [
+        { text: "Beide verwandeln langfristig gesicherte Cashflows (Mietraten+EEG bzw. 20-Jahres-Ausschreibungspreis) in bankfähige Sicherheiten und finanzieren so kapitalintensive Vorleistungen günstig vor.", korrekt: true, erklaerung: "Ob Green Bond für tausende Hausanlagen oder Projektfinanzierung für einen Windpark: Cashflow-Sicherheit senkt die Kapitalkosten — dasselbe Prinzip in völlig anderem Maßstab." },
+        { text: "Beide verkaufen ihren Strom direkt an Endkunden mit Marge.", korrekt: false, erklaerung: "Enpal vermietet Hardware, der Windpark speist ins Netz ein — der gemeinsame Nenner ist die Finanzierungslogik, nicht der Vertrieb." },
+        { text: "Beide sind reine Merchant-Modelle ohne jede Absicherung.", korrekt: false, erklaerung: "Das Gegenteil — beide beruhen gerade auf langfristiger Cashflow-Absicherung, die die Finanzierung erst ermöglicht." }
+      ]
+    }
+  },
+
+  // ── U6-CPO ──────────────────────────────────────────────────────
+  "Q-CPO-WE1": {
+    id: "Q-CPO-WE1", unitId: "U6-CPO", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-EMOB-CPO-01"],
+    data: {
+      szenario: "Eine HPC-Ladesäule läuft bei 6% Auslastung. Wie viele Stunden pro Tag (24h) wird sie im Schnitt tatsächlich genutzt? (Ergebnis in Stunden, gerundet auf eine Nachkommastelle)",
+      eingabefelder: [{ key: "stunden", label: "Nutzung pro Tag", einheit: "h" }],
+      loesung: { stunden: { wert: 1.44, toleranz: 0.2 } },
+      rechenweg: ["Nutzung = 6% × 24 h = 0,06 × 24 = 1,44 h.", "Die Säule steht also rund 22,5 Stunden am Tag ungenutzt, während Capex und Netzanschluss durchlaufen.", "Erst ab ~20% Auslastung (~4,8 h/Tag) kippt die Rechnung in den Breakeven — das erklärt den Roaming-Zwang."]
+    }
+  },
+  "Q-CPO-WE2": {
+    id: "Q-CPO-WE2", unitId: "U6-CPO", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-EMOB-CPO-01"],
+    data: {
+      frage: "Warum integriert ein CPO seine Säulen freiwillig in fremde eMSP-Apps (Roaming)?",
+      optionen: [
+        { text: "Der Roaming-Strom füllt die Auslastungslücke, die mit reinen Eigenkunden nie zu schließen wäre — passiver Umsatz ohne eigene Kundenpflege.", korrekt: true, erklaerung: "Bei 6–12% Auslastung ist jede zusätzliche Ladung wertvoll; Roaming bringt Volumen ohne Marketingaufwand." },
+        { text: "Weil er gesetzlich verpflichtet ist, alle fremden Apps zuzulassen.", korrekt: false, erklaerung: "Es gibt keine solche Pflicht — Roaming ist eine wirtschaftliche Entscheidung zur Auslastungssteigerung." },
+        { text: "Weil Roaming-Kunden höhere Preise zahlen als Direktkunden.", korrekt: false, erklaerung: "Beim Roaming erhält der CPO nur einen Nettobetrag — der Vorteil ist das Zusatzvolumen, nicht ein höherer Preis." }
+      ]
+    }
+  },
+  "Q-CPO-R1": {
+    id: "Q-CPO-R1", unitId: "U6-CPO", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-EMOB-CPO-01"],
+    data: {
+      frage: "Ab welcher Auslastung erreicht eine öffentliche Ladesäule typischerweise den Breakeven — und wo liegt sie 2024?",
+      optionen: [
+        { text: "Breakeven ab ~20% Auslastung; der Durchschnitt liegt 2024 aber erst bei 6–12%.", korrekt: true, erklaerung: "Diese Lücke ist das Kernproblem der CPO-Wirtschaftlichkeit und der Grund für das Hühner-Ei-Rennen mit dem EV-Hochlauf." },
+        { text: "Breakeven ab 5%; die meisten Säulen sind längst profitabel.", korrekt: false, erklaerung: "Der Breakeven liegt deutlich höher (~20%), und die meisten Säulen sind bei 6–12% noch nicht profitabel." },
+        { text: "Breakeven ab 60%; kaum eine Säule erreicht das je.", korrekt: false, erklaerung: "60% wäre unrealistisch hoch — der Breakeven liegt bei ~20%, erreichbar mit wachsendem EV-Bestand." }
+      ]
+    }
+  },
+  "Q-CPO-R2": {
+    id: "Q-CPO-R2", unitId: "U6-CPO", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-EMOB-CPO-01"],
+    data: {
+      text: "Eine HPC-Ladesäule kostet inkl. Netzanschluss {{a}} € — der {{b}} kann über 50% des Investments ausmachen. Roaming läuft über das Protokoll {{c}}.",
+      luecken: {
+        a: { loesungen: ["30.000–60.000", "30000-60000", "30.000 bis 60.000"], erklaerung: "30.000–60.000 € für eine HPC-Säule (150–350 kW)." },
+        b: { loesungen: ["Netzanschluss"], erklaerung: "Der Netzanschluss ist oft der größte Einzelkostenblock." },
+        c: { loesungen: ["OCPI"], erklaerung: "OCPI (Open Charge Point Interface) ermöglicht das eMSP-Roaming." }
+      },
+      distraktoren: ["3.000", "OCPP"]
+    }
+  },
+  "Q-CPO-R3": {
+    id: "Q-CPO-R3", unitId: "U6-CPO", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-EMOB-CPO-01"],
+    data: {
+      frage: "Warum ist die asset-schwere CPO-Position gegen asset-leichte Angreifer strukturell schwach?",
+      optionen: [
+        { text: "eMSP-/Roaming-Aggregatoren übernehmen die margenstärkste Endkundenbeziehung und den App-Layer ohne eigenes Infrastruktur-Capex; OEMs (Tesla, VW/Elli) bauen parallel eigene Netze — der CPO kann zum reinen Hardware-Betreiber degradiert werden.", korrekt: true, erklaerung: "Wer Capex und Auslastungsrisiko trägt, aber nicht die Kundenschnittstelle hält, verliert die Marge an die Aggregatoren darüber." },
+        { text: "Weil CPOs gesetzlich keine eigenen Apps betreiben dürfen.", korrekt: false, erklaerung: "CPOs dürfen eigene Apps betreiben (EnBW mobility+) — die Schwäche ist wirtschaftlich (Roaming-Aggregatoren, OEM-Netze), nicht rechtlich." },
+        { text: "Weil öffentliche Ladesäulen technisch schnell veralten.", korrekt: false, erklaerung: "Der Angriff kommt über die Kundenschnittstelle und parallele Netze, nicht primär über technische Veralterung." }
+      ]
+    }
+  },
+  "Q-CPO-R4": {
+    id: "Q-CPO-R4", unitId: "U6-CPO", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-EMOB-CPO-01"],
+    data: {
+      steckbriefId: "L3-EMOB-CPO-01",
+      erklaerungenProDimension: {
+        regulierung: "AFID/AFIR schreiben Ausbau vor, aber kein Erlösschutz — mittel.",
+        skalierbarkeit: "Jeder Standort braucht eigenes Capex und Netzanschluss — mittel.",
+        marktrisiko: "Auslastungsrisiko (6–12% vs. 20% Breakeven) belastet — mittel.",
+        digitalisierung: "App, Roaming (OCPI), Abrechnung sind digital — relativ hoch.",
+        wettbewerb: "200+ CPOs, OEM-Netze, eMSP-Aggregatoren — hoch.",
+        nachhaltigkeit: "Ermöglicht E-Mobilität, Enabler der Verkehrswende — hoch."
+      }
+    }
+  },
+  "Q-CPO-T1": {
+    id: "Q-CPO-T1", unitId: "U6-CPO", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-EMOB-CPO-01", "L3-VERTRIEB-NEO-05"],
+    data: {
+      frage: "Der CPO verliert Marge an die App-Schicht (eMSP), Octopus (Modul 4) verdient gerade AN der Software-Schicht (Kraken). Was lehrt der Vergleich?",
+      optionen: [
+        { text: "Wert und Marge wandern zur Software-/Kundenschnittstelle, weg von der physischen Infrastruktur — wer nur die Hardware betreibt (Säule, Kraftwerk), wird zum austauschbaren Backend derer, die die Schnittstelle kontrollieren.", korrekt: true, erklaerung: "Dasselbe Muster wie in Modul 5 (Kampf um die Flex-Schnittstelle): Die Plattform-/App-Ebene ist der strukturelle Gewinner." },
+        { text: "Physische Infrastruktur ist immer profitabler als Software.", korrekt: false, erklaerung: "Das Gegenteil zeigen beide Fälle — die asset-leichte Software-/App-Schicht gewinnt die Marge." },
+        { text: "Beide Modelle sind gescheitert.", korrekt: false, erklaerung: "Keins ist gescheitert — die Lehre ist die Verschiebung der Marge zur Schnittstelle, nicht ein Scheitern." }
+      ]
+    }
+  },
+
+  // ── U6-THG ──────────────────────────────────────────────────────
+  "Q-THG-WE1": {
+    id: "Q-THG-WE1", unitId: "U6-THG", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-EMOB-THG-01"],
+    data: {
+      frage: "Was genau verkauft der Pooler (carbonify) an das Mineralölunternehmen?",
+      optionen: [
+        { text: "Zertifizierte THG-Minderungen: Die (pauschale) Strommenge des E-Autos wird beim UBA als CO₂-Einsparung anerkannt und gebündelt an quotenverpflichtete Firmen verkauft.", korrekt: true, erklaerung: "Der Pooler handelt mit dem Nachweis vermiedener Emissionen — ein rein regulatorisch geschaffenes Gut." },
+        { text: "Den tatsächlichen Ladestrom des E-Autos physisch.", korrekt: false, erklaerung: "Es wird kein physischer Strom verkauft, sondern das Zertifikat über die anerkannte CO₂-Minderung." },
+        { text: "Eine Beteiligung am E-Auto des Halters.", korrekt: false, erklaerung: "Der Halter behält sein Auto — verkauft wird nur der zertifizierte Umweltvorteil seiner E-Mobilität." }
+      ]
+    }
+  },
+  "Q-THG-WE2": {
+    id: "Q-THG-WE2", unitId: "U6-THG", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-EMOB-THG-01"],
+    data: {
+      frage: "Warum ist die Zahlungsbereitschaft der Mineralölunternehmen 'regulatorisch nach oben verankert'?",
+      optionen: [
+        { text: "Ohne genügend zugekaufte Zertifikate müssten sie eine Pönale von 600 €/t CO₂ zahlen — dieser Strafpreis bildet die Obergrenze dessen, was sie für Zertifikate zu zahlen bereit sind.", korrekt: true, erklaerung: "Die Pönale ist der Anker: Zertifikate sind attraktiv, solange sie billiger als die Strafe sind." },
+        { text: "Weil der Staat den Zertifikatspreis gesetzlich festsetzt.", korrekt: false, erklaerung: "Der Preis ist nicht festgesetzt, er schwankt stark — nur die Pönale bildet eine obere Orientierung." },
+        { text: "Weil Mineralölfirmen die Prämie steuerlich voll absetzen können.", korrekt: false, erklaerung: "Der Anker ist die Vermeidung der 600-€-Pönale, nicht ein Steuereffekt." }
+      ]
+    }
+  },
+  "Q-THG-R1": {
+    id: "Q-THG-R1", unitId: "U6-THG", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-EMOB-THG-01"],
+    data: {
+      frage: "Auf welcher gesetzlichen Grundlage beruht die THG-Quote?",
+      optionen: [
+        { text: "§37a BImSchG — er verpflichtet Inverkehrbringer fossiler Kraftstoffe, ihre Treibhausgasintensität jährlich steigend zu mindern.", korrekt: true, erklaerung: "Die THG-Quote ist ein rein regulatorisch geschaffener Markt zwischen E-Mobilität und Mineralölwirtschaft." },
+        { text: "Dem EEG §21 (Einspeisevergütung).", korrekt: false, erklaerung: "Das EEG betrifft Strom-Einspeisung, nicht die Kraftstoff-Treibhausgasminderung — das ist das BImSchG." },
+        { text: "Der ARegV (Anreizregulierung Netze).", korrekt: false, erklaerung: "Die ARegV regelt Netzentgelte, nicht die THG-Quote." }
+      ]
+    }
+  },
+  "Q-THG-R2": {
+    id: "Q-THG-R2", unitId: "U6-THG", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-EMOB-THG-01"],
+    data: {
+      text: "E-Auto-Halter lassen ihre pauschale Strommenge beim {{a}} zertifizieren, meist über {{b}}-Dienstleister. Die Prämie lag 2026 bei {{c}} €, nach einem Absturz auf unter 100 € in 2023/24.",
+      luecken: {
+        a: { loesungen: ["UBA", "Umweltbundesamt"], erklaerung: "Das Umweltbundesamt (UBA) zertifiziert die THG-Minderung." },
+        b: { loesungen: ["Pooling", "Pool"], erklaerung: "Pooling-Dienstleister bündeln tausende Fahrzeugscheine." },
+        c: { loesungen: ["300–450", "300-450", "300 bis 450"], erklaerung: "300–450 € (2026), stark schwankend je nach Quotenpreis und Modell." }
+      },
+      distraktoren: ["BNetzA", "1.000–2.000"]
+    }
+  },
+  "Q-THG-R3": {
+    id: "Q-THG-R3", unitId: "U6-THG", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-EMOB-THG-01"],
+    data: {
+      frage: "Warum beschreibt der Steckbrief das THG-Geschäft als 'weniger Vermittlung als Rohstoffhandel mit Jahreszyklus'?",
+      optionen: [
+        { text: "Der Pooler kauft beim Fahrzeughalter zum Fixpreis (Garantieprämie) und verkauft in einen politisch gemachten, volatilen Markt — wer 2023 auf Höchstpreisbasis garantierte, verkaufte später in einen um zwei Drittel eingebrochenen Markt.", korrekt: true, erklaerung: "Garantiemodelle verlagern das Preisrisiko zum Pooler — genau wie bei einem Rohstoffhändler mit offener Position." },
+        { text: "Weil der Pooler physische Rohstoffe (Lithium, Kupfer) handelt.", korrekt: false, erklaerung: "Es geht um Zertifikate, nicht um physische Rohstoffe — die Analogie liegt im Preisrisiko der offenen Position, nicht im Handelsgut." },
+        { text: "Weil die Prämie täglich wie ein Aktienkurs schwankt.", korrekt: false, erklaerung: "Der Zyklus ist jährlich (UBA-Zertifizierung pro Jahr), nicht täglich — das Risiko ist die Preisentwicklung über Monate." }
+      ]
+    }
+  },
+  "Q-THG-R4": {
+    id: "Q-THG-R4", unitId: "U6-THG", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-EMOB-THG-01"],
+    data: {
+      steckbriefId: "L3-EMOB-THG-01",
+      erklaerungenProDimension: {
+        regulierung: "Zu 100% regulatorisch geschaffen (§37a BImSchG) — höchste Stufe, aber maximal politikabhängig.",
+        skalierbarkeit: "Digitaler UBA-Prozess, jeder Fahrzeugschein grenzkostenarm — hoch.",
+        marktrisiko: "Extrem volatiler, politisch getriebener Quotenpreis (Absturz 2023/24) — hoch.",
+        digitalisierung: "Self-Service-Upload und Abwicklung sind digital — relativ hoch.",
+        wettbewerb: "Billiger Markteintritt, viele Pooler, Vergleichsportale — hoch.",
+        nachhaltigkeit: "Fördert E-Mobilität finanziell, aber indirekt und mitnahmeanfällig — mittel."
+      }
+    }
+  },
+  "Q-THG-T1": {
+    id: "Q-THG-T1", unitId: "U6-THG", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-EMOB-THG-01", "L3-ERZ-EE-01"],
+    data: {
+      frage: "Die THG-Quote und die EEG-Marktprämie (Modul 2) sind beide staatlich geschaffene Erlösquellen. Was unterscheidet ihr Risikoprofil fundamental?",
+      optionen: [
+        { text: "Die EEG-Marktprämie sichert dem Anlagenbetreiber einen anzulegenden Wert über 20 Jahre (planbar); die THG-Prämie hängt an einem jährlich neu volatilen, politisch getriebenen Quotenpreis ohne langfristige Garantie.", korrekt: true, erklaerung: "Beide sind regulatorisch, aber die eine ist langfristig gesichert, die andere kurzfristig-spekulativ — deshalb ist THG das viel wackeligere Geschäft." },
+        { text: "Beide sind gleich sicher, weil beide vom Staat kommen.", korrekt: false, erklaerung: "Staatlicher Ursprung heißt nicht gleiche Sicherheit — die 20-Jahres-Garantie des AW unterscheidet sich fundamental vom volatilen Quotenpreis." },
+        { text: "Die THG-Quote ist über 20 Jahre garantiert, die EEG-Prämie nur jährlich.", korrekt: false, erklaerung: "Genau umgekehrt — der EEG-AW ist 20 Jahre gesichert, die THG-Prämie schwankt jährlich stark." }
+      ]
+    }
+  }
+
+});
+
 // ── Validierung (Konsole): prüft, dass alle Referenzen auflösen ──────
 (function validateLernData() {
   const errors = [];

@@ -32,6 +32,13 @@ const LERN_MODULES = [
     description: "Virtuelle Kraftwerke, Demand Response, Batterie-Optimierung und Vehicle-to-Grid — wie aus Software und verteilten Assets Geld wird.",
     unitIds: ["U5-VPP", "U5-DEMAND", "U5-ROUTE", "U5-V2G", "U5-FLEXKAMPF"],
     bossQuizId: null // Stage 2
+  },
+  {
+    id: "M6-PROSUMER",
+    title: "Prosumer & neue Spieler",
+    description: "Vom Balkonkraftwerk über Mieterstrom und PV-Miete bis Ladeinfrastruktur und THG-Quote — wie Haushalte zu Energieproduzenten und neue Player zu Gewinnern werden.",
+    unitIds: ["U6-PV", "U6-BALKON", "U6-MIETERSTROM", "U6-ENPAL", "U6-CPO", "U6-THG"],
+    bossQuizId: null // Stage 2
   }
 ];
 
@@ -752,6 +759,192 @@ const LERN_UNITS = [
     merkeDirEinenSatz: {
       prompt: "Formuliere in einem Satz: Worum geht der eigentliche Machtkampf in der Flexibilitätswelt?",
       musterantwort: "Um die Kontrolle der Kundenschnittstelle zum Flex-Asset: Wer sie besitzt, entscheidet, ob das Gerät marktlich (Aggregator, nach Börsenpreis) oder netzdienlich (VNB, §14a) gesteuert wird — eine regulatorisch noch offene Priorisierungsfrage."
+    }
+  },
+  {
+    id: "U6-PV",
+    moduleId: "M6-PROSUMER",
+    title: "PV-Eigenverbrauch — Warum der Speicher die Anlage verdoppelt",
+    primarySteckbriefId: "L3-PROSUM-HAUS-01",
+    vertiefungSteckbriefIds: ["L3-PROSUM-HAUS-01"],
+    hook: { text: "Ein Batteriespeicher erzeugt keine einzige Kilowattstunde Strom — und verdoppelt trotzdem den wirtschaftlichen Wert einer Solaranlage. Wie geht das?" },
+    kernidee: {
+      text: "Für einen PV-Prosumer ist jede <strong>selbst verbrauchte</strong> kWh viel mehr wert als eine eingespeiste: Eigenverbrauch spart den Bezugspreis (~30 ct/kWh), Einspeisung bringt nur die Vergütung (~8,2 ct/kWh). Ohne Speicher liegt die Eigenverbrauchsquote bei 25–35% (nur was mittags gerade läuft), mit Speicher bei 60–80%. Der Speicher erzeugt nichts — er verschiebt nur den Solarstrom vom Mittag in den Abend und hebt damit jede verschobene kWh von 8 auf 30 ct. Genau deshalb <strong>verdoppelt er den Wert</strong> derselben Anlage.",
+      geldfluss: {
+        nodes: [{ id: "pv", label: "PV-Dach" }, { id: "haus", label: "Eigenverbrauch" }, { id: "netz", label: "Netz" }],
+        edges: [
+          { from: "pv", to: "haus", label: "spart ~30 ct/kWh Bezug" },
+          { from: "pv", to: "netz", label: "Einspeisung nur ~8 ct/kWh" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-PROSUM-HAUS-01",
+      steps: [
+        { text: "Ohne Speicher nutzt der Haushalt nur ~30% seines Solarstroms selbst; der Rest fließt für 8,2 ct/kWh ins Netz, während er abends Strom für ~30 ct/kWh zurückkauft.", questionId: "Q-PV-WE1" },
+        { text: "Ein 10-kWh-Speicher hebt die Eigenverbrauchsquote auf 60–80% — jede so verschobene kWh ist statt 8,2 ct nun rund 30 ct wert.", questionId: "Q-PV-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-PV-R1", "Q-PV-R2", "Q-PV-R3", "Q-PV-R4"],
+    transferItemId: "Q-PV-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum verdoppelt ein Heimspeicher den Wert einer PV-Anlage, obwohl er nichts erzeugt?",
+      musterantwort: "Weil er den mittags erzeugten Überschuss in den Abend verschiebt und so die Eigenverbrauchsquote von ~30% auf 60–80% hebt — jede dadurch selbst genutzte kWh ist statt der Einspeisevergütung (~8 ct) den eingesparten Bezugspreis (~30 ct) wert."
+    }
+  },
+  {
+    id: "U6-BALKON",
+    moduleId: "M6-PROSUMER",
+    title: "Balkonkraftwerk — PV für alle, Marge für keinen",
+    primarySteckbriefId: "L3-PROSUM-HAUS-02",
+    vertiefungSteckbriefIds: ["L3-PROSUM-HAUS-02"],
+    hook: { text: "Eine Mieterin steckt für 400 € zwei Solarmodule in die Steckdose — kein Handwerker, keine Netzanmeldung. Für sie ein gutes Geschäft, für den Hersteller kaum. Warum?" },
+    kernidee: {
+      text: "Das <strong>Balkonkraftwerk</strong> (max. 800 W, seit dem Solarpaket I 2024 nur noch Registrierung im Marktstammdatenregister statt Netzbetreiber-Anmeldung) demokratisiert PV: 300–600 €, plug-and-play, Amortisation in 3–5 Jahren, Ersparnis 5–15 €/Monat. Der Wert liegt beim <strong>Nutzer</strong>, nicht beim Anbieter: Für Hersteller (Anker, EcoFlow) ist es ein <strong>Hardware-Commodity</strong> mit Preisverfall, für Plattformen (Amazon, Aldi) nur eine Marktplatz-Provision. Differenzierung über Apps ist dünn — der Wettbewerb ist hart, die Marge flach.",
+      geldfluss: {
+        nodes: [{ id: "haendler", label: "Händler/Hersteller" }, { id: "kunde", label: "Mieter" }, { id: "haus", label: "Eigenverbrauch" }],
+        edges: [
+          { from: "kunde", to: "haendler", label: "300–600 € einmalig" },
+          { from: "kunde", to: "haus", label: "spart 5–15 €/Monat" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-PROSUM-HAUS-02",
+      steps: [
+        { text: "Eine Mieterin kauft ein 400-€-Set bei Amazon, hängt zwei Module ans Balkongeländer und steckt den Mikro-Wechselrichter in die Steckdose — nur eine vereinfachte MaStR-Registrierung ist nötig.", questionId: "Q-BALKON-WE1" },
+        { text: "Die bis zu 800 W werden direkt von laufenden Geräten verbraucht; Überschuss ins Netz wird ohne Zweirichtungszähler praktisch nicht vergütet.", questionId: "Q-BALKON-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-BALKON-R1", "Q-BALKON-R2", "Q-BALKON-R3", "Q-BALKON-R4"],
+    transferItemId: "Q-BALKON-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum ist das Balkonkraftwerk für den Nutzer attraktiv, aber für den Anbieter ein schwieriges Geschäft?",
+      musterantwort: "Für den Nutzer senkt es zu geringem Einstiegspreis die Stromrechnung ohne Handwerker; für den Anbieter ist es ein austauschbares Hardware-Commodity mit Preisverfall und dünner Differenzierung, dessen Wert fast vollständig beim Kunden landet."
+    }
+  },
+  {
+    id: "U6-MIETERSTROM",
+    moduleId: "M6-PROSUMER",
+    title: "Mieterstrom vs. GGV — Strom verkaufen oder Software verkaufen?",
+    primarySteckbriefId: "L3-PROSUM-MIETER-01",
+    vertiefungSteckbriefIds: ["L3-PROSUM-MIETER-01", "L3-PROSUM-MIETER-02", "L3-PROSUM-COMMUNITY-01"],
+    hook: { text: "Zwei Wege, denselben Dachstrom an die Mieter zu bringen — beim einen wird der Vermieter zum Energieversorger mit allen Pflichten, beim anderen nur zum Software-Kunden. Warum verdrängt der zweite den ersten?" },
+    kernidee: {
+      text: "Beim klassischen <strong>Mieterstrom (§42a EnWG)</strong> wird der Vermieter (oder ein Dienstleister wie Buzzn) zum <strong>Energielieferanten</strong> mit allen EnWG-Pflichten (Bilanzkreis, Marktkommunikation, GPKE je Mieteinheit) — dafür Retail-Marge plus Mieterstromzuschlag. Die neuere <strong>GGV (§42b, seit 2024)</strong> ist die einfache Alternative: Solarstrom wird über einen virtuellen Zähler anteilig gutgeschrieben, <strong>ohne</strong> Lieferant zu werden — Plattformanbieter (Lumenaza, gridX) verkaufen dafür nur noch Software (SaaS), keinen Strom. Genau diese Vereinfachung unterhöhlt das Vollservice-Mieterstrommodell.",
+      geldfluss: {
+        nodes: [{ id: "dach", label: "Dach-PV" }, { id: "plattform", label: "Plattform/Dienstl." }, { id: "mieter", label: "Mieter" }],
+        edges: [
+          { from: "dach", to: "mieter", label: "Mieterstrom: Strom + Marge" },
+          { from: "plattform", to: "mieter", label: "GGV: nur Abrechnungs-Software" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-PROSUM-MIETER-01",
+      steps: [
+        { text: "Bei Buzzn-Mieterstrom kauft der Mieter Dachstrom zu einem Tarif, der gesetzlich mind. 10% unter dem Grundversorgungstarif liegen muss; Buzzn kassiert zusätzlich den Mieterstromzuschlag (~1,6–2,6 ct/kWh) und übernimmt die volle Lieferantenrolle.", questionId: "Q-MIETERSTROM-WE1" },
+        { text: "Bei der GGV verdient Lumenaza dagegen an einer SaaS-Gebühr an die WEG — der Reststrom läuft weiter über den frei gewählten Lieferanten jedes Mieters, kein neues Lieferverhältnis entsteht.", questionId: "Q-MIETERSTROM-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-MIETERSTROM-R1", "Q-MIETERSTROM-R2", "Q-MIETERSTROM-R3", "Q-MIETERSTROM-R4", "Q-MIETERSTROM-R5"],
+    transferItemId: "Q-MIETERSTROM-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Was ist der Kernunterschied zwischen Mieterstrom (§42a) und GGV (§42b)?",
+      musterantwort: "Beim Mieterstrom wird der Anbieter zum Energielieferanten mit voller EnWG-Pflicht und verdient an der Strommarge; bei der GGV bleibt er außen vor und verkauft nur Abrechnungs-Software, weil der Reststrom weiter über die eigenen Lieferanten der Mieter läuft."
+    }
+  },
+  {
+    id: "U6-ENPAL",
+    moduleId: "M6-PROSUMER",
+    title: "PV zur Miete — Das Enpal-Modell",
+    primarySteckbriefId: "L3-PROSUM-MIETER-03",
+    vertiefungSteckbriefIds: ["L3-PROSUM-MIETER-03"],
+    hook: { text: "Ein Startup wird zum Milliardenunternehmen, indem es Solaranlagen verschenkt — die Kunden zahlen keinen Cent Anschaffung. Wo kommt das Geld her, und wo ist der Engpass?" },
+    kernidee: {
+      text: "Enpal und 1KOMMA5° drehen den Solar-Kauf um: Statt ~25.000 € Anschaffung zahlt der Kunde eine <strong>monatliche Miete</strong> (ab ~79 €) für PV + Speicher + Wallbox + Wärmepumpe als Bundle — und spart ab Monat 1 mehr, als die Miete kostet. Enpal behält das Eigentum, übernimmt Installation, Wartung, Versicherung und <strong>finanziert vor</strong>. Der Clou: Enpal refinanziert sich <strong>günstig über Green Bonds</strong>, weil der über 20 Jahre durch EEG und Mietraten abgesicherte Cashflow als risikoarm gilt. Der echte Engpass ist nicht Kapital, sondern die eigene <strong>Installationsflotte</strong> (3.000+ Mitarbeiter).",
+      geldfluss: {
+        nodes: [{ id: "invest", label: "Green-Bond-Investoren" }, { id: "enpal", label: "Enpal" }, { id: "kunde", label: "Hauseigentümer" }],
+        edges: [
+          { from: "invest", to: "enpal", label: "günstiges Kapital (Vorfinanzierung)" },
+          { from: "kunde", to: "enpal", label: "Miete ~79-99 €/Monat, 20 Jahre" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-PROSUM-MIETER-03",
+      steps: [
+        { text: "Statt 25.000 € auf einmal zahlt der Kunde z.B. 99 €/Monat über 20 Jahre und spart gleichzeitig mehr Stromkosten, als die Rate kostet — weil ein Teil des Bedarfs jetzt aus eigener Solarerzeugung kommt.", questionId: "Q-ENPAL-WE1" },
+        { text: "Enpal finanziert die Anlage vor, refinanziert sich aber günstig über Green Bonds, weil institutionelle Investoren dem 20-Jahres-Cashflow ein niedriges Risiko zuschreiben.", questionId: "Q-ENPAL-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-ENPAL-R1", "Q-ENPAL-R2", "Q-ENPAL-R3", "Q-ENPAL-R4"],
+    transferItemId: "Q-ENPAL-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Worin liegt der Kern des Enpal-Geschäftsmodells — und sein größtes Risiko?",
+      musterantwort: "Enpal verschafft dem Kunden Solar ohne Kapitaleinsatz gegen eine 20-jährige Miete und refinanziert die Vorfinanzierung günstig über Green Bonds; das größte Risiko ist die Abhängigkeit von günstigem Kapital (Zinsen) und der Flaschenhals der eigenen Installationskapazität."
+    }
+  },
+  {
+    id: "U6-CPO",
+    moduleId: "M6-PROSUMER",
+    title: "Ladeinfrastruktur — Das Auslastungsproblem",
+    primarySteckbriefId: "L3-EMOB-CPO-01",
+    vertiefungSteckbriefIds: ["L3-EMOB-CPO-01"],
+    hook: { text: "Eine Schnellladesäule kostet bis zu 60.000 € und steht 90% der Zeit ungenutzt. Warum baut sie trotzdem jemand — und warum integriert er sie ausgerechnet in fremde Apps?" },
+    kernidee: {
+      text: "Ein <strong>Charge Point Operator (CPO)</strong> baut und betreibt öffentliche Ladepunkte (HPC-Säule: 30.000–60.000 € plus Netzanschluss). Das Kernproblem ist die <strong>Auslastung</strong>: Im Schnitt nur 6–12% (2024), Breakeven erst ab ~20% — ein Hühner-Ei-Rennen zwischen EV-Wachstum und Ladenetz-Ausbau. Deshalb fahren CPOs zwei Erlösströme: Direktladung zum vollen Tarif <strong>und</strong> passives <strong>Roaming</strong> (via OCPI-Protokoll geben sie Zugang für fremde eMSP-Apps und erhalten einen Nettobetrag). Genau dieser Roaming-Strom füllt die Auslastungslücke, die Eigenkunden allein nie schließen würden.",
+      geldfluss: {
+        nodes: [{ id: "cpo", label: "CPO (Säule)" }, { id: "fahrer", label: "EV-Fahrer" }, { id: "emsp", label: "eMSP (Roaming)" }],
+        edges: [
+          { from: "fahrer", to: "cpo", label: "Direktladung 45–80 ct/kWh" },
+          { from: "emsp", to: "cpo", label: "Roaming-Nettobetrag (OCPI)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-EMOB-CPO-01",
+      steps: [
+        { text: "Eine 350-kW-Ionity-Säule kostet inkl. Netzanschluss 30.000–60.000 €. Bei nur 6–12% Auslastung steht sie meist ungenutzt, während Capex und Netzanschluss unabhängig vom Ladevolumen weiterlaufen.", questionId: "Q-CPO-WE1" },
+        { text: "Deshalb integriert Ionity seine Säulen zusätzlich über das OCPI-Roaming-Protokoll in fremde eMSP-Apps und erhält dafür einen Nettobetrag pro kWh — ohne selbst eine Kundenbeziehung zu pflegen.", questionId: "Q-CPO-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-CPO-R1", "Q-CPO-R2", "Q-CPO-R3", "Q-CPO-R4"],
+    transferItemId: "Q-CPO-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum ist der CPO trotz asset-schwerer Position gegen asset-leichte Angreifer strukturell schwach?",
+      musterantwort: "Weil eMSP-/Roaming-Aggregatoren die margenstärkste Endkundenbeziehung samt App-Layer übernehmen, ohne eigenes Infrastruktur-Capex zu tragen, und OEMs parallel eigene Netze bauen — der CPO trägt Capex und Auslastungsrisiko und kann zum reinen Hardware-Betreiber degradiert werden."
+    }
+  },
+  {
+    id: "U6-THG",
+    moduleId: "M6-PROSUMER",
+    title: "THG-Quote — Ein Markt aus dem Nichts",
+    primarySteckbriefId: "L3-EMOB-THG-01",
+    vertiefungSteckbriefIds: ["L3-EMOB-THG-01"],
+    hook: { text: "Ein E-Auto-Halter lädt ein Foto seines Fahrzeugscheins hoch und bekommt dafür 300–450 € im Jahr — von einem Mineralölkonzern. Wer hat diesen Markt erfunden, und warum ist er so wackelig?" },
+    kernidee: {
+      text: "Die <strong>THG-Quote (§37a BImSchG)</strong> zwingt Inverkehrbringer fossiler Kraftstoffe, ihre Treibhausgasintensität jährlich stärker zu mindern — erfüllbar u.a. durch <strong>Zukauf</strong> zertifizierter E-Mobilitäts-Einsparungen. E-Auto-Halter lassen ihre (pauschale) Strommenge beim Umweltbundesamt zertifizieren, praktisch immer über <strong>Pooling-Dienstleister</strong> (carbonify, M3E), die tausende Fahrzeugscheine bündeln und die Zertifikate an Mineralölfirmen verkaufen. Das Geschäft ist <strong>zu 100% regulatorisch</strong> geschaffen — und damit maximal politik- und preisvolatil (Absturz von >380 € auf <100 € 2023/24).",
+      geldfluss: {
+        nodes: [{ id: "halter", label: "E-Auto-Halter" }, { id: "pooler", label: "Pooler" }, { id: "oel", label: "Mineralölfirma" }],
+        edges: [
+          { from: "pooler", to: "halter", label: "Prämie 300–450 €" },
+          { from: "oel", to: "pooler", label: "Zertifikatskauf (Pönale-Anker 600 €/t)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-EMOB-THG-01",
+      steps: [
+        { text: "Der Pooler carbonify meldet das Fahrzeug beim UBA an, das eine pauschale Jahresstrommenge (Pkw ~2.000 kWh) als CO₂-Einsparung zertifiziert, und verkauft die gebündelten Zertifikate an ein quotenverpflichtetes Mineralölunternehmen.", questionId: "Q-THG-WE1" },
+        { text: "Die Zahlungsbereitschaft der Abnehmer ist regulatorisch nach oben verankert: Ohne Zertifikate müssten sie eine Pönale von 600 €/t CO₂ zahlen.", questionId: "Q-THG-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-THG-R1", "Q-THG-R2", "Q-THG-R3", "Q-THG-R4"],
+    transferItemId: "Q-THG-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum ist der THG-Quotenhandel ein besonders wackeliges Geschäftsmodell?",
+      musterantwort: "Weil es zu 100% auf einem regulatorisch geschaffenen Markt beruht — Quotenhöhe, Anrechnungsregeln und Preis hängen an Verordnungen und können abstürzen (2023/24 von über 380 € auf unter 100 €), während die Vermittlerposition selbst kaum verteidigungsfähig ist."
     }
   },
   {

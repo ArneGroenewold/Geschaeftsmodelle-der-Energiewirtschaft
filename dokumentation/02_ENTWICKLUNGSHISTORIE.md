@@ -201,6 +201,16 @@ Wichtige Lehre aus der Korrekturschleife in Session 13: "Konkretes Beispiel" und
 - **Neu: `08_LERNAPP_UMSETZUNG.md`** — As-Built-Doku der App (Architektur, Wiki-Sync-Garantien inkl. Fakten-Refresh-Checkliste, Release-Prozess, Autorenleitfaden, Roadmap).
 - **Lehre bekräftigt:** Der Versuch, diese Historie per PowerShell-Add-Content zu ergänzen, hat Backtick-Inhalte verschluckt (bash-Interpolation) — die bestehende Konvention „Dateiänderungen ausschließlich über Datei-Tools" gilt uneingeschränkt auch für Markdown-Doku.
 
+### Session 24 — Lern-App Module 3, 5 & 6 (Juli 2026)
+- **Auftrag:** „Mach mit den genannten Modulen weiter" — die drei zuvor vorgeschlagenen Module Die Netze, Flexibilität, Prosumer nacheinander bauen.
+- **Modul 3 „Die Netze"** (6 Einheiten über `L1-UNB`/`L1-VNB`/`L1-GAS`): ARegV-Regulierung (RAB/Erlösobergrenze/Effizienzbenchmark), Redispatch & Engpassmanagement, Bilanzkreise & Ausgleichsenergie, §14a & Messstellenbetrieb, Betreibermodelle & Rekommunalisierung, Gas- & H2-Kernnetz. 43 Items.
+- **Modul 5 „Flexibilität ist das neue Öl"** (5 Einheiten über `L1-AGG` + `L1-EMOB`-V2G): virtuelles Kraftwerk (Next Kraftwerke), Demand Response (Industrie), Route-to-Market/Tolling (Entrix/terralayr), Vehicle-to-Grid, plus K4-Synthese-Einheit „Wer kontrolliert die Flexibilität?". 35 Items.
+- **Modul 6 „Prosumer & neue Spieler"** (6 Einheiten über `L1-PROSUMER` + `L1-EMOB`): PV-Eigenverbrauch, Balkonkraftwerk, Mieterstrom vs. GGV (inkl. Energy Community), Enpal-PV-Miete, Ladeinfrastruktur/CPO, THG-Quote. 43 Items.
+- **Gesamt jetzt: 5 Module, 30 Einheiten, 218 Quiz-Items** — der für ein Zertifizierungs-Quiz nötige Pool von ≥200 Fragen ist damit erreicht.
+- **Didaktik:** Transfer-Fragen verweben die Module systematisch (Merchant vs. Reguliert; VPP↔EEG-Marktprämie; Tolling↔PPA-Floor; §14a-Steuerungskonflikt↔Heimspeicher-VPP; CPO-Margenverlust↔Octopus-Kraken; THG↔EEG-Risikoprofil) — Ziel: Modelle unterscheiden statt Inselwissen.
+- **Verifikation je Modul:** Browser-Durchlauf (Validierungs-Log ohne Waisen, BMC-Puzzle 9/9, Rechenaufgaben inkl. Dezimalergebnis grün, keine Konsolenfehler), `sw.js` CACHE_NAME v4→v5→v6, je ein Commit + Push.
+- **Kleiner Testartefakt-Fix in S23-Übertrag:** Zwei Retrieval-Items (Q-BILANZ-R4, Q-BETREIB-R4) waren zunächst in den Listen referenziert, aber nicht geschrieben — von der Laufzeit-Validierung sofort gemeldet und ergänzt (Beleg, dass die Validierung greift).
+
 ### Session 23 — Lern-App Modul 2 „Erzeugen & Speichern" (Juli 2026)
 - **Auftrag:** Nächstes Modul bauen (Nutzer wählte Modul 2), Sync-/Doku-Fragen geklärt (Sync-Garantien und Pflegeprozesse waren bereits in `08_LERNAPP_UMSETZUNG.md` dokumentiert).
 - **Modul 2 umgesetzt:** 6 Lerneinheiten über die 9 `L1-ERZ`-Steckbriefe — Merit Order (Merchant-Erzeugung), Regelenergie/Systemdienstleistungen, EEG-Marktprämie, PPAs (konventionell + Corporate), Batteriespeicher-Stacking (Grid-Scale + Heimspeicher-VPP), Offshore-Wind + Bürgerenergiegenossenschaft. **43 neue Quiz-Items → gesamt 2 Module, 13 Einheiten, 97 Items.** Bewusster didaktischer Bogen „Wie fließt das Geld durch die Erzeugung?" mit Transfer-Fragen, die auf Modul 4 zurückverweisen (z.B. EEG-Outperformance ↔ Wechselpilot-Erfolgsprovision, Sonnen-Flatrate ↔ Tibber-Abo).

@@ -7,10 +7,15 @@
 
 ---
 
-## 1. Was ist umgesetzt (MVP + Iteration 2 + Modul 2)
+## 1. Was ist umgesetzt (MVP → 5 Module)
 
-- **Modul 4 „Verkaufen"** komplett: 7 Lerneinheiten über die 11 Steckbriefe der Domänen `L1-VERTRIEB` und `L1-VERGLEICH`, 54 Quiz-Items.
-- **Modul 2 „Erzeugen & Speichern"** (seit Session 23): 6 Lerneinheiten über die 9 Steckbriefe der Domäne `L1-ERZ` (Merit Order, Regelenergie, EEG-Marktprämie, PPAs, Batteriespeicher-Stacking, Offshore/Bürgerenergie), 43 Quiz-Items. **Gesamt: 2 Module, 13 Einheiten, 97 Quiz-Items.** Home-Screen zeigt jetzt eine Modul-Auswahl (mehrere Module).
+- **Modul 4 „Verkaufen"**: 7 Einheiten über `L1-VERTRIEB` + `L1-VERGLEICH`, 54 Items.
+- **Modul 2 „Erzeugen & Speichern"**: 6 Einheiten über `L1-ERZ` (Merit Order, Regelenergie, EEG-Marktprämie, PPAs, Batteriespeicher, Offshore/Bürgerenergie), 43 Items.
+- **Modul 3 „Die Netze"**: 6 Einheiten über `L1-UNB`/`L1-VNB`/`L1-GAS` (ARegV, Redispatch, Bilanzkreise, §14a & Messstellenbetrieb, Betreibermodelle/Rekommunalisierung, Gas- & H2-Kernnetz), 43 Items.
+- **Modul 5 „Flexibilität ist das neue Öl"**: 5 Einheiten über `L1-AGG` + `L1-EMOB`(V2G) (virtuelles Kraftwerk, Demand Response, Route-to-Market/Tolling, V2G, Synthese „Wer kontrolliert die Flexibilität?"), 35 Items.
+- **Modul 6 „Prosumer & neue Spieler"**: 6 Einheiten über `L1-PROSUMER` + `L1-EMOB` (PV-Eigenverbrauch, Balkonkraftwerk, Mieterstrom vs. GGV, Enpal-PV-Miete, Ladeinfrastruktur, THG-Quote), 43 Items.
+
+**Gesamt: 5 Module, 30 Einheiten, 218 Quiz-Items.** Home-Screen zeigt die Modul-Auswahl in numerischer Reihenfolge (2, 3, 4, 5, 6). Transfer-Fragen verknüpfen die Module bewusst quer (z.B. VPP↔EEG-Marktprämie, Tolling↔PPA-Floor, CPO-Margenverlust↔Octopus-Kraken, THG↔EEG-Risikoprofil).
 - **Einheiten-Flow** nach Konzept §4: Hook → Kernidee (mit Geldfluss-Diagramm) → **Vertiefung** (voller Wiki-Steckbrief lesbar in der App, seit Iteration 2) → Worked Example (2 Schritte mit Zwischenfragen) → Retrieval (4–6 Fragen) → Transfer (1 Frage, referenziert frühere Einheit) → „Merke dir einen Satz" (Freitext + Musterantwort, unbewertet) → Zusammenfassung.
 - **5 Quiz-Formate:** Multiple Choice, Lückentext (Tap-Wortbank), BMC-Puzzle (Bausteine + Distraktor-Steckbrief), Radar-Schätzen (6 Slider + Overlay), Fallbeispiel-Rechnung (Zahleneingabe mit Toleranz). Feedback-Regel eingehalten: **jede** Antwortoption hat eine Erklärung, nie nur richtig/falsch.
 - **Leitner-Spaced-Repetition:** 5 Boxen, Intervalle 1/3/7/16/35 Tage; Karten entstehen lazy beim ersten Beantworten (Quiz-Items + automatisch abgeleitete Glossar-Karten). Täglicher Review-Stapel (max. 18 Karten), Streak-Zählung.
@@ -114,13 +119,12 @@ Versionierung läuft über **Git** (Commits/History), nicht über ZIP-Stände wi
 
 ## 8. Roadmap (Konzept §11, priorisierter Vorschlag)
 
-Erledigt: ~~Modul 4 „Verkaufen"~~ (Sessions 21–22), ~~Modul 2 „Erzeugen & Speichern"~~ (Session 23).
+Erledigt: ~~Modul 4 „Verkaufen"~~ (S21–22), ~~Modul 2 „Erzeugen & Speichern"~~ (S23), ~~Module 3/5/6 (Netze, Flexibilität, Prosumer)~~ (S24).
 
-1. **Bossquiz-Mechanik** (schwerer, mischt alle Einheiten eines Moduls; Freischalt-Logik) — mit jetzt 2 fertigen Modulen sinnvoll umsetzbar.
-2. **Modul 1 „Das Spielfeld"** (Strommarkt-Grundlagen: Merit Order, Börse, Bilanzkreise) — laut Konzept das Fundament; ein Teil (Merit Order) ist in Modul 2 bereits angerissen und könnte referenziert werden.
-3. **Weitere Module** in Konzept-Reihenfolge (3 Die Netze, 5 Flexibilität, 6 Prosumer …) — je Modul: Einheiten-Zuschnitt, ~8–10 Items/Einheit nach Autorenleitfaden.
-4. **Disruptor-Modus + Szenario-Missionen** (K4-Formate, machen laut Konzept „am meisten Spaß").
-5. **Stufe 3:** Zertifizierungs-Quiz (Pool ≥200 Fragen nötig → mit 97 Items etwa zur Hälfte erreicht), Confidence-Rating.
-6. **Stufe 4:** Einstufungstest, Rollen-Lernpfade entlang der Personas (`01_PERSONAS.md`), Kollegen-Verteilung.
+1. **Bossquiz-Mechanik** (schwerer, mischt alle Einheiten eines Moduls; Freischalt-Logik) — mit 5 fertigen Modulen dringend sinnvoll; die `bossQuizId`-Felder in `LERN_MODULES` sind bereits als `null` vorgesehen.
+2. **Restliche Module** aus dem Konzept: 1 „Das Spielfeld" (Grundlagen, teils in Modul 3 angerissen), 7 „Wärme, H2 & Industrie" (`L1-WAERME`/`L1-CONTRACT`), 8 „Das Ökosystem drumherum" (`L1-PROJ`/`L1-FINANZ`/`L1-BERATUNG`/`L1-RECHT`/`L1-VERSICH`/`L1-DIGITAL`).
+3. **Disruptor-Modus + Szenario-Missionen** (K4-Formate, machen laut Konzept „am meisten Spaß").
+4. **Stufe 3:** Zertifizierungs-Quiz — der nötige Pool von ≥200 Fragen ist mit **218 Items bereits erreicht**; stratifizierte Ziehung + Zertifikat-Print umsetzbar. Dazu Confidence-Rating.
+5. **Stufe 4:** Einstufungstest, Rollen-Lernpfade entlang der Personas (`01_PERSONAS.md`), Kollegen-Verteilung.
 
 **Muster für ein neues Modul** (aus Session 23, als Blaupause): (1) Modulobjekt in `LERN_MODULES` (`lern-data.js`) mit `unitIds`; (2) Einheiten in `LERN_UNITS` mit `vertiefungSteckbriefIds` auf die realen Steckbrief-IDs; (3) Quiz-Items in `LERN_QUIZ_ITEMS` (`lern-quiz-items.js`) nach Feld→Format-Mapping (§6), jede Einheit ~7–8 Items, mindestens ein Transfer-Item das auf ein anderes Modul verweist; (4) `sw.js` CACHE_NAME +1; (5) Browser-Test (Validierungs-Log, ein Durchlauf je neuem Format), commit + push.

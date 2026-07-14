@@ -5,7 +5,7 @@
 //
 // Release-Prozedur: CACHE_NAME hochzählen, um alte Caches zu invalidieren.
 // ══════════════════════════════════════════════════════════
-const CACHE_NAME = 'lernapp-shell-v10';
+const CACHE_NAME = 'lernapp-shell-v11';
 
 const SHELL_FILES = [
   './index.html',
@@ -17,6 +17,7 @@ const SHELL_FILES = [
   './shared/render-kit.js',
   './shared/flow-diagram.js',
   './quiz-formats.js',
+  './quiz-session.js',
   './lern-engine.js',
   './main.js',
   './manifest.json',

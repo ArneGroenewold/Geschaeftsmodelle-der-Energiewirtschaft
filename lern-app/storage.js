@@ -12,7 +12,16 @@
     return { schemaVersion: 1, cards: {}, streak: { count: 0, lastReviewDate: null } };
   }
   function emptyProgressState() {
-    return { schemaVersion: 1, units: {}, xp: 0 };
+    return { schemaVersion: 1, units: {}, xp: 0, bossQuizzes: {}, certification: null };
+  }
+
+  // Sanftes Nachrüsten neuer Felder bei bestehenden Speicherständen (Schema v1
+  // wurde um bossQuizzes/certification erweitert, ohne Version zu erhöhen —
+  // die Felder werden bei Bedarf ergänzt).
+  function migrateProgress(state) {
+    if (!state.bossQuizzes) state.bossQuizzes = {};
+    if (typeof state.certification === 'undefined') state.certification = null;
+    return state;
   }
 
   function readJSON(key, fallback) {
@@ -39,7 +48,7 @@
   const Storage = {
     loadLeitner() { return readJSON(LEITNER_KEY, emptyLeitnerState); },
     saveLeitner(state) { writeJSON(LEITNER_KEY, state); },
-    loadProgress() { return readJSON(PROGRESS_KEY, emptyProgressState); },
+    loadProgress() { return migrateProgress(readJSON(PROGRESS_KEY, emptyProgressState)); },
     saveProgress(state) { writeJSON(PROGRESS_KEY, state); },
 
     // Fortschritt exportieren/importieren als eine JSON-Datei — Sicherheitsnetz

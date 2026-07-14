@@ -315,6 +315,39 @@ main.view{ padding:20px; max-width:640px; margin:0 auto; }
 .data-tools{display:flex;gap:8px;margin-top:20px}
 .data-tools button{flex:1}
 
+/* ── Bossquiz-Zeile ────────────────────────────────────── */
+.boss-row{border-style:dashed}
+.boss-row .unit-row-title{font-weight:700}
+.unit-row.locked{opacity:.5;cursor:default}
+.cert-module-row{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-top:1px solid var(--border)}
+.cert-module-row:first-of-type{border-top:none}
+.cert-module-row.incorrect span:last-child{color:var(--danger);font-weight:700}
+.cert-module-row.correct span:last-child{color:var(--success);font-weight:700}
+
+/* ── Zertifikat ────────────────────────────────────────── */
+.cert-card{border-color:var(--accent)}
+.certificate{
+  background:var(--bg-panel);border:2px solid var(--accent);border-radius:var(--radius-lg);
+  padding:28px 22px;text-align:center;margin:16px 0;position:relative;
+}
+.cert-badge{font-size:40px;margin-bottom:6px}
+.cert-kicker{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:700}
+.cert-title{font-family:var(--font-display);font-size:26px;letter-spacing:-.6px;margin:4px 0 18px}
+.cert-name{font-family:var(--font-display);font-size:22px;color:var(--ink);border-bottom:1px solid var(--border);padding-bottom:10px;margin:0 auto 14px;max-width:80%}
+.cert-body{font-size:13.5px;line-height:1.6;color:var(--ink-mid);max-width:420px;margin:0 auto 14px}
+.cert-scoreline{font-size:15px;margin-bottom:16px}
+.cert-modules{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;max-width:440px;margin:0 auto 18px;text-align:left}
+.cert-mod{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-mid);border-bottom:1px dotted var(--border);padding:3px 0}
+.cert-footer{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-light);border-top:1px solid var(--border);padding-top:12px;margin-top:6px}
+
+@media print {
+  body{background:#fff;padding:0}
+  .app-header,.bottom-nav,.btn-primary,.btn-secondary,.hero,.cert-name-input,.calc-field,#certificate ~ *{display:none !important}
+  .view[hidden]{display:none !important}
+  .certificate{border-color:#C8571A;box-shadow:none;margin:0;page-break-inside:avoid}
+  main.view{padding:0}
+}
+
 .glossary-term{border-bottom:1px dotted var(--accent);cursor:pointer;color:inherit}
 .glossary-popover{
   position:absolute;z-index:50;background:var(--ink);color:#fff;border-radius:8px;padding:10px 13px;

@@ -1,6 +1,6 @@
 # Lern-App „Energiewirtschaft meistern" — Umsetzungsdokumentation (As-Built)
 
-> **Stand:** Juli 2026 (Sessions 21–22) · **Status:** MVP live
+> **Stand:** Juli 2026 (Sessions 21–26) · **Status:** live, alle 8 Module + Bossquiz + Zertifizierung
 > **Konzept:** `07_LERNAPP_KONZEPT.md` (Sollzustand) — dieses Dokument beschreibt den **Istzustand** und die Pflegeprozesse.
 > **Live-URL:** https://arnegroenewold.github.io/Geschaeftsmodelle-der-Energiewirtschaft/lern-app/
 > **Repository:** https://github.com/ArneGroenewold/Geschaeftsmodelle-der-Energiewirtschaft (Branch `master`, GitHub Pages aus Root)
@@ -19,6 +19,13 @@
 - **Modul 8 „Das Ökosystem drumherum"**: 6 Einheiten über `L1-PROJ`/`L1-FINANZ`/`L1-BERATUNG`/`L1-RECHT`/`L1-VERSICH`/`L1-DIGITAL` (Projektentwicklung, Projektfinanzierung, Strategieberatung, Konzessionsrecht, Versicherung, Utility-OS/Kraken), 42 Items.
 
 **Gesamt: alle 8 Module, 47 Einheiten, 337 Quiz-Items.** Home-Screen zeigt die Modul-Auswahl in numerischer Reihenfolge (1–8), **standardmäßig eingeklappt** (Akkordeon), mit prozentualem Fortschritt je Modul und einem Gesamtfortschritts-Balken oben. Transfer-Fragen verknüpfen die Module bewusst quer (z.B. Börse↔Vergleichsportal-Neutralität, VPP↔EEG-Marktprämie, Tolling↔PPA-Floor, Utility-OS↔Octopus-Retail, Eigenversorgung↔Stadtwerke-Querverbund).
+
+**Bossquiz & Zertifizierung (Session 26):**
+- **Bossquiz je Modul** (`quiz-session.js`): 10 gemischte, eher schwere Fragen aus allen Einheiten des Moduls, Bestehen ab **70%**. Freigeschaltet, sobald alle Einheiten des Moduls abgeschlossen sind (Zeile am Ende der aufgeklappten Modulkarte). Ergebnis (`passed`, `bestScore`, `attempts`) in `progressState.bossQuizzes[moduleId]`.
+- **Zertifizierungsquiz** (Fortschritts-Tab): freigeschaltet nach **allen 8 bestandenen Bossquiz**. **40 Fragen, 5 je Modul** stratifiziert; Bestehen ab **75% gesamt UND kein Modul unter 50%**. Bei Bestehen: **druckbares Zertifikat** (Name-Eingabe, Datum, Gesamtscore, Modul-Aufschlüsselung, `GM_FAKTEN_STAND`) via Print-CSS; bei Nichtbestehen: Schwächenanalyse je Modul. Ein einmal erworbenes Zertifikat bleibt bei fehlgeschlagenen Wiederholungen erhalten.
+- **Freischaltung testen:** `?debug=1` schaltet Boss- und Zertifizierungsquiz unabhängig vom Fortschritt frei.
+
+**QA-Stand (Session 26):** Automatisierter Konsistenz-Check über alle 337 Items (im Browser ausführbar) — **0 strukturelle Fehler** (MC genau 1 richtige Option + Erklärungen, keine Distraktoren die zugleich Lösung sind, alle Rechnungslösungen numerisch mit Toleranz, Radar-/BMC-Steckbriefe existieren). **0 doppelte Fragen.** Bloom-Verteilung **54% K3/K4** (Konzept-Ziel ≥40% übererfüllt). 38 von 47 Transferfragen verweisen modulübergreifend.
 - **Einheiten-Flow** nach Konzept §4: Hook → Kernidee (mit Geldfluss-Diagramm) → **Vertiefung** (voller Wiki-Steckbrief lesbar in der App, seit Iteration 2) → Worked Example (2 Schritte mit Zwischenfragen) → Retrieval (4–6 Fragen) → Transfer (1 Frage, referenziert frühere Einheit) → „Merke dir einen Satz" (Freitext + Musterantwort, unbewertet) → Zusammenfassung.
 - **5 Quiz-Formate:** Multiple Choice, Lückentext (Tap-Wortbank), BMC-Puzzle (Bausteine + Distraktor-Steckbrief), Radar-Schätzen (6 Slider + Overlay), Fallbeispiel-Rechnung (Zahleneingabe mit Toleranz). Feedback-Regel eingehalten: **jede** Antwortoption hat eine Erklärung, nie nur richtig/falsch.
 - **Leitner-Spaced-Repetition:** 5 Boxen, Intervalle 1/3/7/16/35 Tage; Karten entstehen lazy beim ersten Beantworten (Quiz-Items + automatisch abgeleitete Glossar-Karten). Täglicher Review-Stapel (max. 18 Karten), Streak-Zählung.
@@ -39,6 +46,7 @@ lern-app/
 ├── lern-quiz-items.js    LERN_QUIZ_ITEMS (54 Items) + Validierungs-Snippet (Konsole)
 ├── lern-engine.js        UnitPlayer-State-Machine (Screen-Sequenz je Einheit)
 ├── quiz-formats.js       5 Renderer/Grader (render(item, container, onGraded))
+├── quiz-session.js       Wiederverwendbarer Multi-Item-Runner (Boss-/Zertifizierungsquiz), stratifizierte Auswahl
 ├── leitner.js            Scheduling, Due-Queue, Streak (window.LernLeitner)
 ├── storage.js            localStorage-Wrapper, Export/Import (window.LernStorage)
 ├── main.js               App-Shell: Navigation, Unit-Start, Review-Session, Fortschritt, SW-Registrierung
@@ -122,12 +130,12 @@ Versionierung läuft über **Git** (Commits/History), nicht über ZIP-Stände wi
 
 ## 8. Roadmap (Konzept §11, priorisierter Vorschlag)
 
-Erledigt: ~~Modul 4~~ (S21–22), ~~Modul 2~~ (S23), ~~Module 3/5/6~~ (S24), ~~Akkordeon + Prozentfortschritt, Module 1/7/8~~ (S25). **Damit sind alle 8 Konzept-Module gebaut.**
+Erledigt: ~~Module 1–8~~ (S21–25), ~~Bossquiz + Zertifizierungsquiz + QA~~ (S26). **Damit sind das komplette Curriculum, die Modul-Abschlussprüfungen und die Zertifizierung aus dem Konzept umgesetzt.**
 
-1. **Bossquiz-Mechanik** (schwerer, mischt alle Einheiten eines Moduls; Freischalt-Logik) — mit allen 8 Modulen der naheliegendste nächste Schritt; die `bossQuizId`-Felder in `LERN_MODULES` sind bereits als `null` vorgesehen.
-2. **Zertifizierungs-Quiz** (Stufe 3) — der nötige Pool von ≥200 Fragen ist mit **337 Items weit übererfüllt**; stratifizierte Ziehung (je Modul, Formatmix, Bloom-Verteilung) + druckbares Zertifikat umsetzbar. Dazu Confidence-Rating.
-3. **Disruptor-Modus + Szenario-Missionen** (K4-Formate, machen laut Konzept „am meisten Spaß").
-4. **Stufe 4:** Einstufungstest, Rollen-Lernpfade entlang der Personas (`01_PERSONAS.md`), Kollegen-Verteilung.
-5. **Inhaltliche Pflege:** bei jedem Wiki-Fakten-Refresh die Checkliste aus §3 abarbeiten (337 Items über `steckbriefIds` rückverfolgbar).
+1. **Confidence-Rating** (Konzept §5): vor Auflösung „sicher / unsicher / geraten" — sicher+falsch = höchste Wiederholungspriorität. Kleiner Eingriff in `quiz-formats.js`/`leitner.js`.
+2. **Disruptor-Modus + Szenario-Missionen** (K4-Formate, machen laut Konzept „am meisten Spaß").
+3. **Kompetenz-Radar des Lerners** (Konzept §7): Ø-Leistung je Modul/Bloom-Stufe im 6-Achsen-Radar — die Daten (`bossQuizzes`, `certification.moduleScores`) liegen bereits vor.
+4. **Stufe 4:** Einstufungstest, Rollen-Lernpfade entlang der Personas (`01_PERSONAS.md`), Teilen von Ergebnissen.
+5. **Inhaltliche Pflege:** bei jedem Wiki-Fakten-Refresh die Checkliste aus §3 abarbeiten (337 Items über `steckbriefIds` rückverfolgbar). QA-Skript aus Session 26 (im Browser) vor jedem Release erneut laufen lassen.
 
 **Muster für ein neues Modul** (aus Session 23, als Blaupause): (1) Modulobjekt in `LERN_MODULES` (`lern-data.js`) mit `unitIds`; (2) Einheiten in `LERN_UNITS` mit `vertiefungSteckbriefIds` auf die realen Steckbrief-IDs; (3) Quiz-Items in `LERN_QUIZ_ITEMS` (`lern-quiz-items.js`) nach Feld→Format-Mapping (§6), jede Einheit ~7–8 Items, mindestens ein Transfer-Item das auf ein anderes Modul verweist; (4) `sw.js` CACHE_NAME +1; (5) Browser-Test (Validierungs-Log, ein Durchlauf je neuem Format), commit + push.

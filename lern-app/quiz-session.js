@@ -42,16 +42,8 @@
     if (preferHardBloom) {
       shuffled.sort((a, b) => (bloomRank[b.bloom] || 0) - (bloomRank[a.bloom] || 0));
     }
-    // Greedy: nimm Items, aber vermeide es, zweimal dasselbe Format direkt
-    // hintereinander zu häufen — sorge für eine Mischung.
-    const picked = [];
-    const usedFormatCount = {};
-    for (const it of shuffled) {
-      if (picked.length >= count) break;
-      usedFormatCount[it.format] = (usedFormatCount[it.format] || 0) + 1;
-      picked.push(it);
-    }
-    return shuffle(picked).map((i) => i.id); // final nochmal mischen für Bloom-Interleaving
+    const picked = shuffled.slice(0, count);
+    return shuffle(picked).map((i) => i.id); // final mischen für Format-/Bloom-Interleaving
   }
 
   // Baut ein stratifiziertes Zertifizierungs-Set: je Modul `perModule` Items.

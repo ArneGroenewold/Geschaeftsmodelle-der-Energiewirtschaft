@@ -342,7 +342,7 @@ main.view{ padding:20px; max-width:640px; margin:0 auto; }
 
 @media print {
   body{background:#fff;padding:0}
-  .app-header,.bottom-nav,.btn-primary,.btn-secondary,.hero,.cert-name-input,.calc-field,#certificate ~ *{display:none !important}
+  .app-header,.bottom-nav,.btn-primary,.btn-secondary,.hero,.cert-name-field{display:none !important}
   .view[hidden]{display:none !important}
   .certificate{border-color:#C8571A;box-shadow:none;margin:0;page-break-inside:avoid}
   main.view{padding:0}

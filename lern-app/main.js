@@ -290,7 +290,7 @@
       viewPlayer.innerHTML = '';
       const wrap = el('<div></div>');
       wrap.appendChild(el(`<div class="hero"><h2>🎓 Bestanden!</h2><p>Herzlichen Glückwunsch — du hast die Zertifizierung mit ${Math.round(score * 100)}% bestanden.</p></div>`));
-      const nameField = el(`<div class="card"><label class="calc-field"><span>Name für das Zertifikat</span><input type="text" class="cert-name-input" placeholder="Dein Name" value="${name.replace(/"/g, '&quot;')}"></label></div>`);
+      const nameField = el(`<div class="card cert-name-field"><label class="calc-field"><span>Name für das Zertifikat</span><input type="text" class="cert-name-input" placeholder="Dein Name" value="${name.replace(/"/g, '&quot;')}"></label></div>`);
       wrap.appendChild(nameField);
 
       const cert = el(`<div class="certificate" id="certificate">

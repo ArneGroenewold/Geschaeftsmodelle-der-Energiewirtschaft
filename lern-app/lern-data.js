@@ -46,6 +46,13 @@ const LERN_MODULES = [
     description: "Vom Balkonkraftwerk über Mieterstrom und PV-Miete bis Ladeinfrastruktur und THG-Quote — wie Haushalte zu Energieproduzenten und neue Player zu Gewinnern werden.",
     unitIds: ["U6-PV", "U6-BALKON", "U6-MIETERSTROM", "U6-ENPAL", "U6-CPO", "U6-THG"],
     bossQuizId: null // Stage 2
+  },
+  {
+    id: "M7-WAERME",
+    title: "Wärme, H2 & Industrie",
+    description: "Fernwärme unter Dekarbonisierungsdruck, das Subventionsrennen um grünen Wasserstoff und wie die Industrie ihre Energiekosten drückt — der am stärksten transformierende Sektor.",
+    unitIds: ["U7-FERNWAERME", "U7-WASSERSTOFF", "U7-PROCUREMENT", "U7-EPC", "U7-EIGENVERSORGUNG"],
+    bossQuizId: null // Stage 2
   }
 ];
 
@@ -952,6 +959,161 @@ const LERN_UNITS = [
     merkeDirEinenSatz: {
       prompt: "Formuliere in einem Satz: Worum geht der eigentliche Machtkampf in der Flexibilitätswelt?",
       musterantwort: "Um die Kontrolle der Kundenschnittstelle zum Flex-Asset: Wer sie besitzt, entscheidet, ob das Gerät marktlich (Aggregator, nach Börsenpreis) oder netzdienlich (VNB, §14a) gesteuert wird — eine regulatorisch noch offene Priorisierungsfrage."
+    }
+  },
+  {
+    id: "U7-FERNWAERME",
+    moduleId: "M7-WAERME",
+    title: "Fernwärme — Das Monopol unter Dekarbonisierungsdruck",
+    primarySteckbriefId: "L3-WAERME-FERN-01",
+    vertiefungSteckbriefIds: ["L3-WAERME-FERN-01"],
+    hook: { text: "Bei Fernwärme kannst du den Anbieter nicht wechseln — es gibt nur einen, das Rohr unter deiner Straße. Warum ist dieses Monopol trotzdem in Gefahr?" },
+    kernidee: {
+      text: "Fernwärme ist ein <strong>natürliches Netzmonopol</strong> (~25.000 km, 14% des Wärmebedarfs): Wer im Gebiet wohnt, kann nicht wechseln, der Preis wird nur durch die kartellrechtliche Missbrauchskontrolle begrenzt. Zwei neue Kräfte setzen das Monopol unter Druck: Das <strong>Wärmeplanungsgesetz (WPG)</strong> zwingt Kommunen zu Wärmeplänen, und <strong>GWB §35b</strong> verlangt bis 2030 mindestens 50% erneuerbare Wärme. Der eigentliche Angreifer ist aber die <strong>individuelle Wärmepumpe</strong>: Je höher der (jetzt transparente) Fernwärmepreis, desto eher steigen zahlungskräftige Kunden aus — und die Netzfixkosten bleiben an den Verbleibenden hängen.",
+      geldfluss: {
+        nodes: [{ id: "kunde", label: "Kunde (gebunden)" }, { id: "netz", label: "Fernwärmenetz" }, { id: "wp", label: "eigene Wärmepumpe" }],
+        edges: [
+          { from: "kunde", to: "netz", label: "Wärmepreis (Monopol)" },
+          { from: "kunde", to: "wp", label: "Ausstieg bei hohem Preis" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-WAERME-FERN-01",
+      steps: [
+        { text: "Ein Haushalt im Berliner Fernwärmegebiet kann den Anbieter nicht wechseln — er ist an das Netz gebunden und zahlt den von Vattenfall festgelegten Preis, kontrolliert nur durch die Missbrauchskontrolle (GWB §19).", questionId: "Q-FERNWAERME-WE1" },
+        { text: "Seit 2024 verpflichtet GWB §35b Vattenfall, bis 2030 mindestens 50% erneuerbare Wärme nachzuweisen — statt Kohle also Großwärmepumpen, Abwärme oder Geothermie.", questionId: "Q-FERNWAERME-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-FERNWAERME-R1", "Q-FERNWAERME-R2", "Q-FERNWAERME-R3", "Q-FERNWAERME-R4"],
+    transferItemId: "Q-FERNWAERME-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum schützt das Fernwärme-Netzmonopol nicht vor dem Niedergang?",
+      musterantwort: "Weil das Monopol zwar Wettbewerber ausschließt, aber nicht die Substitution durch individuelle Wärmepumpen — je höher der jetzt transparente Fernwärmepreis, desto mehr zahlungskräftige Kunden steigen aus, während die Netzfixkosten auf die Verbleibenden umgelegt werden."
+    }
+  },
+  {
+    id: "U7-WASSERSTOFF",
+    moduleId: "M7-WAERME",
+    title: "Grüner Wasserstoff — Das Subventionsrennen",
+    primarySteckbriefId: "L3-WAERME-PTX-01",
+    vertiefungSteckbriefIds: ["L3-WAERME-PTX-01"],
+    hook: { text: "Ein Elektrolyseur produziert Wasserstoff für 2,70 €/kg und verkauft ihn für 8 € — und macht trotzdem kein gutes Geschäft. Wie kann das sein?" },
+    kernidee: {
+      text: "Elektrolyseure wandeln EE-Strom in <strong>grünen Wasserstoff</strong> (bei 70% Wirkungsgrad und 40 €/MWh Strom ~2,70 €/kg Gestehungskosten). Der Haken: <strong>Grauer</strong> (fossiler) H2 kostet nur 1,50–2 €/kg — genau so viel will ein Stahl- oder Chemiekunde zahlen. Die <strong>Subventionslücke</strong> von 3–7 €/kg wird heute über IPCEI und H2Global aus Bundesmitteln geschlossen. Das Geschäft ist deshalb (noch) keine Marge, sondern eine <strong>Subventions-Arbitrage</strong>: Wer die günstigsten Fördermittel sichert und früh Skaleneffekte aufbaut, gewinnt — bevor die Subventionen 2030+ auslaufen.",
+      geldfluss: {
+        nodes: [{ id: "strom", label: "EE-Strom" }, { id: "elektro", label: "Elektrolyseur" }, { id: "kunde", label: "Stahl/Chemie" }],
+        edges: [
+          { from: "strom", to: "elektro", label: "~2,70 €/kg Gestehung" },
+          { from: "kunde", to: "elektro", label: "zahlt nur grau-Niveau (~2 €/kg) + Subvention" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-WAERME-PTX-01",
+      steps: [
+        { text: "Ein RWE-Elektrolyseur stellt bei 40 €/MWh Strom und 70% Wirkungsgrad H2 für ~2,70 €/kg her. Grüner H2 'verkauft' sich am Markt für 6–10 €/kg — aber das will kein Industriekunde freiwillig zahlen, solange grauer H2 für 1,5–2 €/kg verfügbar ist.", questionId: "Q-WASSERSTOFF-WE1" },
+        { text: "Die Differenz von 3–7 €/kg zwischen Gestehungskosten und Zahlungsbereitschaft schließt heute H2Global oder IPCEI aus Bundesmitteln.", questionId: "Q-WASSERSTOFF-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-WASSERSTOFF-R1", "Q-WASSERSTOFF-R2", "Q-WASSERSTOFF-R3", "Q-WASSERSTOFF-R4"],
+    transferItemId: "Q-WASSERSTOFF-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Woran verdient ein grüner Wasserstoff-Produzent heute wirklich?",
+      musterantwort: "Nicht an einer echten Marktmarge, sondern an einer Subventions-Arbitrage: Wer die günstigsten Fördermittel (IPCEI, H2Global) sichert und früh Skaleneffekte aufbaut, überbrückt die Lücke von 3–7 €/kg zwischen Gestehungskosten und industrieller Zahlungsbereitschaft."
+    }
+  },
+  {
+    id: "U7-PROCUREMENT",
+    moduleId: "M7-WAERME",
+    title: "Energieeinkauf — Wie Industrie Millionen spart",
+    primarySteckbriefId: "L3-CONTRACT-MGMT-01",
+    vertiefungSteckbriefIds: ["L3-CONTRACT-MGMT-01"],
+    hook: { text: "Ein Berater verschiebt einen Produktionsschritt von mittags in die Nacht — und spart der Fabrik 100.000 € im Jahr, ohne dass sie eine einzige Kilowattstunde weniger verbraucht. Wie?" },
+    kernidee: {
+      text: "Spezialisierte <strong>Energieeinkaufsberater</strong> senken die Energiekosten energieintensiver Industrie um typisch 5–15% — nicht über den Strompreis, sondern über vier Hebel: kluges <strong>Hedging</strong> (Timing von Termin- vs. Spotkauf), <strong>Netzentgelt-Optimierung</strong> (Lastspitzen senken), <strong>Umlagenbefreiungen</strong> (§64 EEG für stromintensive Industrie) und Portfoliomischung. Der Clou: Eine gesenkte Lastspitze von 1 MW spart 50.000–150.000 €/Jahr an leistungsabhängigen Netzentgelten — bei identischem Gesamtverbrauch. Bezahlt wird der Berater meist per <strong>Erfolgshonorar</strong> auf die nachgewiesene Einsparung.",
+      geldfluss: {
+        nodes: [{ id: "industrie", label: "Industrie" }, { id: "berater", label: "Berater" }, { id: "ersparnis", label: "Ersparnis" }],
+        edges: [
+          { from: "berater", to: "ersparnis", label: "Hedging + Netzentgelt + §64" },
+          { from: "ersparnis", to: "berater", label: "Erfolgshonorar (% der Einsparung)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-CONTRACT-MGMT-01",
+      steps: [
+        { text: "Ein Berater prüft für ein Chemieunternehmen die §64-EEG-Befreiung für stromintensive Industrie — gelingt sie, sinkt die Umlagebelastung bei hohem Verbrauch schnell um Hunderttausende.", questionId: "Q-PROCUREMENT-WE1" },
+        { text: "Parallel verschiebt er einen energieintensiven Produktionsschritt von der Mittagsspitze in die Nacht: Die maximale Bezugsleistung sinkt um 1 MW — und damit der leistungsabhängige Netzentgeltanteil um 50.000–150.000 €/Jahr.", questionId: "Q-PROCUREMENT-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-PROCUREMENT-R1", "Q-PROCUREMENT-R2", "Q-PROCUREMENT-R3", "Q-PROCUREMENT-R4"],
+    transferItemId: "Q-PROCUREMENT-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Wie spart ein Energieeinkaufsberater Geld, ohne den Verbrauch zu senken?",
+      musterantwort: "Über Netzentgelt- und Umlagenoptimierung (Lastspitzen senken, §64-EEG-Befreiung) sowie kluges Hedging — eine um 1 MW gesenkte Lastspitze spart 50.000–150.000 €/Jahr an leistungsabhängigen Netzentgelten bei identischem Gesamtverbrauch."
+    }
+  },
+  {
+    id: "U7-EPC",
+    moduleId: "M7-WAERME",
+    title: "Effizienz-Contracting — Sparen ohne eigenes Kapital",
+    primarySteckbriefId: "L3-CONTRACT-MGMT-02",
+    vertiefungSteckbriefIds: ["L3-CONTRACT-MGMT-02"],
+    hook: { text: "Ein Krankenhaus bekommt ein neues, effizientes Heizsystem geschenkt — bezahlt aus Geld, das es vorher an den Energieversorger verloren hat. Wer trägt das Risiko, wenn die Ersparnis ausbleibt?" },
+    kernidee: {
+      text: "Beim <strong>Energy Performance Contracting (EPC)</strong> finanziert ein Dienstleister (Siemens, Johnson Controls) Effizienzmaßnahmen (LED, Gebäudeautomation, Wärmepumpen) und refinanziert sich <strong>ausschließlich aus den garantierten Energieeinsparungen</strong>. Beim <strong>Guaranteed-Savings</strong>-Modell garantiert er eine Mindesteinsparung; wird sie nach dem Messstandard <strong>IPMVP</strong> nicht erreicht, zahlt der Contractor die Differenz — das Performance-Risiko liegt bei ihm, nicht beim Kunden. So kommen Kommunen und Krankenhäuser <strong>ohne eigenes Investitionsbudget</strong> zur Energiewende. Die offene Flanke: Streit über den Einsparungsnachweis (M&V).",
+      geldfluss: {
+        nodes: [{ id: "contractor", label: "Contractor" }, { id: "gebaeude", label: "Krankenhaus" }, { id: "einspar", label: "Energieeinsparung" }],
+        edges: [
+          { from: "contractor", to: "gebaeude", label: "finanziert Effizienztechnik" },
+          { from: "einspar", to: "contractor", label: "refinanziert aus garantierter Einsparung" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-CONTRACT-MGMT-02",
+      steps: [
+        { text: "Siemens finanziert im Krankenhaus LED, Gebäudeautomation und ein effizienteres Heizsystem vor und garantiert vertraglich 25% Energieeinsparung. Das Krankenhaus refinanziert die Investition aus genau dieser Einsparung — sein Budget ändert sich zunächst kaum.", questionId: "Q-EPC-WE1" },
+        { text: "Wird die garantierte Einsparung (nach IPMVP-Standard) nicht erreicht, muss Siemens die Differenz aus eigener Tasche ausgleichen.", questionId: "Q-EPC-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-EPC-R1", "Q-EPC-R2", "Q-EPC-R3", "Q-EPC-R4"],
+    transferItemId: "Q-EPC-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Was ist der Kern des Guaranteed-Savings-EPC-Modells?",
+      musterantwort: "Der Contractor finanziert Effizienzmaßnahmen vor und garantiert eine Mindesteinsparung; erreicht er sie nicht, trägt er selbst die Differenz — der Kunde bekommt die Energiewende ohne eigenes Kapital und ohne Performance-Risiko."
+    }
+  },
+  {
+    id: "U7-EIGENVERSORGUNG",
+    moduleId: "M7-WAERME",
+    title: "Eigenversorgung — Dem Netz entkommen",
+    primarySteckbriefId: "L3-CONTRACT-MGMT-03",
+    vertiefungSteckbriefIds: ["L3-CONTRACT-MGMT-03"],
+    hook: { text: "Ein Stahlwerk baut sich eine Solaranlage aufs Dach und spart damit 8 Millionen Euro im Jahr — der größte Teil davon hat mit dem Strompreis gar nichts zu tun. Womit dann?" },
+    kernidee: {
+      text: "Großindustrie investiert in <strong>eigene Erzeugung direkt am Verbrauchsort</strong> (Solar aufs Hallendach, BHKW, Wind auf dem Werksgelände). Der größte Hebel ist nicht der Strompreis, sondern die <strong>Netzentgelt-Vermeidung</strong>: Für jede selbst erzeugte und direkt verbrauchte kWh entfällt das Netzentgelt (~8 ct/kWh). Bei 100 GWh Eigenverbrauch sind das ~8 Mio. €/Jahr. Voraussetzung ist der strenge <strong>räumliche Zusammenhang</strong> (§3 Nr. 19 EEG / Direktleitung §3 Nr. 12 EnWG) — verfehlt das Projekt die Kriterien knapp, entfällt die ganze Befreiung. Das Modell entzieht Netz und Lieferanten Mengen und ist deshalb regulatorisch angreifbar (AgNes).",
+      geldfluss: {
+        nodes: [{ id: "anlage", label: "eigene Anlage" }, { id: "werk", label: "Verbrauchsstätte" }, { id: "netz", label: "öffentliches Netz" }],
+        edges: [
+          { from: "anlage", to: "werk", label: "Direktverbrauch (netzentgeltfrei)" },
+          { from: "werk", to: "netz", label: "umgangen → 8 ct/kWh gespart" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-CONTRACT-MGMT-03",
+      steps: [
+        { text: "Ein Stahlwerk mit 100 GWh Jahresverbrauch betreibt auf dem Werksgelände eine eigene Solaranlage/ein BHKW. Für jede direkt verbrauchte kWh entfällt das Netzentgelt von ~8 ct/kWh.", questionId: "Q-EIGENVERSORGUNG-WE1" },
+        { text: "Der Engineering-Partner (GETEC, Siemens Energy) verdient nicht an der laufenden Einsparung, sondern am einmaligen Projekt — und an der regulatorischen Prüfung, ob der räumliche Zusammenhang die §3-Nr.-19-Kriterien erfüllt.", questionId: "Q-EIGENVERSORGUNG-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-EIGENVERSORGUNG-R1", "Q-EIGENVERSORGUNG-R2", "Q-EIGENVERSORGUNG-R3", "Q-EIGENVERSORGUNG-R4"],
+    transferItemId: "Q-EIGENVERSORGUNG-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Worin liegt der größte wirtschaftliche Hebel der industriellen Eigenversorgung?",
+      musterantwort: "In der Netzentgelt-Vermeidung: Für jede selbst erzeugte und direkt am Ort verbrauchte kWh entfällt das Netzentgelt (~8 ct/kWh), was bei 100 GWh Eigenverbrauch rund 8 Mio. €/Jahr spart — vorausgesetzt, der strenge räumliche Zusammenhang (§3 Nr. 19 EEG) ist erfüllt."
     }
   },
   {

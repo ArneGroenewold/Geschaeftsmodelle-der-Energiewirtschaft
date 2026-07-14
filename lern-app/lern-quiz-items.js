@@ -3248,6 +3248,447 @@ Object.assign(LERN_QUIZ_ITEMS, {
 
 });
 
+// ════════════════════════════════════════════════════════════════════
+// MODUL 7 — WÄRME, H2 & INDUSTRIE
+// ════════════════════════════════════════════════════════════════════
+Object.assign(LERN_QUIZ_ITEMS, {
+
+  // ── U7-FERNWAERME ───────────────────────────────────────────────
+  "Q-FERNWAERME-WE1": {
+    id: "Q-FERNWAERME-WE1", unitId: "U7-FERNWAERME", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-WAERME-FERN-01"],
+    data: {
+      frage: "Warum kann ein Fernwärmekunde den Anbieter nicht wechseln wie beim Strom?",
+      optionen: [
+        { text: "Fernwärme ist ein natürliches Netzmonopol — es gibt nur das eine Rohr unter der Straße, ein paralleles Wärmenetz wäre unwirtschaftlich.", korrekt: true, erklaerung: "Anders als beim Strom (ein Netz, viele Lieferanten) ist beim Wärmenetz Betrieb und Belieferung untrennbar an die eine Leitung gebunden." },
+        { text: "Weil der Wechsel gesetzlich verboten ist.", korrekt: false, erklaerung: "Es ist kein Verbot — es fehlt schlicht die physische Alternative; ein zweites Wärmenetz wäre unwirtschaftlich." },
+        { text: "Weil Fernwärme immer günstiger ist als jede Alternative.", korrekt: false, erklaerung: "Nicht der Preis bindet den Kunden, sondern die Monopolinfrastruktur — die individuelle Wärmepumpe ist gerade die entstehende Alternative." }
+      ]
+    }
+  },
+  "Q-FERNWAERME-WE2": {
+    id: "Q-FERNWAERME-WE2", unitId: "U7-FERNWAERME", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-WAERME-FERN-01"],
+    data: {
+      frage: "Was verlangt GWB §35b vom Fernwärmeversorger?",
+      optionen: [
+        { text: "Einen Dekarbonisierungsfahrplan mit mindestens 50% erneuerbarer Wärme bis 2030 — also Umstieg von Kohle auf Großwärmepumpen, Abwärme oder Geothermie.", korrekt: true, erklaerung: "Das Monopol bekommt seit 2024 eine grüne Bedingung: Investieren in EE-Wärmequellen wird Pflicht." },
+        { text: "Eine sofortige Halbierung des Wärmepreises.", korrekt: false, erklaerung: "§35b betrifft den EE-Anteil der Wärme, nicht den Preis — der wird über die Missbrauchskontrolle begrenzt." },
+        { text: "Die Öffnung des Wärmenetzes für konkurrierende Anbieter.", korrekt: false, erklaerung: "Eine Netzöffnung wie beim Strom gibt es bei Fernwärme nicht — §35b verlangt Dekarbonisierung, keine Marktöffnung." }
+      ]
+    }
+  },
+  "Q-FERNWAERME-R1": {
+    id: "Q-FERNWAERME-R1", unitId: "U7-FERNWAERME", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-WAERME-FERN-01"],
+    data: {
+      frage: "Was regelt das Wärmeplanungsgesetz (WPG)?",
+      optionen: [
+        { text: "Kommunen müssen Wärmepläne erstellen (Großstädte bis 2026, alle bis 2028), die festlegen, wo Fernwärme, Wärmepumpe oder H2 die langfristige Lösung ist.", korrekt: true, erklaerung: "Das WPG schafft Planungssicherheit: Wo Fernwärme vorgesehen ist, sind Investitionen abgesichert." },
+        { text: "Es schreibt jedem Haushalt eine Wärmepumpe vor.", korrekt: false, erklaerung: "Das WPG plant Gebiete, es verordnet keine bestimmte Heizung je Haushalt — das regelt eher das GEG." },
+        { text: "Es deckelt bundesweit den Fernwärmepreis.", korrekt: false, erklaerung: "Das WPG betrifft die kommunale Gebietsplanung, keine Preisregulierung." }
+      ]
+    }
+  },
+  "Q-FERNWAERME-R2": {
+    id: "Q-FERNWAERME-R2", unitId: "U7-FERNWAERME", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-WAERME-FERN-01"],
+    data: {
+      text: "Fernwärme ist ein natürliches {{a}} und deckt rund {{b}} des deutschen Wärmebedarfs. Der eigentliche Angreifer des Modells ist die individuelle {{c}}.",
+      luecken: {
+        a: { loesungen: ["Netzmonopol", "Monopol"], erklaerung: "Ein zweites Wärmenetz wäre unwirtschaftlich — daher Monopol." },
+        b: { loesungen: ["14%"], erklaerung: "Rund 14% des Wärmebedarfs laufen über Fernwärme." },
+        c: { loesungen: ["Wärmepumpe"], erklaerung: "Die individuelle Wärmepumpe ist die Substitutionskonkurrenz, nicht ein anderer Fernwärmeanbieter." }
+      },
+      distraktoren: ["Wettbewerbsmarkt", "50%"]
+    }
+  },
+  "Q-FERNWAERME-R3": {
+    id: "Q-FERNWAERME-R3", unitId: "U7-FERNWAERME", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-WAERME-FERN-01"],
+    data: {
+      frage: "Wie verschärft die Preistransparenz-Pflicht (Fernwärme-Verordnung 2024) die 'Todesspirale' des Fernwärmenetzes?",
+      optionen: [
+        { text: "Sichtbare, hohe Preise motivieren zahlungskräftige Kunden zum Ausstieg auf eigene Wärmepumpen — die Netzfixkosten verteilen sich auf immer weniger Verbleibende, was den Preis weiter treibt.", korrekt: true, erklaerung: "Dieselbe Death-Spiral-Logik wie beim Gasnetz: sinkende Mengen bei fixen Kosten → steigende Preise → weitere Abwanderung." },
+        { text: "Transparente Preise senken automatisch die Kosten des Betreibers.", korrekt: false, erklaerung: "Transparenz senkt keine Kosten — sie macht hohe Preise nur sichtbar und beschleunigt den Ausstieg." },
+        { text: "Sie verpflichtet Kunden, im Netz zu bleiben.", korrekt: false, erklaerung: "Das Gegenteil — Transparenz erleichtert dem Kunden die Ausstiegsentscheidung, sie bindet ihn nicht." }
+      ]
+    }
+  },
+  "Q-FERNWAERME-R4": {
+    id: "Q-FERNWAERME-R4", unitId: "U7-FERNWAERME", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-WAERME-FERN-01"],
+    data: {
+      steckbriefId: "L3-WAERME-FERN-01",
+      erklaerungenProDimension: {
+        regulierung: "Reguliertes Monopol mit Missbrauchskontrolle und neuen Dekarbonisierungspflichten — hoch.",
+        skalierbarkeit: "An das physische Wärmenetz gebunden, keine Skalierung — niedrigste Stufe.",
+        marktrisiko: "Gebundene Kunden, aber Substitutionsrisiko durch Wärmepumpen — niedrig-mittel.",
+        digitalisierung: "Klassische Netzinfrastruktur, wenig digital — niedrig.",
+        wettbewerb: "Kein direkter Wettbewerber im Gebiet (Monopol) — niedrigste Stufe.",
+        nachhaltigkeit: "Potenzial für grüne Wärme (Abwärme, Geothermie), heute oft noch fossil — mittel."
+      }
+    }
+  },
+  "Q-FERNWAERME-T1": {
+    id: "Q-FERNWAERME-T1", unitId: "U7-FERNWAERME", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-WAERME-FERN-01", "L3-GAS-FNB-01"],
+    data: {
+      frage: "Fernwärmenetz und Erdgasnetz (Modul 3) teilen dieselbe strukturelle Bedrohung. Welche?",
+      optionen: [
+        { text: "Die Death Spiral: Elektrifizierung (Wärmepumpe) entzieht beiden Netzen Mengen; bei fixen Netzkosten steigen die Entgelte je Verbleibendem, was weitere Abwanderung auslöst.", korrekt: true, erklaerung: "Beide sind netzgebundene Wärme-/Gasmonopole, die durch die Elektrifizierung von innen erodieren — dasselbe Muster in zwei Sektoren." },
+        { text: "Beide werden durch neue Konkurrenznetze angegriffen.", korrekt: false, erklaerung: "Parallele Netze baut niemand — der Angriff ist die Substitution (Elektrifizierung), nicht ein Konkurrenznetz." },
+        { text: "Beide verlieren ihr Monopol durch Marktöffnung wie beim Strom.", korrekt: false, erklaerung: "Weder Fernwärme noch Gasverteilung werden für konkurrierende Lieferanten geöffnet — die Bedrohung ist die Mengenerosion, nicht Marktöffnung." }
+      ]
+    }
+  },
+
+  // ── U7-WASSERSTOFF ──────────────────────────────────────────────
+  "Q-WASSERSTOFF-WE1": {
+    id: "Q-WASSERSTOFF-WE1", unitId: "U7-WASSERSTOFF", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-WAERME-PTX-01"],
+    data: {
+      szenario: "Die Gestehungskosten für grünen H2 liegen bei 2,70 €/kg. Ein Industriekunde ist nur bereit, den Grau-Wasserstoff-Preis von 1,80 €/kg zu zahlen. Wie groß ist die Lücke je kg, die eine Subvention schließen muss?",
+      eingabefelder: [{ key: "luecke", label: "Subventionslücke", einheit: "€/kg" }],
+      loesung: { luecke: { wert: 0.9, toleranz: 0.15 } },
+      rechenweg: ["Lücke = Gestehungskosten − Zahlungsbereitschaft = 2,70 − 1,80 = 0,90 €/kg.", "(Der oft genannte Bereich 3–7 €/kg ergibt sich, wenn der Marktpreis-Anspruch höher oder die Gestehungskosten bei teurerem Strom höher liegen.)", "Diese Lücke schließen heute IPCEI/H2Global aus Bundesmitteln — das eigentliche 'Geschäft' ist die Subventions-Arbitrage."]
+    }
+  },
+  "Q-WASSERSTOFF-WE2": {
+    id: "Q-WASSERSTOFF-WE2", unitId: "U7-WASSERSTOFF", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-WAERME-PTX-01"],
+    data: {
+      frage: "Warum ist der hohe Marktpreis von grünem H2 (6–10 €/kg) irreführend für die Wirtschaftlichkeit?",
+      optionen: [
+        { text: "Kein Industriekunde zahlt diesen Preis freiwillig, solange grauer H2 für 1,5–2 €/kg verfügbar ist — der 'Marktpreis' ist eher ein Angebotspreis, keine echte Zahlungsbereitschaft.", korrekt: true, erklaerung: "Die Zahlungsbereitschaft orientiert sich am fossilen Alternativpreis; die Differenz muss subventioniert werden, sonst gibt es keine Abnahme." },
+        { text: "Weil der Marktpreis die Stromkosten nicht enthält.", korrekt: false, erklaerung: "Die Gestehungskosten (2,70 €/kg) enthalten die Stromkosten bereits — das Problem ist die fehlende Zahlungsbereitschaft, nicht die Kalkulation." },
+        { text: "Weil grüner H2 technisch minderwertig ist.", korrekt: false, erklaerung: "Grüner und grauer H2 sind chemisch identisch — der Unterschied ist die Herstellung (CO₂-frei vs. fossil), nicht die Qualität." }
+      ]
+    }
+  },
+  "Q-WASSERSTOFF-R1": {
+    id: "Q-WASSERSTOFF-R1", unitId: "U7-WASSERSTOFF", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-WAERME-PTX-01"],
+    data: {
+      frage: "Was sind die wichtigsten Abnehmer für grünen Wasserstoff?",
+      optionen: [
+        { text: "Stahl (Direktreduktion), Chemie (Ammoniak), Raffinerien und Schwerverkehr — Bereiche, die sich schwer direkt elektrifizieren lassen.", korrekt: true, erklaerung: "H2 ist dort sinnvoll, wo Strom nicht direkt genutzt werden kann (Hochtemperatur, chemischer Rohstoff, schwere Mobilität)." },
+        { text: "Privathaushalte zum Heizen und E-Auto-Laden.", korrekt: false, erklaerung: "Für Heizung (Wärmepumpe) und Pkw (Batterie) ist Direktelektrifizierung effizienter — H2 wird dort gerade NICHT priorisiert." },
+        { text: "Rechenzentren zur Stromversorgung.", korrekt: false, erklaerung: "Rechenzentren nutzen Strom direkt — die H2-Prioritätsmärkte sind Stahl, Chemie und Schwerverkehr." }
+      ]
+    }
+  },
+  "Q-WASSERSTOFF-R2": {
+    id: "Q-WASSERSTOFF-R2", unitId: "U7-WASSERSTOFF", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-WAERME-PTX-01"],
+    data: {
+      text: "Ein Elektrolyseur wandelt {{a}}-Strom in Wasserstoff (Wirkungsgrad ~70%). Die Subventionslücke wird über {{b}} und {{c}} aus Bundesmitteln geschlossen, bis grüner H2 um 2030+ wettbewerbsfähig wird.",
+      luecken: {
+        a: { loesungen: ["EE", "erneuerbaren", "grünen"], erklaerung: "Nur mit erneuerbarem Strom ist der Wasserstoff 'grün'." },
+        b: { loesungen: ["IPCEI"], erklaerung: "IPCEI Hydrogen ist ein europäisches Förderprogramm." },
+        c: { loesungen: ["H2Global", "H2 Global"], erklaerung: "H2Global schließt die Lücke über garantierte Abnahmepreise." }
+      },
+      distraktoren: ["Kohle", "EEG-Umlage"]
+    }
+  },
+  "Q-WASSERSTOFF-R3": {
+    id: "Q-WASSERSTOFF-R3", unitId: "U7-WASSERSTOFF", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-WAERME-PTX-01"],
+    data: {
+      frage: "Warum kann ein Elektrolyseur zusätzlich als flexibler Großverbraucher Geld verdienen?",
+      optionen: [
+        { text: "Er kann bei negativen oder sehr niedrigen Strompreisen hochfahren und bei hohen Preisen drosseln — das macht ihn zu einem idealen Demand-Response-Asset (doppelter Nutzen).", korrekt: true, erklaerung: "Der Elektrolyseur verbindet H2-Produktion mit Systemdienstleistung — er nutzt genau die Stunden, in denen Strom im Überfluss da ist." },
+        { text: "Weil er den erzeugten Wasserstoff sofort wieder zu Strom macht.", korrekt: false, erklaerung: "Rückverstromung wäre hochgradig ineffizient — der Flexibilitätswert liegt im gesteuerten Stromverbrauch, nicht in der Rückwandlung." },
+        { text: "Weil er als Kraftwerk Regelenergie einspeist.", korrekt: false, erklaerung: "Der Elektrolyseur ist ein Verbraucher, kein Erzeuger — sein Flexibilitätswert liegt im steuerbaren Verbrauch (Demand Response)." }
+      ]
+    }
+  },
+  "Q-WASSERSTOFF-R4": {
+    id: "Q-WASSERSTOFF-R4", unitId: "U7-WASSERSTOFF", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-WAERME-PTX-01"],
+    data: {
+      steckbriefId: "L3-WAERME-PTX-01",
+      erklaerungenProDimension: {
+        regulierung: "Fördergetrieben (IPCEI, RED III), aber kein regulatorischer Erlösschutz — mittel.",
+        skalierbarkeit: "Skaleneffekte in Elektrolyse (Lernrate ~15%), aber physische Anlagen — mittel.",
+        marktrisiko: "Ohne Subvention nicht wettbewerbsfähig; Import-/Preisrisiko hoch — hoch.",
+        digitalisierung: "Anlagensteuerung, aber kein digital-natives Geschäft — mittel.",
+        wettbewerb: "Noch jung, wenige Player, aber Importkonkurrenz droht — niedrig-mittel.",
+        nachhaltigkeit: "Schlüssel zur Dekarbonisierung von Stahl/Chemie — höchste Stufe."
+      }
+    }
+  },
+  "Q-WASSERSTOFF-T1": {
+    id: "Q-WASSERSTOFF-T1", unitId: "U7-WASSERSTOFF", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-WAERME-PTX-01", "L3-GAS-FNB-02"],
+    data: {
+      frage: "Die grüne H2-Produktion (dieses Modul) und das H2-Kernnetz (Modul 3) hängen voneinander ab. Wie?",
+      optionen: [
+        { text: "Henne-Ei: Elektrolyseure brauchen das Kernnetz, um H2 zu den Abnehmern zu bringen; das Kernnetz braucht Elektrolyseure als Einspeiser — beide werden nur durch staatliche Absicherung (Subvention bzw. Amortisationskonto) parallel hochgefahren.", korrekt: true, erklaerung: "Erzeugung und Transport sind wechselseitig abhängig — genau deshalb koordiniert der Staat beide Seiten über Fördermechanismen." },
+        { text: "Sie stehen in direkter Konkurrenz um dieselben Kunden.", korrekt: false, erklaerung: "Sie sind komplementär, nicht konkurrierend — der eine erzeugt, der andere transportiert denselben Wasserstoff." },
+        { text: "Das Kernnetz ersetzt die Elektrolyseure vollständig.", korrekt: false, erklaerung: "Ein Netz erzeugt keinen Wasserstoff — es transportiert nur; die Elektrolyseure bleiben die Quelle." }
+      ]
+    }
+  },
+
+  // ── U7-PROCUREMENT ──────────────────────────────────────────────
+  "Q-PROCUREMENT-WE1": {
+    id: "Q-PROCUREMENT-WE1", unitId: "U7-PROCUREMENT", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-CONTRACT-MGMT-01"],
+    data: {
+      frage: "Was ist die §64-EEG-Befreiung, die der Berater prüft?",
+      optionen: [
+        { text: "Eine Entlastung stromintensiver Industrie von Umlagen — bei hohem Verbrauch schnell ein Millionenbetrag, weshalb der Beratungs-ROI extrem hoch ist.", korrekt: true, erklaerung: "Für energieintensive Betriebe ist die §64-Prüfung oft der größte Einzelhebel — ein Antrag, viel Ersparnis." },
+        { text: "Eine Befreiung von der Umsatzsteuer auf Strom.", korrekt: false, erklaerung: "§64 EEG betrifft die EEG-bezogene Umlagenbelastung stromintensiver Industrie, nicht die Umsatzsteuer." },
+        { text: "Ein Rabatt der Börse für Großabnehmer.", korrekt: false, erklaerung: "§64 ist eine regulatorische Entlastung, kein Börsenrabatt." }
+      ]
+    }
+  },
+  "Q-PROCUREMENT-WE2": {
+    id: "Q-PROCUREMENT-WE2", unitId: "U7-PROCUREMENT", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-CONTRACT-MGMT-01"],
+    data: {
+      szenario: "Ein Betrieb senkt durch Lastverschiebung seine maximale Bezugsleistung um 1,5 MW. Das leistungsabhängige Netzentgelt beträgt 90.000 €/MW und Jahr. Wie hoch ist die jährliche Netzentgeltersparnis (in €)?",
+      eingabefelder: [{ key: "ersparnis", label: "Ersparnis/Jahr", einheit: "€" }],
+      loesung: { ersparnis: { wert: 135000, toleranz: 10000 } },
+      rechenweg: ["Ersparnis = reduzierte Leistung × Leistungspreis = 1,5 MW × 90.000 €/MW = 135.000 €.", "Entscheidend: Der Gesamtverbrauch (kWh) bleibt gleich — gesenkt wird nur die teure SpitzenLEISTUNG (kW).", "Genau deshalb lohnt sich Lastspitzen-Optimierung, ohne dass ein einziges Produkt weniger produziert wird."]
+    }
+  },
+  "Q-PROCUREMENT-R1": {
+    id: "Q-PROCUREMENT-R1", unitId: "U7-PROCUREMENT", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-CONTRACT-MGMT-01"],
+    data: {
+      frage: "Warum senkt eine reduzierte Lastspitze die Netzentgelte, obwohl der Gesamtverbrauch gleich bleibt?",
+      optionen: [
+        { text: "Ein Teil der Netzentgelte ist leistungsabhängig (€/MW Höchstlast) — wer seine höchste Bezugsleistung senkt, zahlt weniger, unabhängig von der verbrauchten Menge.", korrekt: true, erklaerung: "Netzentgelte haben eine Arbeits- (kWh) UND eine Leistungskomponente (kW) — Letztere wird über die Jahreshöchstlast bemessen." },
+        { text: "Weil weniger Spitzenlast automatisch weniger kWh bedeutet.", korrekt: false, erklaerung: "Nein — die kWh bleiben gleich, nur die zeitliche Verteilung ändert sich; gespart wird die Leistungskomponente." },
+        { text: "Weil die BNetzA einen Rabatt für flexible Kunden gewährt.", korrekt: false, erklaerung: "Es ist kein Rabatt — die Ersparnis ergibt sich strukturell aus der leistungsbasierten Entgeltkomponente." }
+      ]
+    }
+  },
+  "Q-PROCUREMENT-R2": {
+    id: "Q-PROCUREMENT-R2", unitId: "U7-PROCUREMENT", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-CONTRACT-MGMT-01"],
+    data: {
+      text: "Energieeinkaufsberater senken die Energiekosten typisch um {{a}} — über Hedging, Netzentgelt-Optimierung und Umlagenbefreiungen wie {{b}} EEG. Bezahlt werden sie oft per {{c}} auf die nachgewiesene Einsparung.",
+      luecken: {
+        a: { loesungen: ["5–15%", "5-15%", "5 bis 15%"], erklaerung: "5–15% der Energiekosten sind der typische Einsparhebel." },
+        b: { loesungen: ["§64", "Paragraph 64", "64"], erklaerung: "§64 EEG entlastet stromintensive Industrie." },
+        c: { loesungen: ["Erfolgshonorar"], erklaerung: "Das Erfolgshonorar koppelt die Beratervergütung direkt an das Ergebnis." }
+      },
+      distraktoren: ["50–60%", "§14a"]
+    }
+  },
+  "Q-PROCUREMENT-R3": {
+    id: "Q-PROCUREMENT-R3", unitId: "U7-PROCUREMENT", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-CONTRACT-MGMT-01"],
+    data: {
+      frage: "Wodurch ist die reine Tranchenbeschaffungs-Beratung angreifbar — und wo verteidigt sich die Marge?",
+      optionen: [
+        { text: "Große Verbraucher bauen eigene Beschaffungsteams auf (Insourcing) und digitale Plattformen automatisieren das Standardgeschäft; die Marge hält nur in der Komplexität — Netzentgelt, Umlagenbefreiung, PPA-Strukturierung.", korrekt: true, erklaerung: "Die einfache Tranchenbeschaffung ist Commodity; verteidigungsfähig ist nur die regulatorisch-komplexe Optimierung." },
+        { text: "Durch ein Verbot der Energieberatung.", korrekt: false, erklaerung: "Es gibt kein solches Verbot — die Angreifer sind Insourcing und Automatisierung, nicht die Regulierung." },
+        { text: "Weil die BNetzA die Beratungshonorare deckelt.", korrekt: false, erklaerung: "Beratungshonorare sind nicht gedeckelt — der Druck kommt aus Insourcing und Plattform-Automatisierung." }
+      ]
+    }
+  },
+  "Q-PROCUREMENT-R4": {
+    id: "Q-PROCUREMENT-R4", unitId: "U7-PROCUREMENT", format: "bmc-puzzle", bloom: "K3",
+    steckbriefIds: ["L3-CONTRACT-MGMT-01", "L3-CONTRACT-MGMT-02"],
+    data: { steckbriefId: "L3-CONTRACT-MGMT-01", distraktorSteckbriefId: "L3-CONTRACT-MGMT-02" }
+  },
+  "Q-PROCUREMENT-T1": {
+    id: "Q-PROCUREMENT-T1", unitId: "U7-PROCUREMENT", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-CONTRACT-MGMT-01", "L3-VERGL-B2B-01"],
+    data: {
+      frage: "Der Energieeinkaufsberater und die B2B-Ausschreibungsplattform (Modul 4) konkurrieren teils um dasselbe Geschäft. Wo liegt der Unterschied — und die Verteidigung des Beraters?",
+      optionen: [
+        { text: "Die Plattform automatisiert die standardisierbare Tranchenbeschaffung; der Berater verteidigt sich über die nicht-automatisierbare Komplexität (Netzentgelt-, §64-, PPA-Optimierung) — genau dort, wo die Margen liegen.", korrekt: true, erklaerung: "Digitalisierbar ist das Standardgeschäft; die individuelle regulatorische Optimierung bleibt Beratung — eine wiederkehrende Grenze zwischen Plattform und Beratung." },
+        { text: "Es gibt keinen Unterschied, beide machen dasselbe.", korrekt: false, erklaerung: "Die Plattform kann Standardausschreibungen, aber nicht die komplexe regulatorische Optimierung des Beraters." },
+        { text: "Der Berater ist immer billiger als die Plattform.", korrekt: false, erklaerung: "Bei Standardbeschaffung ist die Plattform günstiger — der Berater rechtfertigt sich über Mehrwert in der Komplexität, nicht über den Preis." }
+      ]
+    }
+  },
+
+  // ── U7-EPC ──────────────────────────────────────────────────────
+  "Q-EPC-WE1": {
+    id: "Q-EPC-WE1", unitId: "U7-EPC", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-CONTRACT-MGMT-02"],
+    data: {
+      frage: "Wie kommt das Krankenhaus ohne eigenes Budget zu neuer Effizienztechnik?",
+      optionen: [
+        { text: "Der Contractor finanziert vor; das Krankenhaus refinanziert die Investition aus den garantierten Energieeinsparungen — sein laufendes Budget ändert sich zunächst kaum, nur die Kostenstruktur verschiebt sich.", korrekt: true, erklaerung: "EPC verwandelt eine Investition in einen aus Einsparungen bezahlten Servicevertrag — das Kapital kommt vom Contractor." },
+        { text: "Der Staat schenkt dem Krankenhaus die Anlage.", korrekt: false, erklaerung: "Es ist kein Geschenk — der Contractor finanziert vor und refinanziert sich aus den Einsparungen." },
+        { text: "Das Krankenhaus nimmt einen normalen Bankkredit auf.", korrekt: false, erklaerung: "Gerade nicht — der Witz des EPC ist, dass der Contractor die Finanzierung und das Risiko übernimmt, nicht das Krankenhaus." }
+      ]
+    }
+  },
+  "Q-EPC-WE2": {
+    id: "Q-EPC-WE2", unitId: "U7-EPC", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-CONTRACT-MGMT-02"],
+    data: {
+      frage: "Wer trägt beim Guaranteed-Savings-Modell das Risiko, wenn die Einsparung ausbleibt?",
+      optionen: [
+        { text: "Der Contractor — er muss die Differenz zur garantierten Mindesteinsparung aus eigener Tasche ausgleichen; das Performance-Risiko liegt bei ihm.", korrekt: true, erklaerung: "Genau diese Garantie macht EPC für Kunden attraktiv: Sie zahlen nur, wenn die Einsparung wirklich eintritt." },
+        { text: "Das Krankenhaus trägt das volle Risiko.", korrekt: false, erklaerung: "Beim Guaranteed-Savings-Modell übernimmt gerade der Contractor das Performance-Risiko, nicht der Kunde." },
+        { text: "Der Staat springt bei Fehlbeträgen ein.", korrekt: false, erklaerung: "Keine Staatsgarantie — der Contractor haftet vertraglich für die garantierte Einsparung." }
+      ]
+    }
+  },
+  "Q-EPC-R1": {
+    id: "Q-EPC-R1", unitId: "U7-EPC", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-CONTRACT-MGMT-02"],
+    data: {
+      frage: "Was ist der Unterschied zwischen 'Shared Savings' und 'Guaranteed Savings' beim EPC?",
+      optionen: [
+        { text: "Bei Shared Savings werden die Einsparungen zwischen Contractor und Kunde geteilt; bei Guaranteed Savings garantiert der Contractor eine Mindesteinsparung und trägt das Performance-Risiko.", korrekt: true, erklaerung: "Zwei Risiko-/Ertragsaufteilungen desselben Grundmodells — geteilte Einsparung vs. garantierte Mindesteinsparung." },
+        { text: "Shared Savings ist für Kommunen, Guaranteed Savings für Industrie — sonst identisch.", korrekt: false, erklaerung: "Die Unterscheidung ist die Risiko-/Ertragsstruktur, nicht die Kundengruppe." },
+        { text: "Bei beiden zahlt der Kunde die Investition sofort selbst.", korrekt: false, erklaerung: "Bei beiden finanziert der Contractor vor — der Unterschied liegt in der Aufteilung von Einsparung und Risiko." }
+      ]
+    }
+  },
+  "Q-EPC-R2": {
+    id: "Q-EPC-R2", unitId: "U7-EPC", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-CONTRACT-MGMT-02"],
+    data: {
+      text: "Beim Energy Performance Contracting refinanziert sich der Dienstleister ausschließlich aus garantierten {{a}}. Der Einsparungsnachweis erfolgt nach dem {{b}}-Standard. Typische Vertragslaufzeiten liegen bei {{c}} Jahren.",
+      luecken: {
+        a: { loesungen: ["Energieeinsparungen", "Einsparungen"], erklaerung: "Die Refinanzierung kommt allein aus den erzielten Einsparungen." },
+        b: { loesungen: ["IPMVP"], erklaerung: "IPMVP ist der internationale Standard für Messung und Verifizierung (M&V)." },
+        c: { loesungen: ["8–15", "8-15", "8 bis 15"], erklaerung: "Lange Laufzeiten sind nötig, um langsam amortisierende Maßnahmen mitzufinanzieren." }
+      },
+      distraktoren: ["Fördermitteln", "1–2"]
+    }
+  },
+  "Q-EPC-R3": {
+    id: "Q-EPC-R3", unitId: "U7-EPC", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-CONTRACT-MGMT-02"],
+    data: {
+      frage: "Was ist die 'offene Flanke' des EPC-Modells?",
+      optionen: [
+        { text: "Messen & Verifizieren (M&V): Der Einsparungsnachweis ist aufwendig und streitanfällig — wer Einsparungen nicht wasserdicht belegt, verliert Marge und Reputation.", korrekt: true, erklaerung: "Da die ganze Refinanzierung an der nachgewiesenen Einsparung hängt, ist der M&V-Streit das zentrale Risiko." },
+        { text: "Dass Effizienztechnik technisch nicht funktioniert.", korrekt: false, erklaerung: "Die Technik funktioniert — die Schwierigkeit ist der belastbare NACHWEIS der Einsparung, nicht die Technik selbst." },
+        { text: "Dass Kunden kein Interesse an Effizienz haben.", korrekt: false, erklaerung: "Das Interesse ist da (Kosten sparen) — die Flanke ist der Nachweis der Einsparung über lange Vertragslaufzeiten." }
+      ]
+    }
+  },
+  "Q-EPC-R4": {
+    id: "Q-EPC-R4", unitId: "U7-EPC", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-CONTRACT-MGMT-02"],
+    data: {
+      steckbriefId: "L3-CONTRACT-MGMT-02",
+      erklaerungenProDimension: {
+        regulierung: "Von EED/GEG getrieben, aber kein Erlösschutz — niedrig-mittel.",
+        skalierbarkeit: "Jedes Projekt ist individuell (Gebäude, M&V), begrenzt skalierbar — mittel.",
+        marktrisiko: "Performance-Risiko beim Contractor, aber vertraglich abgesichert — niedrig-mittel.",
+        digitalisierung: "IoT-Monitoring ermöglicht kontinuierliche M&V — mittel.",
+        wettbewerb: "Etablierte ESCOs plus Hersteller mit eigener Finanzierung — mittel.",
+        nachhaltigkeit: "Direkte Energieeinsparung und Effizienz — höchste Stufe."
+      }
+    }
+  },
+  "Q-EPC-T1": {
+    id: "Q-EPC-T1", unitId: "U7-EPC", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-CONTRACT-MGMT-02", "L3-PROSUM-MIETER-03"],
+    data: {
+      frage: "EPC (dieses Modul) und das Enpal-Mietmodell (Modul 6) folgen demselben Grundprinzip. Welchem?",
+      optionen: [
+        { text: "Beide nehmen dem Kunden die Vorabinvestition ab und refinanzieren sich aus dem laufenden Nutzen (Einsparung bzw. Miete < Stromkostenersparnis) — 'Energiewende ohne eigenes Kapital'.", korrekt: true, erklaerung: "Contracting und Miete lösen dasselbe Problem: Kapitalmangel des Kunden; der Anbieter finanziert vor und verdient über die Zeit." },
+        { text: "Beide verkaufen dem Kunden die Anlage sofort zum vollen Preis.", korrekt: false, erklaerung: "Genau das Gegenteil — beide vermeiden die Vorabinvestition des Kunden, das ist ihr gemeinsamer Kern." },
+        { text: "Beide sind reine Beratungsmodelle ohne Finanzierung.", korrekt: false, erklaerung: "Beide beinhalten gerade die Vorfinanzierung durch den Anbieter — das unterscheidet sie von reiner Beratung." }
+      ]
+    }
+  },
+
+  // ── U7-EIGENVERSORGUNG ──────────────────────────────────────────
+  "Q-EIGENVERSORGUNG-WE1": {
+    id: "Q-EIGENVERSORGUNG-WE1", unitId: "U7-EIGENVERSORGUNG", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-CONTRACT-MGMT-03"],
+    data: {
+      szenario: "Ein Stahlwerk verbraucht 100 GWh/Jahr und deckt davon alles aus eigener Erzeugung direkt am Ort. Das vermiedene Netzentgelt beträgt 8 ct/kWh. Wie hoch ist die jährliche Netzentgelt-Ersparnis (in Mio. €)?",
+      eingabefelder: [{ key: "ersparnis", label: "Ersparnis/Jahr", einheit: "Mio. €" }],
+      loesung: { ersparnis: { wert: 8, toleranz: 0.5 } },
+      rechenweg: ["100 GWh = 100.000.000 kWh.", "Ersparnis = 100.000.000 kWh × 8 ct/kWh = 800.000.000 ct = 8.000.000 € = 8 Mio. €.", "Diese Ersparnis kommt allein aus der vermiedenen Netzdurchleitung — der Strompreis selbst ist dabei nebensächlich."]
+    }
+  },
+  "Q-EIGENVERSORGUNG-WE2": {
+    id: "Q-EIGENVERSORGUNG-WE2", unitId: "U7-EIGENVERSORGUNG", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-CONTRACT-MGMT-03"],
+    data: {
+      frage: "Warum ist die regulatorische Vorprüfung (§3 Nr. 19 EEG) für das Eigenversorgungsprojekt so entscheidend?",
+      optionen: [
+        { text: "Nur bei striktem räumlichem Zusammenhang von Erzeugung und Verbrauch greift die Netzentgeltbefreiung — verfehlt das Projekt die Kriterien knapp, entfällt die gesamte 8-Mio.-Ersparnis.", korrekt: true, erklaerung: "Die ganze Wirtschaftlichkeit hängt an der korrekten Einordnung — deshalb verdient der Berater gerade an dieser Prüfung." },
+        { text: "Weil ohne Prüfung die Anlage technisch nicht läuft.", korrekt: false, erklaerung: "Technisch läuft sie auch ohne Prüfung — es geht um die regulatorische Anerkennung der Netzentgeltbefreiung." },
+        { text: "Weil die BNetzA sonst den Bau verbietet.", korrekt: false, erklaerung: "Der Bau ist erlaubt — die Prüfung entscheidet über die Befreiung und damit die Wirtschaftlichkeit, nicht über die Genehmigung an sich." }
+      ]
+    }
+  },
+  "Q-EIGENVERSORGUNG-R1": {
+    id: "Q-EIGENVERSORGUNG-R1", unitId: "U7-EIGENVERSORGUNG", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-CONTRACT-MGMT-03"],
+    data: {
+      frage: "Was ist der größte wirtschaftliche Hebel der industriellen Eigenversorgung?",
+      optionen: [
+        { text: "Die Netzentgelt-Vermeidung: Direkt vor Ort verbrauchter Eigenstrom umgeht die Netzdurchleitung und spart ~8 ct/kWh.", korrekt: true, erklaerung: "Nicht der Strompreis, sondern das vermiedene Netzentgelt ist der dominante Einsparhebel." },
+        { text: "Die EEG-Einspeisevergütung für den gesamten erzeugten Strom.", korrekt: false, erklaerung: "Eigenversorgung zielt auf Direktverbrauch, nicht auf Einspeisung — der Hebel ist die Netzentgeltvermeidung, nicht die Vergütung." },
+        { text: "Ein staatlicher Investitionszuschuss für Industrieanlagen.", korrekt: false, erklaerung: "Der Kernhebel ist strukturell (vermiedene Netzentgelte), nicht ein Zuschuss." }
+      ]
+    }
+  },
+  "Q-EIGENVERSORGUNG-R2": {
+    id: "Q-EIGENVERSORGUNG-R2", unitId: "U7-EIGENVERSORGUNG", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-CONTRACT-MGMT-03"],
+    data: {
+      text: "Bei der Eigenversorgung (§3 Nr. 19 EEG) versorgt eine eigene Anlage die {{a}} Verbrauchsstätte. Eine {{b}} (§3 Nr. 12 EnWG) verbindet Erzeuger und Abnehmer ohne öffentliches Netz. Der Hauptvorteil ist die vermiedene {{c}}.",
+      luecken: {
+        a: { loesungen: ["angrenzende", "unmittelbar angrenzende", "räumlich zusammenhängende"], erklaerung: "Nur bei räumlichem Zusammenhang greift die Befreiung." },
+        b: { loesungen: ["Direktleitung"], erklaerung: "Die Direktleitung ist eine private Leitung ohne öffentliches Netz." },
+        c: { loesungen: ["Netzentgelt", "Netzentgelte", "Netzdurchleitung"], erklaerung: "Die vermiedenen Netzentgelte sind der größte Hebel." }
+      },
+      distraktoren: ["entfernte", "Börsengebühr"]
+    }
+  },
+  "Q-EIGENVERSORGUNG-R3": {
+    id: "Q-EIGENVERSORGUNG-R3", unitId: "U7-EIGENVERSORGUNG", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-CONTRACT-MGMT-03"],
+    data: {
+      frage: "Warum ist die industrielle Eigenversorgung selbst der Angreifer — und wo ist sie verwundbar?",
+      optionen: [
+        { text: "Sie entzieht Netz und Lieferanten die Mengen; verwundbar ist sie regulatorisch — jede Netzentgeltreform (AgNes: Kostenbeteiligung der Erzeuger, faire Kostenverteilung) kann die Wirtschaftlichkeit der Umgehung kippen.", korrekt: true, erklaerung: "Das Modell lebt von einer regulatorischen Lücke (Netzentgeltbefreiung), die durch die AgNes-Reform verkleinert werden könnte." },
+        { text: "Sie ist verwundbar, weil Eigenstrom technisch unzuverlässig ist.", korrekt: false, erklaerung: "Die Verwundbarkeit ist regulatorisch (Entgeltreform), nicht technisch — Eigenerzeugung erhöht sogar die Resilienz." },
+        { text: "Sie ist gar nicht angreifbar, weil sie unabhängig vom Netz ist.", korrekt: false, erklaerung: "Gerade die Netz-Unabhängigkeit ist der regulatorische Streitpunkt: Wer das Netz umgeht, aber im Notfall braucht, steht in der AgNes-Debatte." }
+      ]
+    }
+  },
+  "Q-EIGENVERSORGUNG-R4": {
+    id: "Q-EIGENVERSORGUNG-R4", unitId: "U7-EIGENVERSORGUNG", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-CONTRACT-MGMT-03"],
+    data: {
+      steckbriefId: "L3-CONTRACT-MGMT-03",
+      erklaerungenProDimension: {
+        regulierung: "Lebt von regulatorischen Befreiungen, die reformgefährdet sind (AgNes) — mittel.",
+        skalierbarkeit: "Jedes Projekt ist standortgebunden und einzeln zu genehmigen — niedrig.",
+        marktrisiko: "Kostenvermeidung statt Marktexposure, aber Regulierungsrisiko — niedrig-mittel.",
+        digitalisierung: "Anlagen-Engineering, kein digital-natives Geschäft — mittel.",
+        wettbewerb: "Nischenmarkt mit spezialisierten Engineering-Partnern — niedrig.",
+        nachhaltigkeit: "Eigen-EE am Verbrauchsort, hoher Beitrag — mittel-hoch."
+      }
+    }
+  },
+  "Q-EIGENVERSORGUNG-T1": {
+    id: "Q-EIGENVERSORGUNG-T1", unitId: "U7-EIGENVERSORGUNG", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-CONTRACT-MGMT-03", "L3-VERTRIEB-STADTWERK-01"],
+    data: {
+      frage: "Industrielle Eigenversorgung und der Stadtwerke-Querverbund (Modul 4) sind beide von Regulierungsreformen bedroht. Was ist der gemeinsame Kern der Bedrohung?",
+      optionen: [
+        { text: "Beide beruhen auf einem strukturellen Kostenvorteil, der aus der aktuellen Regel-/Steuersystematik stammt (Netzentgeltbefreiung bzw. §4-Abs.-6-KStG-Querverbund) — jede Reform dieser Systematik kann den Vorteil entwerten.", korrekt: true, erklaerung: "Beide Modelle sind 'regulatorische Konstruktionen': ihr Vorteil ist kein Marktvorteil, sondern ein Regel-Vorteil, der politisch angreifbar ist." },
+        { text: "Beide sind durch neue Wettbewerber am Markt bedroht.", korrekt: false, erklaerung: "Die Bedrohung ist regulatorisch (Reform der Systematik), nicht neue Marktkonkurrenz." },
+        { text: "Beide verlieren Kunden an Neolieferanten.", korrekt: false, erklaerung: "Der gemeinsame Nenner ist die Abhängigkeit von einer regulatorisch-steuerlichen Sonderstellung, nicht der Endkundenwettbewerb." }
+      ]
+    }
+  }
+
+});
+
 // ── Validierung (Konsole): prüft, dass alle Referenzen auflösen ──────
 (function validateLernData() {
   const errors = [];

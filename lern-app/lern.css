@@ -109,15 +109,36 @@ main.view{ padding:20px; max-width:640px; margin:0 auto; }
 .hero h2{font-family:var(--font-display);font-size:30px;letter-spacing:-.8px;line-height:1.1;margin-bottom:8px}
 .hero p{color:var(--ink-mid);font-size:14px;line-height:1.5}
 
+.overall-progress{
+  background:var(--bg-panel);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:14px 16px;margin-bottom:20px;
+}
+.overall-progress-head{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:600;color:var(--ink-mid)}
+.overall-progress-pct{font-family:var(--font-display);font-size:22px;letter-spacing:-.6px;color:var(--accent)}
+
 .module-card{
   background:var(--bg-panel);border:1px solid var(--border);border-radius:var(--radius-lg);
-  padding:18px 18px 16px;margin-bottom:16px;
+  margin-bottom:12px;overflow:hidden;
 }
+.module-header{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  background:none;border:none;padding:16px 16px 14px;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.module-header-main{flex:1;min-width:0}
+.module-chevron{
+  flex-shrink:0;font-size:15px;color:var(--ink-light);
+  transition:transform var(--t);align-self:center;
+}
+.module-card.open .module-chevron{transform:rotate(90deg)}
 .module-card-title{font-family:var(--font-display);font-size:20px;letter-spacing:-.4px;margin-bottom:4px}
 .module-card-desc{font-size:12.5px;color:var(--ink-mid);line-height:1.45;margin-bottom:4px}
 .module-progress-bar{height:6px;border-radius:4px;background:var(--border);overflow:hidden;margin:10px 0 4px}
 .module-progress-fill{height:100%;background:var(--accent);transition:width var(--t)}
 .module-progress-label{font-size:11.5px;color:var(--ink-light)}
+
+.module-card .unit-list{display:none;padding:0 12px 12px}
+.module-card.open .unit-list{display:block}
 
 .unit-row{
   display:flex;align-items:center;gap:12px;

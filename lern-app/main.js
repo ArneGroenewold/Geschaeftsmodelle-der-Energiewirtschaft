@@ -42,25 +42,44 @@
     document.getElementById('streak-count').textContent = leitnerState.streak.count || 0;
   }
 
-  // ── Home: Modul- und Einheitenliste ─────────────────────────────
+  // Merkt sich, welche Module aufgeklappt sind (nur zur Laufzeit, Default: eingeklappt).
+  const expandedModules = {};
+
+  // ── Home: Modul- und Einheitenliste (Akkordeon) ─────────────────
   function renderHome() {
     viewHome.innerHTML = '';
     viewHome.appendChild(el(`<div class="hero"><h2>⚡ Energiewirtschaft meistern</h2><p>Wähle ein Modul — jede Einheit passt in eine Kaffeepause (5–10 Minuten).</p></div>`));
+
+    // Gesamtfortschritt über alle Module
+    const allUnits = LERN_MODULES.flatMap((m) => m.unitIds);
+    const allDone = allUnits.filter((id) => progressState.units[id]).length;
+    const totalPct = allUnits.length ? Math.round((allDone / allUnits.length) * 100) : 0;
+    viewHome.appendChild(el(`<div class="overall-progress">
+      <div class="overall-progress-head"><span>Gesamtfortschritt</span><span class="overall-progress-pct">${totalPct}%</span></div>
+      <div class="module-progress-bar"><div class="module-progress-fill" style="width:${totalPct}%"></div></div>
+      <div class="module-progress-label">${allDone} / ${allUnits.length} Einheiten abgeschlossen</div>
+    </div>`));
 
     LERN_MODULES.forEach((mod) => {
       const units = mod.unitIds.map(findUnit);
       const doneCount = units.filter((u) => progressState.units[u.id]).length;
       const pct = Math.round((doneCount / units.length) * 100);
+      const isOpen = !!expandedModules[mod.id];
 
-      const card = el(`<div class="module-card">
-        <div class="module-card-title">${mod.title}</div>
-        <p class="module-card-desc">${mod.description}</p>
-        <div class="module-progress-bar"><div class="module-progress-fill" style="width:${pct}%"></div></div>
-        <div class="module-progress-label">${doneCount} / ${units.length} Einheiten abgeschlossen</div>
+      const card = el(`<div class="module-card ${isOpen ? 'open' : ''}">
+        <button class="module-header" type="button" aria-expanded="${isOpen}">
+          <div class="module-header-main">
+            <div class="module-card-title">${mod.title}</div>
+            <p class="module-card-desc">${mod.description}</p>
+            <div class="module-progress-bar"><div class="module-progress-fill" style="width:${pct}%"></div></div>
+            <div class="module-progress-label">${pct}% — ${doneCount} / ${units.length} Einheiten</div>
+          </div>
+          <div class="module-chevron">▸</div>
+        </button>
+        <div class="unit-list"></div>
       </div>`);
-      viewHome.appendChild(card);
+      const list = card.querySelector('.unit-list');
 
-      const list = el('<div class="unit-list"></div>');
       units.forEach((u) => {
         const done = !!progressState.units[u.id];
         const row = el(`<div class="unit-row ${done ? 'done' : ''}">
@@ -71,7 +90,14 @@
         row.addEventListener('click', () => startUnit(u.id));
         list.appendChild(row);
       });
-      viewHome.appendChild(list);
+
+      card.querySelector('.module-header').addEventListener('click', () => {
+        expandedModules[mod.id] = !expandedModules[mod.id];
+        card.classList.toggle('open', expandedModules[mod.id]);
+        card.querySelector('.module-header').setAttribute('aria-expanded', expandedModules[mod.id]);
+      });
+
+      viewHome.appendChild(card);
     });
   }
 

@@ -6,6 +6,13 @@
 
 const LERN_MODULES = [
   {
+    id: "M1-SPIELFELD",
+    title: "Das Spielfeld",
+    description: "Die Grundlagen: Wo der Strompreis entsteht (Börse), wie Händler an Volatilität verdienen, was CO₂ und Herkunft kosten — und wer das ganze System reguliert.",
+    unitIds: ["U1-BOERSE", "U1-PROP", "U1-ZERTIFIKATE", "U1-BNETZA", "U1-KAPAZITAET", "U1-FLEXMARKT"],
+    bossQuizId: null // Stage 2
+  },
+  {
     id: "M2-ERZEUGEN",
     title: "Erzeugen & Speichern",
     description: "Vom Gaskraftwerk über EEG und PPAs bis zum Batteriespeicher — wo entsteht Erzeugungs-Marge, und wer sichert sie ab?",
@@ -604,6 +611,192 @@ const LERN_UNITS = [
     merkeDirEinenSatz: {
       prompt: "Formuliere in einem Satz: Was ist die 'Death Spiral' des Gasnetzes?",
       musterantwort: "Sinkende Durchleitungsmengen bei fixen Netzkosten treiben die Netzentgelte je Kunde nach oben, was weitere Kunden zum Ausstieg (Elektrifizierung) motiviert — ein sich selbst verstärkender Abwärtssog, der ohne H2-Repurposing im Stranded Asset endet."
+    }
+  },
+  {
+    id: "U1-BOERSE",
+    moduleId: "M1-SPIELFELD",
+    title: "Die Strombörse — Wo der Preis entsteht",
+    primarySteckbriefId: "L3-HANDEL-BOERSE-01",
+    vertiefungSteckbriefIds: ["L3-HANDEL-BOERSE-01"],
+    hook: { text: "Ein Unternehmen wickelt über 700 Milliarden Kilowattstunden Stromhandel im Jahr ab — und ist es völlig egal, ob der Strompreis bei 20 oder 200 € liegt. Wie kann das sein?" },
+    kernidee: {
+      text: "Die <strong>Strombörse</strong> (EPEX SPOT für kurzfristig, EEX für Termingeschäfte) ist der zentrale Marktplatz, an dem sich der Strompreis bildet: In der täglichen <strong>Day-Ahead-Auktion</strong> geben tausende Teilnehmer Gebote für jede Stunde des Folgetags ab, ein Algorithmus ermittelt den markträumenden Preis. Die Börse verdient nicht am Preis, sondern an einer winzigen <strong>Transaktionsgebühr</strong> (0,03–0,15 €/MWh) — reine Infrastrukturrolle ohne Preisrisiko. Ihr Schutz ist der <strong>Netzwerkeffekt</strong>: Liquidität zieht Liquidität, ein Newcomer bekommt die kritische Masse kaum aufgebaut.",
+      geldfluss: {
+        nodes: [{ id: "kauf", label: "Käufer" }, { id: "boerse", label: "Börse" }, { id: "verkauf", label: "Verkäufer" }],
+        edges: [
+          { from: "kauf", to: "boerse", label: "Gebot + Transaktionsgebühr" },
+          { from: "boerse", to: "verkauf", label: "markträumender Preis" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-HANDEL-BOERSE-01",
+      steps: [
+        { text: "Bei der Day-Ahead-Auktion geben Kraftwerksbetreiber, Lieferanten und Industrie ihre Kauf-/Verkaufsgebote für jede Stunde des Folgetags ab; die Börse ermittelt den Preis, bei dem sich Angebot und Nachfrage treffen.", questionId: "Q-BOERSE-WE1" },
+        { text: "EPEX SPOT kassiert dafür wenige Cent pro MWh — bei mehreren hundert TWh Jahresvolumen ein verlässliches Geschäft, völlig unabhängig von der Höhe des Strompreises.", questionId: "Q-BOERSE-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-BOERSE-R1", "Q-BOERSE-R2", "Q-BOERSE-R3", "Q-BOERSE-R4"],
+    transferItemId: "Q-BOERSE-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Woran verdient eine Strombörse — und was schützt sie vor Konkurrenz?",
+      musterantwort: "Sie verdient an einer kleinen Transaktionsgebühr je gehandelter MWh, unabhängig vom Strompreis, und wird durch den Netzwerkeffekt geschützt: Liquidität zieht Liquidität, was neuen Konkurrenzbörsen den Markteintritt extrem erschwert."
+    }
+  },
+  {
+    id: "U1-PROP",
+    moduleId: "M1-SPIELFELD",
+    title: "Prop Trading — Geld verdienen mit besseren Prognosen",
+    primarySteckbriefId: "L3-HANDEL-PORTFOLIO-01",
+    vertiefungSteckbriefIds: ["L3-HANDEL-PORTFOLIO-01"],
+    hook: { text: "Ein Händler verdient Millionen damit, dass er das Wetter von übermorgen ein bisschen besser kennt als der Markt. Warum verschwindet dieser Vorteil ständig — und muss immer neu erkämpft werden?" },
+    kernidee: {
+      text: "Beim <strong>Prop Trading</strong> (Handel auf eigene Rechnung) wandelt ein Händler Marktpreisrisiken in Gewinne um — etwa über den <strong>Clean Spark Spread</strong> (Strom vs. Gas + CO₂) oder Positionen auf Basis eigener EE-Prognosen. Die einzige nachhaltige Gewinnquelle ist ein <strong>Informationsvorsprung</strong>: ein besseres Wettermodell, schnellere Daten. Genau der wird aber laufend wegkommoditisiert — sobald ein Vorsprung bekannt ist, verschwindet die Marge. Alles läuft streng im Rahmen eines <strong>Risikobudgets (VAR)</strong> und unter REMIT-/MiFID-II-Compliance.",
+      geldfluss: {
+        nodes: [{ id: "prognose", label: "Prognose-Vorsprung" }, { id: "trader", label: "Trader (Eigenbuch)" }, { id: "markt", label: "Markt" }],
+        edges: [
+          { from: "prognose", to: "trader", label: "Alpha (temporär)" },
+          { from: "markt", to: "trader", label: "P&L (VAR-begrenzt)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-HANDEL-PORTFOLIO-01",
+      steps: [
+        { text: "Ein Trader sieht im eigenen Wettermodell mehr Wind für übermorgen, als der Markt einpreist — der Day-Ahead-Preis für die Mittagsstunden wird also fallen. Er verkauft heute Strom auf Termin, um morgen günstiger zurückzukaufen.", questionId: "Q-PROP-WE1" },
+        { text: "Trifft die Prognose zu, kassiert er die Differenz; trifft sie nicht zu, trägt er den Verlust innerhalb seines VAR-Limits.", questionId: "Q-PROP-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-PROP-R1", "Q-PROP-R2", "Q-PROP-R3", "Q-PROP-R4"],
+    transferItemId: "Q-PROP-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum ist ein Handelsvorteil im Prop Trading immer nur vorübergehend?",
+      musterantwort: "Weil die einzige nachhaltige Alpha-Quelle ein Informationsvorsprung (besseres Prognosemodell, schnellere Daten) ist — sobald er allgemein bekannt oder käuflich wird, preist ihn der Markt ein und die Marge verschwindet, sodass der nächste Vorsprung gefunden werden muss."
+    }
+  },
+  {
+    id: "U1-ZERTIFIKATE",
+    moduleId: "M1-SPIELFELD",
+    title: "CO₂ & Herkunft — Die Märkte für das Unsichtbare",
+    primarySteckbriefId: "L3-HANDEL-ZERTIF-01",
+    vertiefungSteckbriefIds: ["L3-HANDEL-ZERTIF-01"],
+    hook: { text: "Zwei Kunden bekommen exakt denselben Strom aus derselben Steckdose — der eine zahlt für ein 'Ökostrom'-Zertifikat 10 Cent, der andere 5 Euro. Warum der Riesenunterschied?" },
+    kernidee: {
+      text: "Zwei getrennte Zertifikatemärkte prägen die Energiewirtschaft. <strong>Herkunftsnachweise (HKN)</strong> bescheinigen, dass 1 MWh aus einer bestimmten EE-Quelle stammt — getrennt vom physischen Strom; Massen-HKN aus alten Wasserkraftwerken kosten Cent, Premium-HKN mit <strong>Zusätzlichkeit</strong> (Neuanlagen, 24/7-Matching) das Vielfache. Der <strong>EU-Emissionshandel (EU ETS)</strong> dagegen ist ein Pflichtmarkt: Stromerzeuger und Industrie müssen für jede Tonne CO₂ ein Zertifikat (EUA, >80 €/t) kaufen — das macht CO₂ zum echten Kostenfaktor jeder fossilen Kilowattstunde.",
+      geldfluss: {
+        nodes: [{ id: "erzeuger", label: "EE-Erzeuger" }, { id: "haendler", label: "Zertifikatehändler" }, { id: "abnehmer", label: "Lieferant/Industrie" }],
+        edges: [
+          { from: "erzeuger", to: "haendler", label: "HKN günstig ankaufen" },
+          { from: "haendler", to: "abnehmer", label: "je nach Zusätzlichkeit teuer verkaufen" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-HANDEL-ZERTIF-01",
+      steps: [
+        { text: "Ein Lieferant kauft für seinen 'Ökostrom'-Tarif ein Massen-HKN aus einem alten norwegischen Wasserkraftwerk für 0,10–0,50 €/MWh — der physische Strom bleibt der deutsche Netzmix, das Zertifikat ist ein rein buchhalterischer Nachweis.", questionId: "Q-ZERTIFIKATE-WE1" },
+        { text: "Ein Premium-HKN von einer neu gebauten deutschen Solaranlage (Zusätzlichkeit) kostet dagegen bis zu 5 €/MWh — weil es tatsächlich neue EE-Kapazität mitfinanziert hat.", questionId: "Q-ZERTIFIKATE-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-ZERTIFIKATE-R1", "Q-ZERTIFIKATE-R2", "Q-ZERTIFIKATE-R3", "Q-ZERTIFIKATE-R4"],
+    transferItemId: "Q-ZERTIFIKATE-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Was unterscheidet den HKN-Markt vom EU ETS?",
+      musterantwort: "Der HKN-Markt ist freiwillig und bescheinigt die grüne Herkunft von Strom (Preis je nach Zusätzlichkeit), während der EU ETS ein Pflichtmarkt ist, in dem Erzeuger und Industrie für jede Tonne CO₂ ein Zertifikat kaufen müssen — das eine belohnt Grün, das andere bepreist Emissionen."
+    }
+  },
+  {
+    id: "U1-BNETZA",
+    moduleId: "M1-SPIELFELD",
+    title: "Der Schiedsrichter — BNetzA & die Spielregeln",
+    primarySteckbriefId: "L3-MARKT-BNETZA-01",
+    vertiefungSteckbriefIds: ["L3-MARKT-BNETZA-01", "L3-MARKT-BNETZA-02"],
+    hook: { text: "Eine Behörde mit 4.000 Mitarbeitern verkauft nichts und verdient nichts — beaufsichtigt aber ein reguliertes Vermögen von über einer halben Billion Euro. Was ist ihr eigentliches 'Produkt'?" },
+    kernidee: {
+      text: "Die <strong>Bundesnetzagentur (BNetzA)</strong> ist der Schiedsrichter des Energiesystems: Sie legt die Erlösobergrenzen der ~1.700 Netzbetreiber fest (ARegV), überwacht den Markt (REMIT), gestaltet über <strong>Festlegungsverfahren</strong> die Regeln (Marktkommunikation, §14a, dynamische Tarife) und führt die EEG-Ausschreibungen durch. Sie hat keine eigene Erlöslogik — ihr 'Produkt' ist ein funktionierender Rahmen, der alle anderen Geschäftsmodelle erst ermöglicht. Auf EU-Ebene sorgt <strong>ENTSO-E</strong> mit gemeinsamen Network Codes für die technische Harmonisierung.",
+      geldfluss: {
+        nodes: [{ id: "bnetza", label: "BNetzA" }, { id: "netz", label: "Netzbetreiber" }, { id: "markt", label: "Markt/Verbraucher" }],
+        edges: [
+          { from: "bnetza", to: "netz", label: "Erlösobergrenze + Regeln" },
+          { from: "bnetza", to: "markt", label: "Wettbewerbsrahmen (kein Erlös)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-MARKT-BNETZA-01",
+      steps: [
+        { text: "Die BNetzA setzt per Festlegungsverfahren verbindliche Regeln — z.B. §14a, dynamische Tarife, Marktkommunikation (MaBiS/GPKE). Solche Verfahren dauern oft 2–5 Jahre.", questionId: "Q-BNETZA-WE1" },
+        { text: "Ein Fehler in der Regulierung (zu hohe Erlösobergrenze, falsche Effizienzparameter) kostet Verbraucher schnell Milliarden — die Qualität der Regeln ist der eigentliche Wert der Behörde.", questionId: "Q-BNETZA-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-BNETZA-R1", "Q-BNETZA-R2", "Q-BNETZA-R3", "Q-BNETZA-R4"],
+    transferItemId: "Q-BNETZA-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Was ist das 'Geschäftsmodell' der BNetzA?",
+      musterantwort: "Die BNetzA hat keine eigene Erlöslogik — ihr Wert liegt darin, über Erlösobergrenzen, Marktüberwachung und Festlegungsverfahren einen funktionierenden Wettbewerbs- und Regulierungsrahmen herzustellen, der alle anderen Geschäftsmodelle der Energiewirtschaft erst ermöglicht."
+    }
+  },
+  {
+    id: "U1-KAPAZITAET",
+    moduleId: "M1-SPIELFELD",
+    title: "Kapazitätsmarkt — Geld fürs Bereitstehen",
+    primarySteckbriefId: "L3-MARKT-DESIGN-01",
+    vertiefungSteckbriefIds: ["L3-MARKT-DESIGN-01"],
+    hook: { text: "Ein Kraftwerk, das nur an wenigen hundert Stunden im Jahr läuft, wird trotzdem dringend gebraucht — aber niemand baut es. Wie will der Staat dieses Dilemma lösen?" },
+    kernidee: {
+      text: "Im heutigen <strong>Energy-Only-Market</strong> refinanzieren sich Kraftwerke allein über Strompreise. Bei hohem EE-Anteil reichen die seltenen Knappheitspreise aber nicht, um <strong>Backup-Kraftwerke</strong> zu finanzieren, die nur an wenigen Stunden laufen (Missing Money). Ein <strong>Kapazitätsmarkt</strong> löst das: Der Betreiber bekommt einen <strong>Leistungspreis</strong> (~50.000–80.000 €/MW/Jahr erwartet) allein fürs zuverlässige Bereitstehen. Mit der Kraftwerksstrategie/StromVKG ist der Einstieg beschlossen — 12 GW H2-ready ab 2026, umfassender Kapazitätsmarkt ab 2032. Prinzip: verdienen am Bereitstehen, nicht am Liefern.",
+      geldfluss: {
+        nodes: [{ id: "staat", label: "Kapazitätsmarkt" }, { id: "kraftwerk", label: "H2-ready Peaker" }, { id: "system", label: "Versorgungssicherheit" }],
+        edges: [
+          { from: "staat", to: "kraftwerk", label: "Leistungspreis fürs Bereitstehen" },
+          { from: "kraftwerk", to: "system", label: "gesicherte Backup-Kapazität" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-MARKT-DESIGN-01",
+      steps: [
+        { text: "Ein H2-ready-Gaskraftwerk läuft nur an wenigen hundert Stunden (Backup für windschwache, sonnenarme Tage). Aus den seltenen Spotpreisspitzen allein kann es sich nicht refinanzieren — deshalb wird es ohne Zusatzvergütung nicht gebaut.", questionId: "Q-KAPAZITAET-WE1" },
+        { text: "Der Kapazitätsmarkt gibt dem Betreiber zusätzlich einen Leistungspreis (~50.000–80.000 €/MW/Jahr) nur dafür, dass die Kapazität zuverlässig bereitsteht.", questionId: "Q-KAPAZITAET-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-KAPAZITAET-R1", "Q-KAPAZITAET-R2", "Q-KAPAZITAET-R3", "Q-KAPAZITAET-R4"],
+    transferItemId: "Q-KAPAZITAET-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Welches Problem löst ein Kapazitätsmarkt?",
+      musterantwort: "Das 'Missing Money'-Problem: Bei hohem EE-Anteil reichen die seltenen Knappheitspreise nicht, um dringend benötigte Backup-Kraftwerke zu finanzieren — der Kapazitätsmarkt vergütet deshalb das reine Bereitstehen der Kapazität, nicht nur die gelieferte Energie."
+    }
+  },
+  {
+    id: "U1-FLEXMARKT",
+    moduleId: "M1-SPIELFELD",
+    title: "Die Märkte von morgen — Lokale Flex & Wasserstoff",
+    primarySteckbriefId: "L3-MARKT-DESIGN-02",
+    vertiefungSteckbriefIds: ["L3-MARKT-DESIGN-02", "L3-MARKT-DESIGN-03"],
+    hook: { text: "Ein Netzbetreiber könnte einen Engpass für 500.000 € mit Kupfer lösen — oder für 20 €/MWh mit einem Marktmechanismus. Warum gibt es diesen Markt trotzdem noch kaum?" },
+    kernidee: {
+      text: "Zwei Märkte entstehen gerade erst. <strong>Lokale Flexibilitätsmärkte</strong> lassen Verteilnetzbetreiber Engpässe kaufen statt bauen: Statt einen Trafo für Hunderttausende auszubauen, schreibt der VNB lokale Flexibilität aus (z.B. 5 MW Lastreduktion 17–19 Uhr) und kauft das günstigste Gebot (20–50 €/MWh). Größter Gegner ist der Regulierer selbst (§14a und Redispatch lösen dasselbe Problem ohne Markt). Der <strong>H2-Spotmarkt</strong> wiederum existiert noch nicht — Wasserstoff wird bilateral gehandelt, bis genug Liquidität für eine Börse da ist; H2Global überbrückt als staatlicher Zwischenmarkt.",
+      geldfluss: {
+        nodes: [{ id: "vnb", label: "VNB" }, { id: "markt", label: "lokaler Flexmarkt" }, { id: "agg", label: "Aggregator" }],
+        edges: [
+          { from: "vnb", to: "markt", label: "schreibt Engpass aus" },
+          { from: "agg", to: "markt", label: "bietet Flex (20–50 €/MWh)" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-MARKT-DESIGN-02",
+      steps: [
+        { text: "Ein VNB stellt fest, dass ein Vorort zwischen 17 und 19 Uhr regelmäßig an die Kapazitätsgrenze kommt (viele E-Autos laden). Statt einen Trafo zu bauen, schreibt er über eine Plattform aus: 'Wer kann 5 MW Last reduzieren?'", questionId: "Q-FLEXMARKT-WE1" },
+        { text: "Aggregatoren bieten dafür 20–50 €/MWh — deutlich günstiger als der vermiedene Netzausbau. Das noch ungelöste Problem: Dieselbe Batterie darf nicht gleichzeitig dem ÜNB und dem VNB zugesagt werden.", questionId: "Q-FLEXMARKT-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-FLEXMARKT-R1", "Q-FLEXMARKT-R2", "Q-FLEXMARKT-R3", "Q-FLEXMARKT-R4"],
+    transferItemId: "Q-FLEXMARKT-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum ist der Regulierer der größte Gegner lokaler Flexmärkte?",
+      musterantwort: "Weil §14a-Steuerung und Redispatch dieselben Netzengpässe reguliert und ohne Marktmechanismus lösen können — sie drohen die lokalen Flexmärkte überflüssig zu machen, bevor diese überhaupt genug Liquidität aufbauen."
     }
   },
   {

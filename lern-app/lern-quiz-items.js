@@ -2715,6 +2715,539 @@ Object.assign(LERN_QUIZ_ITEMS, {
 
 });
 
+// ════════════════════════════════════════════════════════════════════
+// MODUL 1 — DAS SPIELFELD
+// ════════════════════════════════════════════════════════════════════
+Object.assign(LERN_QUIZ_ITEMS, {
+
+  // ── U1-BOERSE ───────────────────────────────────────────────────
+  "Q-BOERSE-WE1": {
+    id: "Q-BOERSE-WE1", unitId: "U1-BOERSE", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-HANDEL-BOERSE-01"],
+    data: {
+      frage: "Wie entsteht in der Day-Ahead-Auktion der Strompreis für eine bestimmte Stunde?",
+      optionen: [
+        { text: "Ein Algorithmus ermittelt den Preis, bei dem sich die eingereichten Kauf- und Verkaufsgebote decken (markträumender Preis).", korrekt: true, erklaerung: "Angebot und Nachfrage treffen sich in einer einheitlichen Auktion — daraus ergibt sich ein Preis pro Stunde, der für alle gilt." },
+        { text: "Die Börse legt den Preis nach eigenen Kostenkalkulationen fest.", korrekt: false, erklaerung: "Die Börse setzt keinen Preis — sie führt nur die Gebote der Teilnehmer zusammen; der Preis ist ein Marktergebnis." },
+        { text: "Die BNetzA genehmigt jeden Stundenpreis im Voraus.", korrekt: false, erklaerung: "Börsenpreise sind nicht genehmigungspflichtig — sie entstehen frei im Auktionsverfahren; die BNetzA überwacht nur die Marktintegrität." }
+      ]
+    }
+  },
+  "Q-BOERSE-WE2": {
+    id: "Q-BOERSE-WE2", unitId: "U1-BOERSE", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-HANDEL-BOERSE-01"],
+    data: {
+      frage: "Warum ist das Geschäft der Börse unabhängig von der Höhe des Strompreises?",
+      optionen: [
+        { text: "Sie verdient an einer festen Transaktionsgebühr pro gehandelter MWh — ob der Preis 20 oder 200 € beträgt, ändert die Gebühr nicht.", korrekt: true, erklaerung: "Reine Infrastrukturrolle: Die Börse kassiert Volumen-basiert, trägt aber selbst kein Preisrisiko." },
+        { text: "Weil sie den Strom günstig einkauft und teuer weiterverkauft.", korrekt: false, erklaerung: "Die Börse handelt nicht auf eigene Rechnung — sie vermittelt nur und nimmt eine Gebühr, ohne selbst zu kaufen/verkaufen." },
+        { text: "Weil der Staat ihr einen festen Gewinn garantiert.", korrekt: false, erklaerung: "Es gibt keine staatliche Gewinngarantie — die Stabilität kommt aus dem gebührenbasierten Volumengeschäft." }
+      ]
+    }
+  },
+  "Q-BOERSE-R1": {
+    id: "Q-BOERSE-R1", unitId: "U1-BOERSE", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-HANDEL-BOERSE-01"],
+    data: {
+      frage: "Was handelt EPEX SPOT, was EEX?",
+      optionen: [
+        { text: "EPEX SPOT den kurzfristigen Spothandel (Day-Ahead, Intraday), EEX die Termingeschäfte (Futures, Optionen, CO₂).", korrekt: true, erklaerung: "Spot vs. Termin ist die Grundaufteilung des Börsenhandels — kurzfristige Lieferung vs. Absicherung in die Zukunft." },
+        { text: "EPEX SPOT nur Gas, EEX nur Strom.", korrekt: false, erklaerung: "Die Trennung verläuft nicht nach Energieträger, sondern nach Fristigkeit (Spot vs. Termin)." },
+        { text: "EPEX SPOT für Privatkunden, EEX für Industrie.", korrekt: false, erklaerung: "Börsen handeln nicht mit Privatkunden — beide bedienen professionelle Marktteilnehmer, aufgeteilt nach Spot- und Terminhandel." }
+      ]
+    }
+  },
+  "Q-BOERSE-R2": {
+    id: "Q-BOERSE-R2", unitId: "U1-BOERSE", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-HANDEL-BOERSE-01"],
+    data: {
+      text: "Die Börse verdient an einer {{a}} von 0,03–0,15 €/MWh und trägt selbst {{b}}. Ihr wichtigster Schutz vor Konkurrenz ist der {{c}}: Liquidität zieht Liquidität.",
+      luecken: {
+        a: { loesungen: ["Transaktionsgebühr", "Gebühr"], erklaerung: "Die volumenbasierte Transaktionsgebühr ist die Erlösquelle." },
+        b: { loesungen: ["kein Marktpreisrisiko", "kein Preisrisiko", "kein Risiko"], erklaerung: "Als reine Infrastruktur trägt die Börse kein eigenes Preisrisiko." },
+        c: { loesungen: ["Netzwerkeffekt"], erklaerung: "Der Netzwerkeffekt macht eine liquide Börse für Newcomer nahezu uneinholbar." }
+      },
+      distraktoren: ["Handelsmarge", "volles Preisrisiko"]
+    }
+  },
+  "Q-BOERSE-R3": {
+    id: "Q-BOERSE-R3", unitId: "U1-BOERSE", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-HANDEL-BOERSE-01"],
+    data: {
+      frage: "Warum wächst das Handelsvolumen an der Börse strukturell mit dem EE-Anteil?",
+      optionen: [
+        { text: "Volatile Wind-/Solareinspeisung erzeugt mehr kurzfristigen Ausgleichsbedarf — der Intraday-Handel (z.B. 15-Minuten-Produkte) nimmt zu, je mehr Prognosen laufend korrigiert werden müssen.", korrekt: true, erklaerung: "Mehr EE = mehr Prognoseunsicherheit = mehr kurzfristiger Handel = mehr Transaktionen für die Börse." },
+        { text: "Weil erneuerbarer Strom gesetzlich über die Börse verkauft werden muss.", korrekt: false, erklaerung: "Es gibt keine Börsenpflicht für EE-Strom — das Volumen wächst durch den realen Ausgleichsbedarf, nicht durch Zwang." },
+        { text: "Weil die Börse bei EE-Strom höhere Gebühren verlangt.", korrekt: false, erklaerung: "Die Gebühr hängt nicht an der Erzeugungsart — es ist schlicht das höhere Transaktionsvolumen, das den Umsatz treibt." }
+      ]
+    }
+  },
+  "Q-BOERSE-R4": {
+    id: "Q-BOERSE-R4", unitId: "U1-BOERSE", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-HANDEL-BOERSE-01"],
+    data: {
+      steckbriefId: "L3-HANDEL-BOERSE-01",
+      erklaerungenProDimension: {
+        regulierung: "Reguliert (MiFID II, REMIT), aber kein Erlösschutz-Monopol — mittel.",
+        skalierbarkeit: "Plattform-Netzwerkeffekt, Grenzkosten pro Transaktion nahe null — höchste Stufe.",
+        marktrisiko: "Reine Infrastrukturrolle ohne Preis-Exposure — niedrigste Stufe.",
+        digitalisierung: "Vollautomatischer, latenzkritischer Handel — höchste Stufe.",
+        wettbewerb: "De-facto-Dominanz durch Liquidität, wenig direkter Wettbewerb — niedrig.",
+        nachhaltigkeit: "Neutrale Marktinfrastruktur, kein direkter Energiewende-Beitrag — niedrig."
+      }
+    }
+  },
+  "Q-BOERSE-T1": {
+    id: "Q-BOERSE-T1", unitId: "U1-BOERSE", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-HANDEL-BOERSE-01", "L3-VERGL-B2C-01"],
+    data: {
+      frage: "Die Strombörse und ein Tarifvergleichsportal (Modul 4) sind beide Plattformen mit Netzwerkeffekt. Was unterscheidet ihre Neutralität fundamental?",
+      optionen: [
+        { text: "Die Börse ist ein neutraler Preisbildungsmechanismus ohne Interessenkonflikt; das Vergleichsportal optimiert dagegen auf provisionsträchtige Vermittlung — 'Sichtbarkeit ist käuflich'.", korrekt: true, erklaerung: "Beide sind Plattformen, aber die Börse verdient völlig ergebnisneutral an jeder Transaktion, während das Portal ein Anreizproblem hat (CPA statt bester Preis)." },
+        { text: "Beide manipulieren den Preis zu ihren Gunsten.", korrekt: false, erklaerung: "Die Börse manipuliert nicht — sie ermittelt den markträumenden Preis neutral; nur das Portal hat einen Provisionsanreiz." },
+        { text: "Es gibt keinen Unterschied, beide sind reine Vermittler ohne Eigeninteresse.", korrekt: false, erklaerung: "Das Portal hat sehr wohl ein Eigeninteresse (Provision) — genau das unterscheidet es von der ergebnisneutralen Börse." }
+      ]
+    }
+  },
+
+  // ── U1-PROP ─────────────────────────────────────────────────────
+  "Q-PROP-WE1": {
+    id: "Q-PROP-WE1", unitId: "U1-PROP", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-HANDEL-PORTFOLIO-01"],
+    data: {
+      frage: "Der Trader erwartet mehr Wind als der Markt. Was ist die logische Position?",
+      optionen: [
+        { text: "Heute Strom für übermorgen verkaufen (Terminverkauf) und morgen günstiger zurückkaufen, wenn der Markt den fallenden Preis einpreist.", korrekt: true, erklaerung: "Mehr Wind → niedrigerer Preis erwartet → hoch verkaufen, tief zurückkaufen. Die Differenz ist der Gewinn." },
+        { text: "Sofort möglichst viel Strom kaufen, weil viel Wind den Preis steigen lässt.", korrekt: false, erklaerung: "Genau falsch herum: Viel Windangebot senkt den Preis — man will verkaufen, nicht kaufen." },
+        { text: "Gar nichts tun, weil Wetter nicht handelbar ist.", korrekt: false, erklaerung: "Wetter ist im Stromhandel gerade der zentrale Werttreiber — bessere Prognosen sind die Alpha-Quelle." }
+      ]
+    }
+  },
+  "Q-PROP-WE2": {
+    id: "Q-PROP-WE2", unitId: "U1-PROP", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-HANDEL-PORTFOLIO-01"],
+    data: {
+      frage: "Wozu dient das VAR-Limit (Value at Risk) beim Prop Trading?",
+      optionen: [
+        { text: "Es begrenzt den möglichen Verlust einer Position/eines Buchs — der Trader darf nur so viel Risiko eingehen, wie das Budget erlaubt.", korrekt: true, erklaerung: "Risikodisziplin ist überlebenswichtig: Auch die beste Prognose liegt manchmal falsch, das VAR-Limit verhindert existenzbedrohende Verluste." },
+        { text: "Es garantiert dem Trader einen Mindestgewinn.", korrekt: false, erklaerung: "VAR garantiert keinen Gewinn — es begrenzt den möglichen Verlust, das ist etwas völlig anderes." },
+        { text: "Es legt fest, wie hoch die Handelsgebühr an die Börse ist.", korrekt: false, erklaerung: "VAR ist ein Risikomaß, keine Gebührenregel — es steuert die erlaubte Positionsgröße." }
+      ]
+    }
+  },
+  "Q-PROP-R1": {
+    id: "Q-PROP-R1", unitId: "U1-PROP", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-HANDEL-PORTFOLIO-01"],
+    data: {
+      frage: "Was ist der Clean Spark Spread?",
+      optionen: [
+        { text: "Die Differenz zwischen dem Strompreis und den Kosten, ihn aus Gas zu erzeugen (Gaspreis + CO₂-Kosten) — die Marge eines Gaskraftwerks bzw. eine Trading-Kennzahl.", korrekt: true, erklaerung: "Der Clean Spark Spread misst, ob sich Gasverstromung lohnt — Kern vieler Spread-Trading-Strategien." },
+        { text: "Die Gebühr, die die Börse pro Transaktion erhebt.", korrekt: false, erklaerung: "Das ist die Transaktionsgebühr — der Clean Spark Spread ist die Erzeugungsmarge Strom vs. Gas+CO₂." },
+        { text: "Der Unterschied zwischen Day-Ahead- und Intraday-Preis.", korrekt: false, erklaerung: "Das wäre ein zeitlicher Spread — der Clean Spark Spread bezieht sich auf Strom vs. Gasverstromungskosten." }
+      ]
+    }
+  },
+  "Q-PROP-R2": {
+    id: "Q-PROP-R2", unitId: "U1-PROP", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-HANDEL-PORTFOLIO-01"],
+    data: {
+      text: "Die einzige nachhaltige Gewinnquelle im Prop Trading ist ein {{a}} — z.B. ein besseres {{b}}. Alle Positionen unterliegen der {{c}}-Meldepflicht an die ACER.",
+      luecken: {
+        a: { loesungen: ["Informationsvorsprung", "Vorsprung"], erklaerung: "Nur wer mehr oder schneller weiß, verdient dauerhaft — sonst preist der Markt alles ein." },
+        b: { loesungen: ["Wettermodell", "Prognosemodell", "Prognose"], erklaerung: "EE-Prognosemodelle sind die wichtigste Alpha-Quelle im Stromhandel." },
+        c: { loesungen: ["REMIT"], erklaerung: "REMIT verpflichtet zur Meldung von Handelsdaten an die europäische Regulierungsagentur ACER." }
+      },
+      distraktoren: ["Glücksfaktor", "MaBiS"]
+    }
+  },
+  "Q-PROP-R3": {
+    id: "Q-PROP-R3", unitId: "U1-PROP", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-HANDEL-PORTFOLIO-01"],
+    data: {
+      frage: "Warum werden Informationsvorsprünge im Energiehandel 'systematisch wegkommoditisiert'?",
+      optionen: [
+        { text: "ML-Prognosen, Satellitendaten und geringe Latenz sind käuflich; sobald ein Vorsprung verfügbar wird, haben ihn alle, und die daraus entstehende Marge verschwindet.", korrekt: true, erklaerung: "Der Markt lernt: Jeder verkäufliche Vorteil wird zum Standard, weshalb Desks ständig den nächsten Vorsprung suchen müssen." },
+        { text: "Weil die BNetzA Informationsvorsprünge gesetzlich verbietet.", korrekt: false, erklaerung: "Legale Analysevorteile sind erlaubt (nur Insiderhandel ist verboten) — sie verschwinden ökonomisch durch Verbreitung, nicht per Verbot." },
+        { text: "Weil Trader ihre Modelle offenlegen müssen.", korrekt: false, erklaerung: "Modelle sind Geschäftsgeheimnisse — der Vorsprung erodiert durch käufliche Daten/Tools, nicht durch Offenlegungspflicht." }
+      ]
+    }
+  },
+  "Q-PROP-R4": {
+    id: "Q-PROP-R4", unitId: "U1-PROP", format: "bmc-puzzle", bloom: "K3",
+    steckbriefIds: ["L3-HANDEL-PORTFOLIO-01", "L3-HANDEL-BOERSE-01"],
+    data: { steckbriefId: "L3-HANDEL-PORTFOLIO-01", distraktorSteckbriefId: "L3-HANDEL-BOERSE-01" }
+  },
+  "Q-PROP-T1": {
+    id: "Q-PROP-T1", unitId: "U1-PROP", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-HANDEL-PORTFOLIO-01", "L3-AGG-VPP-01"],
+    data: {
+      frage: "Prop Trading und das EE-Direktvermarktungs-VPP (Modul 5) leben beide von Prognosegüte. Was unterscheidet ihr Geschäftsmodell dennoch grundlegend?",
+      optionen: [
+        { text: "Der Prop-Trader nimmt Marktpreisrisiko auf eigene Rechnung (Merchant), das VPP verdient risikoarm eine Fee plus Outperformance-Share für fremde Anlagen — dieselbe Prognosekompetenz, aber Merchant- vs. Fee-Modell.", korrekt: true, erklaerung: "Prognose ist die gemeinsame Kernkompetenz; der Unterschied liegt darin, ob man das Risiko selbst trägt (Prop) oder als Dienstleister vermeidet (VPP)." },
+        { text: "Beide sind reine Dienstleister ohne eigenes Risiko.", korrekt: false, erklaerung: "Der Prop-Trader trägt sehr wohl volles Marktrisiko auf dem Eigenbuch — nur das VPP ist der risikoarme Dienstleister." },
+        { text: "Beide handeln ausschließlich mit CO₂-Zertifikaten.", korrekt: false, erklaerung: "Prop Trading und VPP handeln primär Strom/Prognose; CO₂ ist ein separater Markt (HKN/EU ETS)." }
+      ]
+    }
+  },
+
+  // ── U1-ZERTIFIKATE ──────────────────────────────────────────────
+  "Q-ZERTIFIKATE-WE1": {
+    id: "Q-ZERTIFIKATE-WE1", unitId: "U1-ZERTIFIKATE", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-HANDEL-ZERTIF-01"],
+    data: {
+      szenario: "Ein Händler kauft Massen-HKN für 0,30 €/MWh ein und verkauft Premium-HKN (Zusätzlichkeit) für 4,50 €/MWh. Wie groß ist die Marge je MWh in Euro?",
+      eingabefelder: [{ key: "marge", label: "Marge", einheit: "€/MWh" }],
+      loesung: { marge: { wert: 4.2, toleranz: 0.3 } },
+      rechenweg: ["Marge = Verkaufspreis − Einkaufspreis = 4,50 − 0,30 = 4,20 €/MWh.", "Der Preisunterschied entsteht rein durch die Zusätzlichkeit: Massen-HKN aus Altanlagen sind im Überangebot, Premium-HKN aus Neuanlagen sind knapp und CSRD-getrieben gefragt.", "Genau diese Spanne zwischen billigem Alt-HKN und teurem Neu-HKN ist das Handelsgeschäft."]
+    }
+  },
+  "Q-ZERTIFIKATE-WE2": {
+    id: "Q-ZERTIFIKATE-WE2", unitId: "U1-ZERTIFIKATE", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-HANDEL-ZERTIF-01"],
+    data: {
+      frage: "Warum kostet ein Premium-HKN aus einer neuen Solaranlage ein Vielfaches eines Massen-HKN?",
+      optionen: [
+        { text: "Es erfüllt das Zusätzlichkeitskriterium: Der Zertifikatskauf hat tatsächlich neue EE-Kapazität mitfinanziert — anders als ein HKN aus einem längst abgeschriebenen Altkraftwerk.", korrekt: true, erklaerung: "Zusätzlichkeit ist der Werttreiber: Nur wenn durch die Zahlung neue Erzeugung entsteht, ist die Klimawirkung echt." },
+        { text: "Weil Solarstrom physikalisch hochwertiger ist als Wasserkraft.", korrekt: false, erklaerung: "Physikalisch ist Strom Strom — der Preisunterschied kommt aus der Zusätzlichkeit des Zertifikats, nicht aus der Stromqualität." },
+        { text: "Weil Premium-HKN gesetzlich vorgeschrieben sind.", korrekt: false, erklaerung: "Sie sind nicht vorgeschrieben — die höhere Zahlungsbereitschaft entsteht durch CSRD-Druck und den Wunsch nach echter Zusätzlichkeit." }
+      ]
+    }
+  },
+  "Q-ZERTIFIKATE-R1": {
+    id: "Q-ZERTIFIKATE-R1", unitId: "U1-ZERTIFIKATE", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-HANDEL-ZERTIF-01"],
+    data: {
+      frage: "Was ist der EU ETS — im Gegensatz zum HKN-Markt?",
+      optionen: [
+        { text: "Ein Pflichtmarkt: Stromerzeuger und Industrie müssen für jede Tonne CO₂ ein Zertifikat (EUA) kaufen — das bepreist Emissionen, während HKN freiwillig grüne Herkunft bescheinigen.", korrekt: true, erklaerung: "Pflicht vs. freiwillig, Emissionen bepreisen vs. Herkunft nachweisen — zwei grundverschiedene Zertifikatemärkte." },
+        { text: "Ein freiwilliges System zur Kennzeichnung von Ökostrom.", korrekt: false, erklaerung: "Das beschreibt HKN — der EU ETS ist der verpflichtende CO₂-Emissionshandel." },
+        { text: "Eine staatliche Förderung für Solaranlagen.", korrekt: false, erklaerung: "Der EU ETS ist ein Emissionshandelssystem, keine Förderung — er verteuert CO₂-intensive Erzeugung." }
+      ]
+    }
+  },
+  "Q-ZERTIFIKATE-R2": {
+    id: "Q-ZERTIFIKATE-R2", unitId: "U1-ZERTIFIKATE", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-HANDEL-ZERTIF-01"],
+    data: {
+      text: "{{a}} bescheinigen die grüne Herkunft von 1 MWh und werden getrennt vom physischen Strom gehandelt. Der Preistreiber ist die {{b}}. Der {{c}} dagegen verpflichtet Erzeuger, für jede Tonne CO₂ ein Zertifikat zu kaufen.",
+      luecken: {
+        a: { loesungen: ["HKN", "Herkunftsnachweise", "Herkunftsnachweis"], erklaerung: "Herkunftsnachweise (HKN/GO) laufen im separaten RECS-System." },
+        b: { loesungen: ["Zusätzlichkeit"], erklaerung: "Zusätzlichkeit (Additionality) macht den Preisunterschied zwischen Alt- und Neu-HKN." },
+        c: { loesungen: ["EU ETS", "Emissionshandel"], erklaerung: "Der EU-Emissionshandel bepreist CO₂ als Pflichtmarkt." }
+      },
+      distraktoren: ["Netzentgelte", "Regionalität"]
+    }
+  },
+  "Q-ZERTIFIKATE-R3": {
+    id: "Q-ZERTIFIKATE-R3", unitId: "U1-ZERTIFIKATE", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-HANDEL-ZERTIF-01"],
+    data: {
+      frage: "Was ist '24/7 CFE' (Carbon-Free Energy) und warum verändert es den HKN-Markt?",
+      optionen: [
+        { text: "Stündliches Matching von Verbrauch und grüner Erzeugung statt Jahresbilanz — getrieben von Google/Microsoft; es verlangt granulare, zeitgleiche Herkunftsnachweise und entwertet die pauschale Jahres-HKN-Logik.", korrekt: true, erklaerung: "24/7 CFE erhöht den Anspruch von 'grün übers Jahr' auf 'grün in jeder Stunde' — ein Technologie-Angriff auf den klassischen HKN-Handel." },
+        { text: "Eine Vorschrift, dass Kraftwerke rund um die Uhr laufen müssen.", korrekt: false, erklaerung: "CFE betrifft das zeitgleiche Matching von Verbrauch und grüner Erzeugung, keine Betriebspflicht für Kraftwerke." },
+        { text: "Ein Rabattprogramm der Börse für Nachtstrom.", korrekt: false, erklaerung: "CFE ist ein Herkunftsnachweis-Standard (stündliche Zusätzlichkeit), kein Börsenrabatt." }
+      ]
+    }
+  },
+  "Q-ZERTIFIKATE-R4": {
+    id: "Q-ZERTIFIKATE-R4", unitId: "U1-ZERTIFIKATE", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-HANDEL-ZERTIF-01"],
+    data: {
+      steckbriefId: "L3-HANDEL-ZERTIF-01",
+      erklaerungenProDimension: {
+        regulierung: "Rahmen durch RED III / EU ETS, aber der Handel selbst ist wettbewerblich — mittel.",
+        skalierbarkeit: "Rein digitaler Zertifikatehandel, hoch skalierbar — höchste Stufe.",
+        marktrisiko: "HKN- und EUA-Preise schwanken (Überangebot, CO₂-Preis) — mittel.",
+        digitalisierung: "Registerbasiert, zunehmend granular (24/7) — mittel-hoch.",
+        wettbewerb: "Massen-HKN-Geschäft ist margenarm und leicht angreifbar — mittel.",
+        nachhaltigkeit: "Premium-Zusätzlichkeit finanziert echte EE, Massen-HKN kaum — mittel-hoch."
+      }
+    }
+  },
+  "Q-ZERTIFIKATE-T1": {
+    id: "Q-ZERTIFIKATE-T1", unitId: "U1-ZERTIFIKATE", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-HANDEL-ZERTIF-01", "L3-VERTRIEB-NEO-02"],
+    data: {
+      frage: "Der Premium-HKN-Markt und das Fünf-Grad-Modell (Modul 4) drehen sich um denselben Begriff. Welchen — und warum ist er der gemeinsame Angriff auf Greenwashing?",
+      optionen: [
+        { text: "Zusätzlichkeit: Beide argumentieren, dass nur eine Zahlung, die tatsächlich NEUE Klimawirkung/EE-Kapazität auslöst, echten Wert hat — im Gegensatz zum billigen HKN aus längst abgeschriebenen Altanlagen.", korrekt: true, erklaerung: "Zusätzlichkeit ist der rote Faden gegen Greenwashing — vom B2B-Zertifikatehandel bis zum B2C-Ökostromtarif." },
+        { text: "Beide leben von möglichst billigen Massen-HKN.", korrekt: false, erklaerung: "Genau das Gegenteil — beide grenzen sich vom billigen Massen-HKN ab und verkaufen geprüfte Zusätzlichkeit." },
+        { text: "Beide sind Pflichtmärkte wie der EU ETS.", korrekt: false, erklaerung: "Premium-HKN und Fünf Grad sind freiwillige Modelle — der Pflichtmarkt ist allein der EU ETS." }
+      ]
+    }
+  },
+
+  // ── U1-BNETZA ───────────────────────────────────────────────────
+  "Q-BNETZA-WE1": {
+    id: "Q-BNETZA-WE1", unitId: "U1-BNETZA", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-MARKT-BNETZA-01"],
+    data: {
+      frage: "Was ist ein 'Festlegungsverfahren' der BNetzA?",
+      optionen: [
+        { text: "Ein Verfahren, in dem die BNetzA verbindliche Regeln für den Markt setzt (z.B. §14a, dynamische Tarife, Marktkommunikation) — oft über 2–5 Jahre.", korrekt: true, erklaerung: "Festlegungen sind das zentrale Gestaltungsinstrument: Sie schaffen die Spielregeln, nach denen alle Marktakteure arbeiten." },
+        { text: "Die jährliche Festlegung des Strompreises für Haushalte.", korrekt: false, erklaerung: "Endkundenpreise legt die BNetzA nicht fest — sie gestaltet die Marktregeln, nicht die Preise." },
+        { text: "Die Genehmigung einzelner Börsengeschäfte.", korrekt: false, erklaerung: "Börsengeschäfte werden nicht einzeln genehmigt — Festlegungen sind übergreifende Regelwerke." }
+      ]
+    }
+  },
+  "Q-BNETZA-WE2": {
+    id: "Q-BNETZA-WE2", unitId: "U1-BNETZA", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-MARKT-BNETZA-01"],
+    data: {
+      frage: "Warum ist die Langsamkeit der BNetzA-Verfahren (2–5 Jahre) für die Energiewende ein Problem?",
+      optionen: [
+        { text: "Marktregeln (z.B. für H2, V2G, Flexmärkte) entstehen langsamer, als die Technik und der Ausbaubedarf voranschreiten — die Regulierung wird zum Tempo-Engpass.", korrekt: true, erklaerung: "Die Energiewende braucht schnelle Regelanpassungen; mehrjährige Verfahren bremsen neue Geschäftsmodelle strukturell aus." },
+        { text: "Weil die BNetzA dadurch zu hohe Gewinne macht.", korrekt: false, erklaerung: "Die BNetzA macht keine Gewinne — sie ist gebührenfinanziert; das Problem ist Geschwindigkeit, nicht Profit." },
+        { text: "Weil lange Verfahren die Strompreise direkt erhöhen.", korrekt: false, erklaerung: "Nicht der Preis, sondern die Innovations- und Ausbaugeschwindigkeit leidet — Regeln kommen zu spät für den Bedarf." }
+      ]
+    }
+  },
+  "Q-BNETZA-R1": {
+    id: "Q-BNETZA-R1", unitId: "U1-BNETZA", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-MARKT-BNETZA-01"],
+    data: {
+      frage: "Welche dieser Aufgaben gehört NICHT zur BNetzA?",
+      optionen: [
+        { text: "Den Endkundenstrompreis für Haushalte festsetzen.", korrekt: true, erklaerung: "Genau das macht die BNetzA nicht — Endkundenpreise bildet der Wettbewerb; die BNetzA reguliert Netze und Marktregeln." },
+        { text: "Erlösobergrenzen der Netzbetreiber nach ARegV festlegen.", korrekt: false, erklaerung: "Das ist eine Kernaufgabe der BNetzA (Netzregulierung)." },
+        { text: "EEG-Ausschreibungen für Solar und Wind durchführen.", korrekt: false, erklaerung: "Auch das übernimmt die BNetzA — die Ausschreibungen bestimmen die anzulegenden Werte." }
+      ]
+    }
+  },
+  "Q-BNETZA-R2": {
+    id: "Q-BNETZA-R2", unitId: "U1-BNETZA", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-MARKT-BNETZA-01", "L3-MARKT-BNETZA-02"],
+    data: {
+      text: "Die BNetzA hat {{a}} — ihr Wert liegt in der Qualität der Regeln, nicht in einem Umsatz. Auf europäischer Ebene entwickelt {{b}} gemeinsame Network Codes, und {{c}} ist die gemeinsame Regelenergie-Plattform der vier deutschen ÜNB.",
+      luecken: {
+        a: { loesungen: ["keine eigene Erlöslogik", "keine Erlöslogik", "kein Geschäftsmodell"], erklaerung: "Als Behörde verkauft die BNetzA nichts — sie ist gebührenfinanziert." },
+        b: { loesungen: ["ENTSO-E"], erklaerung: "ENTSO-E koordiniert die europäischen ÜNB und setzt technische Standards." },
+        c: { loesungen: ["regelleistung.net"], erklaerung: "regelleistung.net bündelt die FCR/aFRR/mFRR-Ausschreibungen." }
+      },
+      distraktoren: ["hohe Handelsmargen", "EPEX SPOT"]
+    }
+  },
+  "Q-BNETZA-R3": {
+    id: "Q-BNETZA-R3", unitId: "U1-BNETZA", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-MARKT-BNETZA-02"],
+    data: {
+      frage: "Warum senkt die gemeinsame Plattform regelleistung.net die Leistungspreise gegenüber vier getrennten nationalen Märkten?",
+      optionen: [
+        { text: "Bündelung erhöht die Liquidität: Mehr Anbieter konkurrieren im selben Markt, was die Preise drückt — derselbe Netzwerkeffekt wie bei einer Börse.", korrekt: true, erklaerung: "Ein größerer, gemeinsamer Markt ist wettbewerbsintensiver und effizienter als vier kleine, fragmentierte." },
+        { text: "Weil der Staat die Preise dort deckelt.", korrekt: false, erklaerung: "Es gibt keinen Preisdeckel — der Effekt kommt aus der höheren Liquidität und dem stärkeren Wettbewerb." },
+        { text: "Weil nur noch ein einziger ÜNB übrig bleibt.", korrekt: false, erklaerung: "Es bleiben vier ÜNB — sie teilen sich nur eine gemeinsame Ausschreibungsplattform." }
+      ]
+    }
+  },
+  "Q-BNETZA-R4": {
+    id: "Q-BNETZA-R4", unitId: "U1-BNETZA", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-MARKT-BNETZA-01"],
+    data: {
+      steckbriefId: "L3-MARKT-BNETZA-01",
+      erklaerungenProDimension: {
+        regulierung: "Die BNetzA IST der Regulierer — maximale Stufe.",
+        skalierbarkeit: "Behörde mit begrenzter Kapazität, wächst langsamer als die Aufgaben — niedrigste Stufe.",
+        marktrisiko: "Keine Markt- oder Preisexposition (gebührenfinanziert) — niedrigste Stufe.",
+        digitalisierung: "Zunehmend digitale Marktüberwachung, aber verfahrensgetrieben — mittel.",
+        wettbewerb: "Hoheitliche Monopolfunktion, kein Wettbewerb — niedrigste Stufe.",
+        nachhaltigkeit: "Gestaltet den Rahmen der Energiewende, aber selbst kein grünes Produkt — mittel."
+      }
+    }
+  },
+  "Q-BNETZA-T1": {
+    id: "Q-BNETZA-T1", unitId: "U1-BNETZA", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-MARKT-BNETZA-01", "L3-UNB-NETZ-01"],
+    data: {
+      frage: "Netzbetreiber (Modul 3) tragen 'kein Marktrisiko, aber Regulierungsrisiko'. Wie hängt das mit der BNetzA zusammen?",
+      optionen: [
+        { text: "Die BNetzA ist die Quelle genau dieses Regulierungsrisikos: Ihre Festlegungen (Erlösobergrenze, EK-Zins, NEST/AgNes) bestimmen die Marge der Netzbetreiber — jede Regulierungsperiode ist faktisch eine Neuverhandlung.", korrekt: true, erklaerung: "Das Regulierungsrisiko der Netze IST das Gestaltungshandeln der BNetzA — beide Module beschreiben zwei Seiten derselben Beziehung." },
+        { text: "Die BNetzA garantiert den Netzbetreibern einen festen Gewinn unabhängig von Entscheidungen.", korrekt: false, erklaerung: "Gerade nicht — die BNetzA kann die Konditionen ändern; darin besteht das Regulierungsrisiko." },
+        { text: "Die BNetzA handelt Strom für die Netzbetreiber an der Börse.", korrekt: false, erklaerung: "Die BNetzA handelt keinen Strom — sie reguliert; Netzbetreiber handeln aus Unbundling-Gründen ohnehin keinen Strom." }
+      ]
+    }
+  },
+
+  // ── U1-KAPAZITAET ───────────────────────────────────────────────
+  "Q-KAPAZITAET-WE1": {
+    id: "Q-KAPAZITAET-WE1", unitId: "U1-KAPAZITAET", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-MARKT-DESIGN-01"],
+    data: {
+      frage: "Was ist das 'Missing Money'-Problem im Energy-Only-Market?",
+      optionen: [
+        { text: "Backup-Kraftwerke laufen zu selten, als dass die wenigen Knappheitspreise ihre Fixkosten decken — es fehlt Geld zur Refinanzierung, obwohl das System die Kapazität braucht.", korrekt: true, erklaerung: "Ohne Kapazitätsvergütung entsteht eine Finanzierungslücke für dringend benötigte, selten laufende Kraftwerke." },
+        { text: "Kunden zahlen ihre Stromrechnungen nicht.", korrekt: false, erklaerung: "'Missing Money' meint die Refinanzierungslücke der Kraftwerke, nicht ausbleibende Kundenzahlungen." },
+        { text: "Die Börse verliert Geld bei niedrigen Preisen.", korrekt: false, erklaerung: "Die Börse trägt kein Preisrisiko — 'Missing Money' betrifft die Kraftwerksbetreiber, nicht die Börse." }
+      ]
+    }
+  },
+  "Q-KAPAZITAET-WE2": {
+    id: "Q-KAPAZITAET-WE2", unitId: "U1-KAPAZITAET", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-MARKT-DESIGN-01"],
+    data: {
+      szenario: "Ein H2-ready-Peaker mit 400 MW erhält im Kapazitätsmarkt einen Leistungspreis von 65.000 €/MW und Jahr. Wie hoch ist die jährliche Kapazitätsvergütung (in Mio. €)?",
+      eingabefelder: [{ key: "verguetung", label: "Kapazitätsvergütung", einheit: "Mio. €" }],
+      loesung: { verguetung: { wert: 26, toleranz: 2 } },
+      rechenweg: ["Vergütung = Leistung × Preis = 400 MW × 65.000 €/MW = 26.000.000 € = 26 Mio. €.", "Dieser Betrag fließt allein fürs Bereitstehen — zusätzlich zu den (seltenen) Erlösen aus dem tatsächlichen Stromverkauf.", "Genau diese planbare Zahlung macht den Bau eines nur selten laufenden Backup-Kraftwerks überhaupt erst finanzierbar."]
+    }
+  },
+  "Q-KAPAZITAET-R1": {
+    id: "Q-KAPAZITAET-R1", unitId: "U1-KAPAZITAET", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-MARKT-DESIGN-01"],
+    data: {
+      frage: "Was ist mit StromVKG / Kraftwerksstrategie beschlossen?",
+      optionen: [
+        { text: "Der Einstieg in den Kapazitätsmarkt: ~12 GW H2-ready-Kapazität ab 2026 ausgeschrieben, weitere Auktionen 2027/2029, umfassender Kapazitätsmarkt ab 2032.", korrekt: true, erklaerung: "Nach der EU-Grundsatzeinigung (Jan. 2026) ist der Fahrplan gesetzt — Deutschland verlässt das reine Energy-Only-Design." },
+        { text: "Die sofortige Abschaltung aller Gaskraftwerke.", korrekt: false, erklaerung: "Das Gegenteil — es geht um den Neubau H2-ready-steuerbarer Kapazität als Backup, nicht um Abschaltung." },
+        { text: "Ein Verbot des Stromhandels an der Börse.", korrekt: false, erklaerung: "Der Börsenhandel bleibt — der Kapazitätsmarkt ergänzt ihn um eine Vergütung fürs Bereitstehen." }
+      ]
+    }
+  },
+  "Q-KAPAZITAET-R2": {
+    id: "Q-KAPAZITAET-R2", unitId: "U1-KAPAZITAET", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-MARKT-DESIGN-01"],
+    data: {
+      text: "Im heutigen {{a}}-Design refinanzieren sich Kraftwerke nur über Strompreise. Ein Kapazitätsmarkt zahlt zusätzlich einen {{b}} fürs Bereitstehen. Neue Anlagen müssen {{c}} sein.",
+      luecken: {
+        a: { loesungen: ["Energy-Only-Market", "Energy-Only", "EOM"], erklaerung: "Der Energy-Only-Market vergütet nur gelieferte Energie, nicht Bereitschaft." },
+        b: { loesungen: ["Leistungspreis"], erklaerung: "Der Leistungspreis (€/MW/Jahr) ist die Kapazitätsvergütung fürs Vorhalten." },
+        c: { loesungen: ["H2-ready", "H2 ready", "wasserstofffähig"], erklaerung: "H2-ready-Pflicht sichert, dass die Kapazität später emissionsfrei laufen kann." }
+      },
+      distraktoren: ["Kapazitätsmarkt", "kohlebefeuert"]
+    }
+  },
+  "Q-KAPAZITAET-R3": {
+    id: "Q-KAPAZITAET-R3", unitId: "U1-KAPAZITAET", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-MARKT-DESIGN-01"],
+    data: {
+      frage: "Warum ist der Kapazitätsmarkt laut Angreifbarkeits-Analyse eher ein 'Verteilungskampf' als ein reiner Wettbewerb?",
+      optionen: [
+        { text: "Batterien, Demand Response und ausländische Kapazitäten drängen in die technologieoffenen Auktionen und drücken die Clearing-Preise — je offener das Design, desto stärker kannibalisieren günstigere Flex-Optionen die Peaker-Vergütung.", korrekt: true, erklaerung: "Wer alles zulässt, verteilt den Topf breiter; die Gaskraftwerke konkurrieren plötzlich mit Speichern und Lastflexibilität um dieselbe Vergütung." },
+        { text: "Weil der Staat den gesamten Kapazitätsmarkt einem einzigen Betreiber zuteilt.", korrekt: false, erklaerung: "Der Markt ist technologieoffen und wettbewerblich — kein Einzelzuschlag; genau die Konkurrenz vieler Techniken ist der Punkt." },
+        { text: "Weil Kapazitätsmärkte in der EU verboten sind.", korrekt: false, erklaerung: "Sie sind unter EU-Beihilferecht erlaubt (Art. 22) — der Streit ist die Ausgestaltung, kein Verbot." }
+      ]
+    }
+  },
+  "Q-KAPAZITAET-R4": {
+    id: "Q-KAPAZITAET-R4", unitId: "U1-KAPAZITAET", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-MARKT-DESIGN-01"],
+    data: {
+      steckbriefId: "L3-MARKT-DESIGN-01",
+      erklaerungenProDimension: {
+        regulierung: "Vollständig regulatorisch geschaffener Mechanismus (StromVKG, EU-Beihilferecht) — höchste Stufe.",
+        skalierbarkeit: "An physische Kraftwerkskapazität gebunden — niedrig.",
+        marktrisiko: "Planbare Kapazitätsvergütung reduziert das Marktrisiko der Betreiber — niedrig-mittel.",
+        digitalisierung: "Ausschreibungsverfahren, keine digital-native Wertschöpfung — niedrig.",
+        wettbewerb: "Technologieoffene Auktion, aber begrenzter Bieterkreis — niedrig-mittel.",
+        nachhaltigkeit: "H2-ready-Pflicht sichert Klimapfad, aber (zunächst) fossiler Backup — mittel."
+      }
+    }
+  },
+  "Q-KAPAZITAET-T1": {
+    id: "Q-KAPAZITAET-T1", unitId: "U1-KAPAZITAET", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-MARKT-DESIGN-01", "L3-ERZ-KONV-02"],
+    data: {
+      frage: "Der Kapazitätsmarkt und die Regelenergie (Modul 2) folgen demselben Grundprinzip. Welchem?",
+      optionen: [
+        { text: "Verdienen am Bereitstehen statt am Liefern: Regelenergie zahlt einen Leistungspreis für kurzfristige Reaktionsbereitschaft, der Kapazitätsmarkt für die dauerhafte Existenz von Backup-Kapazität.", korrekt: true, erklaerung: "Beide vergüten Verfügbarkeit statt gelieferte Energie — das Kapazitätsmarkt-Prinzip ist für Regelenergie längst etabliert, für reine Backup-Erzeugung neu." },
+        { text: "Beide vergüten ausschließlich tatsächlich gelieferten Strom.", korrekt: false, erklaerung: "Genau das Gegenteil — beide vergüten primär das Bereitstehen, nicht die gelieferte Menge." },
+        { text: "Beide sind reine Börsengeschäfte ohne Vergütungskomponente.", korrekt: false, erklaerung: "Beide haben eine Leistungspreis-Komponente außerhalb des Spotmarkts — das ist ihr gemeinsamer Kern." }
+      ]
+    }
+  },
+
+  // ── U1-FLEXMARKT ────────────────────────────────────────────────
+  "Q-FLEXMARKT-WE1": {
+    id: "Q-FLEXMARKT-WE1", unitId: "U1-FLEXMARKT", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-MARKT-DESIGN-02"],
+    data: {
+      frage: "Warum ist es für den VNB oft günstiger, Flexibilität zu kaufen als einen Trafo zu bauen?",
+      optionen: [
+        { text: "Lokale Flexibilität kostet 20–50 €/MWh, ein Netzausbau dagegen 100.000–500.000 €/km — 'Flex first' vermeidet teure Investitionen für selten auftretende Engpässe.", korrekt: true, erklaerung: "Wenn ein Engpass nur wenige Stunden im Jahr auftritt, ist gekaufte Flexibilität viel billiger als dauerhaftes Kupfer." },
+        { text: "Weil der VNB für Flexibilität keine Genehmigung braucht, für einen Trafo aber schon.", korrekt: false, erklaerung: "Der Hauptgrund ist der Kostenvergleich, nicht die Genehmigung — Flex ist schlicht deutlich günstiger für seltene Engpässe." },
+        { text: "Weil gekaufte Flexibilität die Netzentgelte erhöht.", korrekt: false, erklaerung: "Im Gegenteil — vermiedener Netzausbau dämpft die Kosten; Flex ist die günstigere Option." }
+      ]
+    }
+  },
+  "Q-FLEXMARKT-WE2": {
+    id: "Q-FLEXMARKT-WE2", unitId: "U1-FLEXMARKT", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-MARKT-DESIGN-02"],
+    data: {
+      frage: "Was ist das ungelöste 'Doppelnutzungs'-Problem lokaler Flexmärkte?",
+      optionen: [
+        { text: "Dieselbe Batterie darf nicht gleichzeitig dem ÜNB (Regelenergie) und dem VNB (lokale Flex) zugesagt werden — technisch lässt sich das heute nicht zuverlässig ausschließen.", korrekt: true, erklaerung: "Ohne saubere Koordination droht eine Ressource doppelt verkauft zu werden, was die Systemsicherheit gefährdet." },
+        { text: "Dass zwei VNB dieselbe Leitung nutzen wollen.", korrekt: false, erklaerung: "Es geht um die doppelte Vermarktung derselben Flexibilität an ÜNB und VNB, nicht um geteilte Leitungen." },
+        { text: "Dass Kunden ihre Wallbox und Wärmepumpe zugleich nutzen.", korrekt: false, erklaerung: "Das Problem ist die doppelte Marktzusage einer Flex-Ressource, nicht der gleichzeitige Gerätebetrieb." }
+      ]
+    }
+  },
+  "Q-FLEXMARKT-R1": {
+    id: "Q-FLEXMARKT-R1", unitId: "U1-FLEXMARKT", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-MARKT-DESIGN-02"],
+    data: {
+      frage: "Warum ist der Regulierer der 'größte Wettbewerber' lokaler Flexmärkte?",
+      optionen: [
+        { text: "§14a-Steuerung (reguliert, ohne Markt) und Redispatch können dieselben Engpässe lösen — sie drohen die Flexmärkte überflüssig zu machen, bevor diese Liquidität aufbauen.", korrekt: true, erklaerung: "Ein regulierter Zwangszugriff (§14a) konkurriert direkt mit einem freiwilligen Marktmechanismus um dieselbe Flexibilität." },
+        { text: "Weil die BNetzA selbst Flexibilität an der Börse verkauft.", korrekt: false, erklaerung: "Die BNetzA handelt nicht — sie stellt mit §14a nur ein reguliertes Alternativinstrument bereit." },
+        { text: "Weil lokale Flexmärkte gesetzlich verboten sind.", korrekt: false, erklaerung: "Sie sind erlaubt und werden pilotiert — die Konkurrenz ist das regulierte §14a-Instrument, kein Verbot." }
+      ]
+    }
+  },
+  "Q-FLEXMARKT-R2": {
+    id: "Q-FLEXMARKT-R2", unitId: "U1-FLEXMARKT", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-MARKT-DESIGN-03"],
+    data: {
+      text: "Ein liquider {{a}}-Spotmarkt existiert noch nicht — gehandelt wird bilateral. {{b}} überbrückt als staatlicher Zwischenmarkt: Der Bund kauft Importmengen zu Festpreis und verkauft sie per Auktion weiter. Etablierte Börsen wie {{c}} haben beim späteren Spotmarkt den natürlichen Vorteil.",
+      luecken: {
+        a: { loesungen: ["H2", "Wasserstoff"], erklaerung: "Ein H2-Spotmarkt braucht erst genug Liquidität, um zu funktionieren." },
+        b: { loesungen: ["H2Global", "H2 Global"], erklaerung: "H2Global ist der staatlich organisierte Zwischenmarkt für Import-Wasserstoff." },
+        c: { loesungen: ["EEX"], erklaerung: "Die EEX hat mit ihrer bestehenden Börseninfrastruktur den Startvorteil für H2-Futures." }
+      },
+      distraktoren: ["CO2", "SMARD"]
+    }
+  },
+  "Q-FLEXMARKT-R3": {
+    id: "Q-FLEXMARKT-R3", unitId: "U1-FLEXMARKT", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-MARKT-DESIGN-03"],
+    data: {
+      frage: "Warum gibt es für Wasserstoff noch keinen echten Börsen-Spotmarkt?",
+      optionen: [
+        { text: "Das Handelsvolumen ist noch zu gering — ohne kritische Liquidität lohnt sich kein Börsenprodukt; H2 wird bis dahin bilateral gehandelt.", korrekt: true, erklaerung: "Börsen brauchen viele Teilnehmer und Volumen; solange H2-Markt und -Infrastruktur klein sind, dominieren bilaterale Verträge." },
+        { text: "Weil Wasserstoff physikalisch nicht handelbar ist.", korrekt: false, erklaerung: "H2 ist handelbar — es fehlt nur die Marktliquidität und Infrastruktur, nicht die grundsätzliche Handelbarkeit." },
+        { text: "Weil die EU den H2-Handel verboten hat.", korrekt: false, erklaerung: "Die EU fördert den H2-Markt (RED III, H2Global) — das Hindernis ist fehlende Liquidität, kein Verbot." }
+      ]
+    }
+  },
+  "Q-FLEXMARKT-R4": {
+    id: "Q-FLEXMARKT-R4", unitId: "U1-FLEXMARKT", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-MARKT-DESIGN-02"],
+    data: {
+      steckbriefId: "L3-MARKT-DESIGN-02",
+      erklaerungenProDimension: {
+        regulierung: "Regulatorisch gerahmt (Clean Energy Package, §14a), aber noch nicht ausgereift — mittel-hoch.",
+        skalierbarkeit: "Plattformbasiert, potenziell über viele Netzgebiete skalierbar — mittel-hoch.",
+        marktrisiko: "Transaktionsbasiert, wenig eigenes Preisrisiko der Plattform — niedrig-mittel.",
+        digitalisierung: "Marktplattform mit Echtzeit-Matching, hochdigital — höchste Stufe.",
+        wettbewerb: "Noch Pilotstadium, wenige Anbieter, aber Standardkampf um 900 DSOs — niedrig-mittel.",
+        nachhaltigkeit: "'Flex first' vermeidet Netzausbau und integriert mehr EE — hoch."
+      }
+    }
+  },
+  "Q-FLEXMARKT-T1": {
+    id: "Q-FLEXMARKT-T1", unitId: "U1-FLEXMARKT", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-MARKT-DESIGN-02", "L3-VNB-NEU-01"],
+    data: {
+      frage: "Lokale Flexmärkte und §14a (Modul 3) lösen dasselbe Netzproblem auf gegensätzliche Weise. Wie?",
+      optionen: [
+        { text: "Der lokale Flexmarkt kauft Flexibilität marktlich zum besten Gebot; §14a greift reguliert und ohne Markt per Zwangsdimmung ein — Markt vs. Hoheit für denselben Zweck (Engpassvermeidung ohne Netzausbau).", korrekt: true, erklaerung: "Beide vermeiden teuren Netzausbau, aber das eine über einen freiwilligen Preis, das andere über ein reguliertes Eingriffsrecht — genau deshalb konkurrieren sie." },
+        { text: "Beide bauen zwingend einen neuen Trafo.", korrekt: false, erklaerung: "Beide vermeiden gerade den Trafo-Ausbau — das ist ihr gemeinsamer Zweck, nur der Weg (Markt vs. Regulierung) unterscheidet sich." },
+        { text: "§14a ist ein Börsenprodukt, der Flexmarkt eine Behördenauflage.", korrekt: false, erklaerung: "Umgekehrt: §14a ist das regulierte Instrument, der lokale Flexmarkt der marktliche Mechanismus." }
+      ]
+    }
+  }
+
+});
+
 // ── Validierung (Konsole): prüft, dass alle Referenzen auflösen ──────
 (function validateLernData() {
   const errors = [];

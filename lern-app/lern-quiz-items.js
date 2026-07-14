@@ -3689,6 +3689,539 @@ Object.assign(LERN_QUIZ_ITEMS, {
 
 });
 
+// ════════════════════════════════════════════════════════════════════
+// MODUL 8 — DAS ÖKOSYSTEM DRUMHERUM
+// ════════════════════════════════════════════════════════════════════
+Object.assign(LERN_QUIZ_ITEMS, {
+
+  // ── U8-DEVELOP ──────────────────────────────────────────────────
+  "Q-DEVELOP-WE1": {
+    id: "Q-DEVELOP-WE1", unitId: "U8-DEVELOP", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-PROJ-WIND-01"],
+    data: {
+      szenario: "Ein Projektierer verkauft ein fertig genehmigtes 30-MW-Windprojekt für 300.000 €/MW. Die Entwicklungskosten lagen bei 4 Mio. €. Wie hoch ist der Verkaufserlös (in Mio. €) und der Rohgewinn (in Mio. €)?",
+      eingabefelder: [{ key: "erloes", label: "Verkaufserlös", einheit: "Mio. €" }, { key: "gewinn", label: "Rohgewinn", einheit: "Mio. €" }],
+      loesung: { erloes: { wert: 9, toleranz: 0.5 }, gewinn: { wert: 5, toleranz: 0.5 } },
+      rechenweg: ["Verkaufserlös = 30 MW × 300.000 €/MW = 9.000.000 € = 9 Mio. €.", "Rohgewinn = Erlös − Entwicklungskosten = 9 − 4 = 5 Mio. €.", "Kapitalleicht: Gebunden waren nur die 4 Mio. € Entwicklungskosten, keine Baukosten — genau das macht die Strategie so hebelstark."]
+    }
+  },
+  "Q-DEVELOP-WE2": {
+    id: "Q-DEVELOP-WE2", unitId: "U8-DEVELOP", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-PROJ-WIND-01"],
+    data: {
+      frage: "Warum ist ein großes exklusiv gepachtetes Flächennetzwerk der eigentliche Schutzwall des Projektierers?",
+      optionen: [
+        { text: "Jede gesicherte Fläche ist eine Option auf ein künftiges Genehmigungsverfahren, die Wettbewerbern verschlossen bleibt — Fläche und Genehmigung sind der knappe Engpass.", korrekt: true, erklaerung: "Ohne Fläche kein Projekt; wer die knappen geeigneten Flächen exklusiv hält, kontrolliert die Pipeline." },
+        { text: "Weil größere Flächen automatisch höhere Einspeisevergütungen bekommen.", korrekt: false, erklaerung: "Die Vergütung hängt am Ausschreibungsgebot, nicht an der Fläche — der Wert liegt in der exklusiven Genehmigungsoption." },
+        { text: "Weil man auf großen Flächen billiger baut.", korrekt: false, erklaerung: "Der Projektierer baut gar nicht selbst — er verkauft das genehmigte Projekt; der Flächenwert liegt in der Genehmigungsoption." }
+      ]
+    }
+  },
+  "Q-DEVELOP-R1": {
+    id: "Q-DEVELOP-R1", unitId: "U8-DEVELOP", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-PROJ-WIND-01"],
+    data: {
+      frage: "Was ist das Kernasset, das ein Develop-to-Sell-Projektierer verkauft?",
+      optionen: [
+        { text: "Das Bündel aus Genehmigungen und Gutachten (BImSchG, Netzanschluss, Artenschutz), das den Bau erlaubt — die Anlage selbst existiert noch nicht.", korrekt: true, erklaerung: "Der Projektierer verkauft ein baureifes, genehmigtes Projektrecht, kein fertiges Kraftwerk." },
+        { text: "Die fertig gebaute und ans Netz angeschlossene Windturbine.", korrekt: false, erklaerung: "Develop-to-Sell verkauft VOR dem Bau — der Investor errichtet die Anlage danach selbst." },
+        { text: "Einen langfristigen Stromliefervertrag.", korrekt: false, erklaerung: "Verkauft wird das genehmigte Projektrecht, nicht der spätere Stromvertrag." }
+      ]
+    }
+  },
+  "Q-DEVELOP-R2": {
+    id: "Q-DEVELOP-R2", unitId: "U8-DEVELOP", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-PROJ-WIND-01"],
+    data: {
+      text: "Der Projektierer sichert {{a}}, holt die {{b}}-Genehmigung ein und verkauft das fertige Projekt für 150.000–400.000 €/MW an einen {{c}}.",
+      luecken: {
+        a: { loesungen: ["Flächen", "Fläche"], erklaerung: "Flächensicherung per Pacht/Kauf ist der erste Schritt." },
+        b: { loesungen: ["BImSchG"], erklaerung: "Die BImSchG-Genehmigung ist das zentrale, jahrelange Genehmigungsverfahren." },
+        c: { loesungen: ["Investor", "Fonds", "Infrastrukturfonds"], erklaerung: "Käufer sind Infrastrukturfonds, Versorger oder Stadtwerke." }
+      },
+      distraktoren: ["Kunden", "GPKE"]
+    }
+  },
+  "Q-DEVELOP-R3": {
+    id: "Q-DEVELOP-R3", unitId: "U8-DEVELOP", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-PROJ-WIND-01"],
+    data: {
+      frage: "Wodurch wird die Develop-to-Sell-Marge zunehmend angegriffen?",
+      optionen: [
+        { text: "Utilities und Fonds kaufen ganze Projektpipelines im Voraus (Forward Deals) und drücken die Einzelverkaufsmarge; aggressive Flächensicherer treiben die Pachtpreise hoch.", korrekt: true, erklaerung: "Der Wettbewerb um Fläche und der Direktkauf von Pipelines verkleinern die Knappheitsprämie der Entwickler." },
+        { text: "Durch ein Verbot des Projektrechte-Handels.", korrekt: false, erklaerung: "Der Handel mit genehmigten Projekten ist erlaubt und üblich — der Druck kommt aus Wettbewerb, nicht aus einem Verbot." },
+        { text: "Weil Genehmigungen inzwischen kostenlos erteilt werden.", korrekt: false, erklaerung: "Genehmigungsverfahren bleiben teuer und langwierig — genau darin liegt ja der Wert; angegriffen wird die Marge über Forward Deals und Flächenkonkurrenz." }
+      ]
+    }
+  },
+  "Q-DEVELOP-R4": {
+    id: "Q-DEVELOP-R4", unitId: "U8-DEVELOP", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-PROJ-WIND-01"],
+    data: {
+      steckbriefId: "L3-PROJ-WIND-01",
+      erklaerungenProDimension: {
+        regulierung: "Vom Genehmigungsrecht abhängig, aber kein Erlösschutz — niedrig.",
+        skalierbarkeit: "Jedes Projekt einzeln zu entwickeln und zu genehmigen — niedrig.",
+        marktrisiko: "Entwicklungsrisiko (Genehmigung, Klagen), aber kapitalleicht — mittel.",
+        digitalisierung: "Genehmigungs- und Flächenmanagement, wenig digital-nativ — niedrig.",
+        wettbewerb: "Harter Flächen- und Pipeline-Wettbewerb — hoch.",
+        nachhaltigkeit: "Ermöglicht den EE-Zubau direkt — höchste Stufe."
+      }
+    }
+  },
+  "Q-DEVELOP-T1": {
+    id: "Q-DEVELOP-T1", unitId: "U8-DEVELOP", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-PROJ-WIND-01", "L3-ERZ-EE-03"],
+    data: {
+      frage: "Der Develop-to-Sell-Projektierer und der Offshore-Windentwickler (Modul 2) unterscheiden sich in einem entscheidenden Punkt. Welchem?",
+      optionen: [
+        { text: "Der Develop-to-Sell-Projektierer ist kapitalleicht (verkauft vor dem Bau, bindet nur Entwicklungskosten); der Offshore-Entwickler ist extrem kapitalintensiv (Milliarden-Capex) und behält oft den 20-jährigen O&M-Betrieb als profitabelste Phase.", korrekt: true, erklaerung: "Onshore-Projektentwicklung monetarisiert die Genehmigung und steigt aus; Offshore trägt Milliarden und verdient über Jahrzehnte am Betrieb — zwei gegensätzliche Kapitalstrategien." },
+        { text: "Beide behalten die Anlage 20 Jahre und betreiben sie selbst.", korrekt: false, erklaerung: "Der Develop-to-Sell-Projektierer verkauft gerade vor dem Betrieb — nur der Offshore-Entwickler behält oft den Betrieb." },
+        { text: "Beide sind reine Merchant-Stromhändler.", korrekt: false, erklaerung: "Weder der eine noch der andere ist primär Stromhändler — der eine handelt Projektrechte, der andere baut und betreibt Anlagen." }
+      ]
+    }
+  },
+
+  // ── U8-PROJEKTFINANZ ────────────────────────────────────────────
+  "Q-PROJEKTFINANZ-WE1": {
+    id: "Q-PROJEKTFINANZ-WE1", unitId: "U8-PROJEKTFINANZ", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-FINANZ-PROJEKT-01"],
+    data: {
+      frage: "Was bedeutet 'Non-Recourse' bei der Projektfinanzierung?",
+      optionen: [
+        { text: "Das Darlehen ist ausschließlich durch die Projekt-Cashflows besichert — bei Ausfall hat die Bank keinen Rückgriff auf das sonstige Vermögen des Investors (Sponsor).", korrekt: true, erklaerung: "Das Risiko ist auf das Projekt begrenzt; genau deshalb sind die gesicherten EEG-Cashflows als Sicherheit so wichtig." },
+        { text: "Dass der Investor überhaupt kein Eigenkapital einbringen muss.", korrekt: false, erklaerung: "Der Sponsor bringt sehr wohl 20–30% Eigenkapital ein — 'Non-Recourse' betrifft die Haftung, nicht den Eigenkapitalanteil." },
+        { text: "Dass die Bank das Projekt selbst betreibt.", korrekt: false, erklaerung: "Die Bank finanziert nur — betrieben wird das Projekt vom SPV; Non-Recourse meint die begrenzte Haftung." }
+      ]
+    }
+  },
+  "Q-PROJEKTFINANZ-WE2": {
+    id: "Q-PROJEKTFINANZ-WE2", unitId: "U8-PROJEKTFINANZ", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-FINANZ-PROJEKT-01"],
+    data: {
+      frage: "Warum wird aus 10% Projektrendite eine Eigenkapitalrendite von 25–40%?",
+      optionen: [
+        { text: "Leverage-Hebel: Weil 75% günstiges Fremdkapital (4–5%) eingesetzt wird, bleibt die Differenz zwischen Projekt- und Fremdkapitalrendite überproportional beim kleinen Eigenkapitalanteil.", korrekt: true, erklaerung: "Je höher der Fremdkapitalanteil bei positiver Zinsdifferenz, desto stärker der Hebel auf die Eigenkapitalrendite." },
+        { text: "Weil die EEG-Vergütung 40% beträgt.", korrekt: false, erklaerung: "Die EEG-Vergütung sichert nur den Cashflow — die hohe EK-Rendite entsteht durch den Fremdkapitalhebel, nicht durch die Vergütungshöhe." },
+        { text: "Weil die Bank dem Investor einen Bonus zahlt.", korrekt: false, erklaerung: "Es gibt keinen Bonus — die hohe EK-Rendite ist ein rein rechnerischer Hebeleffekt der Kapitalstruktur." }
+      ]
+    }
+  },
+  "Q-PROJEKTFINANZ-R1": {
+    id: "Q-PROJEKTFINANZ-R1", unitId: "U8-PROJEKTFINANZ", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-FINANZ-PROJEKT-01"],
+    data: {
+      frage: "Warum vergibt die Bank für EE-Projekte einen so hohen Fremdkapitalanteil (70–80%) zu niedrigen Zinsen?",
+      optionen: [
+        { text: "Die EEG-Cashflows sind über 20 Jahre gesetzlich gesichert — das ergibt ein stabiles Rating und ein geringes Ausfallrisiko, anders als bei einem normalen Unternehmenskredit.", korrekt: true, erklaerung: "Die Cashflow-Sicherheit ist die Grundlage der günstigen, hohen Fremdfinanzierung — dasselbe Prinzip wie bei PPAs und Kapazitätsmarkt." },
+        { text: "Weil die Bank das Projekt bei Ausfall gewinnbringend weiterverkaufen kann.", korrekt: false, erklaerung: "Der Weiterverkauf ist unsicher — der Grund für die günstige Finanzierung ist der gesicherte laufende Cashflow, nicht der Restwert." },
+        { text: "Weil der Staat jeden Kredit garantiert.", korrekt: false, erklaerung: "Es gibt keine pauschale Staatsgarantie — die Sicherheit kommt aus den regulierten EEG-Cashflows." }
+      ]
+    }
+  },
+  "Q-PROJEKTFINANZ-R2": {
+    id: "Q-PROJEKTFINANZ-R2", unitId: "U8-PROJEKTFINANZ", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-FINANZ-PROJEKT-02"],
+    data: {
+      text: "Ein {{a}} ist eine Anleihe, deren Erlöse nur in grüne Projekte fließen. ESG-Investoren fragen sie stärker nach, was den Zinssatz um 2–10 Basispunkte senkt — das sogenannte {{b}}. Verifiziert wird das über eine {{c}}.",
+      luecken: {
+        a: { loesungen: ["Green Bond", "Green-Bond", "grüne Anleihe"], erklaerung: "Green Bonds binden die Mittelverwendung an grüne Projekte." },
+        b: { loesungen: ["Greenium"], erklaerung: "Das Greenium ist der Zinsvorteil aus der höheren ESG-Nachfrage." },
+        c: { loesungen: ["Second-Party-Opinion", "Second Party Opinion", "SPO"], erklaerung: "Eine SPO (z.B. Sustainalytics) bestätigt die Grünheit der Anleihe." }
+      },
+      distraktoren: ["Pfandbrief", "Malus"]
+    }
+  },
+  "Q-PROJEKTFINANZ-R3": {
+    id: "Q-PROJEKTFINANZ-R3", unitId: "U8-PROJEKTFINANZ", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-FINANZ-PROJEKT-01"],
+    data: {
+      frage: "Wodurch geraten Banken im Projektfinanzierungsgeschäft unter Druck — und wo verteidigen sie sich?",
+      optionen: [
+        { text: "Debt Funds und institutionelle Direktkreditgeber bieten schneller und mit höherem Leverage; verteidigungsfähig ist die Strukturierungskompetenz bei neuen Asset-Klassen (BESS, H2, Ladeinfrastruktur), deren Cashflows noch nicht standardisiert sind.", korrekt: true, erklaerung: "Standardfinanzierung wird zur Ware; das komplexe Neuland (Speicher, H2) bleibt Bankgeschäft." },
+        { text: "Weil die BNetzA die Projektfinanzierung reguliert.", korrekt: false, erklaerung: "Projektfinanzierung ist Bankgeschäft, nicht BNetzA-reguliert — der Druck kommt von alternativen Kreditgebern." },
+        { text: "Weil EE-Projekte keine Finanzierung mehr brauchen.", korrekt: false, erklaerung: "Der Kapitalbedarf ist riesig — der Wettbewerb kommt von neuen Kreditgebern, nicht von wegfallendem Bedarf." }
+      ]
+    }
+  },
+  "Q-PROJEKTFINANZ-R4": {
+    id: "Q-PROJEKTFINANZ-R4", unitId: "U8-PROJEKTFINANZ", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-FINANZ-PROJEKT-01"],
+    data: {
+      steckbriefId: "L3-FINANZ-PROJEKT-01",
+      erklaerungenProDimension: {
+        regulierung: "Bankregulierung (Basel IV) prägt, aber kein Erlösschutz — mittel.",
+        skalierbarkeit: "Standardisierte Strukturen über viele Projekte skalierbar — mittel-hoch.",
+        marktrisiko: "Cashflow-besichert und diversifiziert, geringes Ausfallrisiko — niedrigste Stufe.",
+        digitalisierung: "Relationship- und Strukturierungsgeschäft, wenig digital — niedrig.",
+        wettbewerb: "Banken vs. Debt Funds vs. Direktkreditgeber — mittel.",
+        nachhaltigkeit: "Finanziert EE-Ausbau, aber selbst neutral — mittel."
+      }
+    }
+  },
+  "Q-PROJEKTFINANZ-T1": {
+    id: "Q-PROJEKTFINANZ-T1", unitId: "U8-PROJEKTFINANZ", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-FINANZ-PROJEKT-01", "L3-ERZ-EE-02"],
+    data: {
+      frage: "Projektfinanzierung (dieses Modul) und Corporate PPA (Modul 2) hängen eng zusammen. Wie verstärken sie sich?",
+      optionen: [
+        { text: "Ein PPA liefert den langfristig gesicherten Cashflow, den die Non-Recourse-Finanzierung als Sicherheit braucht — der PPA macht das Projekt bankfähig, die Finanzierung macht den Bau möglich.", korrekt: true, erklaerung: "PPA und Projektfinanzierung sind zwei Zahnräder desselben Getriebes: Cashflow-Sicherung ermöglicht günstige Fremdfinanzierung." },
+        { text: "Sie konkurrieren um dieselben Investoren und schließen sich aus.", korrekt: false, erklaerung: "Sie ergänzen sich — der PPA ist gerade die Cashflow-Grundlage für die Finanzierung, kein Konkurrent." },
+        { text: "Beide ersetzen die EEG-Förderung durch Börsenhandel.", korrekt: false, erklaerung: "Beide sichern Cashflows ab (statt sie dem Spotmarkt auszusetzen) — das Gegenteil von reinem Börsenhandel." }
+      ]
+    }
+  },
+
+  // ── U8-BERATUNG ─────────────────────────────────────────────────
+  "Q-BERATUNG-WE1": {
+    id: "Q-BERATUNG-WE1", unitId: "U8-BERATUNG", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-BERAT-STRAT-01"],
+    data: {
+      frage: "Was bringt McKinsey in ein Kohleausstiegs-Mandat vor allem ein?",
+      optionen: [
+        { text: "Benchmarks aus 50+ vergleichbaren Transformationsprojekten weltweit — wie andere Versorger umgebaut haben, mit welchen Strukturen und Fehlern.", korrekt: true, erklaerung: "Die externe Vergleichsperspektive aus vielen Projekten ist ein Kernwert der Top-Beratung." },
+        { text: "Eigenes Kapital zur Finanzierung des Umbaus.", korrekt: false, erklaerung: "Berater bringen kein Kapital — sie bringen Wissen, Benchmarks und Legitimation." },
+        { text: "Fertige Genehmigungen für neue Windparks.", korrekt: false, erklaerung: "Genehmigungen liefert der Projektentwickler, nicht der Strategieberater." }
+      ]
+    }
+  },
+  "Q-BERATUNG-WE2": {
+    id: "Q-BERATUNG-WE2", unitId: "U8-BERATUNG", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-BERAT-STRAT-01"],
+    data: {
+      frage: "Warum ist die 'politische Legitimation' oft der wichtigste Wert einer Top-Beratung?",
+      optionen: [
+        { text: "Eine unbequeme Entscheidung (z.B. profitable Kohleblöcke stilllegen) lässt sich im Vorstand mit dem Briefkopf einer Top-Beratung leichter gegen interne Widerstände durchsetzen als mit demselben Rat aus dem eigenen Haus.", korrekt: true, erklaerung: "Externe Autorität senkt den internen Widerstand — ein oft unterschätzter, aber realer Wert der Beratung." },
+        { text: "Weil Berater die Entscheidung rechtlich verbindlich machen.", korrekt: false, erklaerung: "Berater haben keine rechtliche Entscheidungsgewalt — ihr Wert ist die Legitimation, nicht die Rechtsverbindlichkeit." },
+        { text: "Weil der Vorstand die Verantwortung vollständig an die Berater abgibt.", korrekt: false, erklaerung: "Die Verantwortung bleibt beim Vorstand — die Beratung erleichtert nur die interne Durchsetzung." }
+      ]
+    }
+  },
+  "Q-BERATUNG-R1": {
+    id: "Q-BERATUNG-R1", unitId: "U8-BERATUNG", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-BERAT-STRAT-01"],
+    data: {
+      frage: "Wie verdienen Top-Strategieberatungen ihr Geld?",
+      optionen: [
+        { text: "Über Tagessätze (Partner 5.000–12.000 €/Tag) oder Pauschalmandate für strategische Projekte.", korrekt: true, erklaerung: "Das Beratungsgeschäft ist zeit-/mandatsbasiert, nicht erfolgs- oder produktbasiert." },
+        { text: "Über eine Provision auf den verkauften Strom ihrer Klienten.", korrekt: false, erklaerung: "Berater handeln keinen Strom und bekommen keine Strommarge — sie verkaufen ihre Zeit/Expertise." },
+        { text: "Über Eigenkapitalbeteiligungen an den beratenen Konzernen.", korrekt: false, erklaerung: "Klassische Strategieberatung nimmt keine Beteiligungen — sie rechnet Tagessätze ab." }
+      ]
+    }
+  },
+  "Q-BERATUNG-R2": {
+    id: "Q-BERATUNG-R2", unitId: "U8-BERATUNG", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-BERAT-STRAT-01"],
+    data: {
+      text: "Der Wert der Top-Beratung entsteht aus externen {{a}}, temporärer Talent-Verstärkung und politischer {{b}}. Über {{c}} des Umsatzes wird mit Bestandskunden erzielt.",
+      luecken: {
+        a: { loesungen: ["Benchmarks", "Vergleichsdaten"], erklaerung: "Vergleichsdaten aus vielen Projekten sind ein zentraler Werthebel." },
+        b: { loesungen: ["Legitimation"], erklaerung: "Legitimation erleichtert die interne Durchsetzung von Entscheidungen." },
+        c: { loesungen: ["70%"], erklaerung: "Über 70% des Umsatzes kommt von wiederkehrenden Bestandskunden." }
+      },
+      distraktoren: ["Krediten", "10%"]
+    }
+  },
+  "Q-BERATUNG-R3": {
+    id: "Q-BERATUNG-R3", unitId: "U8-BERATUNG", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-BERAT-STRAT-01"],
+    data: {
+      frage: "Welcher Teil des Beratungsgeschäfts ist am stärksten von KI-Automatisierung bedroht?",
+      optionen: [
+        { text: "Die Leverage-Pyramide aus Junior-Beratern (Analyse- und Slide-Arbeit) — genau diese kommoditisieren KI-Tools; verteidigungsfähig bleiben C-Level-Zugang und Transaktionsnähe.", korrekt: true, erklaerung: "Die standardisierbare Analysearbeit ist das erste Automatisierungsopfer; die Beziehungs- und Legitimationsebene bleibt." },
+        { text: "Der Partner-Zugang zum Vorstand.", korrekt: false, erklaerung: "Gerade der C-Level-Zugang ist verteidigungsfähig — bedroht ist die Junior-Analysearbeit darunter." },
+        { text: "Die politische Legitimationsfunktion.", korrekt: false, erklaerung: "Legitimation lässt sich nicht automatisieren — sie ist Teil der verteidigungsfähigen Ebene." }
+      ]
+    }
+  },
+  "Q-BERATUNG-R4": {
+    id: "Q-BERATUNG-R4", unitId: "U8-BERATUNG", format: "bmc-puzzle", bloom: "K3",
+    steckbriefIds: ["L3-BERAT-STRAT-01", "L3-CONTRACT-MGMT-01"],
+    data: { steckbriefId: "L3-BERAT-STRAT-01", distraktorSteckbriefId: "L3-CONTRACT-MGMT-01" }
+  },
+  "Q-BERATUNG-T1": {
+    id: "Q-BERATUNG-T1", unitId: "U8-BERATUNG", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-BERAT-STRAT-01", "L3-CONTRACT-MGMT-01"],
+    data: {
+      frage: "Strategieberatung und Energieeinkaufsberatung (Modul 7) sind beide Beratung — aber mit gegensätzlichem Erlösmodell. Wie?",
+      optionen: [
+        { text: "Die Strategieberatung rechnet zeitbasiert (Tagessätze) für Grundsatzentscheidungen ab; die Einkaufsberatung arbeitet oft erfolgsbasiert (Honorar als % der nachgewiesenen Einsparung) — Zeit vs. Ergebnis.", korrekt: true, erklaerung: "Zwei Beratungsarten, zwei Vergütungslogiken: Die eine verkauft Urteil/Legitimation, die andere messbare Einsparung." },
+        { text: "Beide arbeiten ausschließlich auf Erfolgshonorar.", korrekt: false, erklaerung: "Die Strategieberatung rechnet gerade zeitbasiert ab — Erfolgshonorar ist typisch für die Einkaufsberatung." },
+        { text: "Beide verkaufen Software statt Beratung.", korrekt: false, erklaerung: "Beide sind Beratungsmodelle, keine Softwareanbieter — der Unterschied liegt in der Vergütungslogik." }
+      ]
+    }
+  },
+
+  // ── U8-RECHT ────────────────────────────────────────────────────
+  "Q-RECHT-WE1": {
+    id: "Q-RECHT-WE1", unitId: "U8-RECHT", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-RECHT-KANZLEI-02"],
+    data: {
+      frage: "Warum können §46-Konzessionsverfahren für Kanzleien so lukrativ sein?",
+      optionen: [
+        { text: "Ein einzelnes streitiges Verfahren kann sich über Jahre bis vor BGH/OLG ziehen und erzeugt kontinuierliche Mandatsumsätze weit über eine einmalige Vertragsberatung hinaus.", korrekt: true, erklaerung: "Hohe Streitwerte (Netzwert 100–500 Mio. €) plus jahrelange Verfahren ergeben Mehrjahresmandate." },
+        { text: "Weil die Kanzlei am Netzwert prozentual beteiligt wird.", korrekt: false, erklaerung: "Kanzleien rechnen Stundensätze/Pauschalen ab, keine Netzwert-Beteiligung — der Hebel ist die Verfahrensdauer." },
+        { text: "Weil §46-Verfahren gesetzlich mit Mindesthonoraren belegt sind.", korrekt: false, erklaerung: "Es gibt keine gesetzlichen Mindesthonorare hier — der Wert entsteht aus Spezialisierung und Verfahrensdauer." }
+      ]
+    }
+  },
+  "Q-RECHT-WE2": {
+    id: "Q-RECHT-WE2", unitId: "U8-RECHT", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-RECHT-KANZLEI-02"],
+    data: {
+      frage: "Worin liegt der eigentliche ökonomische Hebel einer §46-Spezialkanzlei wie BBH?",
+      optionen: [
+        { text: "In der genauen Kenntnis der sich ständig ändernden BGH-Rechtsprechung zur Diskriminierungsfreiheit — sie erlaubt, Verfahren so zu gestalten, dass sie später nicht wegen Verfahrensfehlern angefochten werden können.", korrekt: true, erklaerung: "Aktuelle Rechtsprechungskenntnis ist die Eintrittsbarriere: Sie schützt sowohl Bieter als auch Kommunen vor teuren Verfahrensfehlern." },
+        { text: "In der Fähigkeit, das Netz selbst zu betreiben.", korrekt: false, erklaerung: "Kanzleien betreiben keine Netze — ihr Wert ist die rechtliche Verfahrensführung." },
+        { text: "In günstigeren Netzentgelten für ihre Mandanten.", korrekt: false, erklaerung: "Netzentgelte setzt die BNetzA — die Kanzlei gestaltet das Konzessionsverfahren rechtssicher, nicht die Entgelte." }
+      ]
+    }
+  },
+  "Q-RECHT-R1": {
+    id: "Q-RECHT-R1", unitId: "U8-RECHT", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-RECHT-KANZLEI-02"],
+    data: {
+      frage: "Was regelt §46 EnWG?",
+      optionen: [
+        { text: "Die Vergabe von Strom-/Gasverteilnetz-Konzessionen (Wegenutzungsrechte), die Kommunen alle ~20 Jahre neu ausschreiben.", korrekt: true, erklaerung: "§46 ist die Rechtsgrundlage der Konzessionsvergabe — der Anknüpfungspunkt für Rekommunalisierung (vgl. Modul 3)." },
+        { text: "Die Höhe der Netzentgelte.", korrekt: false, erklaerung: "Netzentgelte regelt die ARegV (§21), nicht §46 — dieser betrifft die Wegekonzession." },
+        { text: "Die technischen Anschlussbedingungen für Kraftwerke.", korrekt: false, erklaerung: "§46 betrifft die Konzession (Wegerecht), nicht technische Anschlussregeln." }
+      ]
+    }
+  },
+  "Q-RECHT-R2": {
+    id: "Q-RECHT-R2", unitId: "U8-RECHT", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-RECHT-KANZLEI-02"],
+    data: {
+      text: "§46-Konzessionen werden alle {{a}} Jahre neu vergeben; der Netzwert eines mittelgroßen VNB liegt bei {{b}} Mio. €. Ein gewonnenes Mandat kann {{c}} Jahre Dauermandat bedeuten.",
+      luecken: {
+        a: { loesungen: ["20"], erklaerung: "20 Jahre ist die übliche Konzessionslaufzeit." },
+        b: { loesungen: ["100–500", "100-500", "100 bis 500"], erklaerung: "Hohe Streitwerte machen das Feld lukrativ." },
+        c: { loesungen: ["5–15", "5-15", "5 bis 15"], erklaerung: "Ein gewonnenes Verfahren bindet den Betreiber langfristig an die Kanzlei." }
+      },
+      distraktoren: ["5", "1–2"]
+    }
+  },
+  "Q-RECHT-R3": {
+    id: "Q-RECHT-R3", unitId: "U8-RECHT", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-RECHT-KANZLEI-02"],
+    data: {
+      frage: "Warum ist das §46-Geschäft trotz hoher Margen strukturell wackelig?",
+      optionen: [
+        { text: "Es ist ein zyklisches Nischenmonopol — zwischen den 20-jährigen Konzessionswellen bricht das Mandatsvolumen ein, und große Kanzleien kaufen sich per Lateral Hire in die Nische ein.", korrekt: true, erklaerung: "Die Nachfrage kommt in Wellen; in den Tälern trägt die Spezialisierung kaum, was das Modell verwundbar macht." },
+        { text: "Weil §46-Verfahren gesetzlich abgeschafft werden.", korrekt: false, erklaerung: "§46 bleibt bestehen (die Welle hält bis ~2030 an) — die Schwäche ist die Zyklizität, keine Abschaffung." },
+        { text: "Weil Kommunen keine Beratung mehr brauchen.", korrekt: false, erklaerung: "Kommunen brauchen weiterhin Beratung — das Problem ist die schwankende Verfahrensfrequenz, nicht wegfallende Nachfrage." }
+      ]
+    }
+  },
+  "Q-RECHT-R4": {
+    id: "Q-RECHT-R4", unitId: "U8-RECHT", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-RECHT-KANZLEI-02"],
+    data: {
+      steckbriefId: "L3-RECHT-KANZLEI-02",
+      erklaerungenProDimension: {
+        regulierung: "Das gesamte Geschäft lebt vom Regulierungsrecht (§46, BGH) — höchste Stufe.",
+        skalierbarkeit: "Hochspezialisierte Einzelmandate, kaum skalierbar — niedrigste Stufe.",
+        marktrisiko: "Zyklisch, aber pro Mandat kalkulierbar — niedrig-mittel.",
+        digitalisierung: "Klassische Rechtsberatung, kaum digital — niedrigste Stufe.",
+        wettbewerb: "Wenige Spezialisten, hohe Eintrittsbarrieren — niedrig-mittel.",
+        nachhaltigkeit: "Verfahrensrecht ohne direkten Klimabezug — niedrig."
+      }
+    }
+  },
+  "Q-RECHT-T1": {
+    id: "Q-RECHT-T1", unitId: "U8-RECHT", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-RECHT-KANZLEI-02", "L3-VNB-BETREIB-05"],
+    data: {
+      frage: "Die §46-Konzessionskanzlei (dieses Modul) und die Rekommunalisierung (Modul 3) beschreiben dieselbe Situation aus zwei Blickwinkeln. Welche?",
+      optionen: [
+        { text: "Das Auslaufen der Netzkonzession: Modul 3 sah den wirtschaftlich-strategischen Rückkauf durch die Kommune, dieses Modul die juristische Begleitung genau dieses jahrelangen Konzessionsverfahrens.", korrekt: true, erklaerung: "Rekommunalisierung ist der Anlass, das §46-Mandat die anwaltliche Dienstleistung dazu — zwei Seiten desselben Vorgangs." },
+        { text: "Beide beschreiben den Bau eines neuen Kraftwerks.", korrekt: false, erklaerung: "Es geht um die Netzkonzession, nicht um Kraftwerksbau." },
+        { text: "Beide betreffen den Stromvertrieb an Endkunden.", korrekt: false, erklaerung: "Beide betreffen das Netz (Konzession/Eigentum), nicht den Endkundenvertrieb." }
+      ]
+    }
+  },
+
+  // ── U8-VERSICHERUNG ─────────────────────────────────────────────
+  "Q-VERSICHERUNG-WE1": {
+    id: "Q-VERSICHERUNG-WE1", unitId: "U8-VERSICHERUNG", format: "fallbeispiel-rechnung", bloom: "K3",
+    steckbriefIds: ["L3-VERSICH-ENERGIE-01"],
+    data: {
+      szenario: "Ein Windpark hat einen Anlagenwert von 4 Mio. €. Die Jahresprämie beträgt 0,4% der Versicherungssumme. Wie hoch ist die Jahresprämie in Euro?",
+      eingabefelder: [{ key: "praemie", label: "Jahresprämie", einheit: "€" }],
+      loesung: { praemie: { wert: 16000, toleranz: 1500 } },
+      rechenweg: ["Prämie = 0,4% × 4.000.000 € = 0,004 × 4.000.000 = 16.000 €.", "Dafür sind Sturm-, Blitz-, Maschinenschäden UND die Betriebsunterbrechung (entgangene Erträge) abgedeckt.", "Ein Teil dieses Risikos gibt der Versicherer an einen Rückversicherer (Munich Re) weiter."]
+    }
+  },
+  "Q-VERSICHERUNG-WE2": {
+    id: "Q-VERSICHERUNG-WE2", unitId: "U8-VERSICHERUNG", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-VERSICH-ENERGIE-01"],
+    data: {
+      frage: "Warum gibt der Erstversicherer (Allianz) einen Teil des Risikos an einen Rückversicherer (Munich Re) weiter?",
+      optionen: [
+        { text: "Damit ein Großschaden — etwa ein Sturm, der mehrere Anlagen eines Parks gleichzeitig trifft — nicht die Bilanz des Erstversicherers gefährdet.", korrekt: true, erklaerung: "Rückversicherung verteilt Klumpenrisiken; ohne sie könnte ein einzelnes Extremwetterereignis den Erstversicherer überfordern." },
+        { text: "Weil der Erstversicherer gesetzlich keine Windparks versichern darf.", korrekt: false, erklaerung: "Er darf — Rückversicherung ist eine freiwillige Risikoverteilung, kein Verbot." },
+        { text: "Weil Munich Re höhere Prämien beim Kunden durchsetzt.", korrekt: false, erklaerung: "Der Rückversicherer hat keinen Kundenkontakt — es geht um Risikoverteilung, nicht um Preisdurchsetzung." }
+      ]
+    }
+  },
+  "Q-VERSICHERUNG-R1": {
+    id: "Q-VERSICHERUNG-R1", unitId: "U8-VERSICHERUNG", format: "mc", bloom: "K1",
+    steckbriefIds: ["L3-VERSICH-ENERGIE-01"],
+    data: {
+      frage: "Was deckt die Betriebsunterbrechungsversicherung (BU) ab?",
+      optionen: [
+        { text: "Die entgangenen Erträge (EEG-Vergütung + Spotmarkterlöse) während eines ungeplanten Stillstands.", korrekt: true, erklaerung: "Die BU ersetzt den Ertragsausfall — oft teurer als die reine Reparatur (Sachschaden)." },
+        { text: "Nur die Reparaturkosten der beschädigten Anlage.", korrekt: false, erklaerung: "Reparaturkosten deckt die Sachversicherung — die BU deckt zusätzlich die entgangenen Erträge." },
+        { text: "Die Prämien anderer Versicherungen.", korrekt: false, erklaerung: "Die BU deckt Ertragsausfall bei Stillstand, keine fremden Prämien." }
+      ]
+    }
+  },
+  "Q-VERSICHERUNG-R2": {
+    id: "Q-VERSICHERUNG-R2", unitId: "U8-VERSICHERUNG", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-VERSICH-ENERGIE-01"],
+    data: {
+      text: "Die Jahresprämie liegt bei {{a}} der Versicherungssumme. Ein Teil des Risikos geht an einen {{b}} wie Munich Re. Der {{c}} (Aon, Marsh) verdient 8–15% Provision fürs Bündeln und Schadensmanagement.",
+      luecken: {
+        a: { loesungen: ["0,2–0,5%", "0,2-0,5%", "0,2 bis 0,5%"], erklaerung: "0,2–0,5% p.a. ist die typische Prämienspanne." },
+        b: { loesungen: ["Rückversicherer"], erklaerung: "Der Rückversicherer übernimmt einen Teil des Risikos (Klumpenrisiko-Schutz)." },
+        c: { loesungen: ["Makler"], erklaerung: "Der Makler platziert das Portfolio und managt Schäden gegen Provision." }
+      },
+      distraktoren: ["5–10%", "Aggregator"]
+    }
+  },
+  "Q-VERSICHERUNG-R3": {
+    id: "Q-VERSICHERUNG-R3", unitId: "U8-VERSICHERUNG", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-VERSICH-ENERGIE-01"],
+    data: {
+      frage: "Wodurch ist das EE-Versicherungsgeschäft angreifbar?",
+      optionen: [
+        { text: "Alternative Kapazitätsgeber (ILS, Captives großer Betreiber) umgehen die Underwriting-Marge, und InsurTechs bepreisen Klimarisiken datenbasiert (Sensordaten direkt aus den Anlagen) günstiger.", korrekt: true, erklaerung: "Datengetriebene Risikobepreisung und alternative Kapazität greifen die klassische Versicherungsmarge an." },
+        { text: "Durch ein Verbot von Windpark-Versicherungen.", korrekt: false, erklaerung: "Versicherungen sind für die Projektfinanzierung sogar Pflicht — der Druck kommt von neuen Anbietern/Kapazität, nicht von einem Verbot." },
+        { text: "Weil Windparks nicht mehr ausfallen.", korrekt: false, erklaerung: "Klimarisiken steigen sogar — die Angreifbarkeit liegt in besserer Bepreisung durch InsurTechs, nicht in wegfallendem Risiko." }
+      ]
+    }
+  },
+  "Q-VERSICHERUNG-R4": {
+    id: "Q-VERSICHERUNG-R4", unitId: "U8-VERSICHERUNG", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-VERSICH-ENERGIE-01"],
+    data: {
+      steckbriefId: "L3-VERSICH-ENERGIE-01",
+      erklaerungenProDimension: {
+        regulierung: "Versicherungsaufsicht (VAG, Solvency II) prägt, kein Erlösschutz — mittel.",
+        skalierbarkeit: "Portfolio-Effekte, aber jedes Risiko individuell zu underwriten — mittel.",
+        marktrisiko: "Schadensrisiko durch steigende Klimaextreme — mittel.",
+        digitalisierung: "Underwriting noch wenig digital, InsurTechs ändern das — niedrig-mittel.",
+        wettbewerb: "Versicherer, Rückversicherer, Makler, InsurTechs — mittel.",
+        nachhaltigkeit: "Ermöglicht EE-Projekte (Bankvoraussetzung), selbst neutral — mittel."
+      }
+    }
+  },
+  "Q-VERSICHERUNG-T1": {
+    id: "Q-VERSICHERUNG-T1", unitId: "U8-VERSICHERUNG", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-VERSICH-ENERGIE-01", "L3-FINANZ-PROJEKT-01"],
+    data: {
+      frage: "Warum ist die Versicherung eine zwingende Voraussetzung für die Projektfinanzierung (Modul 8)?",
+      optionen: [
+        { text: "Die Bank finanziert nur gegen gesicherte Cashflows — eine BU-Versicherung schützt genau diese Erlöse bei Stillstand, weshalb Banken einen Versicherungsnachweis verlangen.", korrekt: true, erklaerung: "Versicherung und Finanzierung greifen ineinander: Ohne Absicherung des Cashflows kein günstiger Kredit." },
+        { text: "Weil die Versicherung das Eigenkapital des Investors ersetzt.", korrekt: false, erklaerung: "Die Versicherung schützt den Cashflow, sie ersetzt kein Eigenkapital — sie ist eine Bedingung, kein Kapitalersatz." },
+        { text: "Weil die Bank ohne Versicherung das Netz nicht anschließen darf.", korrekt: false, erklaerung: "Der Netzanschluss hat mit der Versicherung nichts zu tun — die Bank verlangt sie zum Schutz des besicherten Cashflows." }
+      ]
+    }
+  },
+
+  // ── U8-UTILITYOS ────────────────────────────────────────────────
+  "Q-UTILITYOS-WE1": {
+    id: "Q-UTILITYOS-WE1", unitId: "U8-UTILITYOS", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-DIGITAL-PLATTFORM-03"],
+    data: {
+      frage: "Warum migriert EDF seine 5 Mio. Kunden auf die Plattform des Konkurrenten Octopus?",
+      optionen: [
+        { text: "Der Cost-to-Serve-Rückstand gegenüber Octopus wurde mit jedem Jahr teurer als die Lizenzgebühr — eine defensive Entscheidung, um wettbewerbsfähig zu bleiben.", korrekt: true, erklaerung: "Die überlegene Plattform-Effizienz macht die Lizenz selbst für einen direkten Wettbewerber wirtschaftlich zwingend." },
+        { text: "Weil EDF gesetzlich zur Nutzung von Kraken verpflichtet ist.", korrekt: false, erklaerung: "Es gibt keine solche Pflicht — die Entscheidung ist rein wirtschaftlich (Cost-to-Serve)." },
+        { text: "Weil Octopus EDF die Kunden abgekauft hat.", korrekt: false, erklaerung: "EDF behält seine Kunden — es lizenziert nur die Software zur Verwaltung, nicht die Kundenbasis." }
+      ]
+    }
+  },
+  "Q-UTILITYOS-WE2": {
+    id: "Q-UTILITYOS-WE2", unitId: "U8-UTILITYOS", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-DIGITAL-PLATTFORM-03"],
+    data: {
+      frage: "Warum ist die Kraken-Plattform (~8,65 Mrd. $) mehr wert als mancher Versorger mit Millionen Kunden?",
+      optionen: [
+        { text: "Reine SaaS-Ökonomie: wiederkehrender Lizenzumsatz je Account bei minimalen Grenzkosten und enormen Wechselhürden — solche Software-Umsätze werden mit einem Vielfachen der margenschwachen Energievertriebs-Umsätze bewertet.", korrekt: true, erklaerung: "Der Markt bewertet skalierbare, klebrige Software-Umsätze deutlich höher als dünne Commodity-Margen." },
+        { text: "Weil Kraken mehr Strom verkauft als jeder Versorger.", korrekt: false, erklaerung: "Kraken verkauft gar keinen Strom — es verkauft Software; genau das ist der höher bewertete Umsatztyp." },
+        { text: "Weil die Plattform physische Kraftwerke besitzt.", korrekt: false, erklaerung: "Kraken besitzt keine Kraftwerke — der Wert liegt in der skalierbaren Software, nicht in Assets." }
+      ]
+    }
+  },
+  "Q-UTILITYOS-R1": {
+    id: "Q-UTILITYOS-R1", unitId: "U8-UTILITYOS", format: "mc", bloom: "K2",
+    steckbriefIds: ["L3-DIGITAL-PLATTFORM-03"],
+    data: {
+      frage: "Was öffnet in Deutschland das Zeitfenster für Utility-OS-Anbieter wie Kraken?",
+      optionen: [
+        { text: "Das auslaufende SAP IS-U zwingt hunderte Versorger zur Neuentscheidung ihres Kernsystems — der größte Systemwechsel-Markt seit der Liberalisierung.", korrekt: true, erklaerung: "Das Wartungsende der Alt-IT erzeugt eine erzwungene Migrationswelle, die den Markt öffnet." },
+        { text: "Ein Gesetz, das alle Versorger zur Nutzung ausländischer Software verpflichtet.", korrekt: false, erklaerung: "Kein solches Gesetz — der Treiber ist das technische Auslaufen von SAP IS-U, nicht ein Zwang." },
+        { text: "Die Abschaffung der Marktkommunikation.", korrekt: false, erklaerung: "Die Marktkommunikation (GPKE/MaBiS) bleibt und ist sogar ein Lokalisierungsaufwand für ausländische Plattformen." }
+      ]
+    }
+  },
+  "Q-UTILITYOS-R2": {
+    id: "Q-UTILITYOS-R2", unitId: "U8-UTILITYOS", format: "lueckentext", bloom: "K1",
+    steckbriefIds: ["L3-DIGITAL-PLATTFORM-03"],
+    data: {
+      text: "Utility-OS wird pro {{a}} und Jahr lizenziert. Kraken hat über {{b}} Mio. kontrahierte Accounts und wird Mitte 2026 als eigenständiges Unternehmen {{c}}.",
+      luecken: {
+        a: { loesungen: ["Account", "Kundenkonto", "Konto"], erklaerung: "Die Lizenz wird pro Kundenkonto abgerechnet (SaaS)." },
+        b: { loesungen: ["70"], erklaerung: ">70 Mio. Accounts weltweit auf Kraken." },
+        c: { loesungen: ["abgespalten", "ausgegliedert", "als Spin-off abgespalten"], erklaerung: "Der Spin-off löst den Interessenkonflikt (Versorger mieten beim Wettbewerber Octopus)." }
+      },
+      distraktoren: ["MWh", "7"]
+    }
+  },
+  "Q-UTILITYOS-R3": {
+    id: "Q-UTILITYOS-R3", unitId: "U8-UTILITYOS", format: "mc", bloom: "K3",
+    steckbriefIds: ["L3-DIGITAL-PLATTFORM-03"],
+    data: {
+      frage: "Was war die größte Angriffsfläche von Kraken — und wie wird sie geschlossen?",
+      optionen: [
+        { text: "Der Interessenkonflikt: Versorger zögerten, ihr Kernsystem vom Wettbewerber Octopus zu mieten; der Spin-off 2026 macht Kraken zum unabhängigen Unternehmen und schließt genau diese Flanke.", korrekt: true, erklaerung: "Solange Kraken zu Octopus gehörte, finanzierte jeder Lizenznehmer seinen eigenen Angreifer — der Spin-off entkoppelt das." },
+        { text: "Dass Kraken technisch nicht funktioniert.", korrekt: false, erklaerung: "Kraken funktioniert nachweislich (Octopus läuft selbst darauf) — die Flanke war der Interessenkonflikt, nicht die Technik." },
+        { text: "Dass die Plattform zu billig ist.", korrekt: false, erklaerung: "Der Preis war nicht das Problem — der Interessenkonflikt mit dem Wettbewerber Octopus war die Angriffsfläche." }
+      ]
+    }
+  },
+  "Q-UTILITYOS-R4": {
+    id: "Q-UTILITYOS-R4", unitId: "U8-UTILITYOS", format: "radar-schaetzen", bloom: "K4",
+    steckbriefIds: ["L3-DIGITAL-PLATTFORM-03"],
+    data: {
+      steckbriefId: "L3-DIGITAL-PLATTFORM-03",
+      erklaerungenProDimension: {
+        regulierung: "Kein Regulierungsschutz, aber regulierungsnah (Marktkommunikation) — niedrig.",
+        skalierbarkeit: "SaaS in Reinform, jeder Account fast grenzkostenfrei — höchste Stufe.",
+        marktrisiko: "Migrationsrisiko, aber vertraglich gesicherte Umsätze — niedrig-mittel.",
+        digitalisierung: "Cloud-Kernplattform, digital-nativ — höchste Stufe.",
+        wettbewerb: "Kraken vs. SAP vs. powercloud/Lynqtech — mittel.",
+        nachhaltigkeit: "Effizientere Versorger-IT, aber selbst kein grünes Produkt — mittel."
+      }
+    }
+  },
+  "Q-UTILITYOS-T1": {
+    id: "Q-UTILITYOS-T1", unitId: "U8-UTILITYOS", format: "mc", bloom: "K4",
+    steckbriefIds: ["L3-DIGITAL-PLATTFORM-03", "L3-VERTRIEB-NEO-05"],
+    data: {
+      frage: "Utility-OS (dieses Modul) und Octopus als Versorger (Modul 4) sind zwei Seiten derselben Strategie. Welche — und was ist die 'strategische Ironie'?",
+      optionen: [
+        { text: "Octopus nutzt Kraken selbst als Cost-to-Serve-Waffe im Endkundenmarkt UND lizenziert sie an Wettbewerber — die Ironie: Jeder Incumbent, der lizenziert, finanziert die Weiterentwicklung genau der Plattform, die ihn als Octopus-Angreifer am meisten bedroht.", korrekt: true, erklaerung: "Doppelte Monetarisierung derselben Software — als eigene Waffe und als Produkt, das die Konkurrenz mitfinanziert." },
+        { text: "Octopus und Kraken sind völlig unabhängige Unternehmen ohne Bezug.", korrekt: false, erklaerung: "Kraken IST Octopus' Plattform — genau diese Verbindung ist der Kern (und wird durch den Spin-off entkoppelt)." },
+        { text: "Kraken ersetzt den Stromvertrieb vollständig durch Software.", korrekt: false, erklaerung: "Kraken betreibt den Vertrieb effizienter, ersetzt ihn aber nicht — die Ironie liegt in der Doppelrolle als Waffe und Lizenzprodukt." }
+      ]
+    }
+  }
+
+});
+
 // ── Validierung (Konsole): prüft, dass alle Referenzen auflösen ──────
 (function validateLernData() {
   const errors = [];

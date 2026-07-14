@@ -53,6 +53,13 @@ const LERN_MODULES = [
     description: "Fernwärme unter Dekarbonisierungsdruck, das Subventionsrennen um grünen Wasserstoff und wie die Industrie ihre Energiekosten drückt — der am stärksten transformierende Sektor.",
     unitIds: ["U7-FERNWAERME", "U7-WASSERSTOFF", "U7-PROCUREMENT", "U7-EPC", "U7-EIGENVERSORGUNG"],
     bossQuizId: null // Stage 2
+  },
+  {
+    id: "M8-OEKOSYSTEM",
+    title: "Das Ökosystem drumherum",
+    description: "Die Dienstleister, die an der Energiewende mitverdienen, ohne selbst Strom zu erzeugen: Projektentwickler, Finanzierer, Berater, Kanzleien, Versicherer und die Software, die den Versorger ersetzt.",
+    unitIds: ["U8-DEVELOP", "U8-PROJEKTFINANZ", "U8-BERATUNG", "U8-RECHT", "U8-VERSICHERUNG", "U8-UTILITYOS"],
+    bossQuizId: null // Stage 2
   }
 ];
 
@@ -959,6 +966,192 @@ const LERN_UNITS = [
     merkeDirEinenSatz: {
       prompt: "Formuliere in einem Satz: Worum geht der eigentliche Machtkampf in der Flexibilitätswelt?",
       musterantwort: "Um die Kontrolle der Kundenschnittstelle zum Flex-Asset: Wer sie besitzt, entscheidet, ob das Gerät marktlich (Aggregator, nach Börsenpreis) oder netzdienlich (VNB, §14a) gesteuert wird — eine regulatorisch noch offene Priorisierungsfrage."
+    }
+  },
+  {
+    id: "U8-DEVELOP",
+    moduleId: "M8-OEKOSYSTEM",
+    title: "Projektentwicklung — Wenn die Genehmigung das Produkt ist",
+    primarySteckbriefId: "L3-PROJ-WIND-01",
+    vertiefungSteckbriefIds: ["L3-PROJ-WIND-01", "L3-PROJ-EPC-01"],
+    hook: { text: "Ein Unternehmen verkauft einen Windpark für 400.000 € pro Megawatt — bevor sich auch nur ein einziger Rotor gedreht hat. Was genau wird da eigentlich verkauft?" },
+    kernidee: {
+      text: "Ein <strong>Projektentwickler</strong> (Develop-to-Sell) sichert Flächen, holt alle Genehmigungen ein (BImSchG, Netzanschluss, Artenschutz) und verkauft das <strong>fertig genehmigte Projekt</strong> an einen Investor — für 150.000–400.000 €/MW. Das eigentliche Asset ist nicht die Anlage (die existiert noch nicht), sondern das <strong>Bündel aus Genehmigungen und Gutachten</strong>, das den Bau erst erlaubt. Es ist eine kapitalleichte Strategie: Der Schutzwall ist ein exklusiv gepachtetes <strong>Flächennetzwerk</strong> — jede Fläche ist eine Option auf ein künftiges Genehmigungsverfahren, das Wettbewerbern verschlossen bleibt.",
+      geldfluss: {
+        nodes: [{ id: "flaeche", label: "Fläche + Genehmigung" }, { id: "dev", label: "Projektierer" }, { id: "investor", label: "Investor/Fonds" }],
+        edges: [
+          { from: "dev", to: "flaeche", label: "100.000–500.000 € Entwicklung" },
+          { from: "investor", to: "dev", label: "150.000–400.000 €/MW" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-PROJ-WIND-01",
+      steps: [
+        { text: "ABO Wind pachtet eine Fläche, lässt Artenschutz-, Schall- und BImSchG-Gutachten erstellen — über Jahre 100.000–500.000 € pro Anlage, ohne dass sich ein Flügel dreht.", questionId: "Q-DEVELOP-WE1" },
+        { text: "Mit der fertigen Genehmigung verkauft ABO Wind das Projekt an einen Fonds — der Vermögenswert, der den Besitzer wechselt, ist das Genehmigungsbündel, nicht die Anlage.", questionId: "Q-DEVELOP-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-DEVELOP-R1", "Q-DEVELOP-R2", "Q-DEVELOP-R3", "Q-DEVELOP-R4"],
+    transferItemId: "Q-DEVELOP-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Was verkauft ein Develop-to-Sell-Projektierer wirklich?",
+      musterantwort: "Nicht die Anlage (die existiert noch nicht), sondern das fertige Bündel aus Genehmigungen und Gutachten, das den Bau erst erlaubt — geschützt durch ein exklusiv gepachtetes Flächennetzwerk als Option auf künftige Genehmigungsverfahren."
+    }
+  },
+  {
+    id: "U8-PROJEKTFINANZ",
+    moduleId: "M8-OEKOSYSTEM",
+    title: "Projektfinanzierung — Der Eigenkapital-Hebel",
+    primarySteckbriefId: "L3-FINANZ-PROJEKT-01",
+    vertiefungSteckbriefIds: ["L3-FINANZ-PROJEKT-01", "L3-FINANZ-PROJEKT-02"],
+    hook: { text: "Ein Investor steckt 15 Millionen in einen Solarpark und macht daraus 25–40% Eigenkapitalrendite — obwohl der Park selbst nur 10% abwirft. Woher kommt der Rest?" },
+    kernidee: {
+      text: "Bei der <strong>Non-Recourse-Projektfinanzierung</strong> wird das Darlehen <strong>nur durch die Projekt-Cashflows</strong> besichert — kein Rückgriff auf das Vermögen des Investors (Sponsor). Die Bank finanziert 70–80% Fremdkapital, weil die EEG-Cashflows über 20 Jahre gesetzlich gesichert und damit risikoarm sind. Der Clou ist der <strong>Leverage-Hebel</strong>: Liegt die Projektrendite (10%) über den Fremdkapitalkosten (4–5%), bleibt die Differenz überproportional beim Eigenkapital — aus 10% Projektrendite werden 25–40% <strong>Eigenkapital-IRR</strong>. Verwandt: <strong>Green Bonds</strong> senken die Zinskosten über das 'Greenium'.",
+      geldfluss: {
+        nodes: [{ id: "bank", label: "Bank (75% FK)" }, { id: "spv", label: "Projekt (SPV)" }, { id: "sponsor", label: "Investor (25% EK)" }],
+        edges: [
+          { from: "bank", to: "spv", label: "FK zu 4–5%, nur Cashflow-besichert" },
+          { from: "spv", to: "sponsor", label: "Hebel: 10% Projekt → 25–40% EK-IRR" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-FINANZ-PROJEKT-01",
+      steps: [
+        { text: "Ein 50-MW-Solarpark kostet 60 Mio. €. Die Bank finanziert 75% (45 Mio. €), besichert ausschließlich durch die künftigen EEG-/Spotmarkterlöse — nicht durch das Vermögen des Entwicklers, der nur 15 Mio. € Eigenkapital einbringt.", questionId: "Q-PROJEKTFINANZ-WE1" },
+        { text: "Bei 10% Projektrendite und 4–5% Fremdkapitalkosten wird durch den Hebel aus den 15 Mio. € Eigenkapital eine Rendite von 25–40%.", questionId: "Q-PROJEKTFINANZ-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-PROJEKTFINANZ-R1", "Q-PROJEKTFINANZ-R2", "Q-PROJEKTFINANZ-R3", "Q-PROJEKTFINANZ-R4"],
+    transferItemId: "Q-PROJEKTFINANZ-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum entsteht bei der Projektfinanzierung eine so hohe Eigenkapitalrendite?",
+      musterantwort: "Durch den Leverage-Hebel: Weil die risikoarmen EEG-Cashflows eine hohe Fremdfinanzierung (70–80%) zu niedrigen Zinsen erlauben, bleibt die Differenz zwischen Projektrendite und Fremdkapitalkosten überproportional beim kleinen Eigenkapitalanteil — aus 10% Projektrendite werden 25–40% EK-IRR."
+    }
+  },
+  {
+    id: "U8-BERATUNG",
+    moduleId: "M8-OEKOSYSTEM",
+    title: "Strategieberatung — Wenn Legitimation das Produkt ist",
+    primarySteckbriefId: "L3-BERAT-STRAT-01",
+    vertiefungSteckbriefIds: ["L3-BERAT-STRAT-01"],
+    hook: { text: "Ein Konzern zahlt McKinsey 12.000 € pro Tag für eine Empfehlung, die sein eigenes Strategieteam auch hätte geben können. Warum lohnt sich das trotzdem?" },
+    kernidee: {
+      text: "Top-Tier-Strategieberatungen (McKinsey, BCG, Bain) verdienen an <strong>Tagessätzen</strong> (Partner 5.000–12.000 €/Tag) für strategische Grundsatzfragen der Energiewende. Ihr Wert liegt in drei Hebeln: <strong>externe Benchmarks</strong> aus 50+ Vergleichsprojekten, <strong>temporäre Talent-Verstärkung</strong> ohne Personalbindung — und oft am wichtigsten: <strong>politische Legitimation</strong>. Eine unbequeme Entscheidung (z.B. profitable Kohleblöcke stilllegen) lässt sich im Vorstand mit dem Briefkopf einer Top-Beratung leichter durchsetzen als mit demselben Rat aus dem eigenen Haus. Angreifbar durch Boutiquen, In-House-Teams und KI, die die Junior-Analyse kommoditisieren.",
+      geldfluss: {
+        nodes: [{ id: "konzern", label: "Energiekonzern" }, { id: "berater", label: "Top-Beratung" }, { id: "legit", label: "Legitimation" }],
+        edges: [
+          { from: "konzern", to: "berater", label: "5.000–12.000 €/Tag" },
+          { from: "berater", to: "legit", label: "Benchmarks + externe Absicherung" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-BERAT-STRAT-01",
+      steps: [
+        { text: "Ein Konzern muss entscheiden, wie schnell er aus der Kohle aussteigt. McKinsey bringt keine völlig neue Idee, sondern Benchmarks aus 50+ vergleichbaren Transformationsprojekten weltweit.", questionId: "Q-BERATUNG-WE1" },
+        { text: "Der eigentliche Wert liegt oft in der Legitimation: Dieselbe Empfehlung wird im Vorstand mit dem Briefkopf einer Top-Beratung anders diskutiert als vom eigenen Strategieteam.", questionId: "Q-BERATUNG-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-BERATUNG-R1", "Q-BERATUNG-R2", "Q-BERATUNG-R3", "Q-BERATUNG-R4"],
+    transferItemId: "Q-BERATUNG-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Wofür zahlt ein Konzern die hohen Tagessätze einer Top-Strategieberatung wirklich?",
+      musterantwort: "Für externe Benchmarks aus vielen Vergleichsprojekten, temporäre Talent-Verstärkung ohne Personalbindung und — oft am wichtigsten — die politische Legitimation, die eine unbequeme Entscheidung intern gegen Widerstände durchsetzbar macht."
+    }
+  },
+  {
+    id: "U8-RECHT",
+    moduleId: "M8-OEKOSYSTEM",
+    title: "Konzessionsrecht — Das zyklische Nischenmonopol",
+    primarySteckbriefId: "L3-RECHT-KANZLEI-02",
+    vertiefungSteckbriefIds: ["L3-RECHT-KANZLEI-02"],
+    hook: { text: "Ein einziger Rechtsstreit um ein Stromnetz beschäftigt eine Kanzlei über ein Jahrzehnt lang. Warum ist das §46-Konzessionsrecht so ein lukratives — und zugleich wackeliges — Geschäft?" },
+    kernidee: {
+      text: "<strong>§46 EnWG</strong> ist eines der lukrativsten Spezialgebiete des Energierechts: Alle 20 Jahre werden Verteilnetz-Konzessionen neu vergeben, bei Netzwerten von 100–500 Mio. €. Wenige spezialisierte Kanzleien (BBH, Rödl) begleiten Bieter und Kommunen durch jahrelange Verfahren bis vor den BGH. Der Schutz: hohe <strong>Eintrittsbarrieren</strong> (BGH-Rechtsprechung zur Diskriminierungsfreiheit ändert sich laufend), ein gewonnenes Mandat bindet 5–15 Jahre. Die Schwäche: Es ist ein <strong>zyklisches Nischenmonopol</strong> — zwischen den Konzessionswellen trägt das Volumen die Spezialisierung kaum.",
+      geldfluss: {
+        nodes: [{ id: "kommune", label: "Kommune/VNB" }, { id: "kanzlei", label: "Spezialkanzlei" }, { id: "verfahren", label: "§46-Verfahren" }],
+        edges: [
+          { from: "kommune", to: "kanzlei", label: "100.000–500.000 € Mandat" },
+          { from: "kanzlei", to: "verfahren", label: "Jahre bis BGH" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-RECHT-KANZLEI-02",
+      steps: [
+        { text: "Beim Berliner Konzessionsstreit klagte der bisherige Betreiber Vattenfall gegen die geplante Vergabe an die landeseigene Gesellschaft; das Verfahren zog sich über mehr als ein Jahrzehnt hin.", questionId: "Q-RECHT-WE1" },
+        { text: "Für die Kanzleien bedeutet ein einzelnes solches Verfahren jahrelange kontinuierliche Mandatsumsätze — weit mehr als eine einmalige Vertragsberatung.", questionId: "Q-RECHT-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-RECHT-R1", "Q-RECHT-R2", "Q-RECHT-R3", "Q-RECHT-R4"],
+    transferItemId: "Q-RECHT-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum ist die §46-Konzessionsberatung ein zugleich lukratives und wackeliges Geschäft?",
+      musterantwort: "Lukrativ, weil wenige Spezialisten hohe Barrieren (BGH-Rechtsprechung) und jahrelange Mandate bei hohen Streitwerten genießen — wackelig, weil es ein zyklisches Nischenmonopol ist, dessen Volumen zwischen den 20-jährigen Konzessionswellen einbricht."
+    }
+  },
+  {
+    id: "U8-VERSICHERUNG",
+    moduleId: "M8-OEKOSYSTEM",
+    title: "Versicherung — Risiko als Geschäftsmodell",
+    primarySteckbriefId: "L3-VERSICH-ENERGIE-01",
+    vertiefungSteckbriefIds: ["L3-VERSICH-ENERGIE-01"],
+    hook: { text: "Wenn ein Windrad-Getriebe bricht und die Anlage drei Monate stillsteht, zahlt die Versicherung nicht nur die Reparatur — sondern auch den Strom, der nie erzeugt wurde. Warum ist das der teurere Teil?" },
+    kernidee: {
+      text: "EE-Anlagen brauchen spezielle Versicherungen: <strong>All-Risk-Sachversicherung</strong> (Sturm, Blitz, Maschinenschaden) und — oft teurer — die <strong>Betriebsunterbrechungsversicherung (BU)</strong>, die bei Stillstand die entgangenen Erträge (EEG + Spotmarkt) ersetzt. Prämien liegen bei 0,2–0,5% der Versicherungssumme. Kein Versicherer trägt das allein: Ein Teil geht an <strong>Rückversicherer</strong> (Munich Re), damit ein Großschaden (Sturm über einen ganzen Park) die Bilanz nicht sprengt. <strong>Makler</strong> (Aon, Marsh) verdienen 8–15% Provision fürs Bündeln und Schadensmanagement. Angreifer: InsurTechs mit datenbasierter Klimarisiko-Bepreisung.",
+      geldfluss: {
+        nodes: [{ id: "betreiber", label: "Anlagenbetreiber" }, { id: "versicherer", label: "Versicherer" }, { id: "rueck", label: "Rückversicherer" }],
+        edges: [
+          { from: "betreiber", to: "versicherer", label: "Prämie (0,2–0,5%)" },
+          { from: "versicherer", to: "rueck", label: "Risiko-Weitergabe" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-VERSICH-ENERGIE-01",
+      steps: [
+        { text: "Ein 3-MW-Windpark hat einen Anlagenwert von 3–4 Mio. €; der Betreiber zahlt 0,2–0,5% Jahresprämie (6.000–20.000 €). Bricht ein Getriebe und die Anlage steht 3 Monate, zahlt die BU-Versicherung die entgangenen EEG-/Spotmarkterlöse.", questionId: "Q-VERSICHERUNG-WE1" },
+        { text: "Allianz trägt das nicht allein: Ein Teil geht an Munich Re als Rückversicherer, damit ein Sturm, der mehrere Anlagen zugleich trifft, die Bilanz des Erstversicherers nicht gefährdet.", questionId: "Q-VERSICHERUNG-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-VERSICHERUNG-R1", "Q-VERSICHERUNG-R2", "Q-VERSICHERUNG-R3", "Q-VERSICHERUNG-R4"],
+    transferItemId: "Q-VERSICHERUNG-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum ist die Betriebsunterbrechungsversicherung oft teurer als die reine Sachversicherung?",
+      musterantwort: "Weil sie bei einem Stillstand nicht nur die Reparatur, sondern die gesamten entgangenen Erträge (EEG-Vergütung plus Spotmarkterlöse) über die Ausfallzeit ersetzt — und dieser Ertragsausfall über Monate den Reparaturbetrag deutlich übersteigen kann."
+    }
+  },
+  {
+    id: "U8-UTILITYOS",
+    moduleId: "M8-OEKOSYSTEM",
+    title: "Utility-OS — Wenn Software den Versorger frisst",
+    primarySteckbriefId: "L3-DIGITAL-PLATTFORM-03",
+    vertiefungSteckbriefIds: ["L3-DIGITAL-PLATTFORM-03", "L3-DIGITAL-BERATUNG-01"],
+    hook: { text: "Die Software-Plattform von Octopus ist mehr wert (8,65 Mrd. $) als mancher Versorger mit Millionen Kunden. Und jeder Konkurrent, der sie lizenziert, finanziert seinen eigenen gefährlichsten Angreifer. Wie kam es dazu?" },
+    kernidee: {
+      text: "Statt Strom zu verkaufen, verkauft man das <strong>Betriebssystem des Versorgers</strong>: Kraken (Octopus) lizenziert Abrechnung, CRM, Marktkommunikation und Gerätesteuerung <strong>pro Kundenkonto und Jahr</strong> — >70 Mio. Accounts, ~500 Mio. $ gesicherter Jahresumsatz, Spin-off 2026 bei ~8,65 Mrd. $. Reine <strong>SaaS-Ökonomie</strong>: einmal gebaut, jeder weitere Account kostet fast nichts. Der Verkaufshebel ist der nachweisbare Cost-to-Serve-Vorteil; nach der Migration sind die Wechselkosten enorm (Preissetzungsmacht). Das Zeitfenster öffnet das auslaufende <strong>SAP IS-U</strong>, das hunderte Versorger zur Systementscheidung zwingt — die Wertschöpfung wandert vom Commodity zur Software.",
+      geldfluss: {
+        nodes: [{ id: "versorger", label: "Versorger (Lizenznehmer)" }, { id: "kraken", label: "Kraken/Utility-OS" }, { id: "octopus", label: "Octopus (Retail)" }],
+        edges: [
+          { from: "versorger", to: "kraken", label: "Lizenz je Account/Jahr" },
+          { from: "kraken", to: "octopus", label: "finanziert den Angreifer mit" }
+        ]
+      }
+    },
+    workedExample: {
+      steckbriefId: "L3-DIGITAL-PLATTFORM-03",
+      steps: [
+        { text: "EDF migriert seine 5 Mio. britischen Kunden auf Kraken, statt das Altsystem weiterzuentwickeln — weil der Cost-to-Serve-Rückstand gegenüber Octopus mit jedem Jahr teurer wurde als die Lizenzgebühr.", questionId: "Q-UTILITYOS-WE1" },
+        { text: "Für Kraken bedeutet das: 5 Mio. Accounts × jährliche Lizenzgebühr, vertraglich gesichert, bei minimalen Grenzkosten — Software-Umsätze, die ein Vielfaches von Energievertriebs-Umsätzen wert sind.", questionId: "Q-UTILITYOS-WE2" }
+      ]
+    },
+    retrievalItemIds: ["Q-UTILITYOS-R1", "Q-UTILITYOS-R2", "Q-UTILITYOS-R3", "Q-UTILITYOS-R4"],
+    transferItemId: "Q-UTILITYOS-T1",
+    merkeDirEinenSatz: {
+      prompt: "Formuliere in einem Satz: Warum ist die Kraken-Plattform mehr wert als mancher Versorger mit Millionen Kunden?",
+      musterantwort: "Weil sie reine SaaS-Ökonomie ist — einmal gebaut, jeder weitere lizenzierte Account bringt bei minimalen Grenzkosten wiederkehrenden Umsatz mit enormen Wechselhürden, und solche Software-Umsätze werden mit einem Vielfachen der margenschwachen Energievertriebs-Umsätze bewertet."
     }
   },
   {

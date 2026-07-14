@@ -7,15 +7,18 @@
 
 ---
 
-## 1. Was ist umgesetzt (MVP → 5 Module)
+## 1. Was ist umgesetzt (alle 8 Module)
 
-- **Modul 4 „Verkaufen"**: 7 Einheiten über `L1-VERTRIEB` + `L1-VERGLEICH`, 54 Items.
+- **Modul 1 „Das Spielfeld"**: 6 Einheiten über `L1-HANDEL` + `L1-MARKT` (Strombörse, Prop Trading, CO₂/HKN, BNetzA/Regulierung, Kapazitätsmarkt, lokale Flex-/H2-Marktdesign), 42 Items.
 - **Modul 2 „Erzeugen & Speichern"**: 6 Einheiten über `L1-ERZ` (Merit Order, Regelenergie, EEG-Marktprämie, PPAs, Batteriespeicher, Offshore/Bürgerenergie), 43 Items.
 - **Modul 3 „Die Netze"**: 6 Einheiten über `L1-UNB`/`L1-VNB`/`L1-GAS` (ARegV, Redispatch, Bilanzkreise, §14a & Messstellenbetrieb, Betreibermodelle/Rekommunalisierung, Gas- & H2-Kernnetz), 43 Items.
+- **Modul 4 „Verkaufen"**: 7 Einheiten über `L1-VERTRIEB` + `L1-VERGLEICH`, 54 Items.
 - **Modul 5 „Flexibilität ist das neue Öl"**: 5 Einheiten über `L1-AGG` + `L1-EMOB`(V2G) (virtuelles Kraftwerk, Demand Response, Route-to-Market/Tolling, V2G, Synthese „Wer kontrolliert die Flexibilität?"), 35 Items.
 - **Modul 6 „Prosumer & neue Spieler"**: 6 Einheiten über `L1-PROSUMER` + `L1-EMOB` (PV-Eigenverbrauch, Balkonkraftwerk, Mieterstrom vs. GGV, Enpal-PV-Miete, Ladeinfrastruktur, THG-Quote), 43 Items.
+- **Modul 7 „Wärme, H2 & Industrie"**: 5 Einheiten über `L1-WAERME` + `L1-CONTRACT` (Fernwärme, grüner Wasserstoff, Energieeinkauf, Effizienz-Contracting, Eigenversorgung), 35 Items.
+- **Modul 8 „Das Ökosystem drumherum"**: 6 Einheiten über `L1-PROJ`/`L1-FINANZ`/`L1-BERATUNG`/`L1-RECHT`/`L1-VERSICH`/`L1-DIGITAL` (Projektentwicklung, Projektfinanzierung, Strategieberatung, Konzessionsrecht, Versicherung, Utility-OS/Kraken), 42 Items.
 
-**Gesamt: 5 Module, 30 Einheiten, 218 Quiz-Items.** Home-Screen zeigt die Modul-Auswahl in numerischer Reihenfolge (2, 3, 4, 5, 6). Transfer-Fragen verknüpfen die Module bewusst quer (z.B. VPP↔EEG-Marktprämie, Tolling↔PPA-Floor, CPO-Margenverlust↔Octopus-Kraken, THG↔EEG-Risikoprofil).
+**Gesamt: alle 8 Module, 47 Einheiten, 337 Quiz-Items.** Home-Screen zeigt die Modul-Auswahl in numerischer Reihenfolge (1–8), **standardmäßig eingeklappt** (Akkordeon), mit prozentualem Fortschritt je Modul und einem Gesamtfortschritts-Balken oben. Transfer-Fragen verknüpfen die Module bewusst quer (z.B. Börse↔Vergleichsportal-Neutralität, VPP↔EEG-Marktprämie, Tolling↔PPA-Floor, Utility-OS↔Octopus-Retail, Eigenversorgung↔Stadtwerke-Querverbund).
 - **Einheiten-Flow** nach Konzept §4: Hook → Kernidee (mit Geldfluss-Diagramm) → **Vertiefung** (voller Wiki-Steckbrief lesbar in der App, seit Iteration 2) → Worked Example (2 Schritte mit Zwischenfragen) → Retrieval (4–6 Fragen) → Transfer (1 Frage, referenziert frühere Einheit) → „Merke dir einen Satz" (Freitext + Musterantwort, unbewertet) → Zusammenfassung.
 - **5 Quiz-Formate:** Multiple Choice, Lückentext (Tap-Wortbank), BMC-Puzzle (Bausteine + Distraktor-Steckbrief), Radar-Schätzen (6 Slider + Overlay), Fallbeispiel-Rechnung (Zahleneingabe mit Toleranz). Feedback-Regel eingehalten: **jede** Antwortoption hat eine Erklärung, nie nur richtig/falsch.
 - **Leitner-Spaced-Repetition:** 5 Boxen, Intervalle 1/3/7/16/35 Tage; Karten entstehen lazy beim ersten Beantworten (Quiz-Items + automatisch abgeleitete Glossar-Karten). Täglicher Review-Stapel (max. 18 Karten), Streak-Zählung.
@@ -119,12 +122,12 @@ Versionierung läuft über **Git** (Commits/History), nicht über ZIP-Stände wi
 
 ## 8. Roadmap (Konzept §11, priorisierter Vorschlag)
 
-Erledigt: ~~Modul 4 „Verkaufen"~~ (S21–22), ~~Modul 2 „Erzeugen & Speichern"~~ (S23), ~~Module 3/5/6 (Netze, Flexibilität, Prosumer)~~ (S24).
+Erledigt: ~~Modul 4~~ (S21–22), ~~Modul 2~~ (S23), ~~Module 3/5/6~~ (S24), ~~Akkordeon + Prozentfortschritt, Module 1/7/8~~ (S25). **Damit sind alle 8 Konzept-Module gebaut.**
 
-1. **Bossquiz-Mechanik** (schwerer, mischt alle Einheiten eines Moduls; Freischalt-Logik) — mit 5 fertigen Modulen dringend sinnvoll; die `bossQuizId`-Felder in `LERN_MODULES` sind bereits als `null` vorgesehen.
-2. **Restliche Module** aus dem Konzept: 1 „Das Spielfeld" (Grundlagen, teils in Modul 3 angerissen), 7 „Wärme, H2 & Industrie" (`L1-WAERME`/`L1-CONTRACT`), 8 „Das Ökosystem drumherum" (`L1-PROJ`/`L1-FINANZ`/`L1-BERATUNG`/`L1-RECHT`/`L1-VERSICH`/`L1-DIGITAL`).
+1. **Bossquiz-Mechanik** (schwerer, mischt alle Einheiten eines Moduls; Freischalt-Logik) — mit allen 8 Modulen der naheliegendste nächste Schritt; die `bossQuizId`-Felder in `LERN_MODULES` sind bereits als `null` vorgesehen.
+2. **Zertifizierungs-Quiz** (Stufe 3) — der nötige Pool von ≥200 Fragen ist mit **337 Items weit übererfüllt**; stratifizierte Ziehung (je Modul, Formatmix, Bloom-Verteilung) + druckbares Zertifikat umsetzbar. Dazu Confidence-Rating.
 3. **Disruptor-Modus + Szenario-Missionen** (K4-Formate, machen laut Konzept „am meisten Spaß").
-4. **Stufe 3:** Zertifizierungs-Quiz — der nötige Pool von ≥200 Fragen ist mit **218 Items bereits erreicht**; stratifizierte Ziehung + Zertifikat-Print umsetzbar. Dazu Confidence-Rating.
-5. **Stufe 4:** Einstufungstest, Rollen-Lernpfade entlang der Personas (`01_PERSONAS.md`), Kollegen-Verteilung.
+4. **Stufe 4:** Einstufungstest, Rollen-Lernpfade entlang der Personas (`01_PERSONAS.md`), Kollegen-Verteilung.
+5. **Inhaltliche Pflege:** bei jedem Wiki-Fakten-Refresh die Checkliste aus §3 abarbeiten (337 Items über `steckbriefIds` rückverfolgbar).
 
 **Muster für ein neues Modul** (aus Session 23, als Blaupause): (1) Modulobjekt in `LERN_MODULES` (`lern-data.js`) mit `unitIds`; (2) Einheiten in `LERN_UNITS` mit `vertiefungSteckbriefIds` auf die realen Steckbrief-IDs; (3) Quiz-Items in `LERN_QUIZ_ITEMS` (`lern-quiz-items.js`) nach Feld→Format-Mapping (§6), jede Einheit ~7–8 Items, mindestens ein Transfer-Item das auf ein anderes Modul verweist; (4) `sw.js` CACHE_NAME +1; (5) Browser-Test (Validierungs-Log, ein Durchlauf je neuem Format), commit + push.

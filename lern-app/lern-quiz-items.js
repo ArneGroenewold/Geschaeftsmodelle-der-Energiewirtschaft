@@ -2727,7 +2727,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Wie entsteht in der Day-Ahead-Auktion der Strompreis für eine bestimmte Stunde?",
       optionen: [
-        { text: "Ein Algorithmus ermittelt den Preis, bei dem sich die eingereichten Kauf- und Verkaufsgebote decken (markträumender Preis).", korrekt: true, erklaerung: "Angebot und Nachfrage treffen sich in einer einheitlichen Auktion — daraus ergibt sich ein Preis pro Stunde, der für alle gilt." },
+        { text: "Ein Algorithmus ermittelt den markträumenden Preis, bei dem sich Angebot und Nachfrage der Gebote decken.", korrekt: true, erklaerung: "Angebot und Nachfrage treffen sich in einer einheitlichen Auktion — daraus ergibt sich ein Preis pro Stunde, der für alle gilt." },
         { text: "Die Börse legt den Preis nach eigenen Kostenkalkulationen fest.", korrekt: false, erklaerung: "Die Börse setzt keinen Preis — sie führt nur die Gebote der Teilnehmer zusammen; der Preis ist ein Marktergebnis." },
         { text: "Die BNetzA genehmigt jeden Stundenpreis im Voraus.", korrekt: false, erklaerung: "Börsenpreise sind nicht genehmigungspflichtig — sie entstehen frei im Auktionsverfahren; die BNetzA überwacht nur die Marktintegrität." }
       ]
@@ -2739,7 +2739,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Warum ist das Geschäft der Börse unabhängig von der Höhe des Strompreises?",
       optionen: [
-        { text: "Sie verdient an einer festen Transaktionsgebühr pro gehandelter MWh — ob der Preis 20 oder 200 € beträgt, ändert die Gebühr nicht.", korrekt: true, erklaerung: "Reine Infrastrukturrolle: Die Börse kassiert Volumen-basiert, trägt aber selbst kein Preisrisiko." },
+        { text: "Sie verdient an einer festen Transaktionsgebühr je gehandelter MWh, unabhängig von der Höhe des Strompreises.", korrekt: true, erklaerung: "Reine Infrastrukturrolle: Die Börse kassiert Volumen-basiert, trägt aber selbst kein Preisrisiko." },
         { text: "Weil sie den Strom günstig einkauft und teuer weiterverkauft.", korrekt: false, erklaerung: "Die Börse handelt nicht auf eigene Rechnung — sie vermittelt nur und nimmt eine Gebühr, ohne selbst zu kaufen/verkaufen." },
         { text: "Weil der Staat ihr einen festen Gewinn garantiert.", korrekt: false, erklaerung: "Es gibt keine staatliche Gewinngarantie — die Stabilität kommt aus dem gebührenbasierten Volumengeschäft." }
       ]
@@ -2751,7 +2751,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Was handelt EPEX SPOT, was EEX?",
       optionen: [
-        { text: "EPEX SPOT den kurzfristigen Spothandel (Day-Ahead, Intraday), EEX die Termingeschäfte (Futures, Optionen, CO₂).", korrekt: true, erklaerung: "Spot vs. Termin ist die Grundaufteilung des Börsenhandels — kurzfristige Lieferung vs. Absicherung in die Zukunft." },
+        { text: "EPEX SPOT handelt kurzfristig (Day-Ahead, Intraday), EEX die Termingeschäfte (Futures, CO₂).", korrekt: true, erklaerung: "Spot vs. Termin ist die Grundaufteilung des Börsenhandels — kurzfristige Lieferung vs. Absicherung in die Zukunft." },
         { text: "EPEX SPOT nur Gas, EEX nur Strom.", korrekt: false, erklaerung: "Die Trennung verläuft nicht nach Energieträger, sondern nach Fristigkeit (Spot vs. Termin)." },
         { text: "EPEX SPOT für Privatkunden, EEX für Industrie.", korrekt: false, erklaerung: "Börsen handeln nicht mit Privatkunden — beide bedienen professionelle Marktteilnehmer, aufgeteilt nach Spot- und Terminhandel." }
       ]
@@ -2776,7 +2776,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Warum wächst das Handelsvolumen an der Börse strukturell mit dem EE-Anteil?",
       optionen: [
-        { text: "Volatile Wind-/Solareinspeisung erzeugt mehr kurzfristigen Ausgleichsbedarf — der Intraday-Handel (z.B. 15-Minuten-Produkte) nimmt zu, je mehr Prognosen laufend korrigiert werden müssen.", korrekt: true, erklaerung: "Mehr EE = mehr Prognoseunsicherheit = mehr kurzfristiger Handel = mehr Transaktionen für die Börse." },
+        { text: "Volatile Wind-/Solareinspeisung erzeugt mehr kurzfristigen Ausgleichsbedarf, also mehr Intraday-Handel.", korrekt: true, erklaerung: "Mehr EE = mehr Prognoseunsicherheit = mehr kurzfristiger Handel = mehr Transaktionen für die Börse." },
         { text: "Weil erneuerbarer Strom gesetzlich über die Börse verkauft werden muss.", korrekt: false, erklaerung: "Es gibt keine Börsenpflicht für EE-Strom — das Volumen wächst durch den realen Ausgleichsbedarf, nicht durch Zwang." },
         { text: "Weil die Börse bei EE-Strom höhere Gebühren verlangt.", korrekt: false, erklaerung: "Die Gebühr hängt nicht an der Erzeugungsart — es ist schlicht das höhere Transaktionsvolumen, das den Umsatz treibt." }
       ]
@@ -2803,7 +2803,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Die Strombörse und ein Tarifvergleichsportal (Modul 4) sind beide Plattformen mit Netzwerkeffekt. Was unterscheidet ihre Neutralität fundamental?",
       optionen: [
-        { text: "Die Börse ist ein neutraler Preisbildungsmechanismus ohne Interessenkonflikt; das Vergleichsportal optimiert dagegen auf provisionsträchtige Vermittlung — 'Sichtbarkeit ist käuflich'.", korrekt: true, erklaerung: "Beide sind Plattformen, aber die Börse verdient völlig ergebnisneutral an jeder Transaktion, während das Portal ein Anreizproblem hat (CPA statt bester Preis)." },
+        { text: "Die Börse bildet den Preis neutral, das Vergleichsportal optimiert auf provisionsträchtige Vermittlung.", korrekt: true, erklaerung: "Beide sind Plattformen, aber die Börse verdient völlig ergebnisneutral an jeder Transaktion, während das Portal ein Anreizproblem hat (CPA statt bester Preis)." },
         { text: "Beide manipulieren den Preis zu ihren Gunsten.", korrekt: false, erklaerung: "Die Börse manipuliert nicht — sie ermittelt den markträumenden Preis neutral; nur das Portal hat einen Provisionsanreiz." },
         { text: "Es gibt keinen Unterschied, beide sind reine Vermittler ohne Eigeninteresse.", korrekt: false, erklaerung: "Das Portal hat sehr wohl ein Eigeninteresse (Provision) — genau das unterscheidet es von der ergebnisneutralen Börse." }
       ]
@@ -2817,7 +2817,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Der Trader erwartet mehr Wind als der Markt. Was ist die logische Position?",
       optionen: [
-        { text: "Heute Strom für übermorgen verkaufen (Terminverkauf) und morgen günstiger zurückkaufen, wenn der Markt den fallenden Preis einpreist.", korrekt: true, erklaerung: "Mehr Wind → niedrigerer Preis erwartet → hoch verkaufen, tief zurückkaufen. Die Differenz ist der Gewinn." },
+        { text: "Heute auf Termin verkaufen und morgen günstiger zurückkaufen, wenn der Markt den fallenden Preis einpreist.", korrekt: true, erklaerung: "Mehr Wind → niedrigerer Preis erwartet → hoch verkaufen, tief zurückkaufen. Die Differenz ist der Gewinn." },
         { text: "Sofort möglichst viel Strom kaufen, weil viel Wind den Preis steigen lässt.", korrekt: false, erklaerung: "Genau falsch herum: Viel Windangebot senkt den Preis — man will verkaufen, nicht kaufen." },
         { text: "Gar nichts tun, weil Wetter nicht handelbar ist.", korrekt: false, erklaerung: "Wetter ist im Stromhandel gerade der zentrale Werttreiber — bessere Prognosen sind die Alpha-Quelle." }
       ]
@@ -2829,7 +2829,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Wozu dient das VAR-Limit (Value at Risk) beim Prop Trading?",
       optionen: [
-        { text: "Es begrenzt den möglichen Verlust einer Position/eines Buchs — der Trader darf nur so viel Risiko eingehen, wie das Budget erlaubt.", korrekt: true, erklaerung: "Risikodisziplin ist überlebenswichtig: Auch die beste Prognose liegt manchmal falsch, das VAR-Limit verhindert existenzbedrohende Verluste." },
+        { text: "Es begrenzt den möglichen Verlust — der Trader darf nur so viel Risiko eingehen, wie das Budget erlaubt.", korrekt: true, erklaerung: "Risikodisziplin ist überlebenswichtig: Auch die beste Prognose liegt manchmal falsch, das VAR-Limit verhindert existenzbedrohende Verluste." },
         { text: "Es garantiert dem Trader einen Mindestgewinn.", korrekt: false, erklaerung: "VAR garantiert keinen Gewinn — es begrenzt den möglichen Verlust, das ist etwas völlig anderes." },
         { text: "Es legt fest, wie hoch die Handelsgebühr an die Börse ist.", korrekt: false, erklaerung: "VAR ist ein Risikomaß, keine Gebührenregel — es steuert die erlaubte Positionsgröße." }
       ]
@@ -2841,7 +2841,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Was ist der Clean Spark Spread?",
       optionen: [
-        { text: "Die Differenz zwischen dem Strompreis und den Kosten, ihn aus Gas zu erzeugen (Gaspreis + CO₂-Kosten) — die Marge eines Gaskraftwerks bzw. eine Trading-Kennzahl.", korrekt: true, erklaerung: "Der Clean Spark Spread misst, ob sich Gasverstromung lohnt — Kern vieler Spread-Trading-Strategien." },
+        { text: "Die Differenz zwischen Strompreis und Gasverstromungskosten (Gaspreis + CO₂) — die Gaskraftwerks-Marge.", korrekt: true, erklaerung: "Der Clean Spark Spread misst, ob sich Gasverstromung lohnt — Kern vieler Spread-Trading-Strategien." },
         { text: "Die Gebühr, die die Börse pro Transaktion erhebt.", korrekt: false, erklaerung: "Das ist die Transaktionsgebühr — der Clean Spark Spread ist die Erzeugungsmarge Strom vs. Gas+CO₂." },
         { text: "Der Unterschied zwischen Day-Ahead- und Intraday-Preis.", korrekt: false, erklaerung: "Das wäre ein zeitlicher Spread — der Clean Spark Spread bezieht sich auf Strom vs. Gasverstromungskosten." }
       ]
@@ -2866,7 +2866,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Warum werden Informationsvorsprünge im Energiehandel 'systematisch wegkommoditisiert'?",
       optionen: [
-        { text: "ML-Prognosen, Satellitendaten und geringe Latenz sind käuflich; sobald ein Vorsprung verfügbar wird, haben ihn alle, und die daraus entstehende Marge verschwindet.", korrekt: true, erklaerung: "Der Markt lernt: Jeder verkäufliche Vorteil wird zum Standard, weshalb Desks ständig den nächsten Vorsprung suchen müssen." },
+        { text: "ML-Prognosen, Satellitendaten und Latenz sind käuflich — sobald ein Vorsprung verfügbar ist, verschwindet die Marge.", korrekt: true, erklaerung: "Der Markt lernt: Jeder verkäufliche Vorteil wird zum Standard, weshalb Desks ständig den nächsten Vorsprung suchen müssen." },
         { text: "Weil die BNetzA Informationsvorsprünge gesetzlich verbietet.", korrekt: false, erklaerung: "Legale Analysevorteile sind erlaubt (nur Insiderhandel ist verboten) — sie verschwinden ökonomisch durch Verbreitung, nicht per Verbot." },
         { text: "Weil Trader ihre Modelle offenlegen müssen.", korrekt: false, erklaerung: "Modelle sind Geschäftsgeheimnisse — der Vorsprung erodiert durch käufliche Daten/Tools, nicht durch Offenlegungspflicht." }
       ]
@@ -2883,7 +2883,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Prop Trading und das EE-Direktvermarktungs-VPP (Modul 5) leben beide von Prognosegüte. Was unterscheidet ihr Geschäftsmodell dennoch grundlegend?",
       optionen: [
-        { text: "Der Prop-Trader nimmt Marktpreisrisiko auf eigene Rechnung (Merchant), das VPP verdient risikoarm eine Fee plus Outperformance-Share für fremde Anlagen — dieselbe Prognosekompetenz, aber Merchant- vs. Fee-Modell.", korrekt: true, erklaerung: "Prognose ist die gemeinsame Kernkompetenz; der Unterschied liegt darin, ob man das Risiko selbst trägt (Prop) oder als Dienstleister vermeidet (VPP)." },
+        { text: "Der Prop-Trader trägt das Marktrisiko selbst (Merchant), das VPP verdient risikoarm eine Fee für fremde Anlagen.", korrekt: true, erklaerung: "Prognose ist die gemeinsame Kernkompetenz; der Unterschied liegt darin, ob man das Risiko selbst trägt (Prop) oder als Dienstleister vermeidet (VPP)." },
         { text: "Beide sind reine Dienstleister ohne eigenes Risiko.", korrekt: false, erklaerung: "Der Prop-Trader trägt sehr wohl volles Marktrisiko auf dem Eigenbuch — nur das VPP ist der risikoarme Dienstleister." },
         { text: "Beide handeln ausschließlich mit CO₂-Zertifikaten.", korrekt: false, erklaerung: "Prop Trading und VPP handeln primär Strom/Prognose; CO₂ ist ein separater Markt (HKN/EU ETS)." }
       ]
@@ -2907,7 +2907,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Warum kostet ein Premium-HKN aus einer neuen Solaranlage ein Vielfaches eines Massen-HKN?",
       optionen: [
-        { text: "Es erfüllt das Zusätzlichkeitskriterium: Der Zertifikatskauf hat tatsächlich neue EE-Kapazität mitfinanziert — anders als ein HKN aus einem längst abgeschriebenen Altkraftwerk.", korrekt: true, erklaerung: "Zusätzlichkeit ist der Werttreiber: Nur wenn durch die Zahlung neue Erzeugung entsteht, ist die Klimawirkung echt." },
+        { text: "Es erfüllt die Zusätzlichkeit: Der Kauf hat neue EE-Kapazität mitfinanziert — anders als ein HKN aus einer Altanlage.", korrekt: true, erklaerung: "Zusätzlichkeit ist der Werttreiber: Nur wenn durch die Zahlung neue Erzeugung entsteht, ist die Klimawirkung echt." },
         { text: "Weil Solarstrom physikalisch hochwertiger ist als Wasserkraft.", korrekt: false, erklaerung: "Physikalisch ist Strom Strom — der Preisunterschied kommt aus der Zusätzlichkeit des Zertifikats, nicht aus der Stromqualität." },
         { text: "Weil Premium-HKN gesetzlich vorgeschrieben sind.", korrekt: false, erklaerung: "Sie sind nicht vorgeschrieben — die höhere Zahlungsbereitschaft entsteht durch CSRD-Druck und den Wunsch nach echter Zusätzlichkeit." }
       ]
@@ -2919,7 +2919,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Was ist der EU ETS — im Gegensatz zum HKN-Markt?",
       optionen: [
-        { text: "Ein Pflichtmarkt: Stromerzeuger und Industrie müssen für jede Tonne CO₂ ein Zertifikat (EUA) kaufen — das bepreist Emissionen, während HKN freiwillig grüne Herkunft bescheinigen.", korrekt: true, erklaerung: "Pflicht vs. freiwillig, Emissionen bepreisen vs. Herkunft nachweisen — zwei grundverschiedene Zertifikatemärkte." },
+        { text: "Ein Pflichtmarkt: Erzeuger und Industrie müssen für jede Tonne CO₂ ein Zertifikat kaufen — HKN sind dagegen freiwillig.", korrekt: true, erklaerung: "Pflicht vs. freiwillig, Emissionen bepreisen vs. Herkunft nachweisen — zwei grundverschiedene Zertifikatemärkte." },
         { text: "Ein freiwilliges System zur Kennzeichnung von Ökostrom.", korrekt: false, erklaerung: "Das beschreibt HKN — der EU ETS ist der verpflichtende CO₂-Emissionshandel." },
         { text: "Eine staatliche Förderung für Solaranlagen.", korrekt: false, erklaerung: "Der EU ETS ist ein Emissionshandelssystem, keine Förderung — er verteuert CO₂-intensive Erzeugung." }
       ]
@@ -2944,7 +2944,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Was ist '24/7 CFE' (Carbon-Free Energy) und warum verändert es den HKN-Markt?",
       optionen: [
-        { text: "Stündliches Matching von Verbrauch und grüner Erzeugung statt Jahresbilanz — getrieben von Google/Microsoft; es verlangt granulare, zeitgleiche Herkunftsnachweise und entwertet die pauschale Jahres-HKN-Logik.", korrekt: true, erklaerung: "24/7 CFE erhöht den Anspruch von 'grün übers Jahr' auf 'grün in jeder Stunde' — ein Technologie-Angriff auf den klassischen HKN-Handel." },
+        { text: "Stündliches Matching von Verbrauch und grüner Erzeugung statt Jahresbilanz — es entwertet die pauschale Jahres-HKN-Logik.", korrekt: true, erklaerung: "24/7 CFE erhöht den Anspruch von 'grün übers Jahr' auf 'grün in jeder Stunde' — ein Technologie-Angriff auf den klassischen HKN-Handel." },
         { text: "Eine Vorschrift, dass Kraftwerke rund um die Uhr laufen müssen.", korrekt: false, erklaerung: "CFE betrifft das zeitgleiche Matching von Verbrauch und grüner Erzeugung, keine Betriebspflicht für Kraftwerke." },
         { text: "Ein Rabattprogramm der Börse für Nachtstrom.", korrekt: false, erklaerung: "CFE ist ein Herkunftsnachweis-Standard (stündliche Zusätzlichkeit), kein Börsenrabatt." }
       ]
@@ -2971,7 +2971,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Der Premium-HKN-Markt und das Fünf-Grad-Modell (Modul 4) drehen sich um denselben Begriff. Welchen — und warum ist er der gemeinsame Angriff auf Greenwashing?",
       optionen: [
-        { text: "Zusätzlichkeit: Beide argumentieren, dass nur eine Zahlung, die tatsächlich NEUE Klimawirkung/EE-Kapazität auslöst, echten Wert hat — im Gegensatz zum billigen HKN aus längst abgeschriebenen Altanlagen.", korrekt: true, erklaerung: "Zusätzlichkeit ist der rote Faden gegen Greenwashing — vom B2B-Zertifikatehandel bis zum B2C-Ökostromtarif." },
+        { text: "Zusätzlichkeit: Nur eine Zahlung, die tatsächlich neue Klimawirkung auslöst, hat echten Wert — nicht das billige Altanlagen-HKN.", korrekt: true, erklaerung: "Zusätzlichkeit ist der rote Faden gegen Greenwashing — vom B2B-Zertifikatehandel bis zum B2C-Ökostromtarif." },
         { text: "Beide leben von möglichst billigen Massen-HKN.", korrekt: false, erklaerung: "Genau das Gegenteil — beide grenzen sich vom billigen Massen-HKN ab und verkaufen geprüfte Zusätzlichkeit." },
         { text: "Beide sind Pflichtmärkte wie der EU ETS.", korrekt: false, erklaerung: "Premium-HKN und Fünf Grad sind freiwillige Modelle — der Pflichtmarkt ist allein der EU ETS." }
       ]
@@ -2985,7 +2985,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Was ist ein 'Festlegungsverfahren' der BNetzA?",
       optionen: [
-        { text: "Ein Verfahren, in dem die BNetzA verbindliche Regeln für den Markt setzt (z.B. §14a, dynamische Tarife, Marktkommunikation) — oft über 2–5 Jahre.", korrekt: true, erklaerung: "Festlegungen sind das zentrale Gestaltungsinstrument: Sie schaffen die Spielregeln, nach denen alle Marktakteure arbeiten." },
+        { text: "Ein Verfahren, in dem die BNetzA verbindliche Marktregeln setzt (z.B. §14a, dynamische Tarife) — oft über 2–5 Jahre.", korrekt: true, erklaerung: "Festlegungen sind das zentrale Gestaltungsinstrument: Sie schaffen die Spielregeln, nach denen alle Marktakteure arbeiten." },
         { text: "Die jährliche Festlegung des Strompreises für Haushalte.", korrekt: false, erklaerung: "Endkundenpreise legt die BNetzA nicht fest — sie gestaltet die Marktregeln, nicht die Preise." },
         { text: "Die Genehmigung einzelner Börsengeschäfte.", korrekt: false, erklaerung: "Börsengeschäfte werden nicht einzeln genehmigt — Festlegungen sind übergreifende Regelwerke." }
       ]
@@ -2997,7 +2997,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Warum ist die Langsamkeit der BNetzA-Verfahren (2–5 Jahre) für die Energiewende ein Problem?",
       optionen: [
-        { text: "Marktregeln (z.B. für H2, V2G, Flexmärkte) entstehen langsamer, als die Technik und der Ausbaubedarf voranschreiten — die Regulierung wird zum Tempo-Engpass.", korrekt: true, erklaerung: "Die Energiewende braucht schnelle Regelanpassungen; mehrjährige Verfahren bremsen neue Geschäftsmodelle strukturell aus." },
+        { text: "Marktregeln (H2, V2G, Flexmärkte) entstehen langsamer als Technik und Ausbaubedarf — Regulierung als Tempo-Engpass.", korrekt: true, erklaerung: "Die Energiewende braucht schnelle Regelanpassungen; mehrjährige Verfahren bremsen neue Geschäftsmodelle strukturell aus." },
         { text: "Weil die BNetzA dadurch zu hohe Gewinne macht.", korrekt: false, erklaerung: "Die BNetzA macht keine Gewinne — sie ist gebührenfinanziert; das Problem ist Geschwindigkeit, nicht Profit." },
         { text: "Weil lange Verfahren die Strompreise direkt erhöhen.", korrekt: false, erklaerung: "Nicht der Preis, sondern die Innovations- und Ausbaugeschwindigkeit leidet — Regeln kommen zu spät für den Bedarf." }
       ]
@@ -3034,7 +3034,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Warum senkt die gemeinsame Plattform regelleistung.net die Leistungspreise gegenüber vier getrennten nationalen Märkten?",
       optionen: [
-        { text: "Bündelung erhöht die Liquidität: Mehr Anbieter konkurrieren im selben Markt, was die Preise drückt — derselbe Netzwerkeffekt wie bei einer Börse.", korrekt: true, erklaerung: "Ein größerer, gemeinsamer Markt ist wettbewerbsintensiver und effizienter als vier kleine, fragmentierte." },
+        { text: "Bündelung erhöht die Liquidität: mehr Anbieter im selben Markt drücken die Preise — wie der Netzwerkeffekt einer Börse.", korrekt: true, erklaerung: "Ein größerer, gemeinsamer Markt ist wettbewerbsintensiver und effizienter als vier kleine, fragmentierte." },
         { text: "Weil der Staat die Preise dort deckelt.", korrekt: false, erklaerung: "Es gibt keinen Preisdeckel — der Effekt kommt aus der höheren Liquidität und dem stärkeren Wettbewerb." },
         { text: "Weil nur noch ein einziger ÜNB übrig bleibt.", korrekt: false, erklaerung: "Es bleiben vier ÜNB — sie teilen sich nur eine gemeinsame Ausschreibungsplattform." }
       ]
@@ -3061,7 +3061,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Netzbetreiber (Modul 3) tragen 'kein Marktrisiko, aber Regulierungsrisiko'. Wie hängt das mit der BNetzA zusammen?",
       optionen: [
-        { text: "Die BNetzA ist die Quelle genau dieses Regulierungsrisikos: Ihre Festlegungen (Erlösobergrenze, EK-Zins, NEST/AgNes) bestimmen die Marge der Netzbetreiber — jede Regulierungsperiode ist faktisch eine Neuverhandlung.", korrekt: true, erklaerung: "Das Regulierungsrisiko der Netze IST das Gestaltungshandeln der BNetzA — beide Module beschreiben zwei Seiten derselben Beziehung." },
+        { text: "Die BNetzA ist die Quelle dieses Risikos: Ihre Festlegungen (Erlösobergrenze, EK-Zins, NEST/AgNes) bestimmen die Netzmarge.", korrekt: true, erklaerung: "Das Regulierungsrisiko der Netze IST das Gestaltungshandeln der BNetzA — beide Module beschreiben zwei Seiten derselben Beziehung." },
         { text: "Die BNetzA garantiert den Netzbetreibern einen festen Gewinn unabhängig von Entscheidungen.", korrekt: false, erklaerung: "Gerade nicht — die BNetzA kann die Konditionen ändern; darin besteht das Regulierungsrisiko." },
         { text: "Die BNetzA handelt Strom für die Netzbetreiber an der Börse.", korrekt: false, erklaerung: "Die BNetzA handelt keinen Strom — sie reguliert; Netzbetreiber handeln aus Unbundling-Gründen ohnehin keinen Strom." }
       ]
@@ -3075,7 +3075,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Was ist das 'Missing Money'-Problem im Energy-Only-Market?",
       optionen: [
-        { text: "Backup-Kraftwerke laufen zu selten, als dass die wenigen Knappheitspreise ihre Fixkosten decken — es fehlt Geld zur Refinanzierung, obwohl das System die Kapazität braucht.", korrekt: true, erklaerung: "Ohne Kapazitätsvergütung entsteht eine Finanzierungslücke für dringend benötigte, selten laufende Kraftwerke." },
+        { text: "Backup-Kraftwerke laufen zu selten, als dass die wenigen Knappheitspreise ihre Fixkosten decken — die Refinanzierung fehlt.", korrekt: true, erklaerung: "Ohne Kapazitätsvergütung entsteht eine Finanzierungslücke für dringend benötigte, selten laufende Kraftwerke." },
         { text: "Kunden zahlen ihre Stromrechnungen nicht.", korrekt: false, erklaerung: "'Missing Money' meint die Refinanzierungslücke der Kraftwerke, nicht ausbleibende Kundenzahlungen." },
         { text: "Die Börse verliert Geld bei niedrigen Preisen.", korrekt: false, erklaerung: "Die Börse trägt kein Preisrisiko — 'Missing Money' betrifft die Kraftwerksbetreiber, nicht die Börse." }
       ]
@@ -3097,7 +3097,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Was ist mit StromVKG / Kraftwerksstrategie beschlossen?",
       optionen: [
-        { text: "Der Einstieg in den Kapazitätsmarkt: ~12 GW H2-ready-Kapazität ab 2026 ausgeschrieben, weitere Auktionen 2027/2029, umfassender Kapazitätsmarkt ab 2032.", korrekt: true, erklaerung: "Nach der EU-Grundsatzeinigung (Jan. 2026) ist der Fahrplan gesetzt — Deutschland verlässt das reine Energy-Only-Design." },
+        { text: "Der Einstieg in den Kapazitätsmarkt: ~12 GW H2-ready ab 2026, weitere Auktionen 2027/2029, Vollbetrieb ab 2032.", korrekt: true, erklaerung: "Nach der EU-Grundsatzeinigung (Jan. 2026) ist der Fahrplan gesetzt — Deutschland verlässt das reine Energy-Only-Design." },
         { text: "Die sofortige Abschaltung aller Gaskraftwerke.", korrekt: false, erklaerung: "Das Gegenteil — es geht um den Neubau H2-ready-steuerbarer Kapazität als Backup, nicht um Abschaltung." },
         { text: "Ein Verbot des Stromhandels an der Börse.", korrekt: false, erklaerung: "Der Börsenhandel bleibt — der Kapazitätsmarkt ergänzt ihn um eine Vergütung fürs Bereitstehen." }
       ]
@@ -3122,7 +3122,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Warum ist der Kapazitätsmarkt laut Angreifbarkeits-Analyse eher ein 'Verteilungskampf' als ein reiner Wettbewerb?",
       optionen: [
-        { text: "Batterien, Demand Response und ausländische Kapazitäten drängen in die technologieoffenen Auktionen und drücken die Clearing-Preise — je offener das Design, desto stärker kannibalisieren günstigere Flex-Optionen die Peaker-Vergütung.", korrekt: true, erklaerung: "Wer alles zulässt, verteilt den Topf breiter; die Gaskraftwerke konkurrieren plötzlich mit Speichern und Lastflexibilität um dieselbe Vergütung." },
+        { text: "Batterien, Demand Response und Auslandskapazitäten drängen in die technologieoffenen Auktionen und drücken die Clearing-Preise der Peaker.", korrekt: true, erklaerung: "Wer alles zulässt, verteilt den Topf breiter; die Gaskraftwerke konkurrieren plötzlich mit Speichern und Lastflexibilität um dieselbe Vergütung." },
         { text: "Weil der Staat den gesamten Kapazitätsmarkt einem einzigen Betreiber zuteilt.", korrekt: false, erklaerung: "Der Markt ist technologieoffen und wettbewerblich — kein Einzelzuschlag; genau die Konkurrenz vieler Techniken ist der Punkt." },
         { text: "Weil Kapazitätsmärkte in der EU verboten sind.", korrekt: false, erklaerung: "Sie sind unter EU-Beihilferecht erlaubt (Art. 22) — der Streit ist die Ausgestaltung, kein Verbot." }
       ]
@@ -3149,7 +3149,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Der Kapazitätsmarkt und die Regelenergie (Modul 2) folgen demselben Grundprinzip. Welchem?",
       optionen: [
-        { text: "Verdienen am Bereitstehen statt am Liefern: Regelenergie zahlt einen Leistungspreis für kurzfristige Reaktionsbereitschaft, der Kapazitätsmarkt für die dauerhafte Existenz von Backup-Kapazität.", korrekt: true, erklaerung: "Beide vergüten Verfügbarkeit statt gelieferte Energie — das Kapazitätsmarkt-Prinzip ist für Regelenergie längst etabliert, für reine Backup-Erzeugung neu." },
+        { text: "Verdienen am Bereitstehen statt am Liefern — Regelenergie wie Kapazitätsmarkt vergüten Verfügbarkeit, nicht gelieferte Energie.", korrekt: true, erklaerung: "Beide vergüten Verfügbarkeit statt gelieferte Energie — das Kapazitätsmarkt-Prinzip ist für Regelenergie längst etabliert, für reine Backup-Erzeugung neu." },
         { text: "Beide vergüten ausschließlich tatsächlich gelieferten Strom.", korrekt: false, erklaerung: "Genau das Gegenteil — beide vergüten primär das Bereitstehen, nicht die gelieferte Menge." },
         { text: "Beide sind reine Börsengeschäfte ohne Vergütungskomponente.", korrekt: false, erklaerung: "Beide haben eine Leistungspreis-Komponente außerhalb des Spotmarkts — das ist ihr gemeinsamer Kern." }
       ]
@@ -3163,7 +3163,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Warum ist es für den VNB oft günstiger, Flexibilität zu kaufen als einen Trafo zu bauen?",
       optionen: [
-        { text: "Lokale Flexibilität kostet 20–50 €/MWh, ein Netzausbau dagegen 100.000–500.000 €/km — 'Flex first' vermeidet teure Investitionen für selten auftretende Engpässe.", korrekt: true, erklaerung: "Wenn ein Engpass nur wenige Stunden im Jahr auftritt, ist gekaufte Flexibilität viel billiger als dauerhaftes Kupfer." },
+        { text: "Lokale Flexibilität kostet 20–50 €/MWh, Netzausbau 100.000–500.000 €/km — 'Flex first' spart teure Investitionen.", korrekt: true, erklaerung: "Wenn ein Engpass nur wenige Stunden im Jahr auftritt, ist gekaufte Flexibilität viel billiger als dauerhaftes Kupfer." },
         { text: "Weil der VNB für Flexibilität keine Genehmigung braucht, für einen Trafo aber schon.", korrekt: false, erklaerung: "Der Hauptgrund ist der Kostenvergleich, nicht die Genehmigung — Flex ist schlicht deutlich günstiger für seltene Engpässe." },
         { text: "Weil gekaufte Flexibilität die Netzentgelte erhöht.", korrekt: false, erklaerung: "Im Gegenteil — vermiedener Netzausbau dämpft die Kosten; Flex ist die günstigere Option." }
       ]
@@ -3175,7 +3175,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Was ist das ungelöste 'Doppelnutzungs'-Problem lokaler Flexmärkte?",
       optionen: [
-        { text: "Dieselbe Batterie darf nicht gleichzeitig dem ÜNB (Regelenergie) und dem VNB (lokale Flex) zugesagt werden — technisch lässt sich das heute nicht zuverlässig ausschließen.", korrekt: true, erklaerung: "Ohne saubere Koordination droht eine Ressource doppelt verkauft zu werden, was die Systemsicherheit gefährdet." },
+        { text: "Dieselbe Batterie darf nicht zugleich ÜNB und VNB zugesagt werden — technisch heute nicht sicher ausschließbar.", korrekt: true, erklaerung: "Ohne saubere Koordination droht eine Ressource doppelt verkauft zu werden, was die Systemsicherheit gefährdet." },
         { text: "Dass zwei VNB dieselbe Leitung nutzen wollen.", korrekt: false, erklaerung: "Es geht um die doppelte Vermarktung derselben Flexibilität an ÜNB und VNB, nicht um geteilte Leitungen." },
         { text: "Dass Kunden ihre Wallbox und Wärmepumpe zugleich nutzen.", korrekt: false, erklaerung: "Das Problem ist die doppelte Marktzusage einer Flex-Ressource, nicht der gleichzeitige Gerätebetrieb." }
       ]
@@ -3187,7 +3187,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Warum ist der Regulierer der 'größte Wettbewerber' lokaler Flexmärkte?",
       optionen: [
-        { text: "§14a-Steuerung (reguliert, ohne Markt) und Redispatch können dieselben Engpässe lösen — sie drohen die Flexmärkte überflüssig zu machen, bevor diese Liquidität aufbauen.", korrekt: true, erklaerung: "Ein regulierter Zwangszugriff (§14a) konkurriert direkt mit einem freiwilligen Marktmechanismus um dieselbe Flexibilität." },
+        { text: "§14a und Redispatch lösen dieselben Engpässe ohne Markt — sie machen Flexmärkte überflüssig, bevor Liquidität entsteht.", korrekt: true, erklaerung: "Ein regulierter Zwangszugriff (§14a) konkurriert direkt mit einem freiwilligen Marktmechanismus um dieselbe Flexibilität." },
         { text: "Weil die BNetzA selbst Flexibilität an der Börse verkauft.", korrekt: false, erklaerung: "Die BNetzA handelt nicht — sie stellt mit §14a nur ein reguliertes Alternativinstrument bereit." },
         { text: "Weil lokale Flexmärkte gesetzlich verboten sind.", korrekt: false, erklaerung: "Sie sind erlaubt und werden pilotiert — die Konkurrenz ist das regulierte §14a-Instrument, kein Verbot." }
       ]
@@ -3212,7 +3212,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Warum gibt es für Wasserstoff noch keinen echten Börsen-Spotmarkt?",
       optionen: [
-        { text: "Das Handelsvolumen ist noch zu gering — ohne kritische Liquidität lohnt sich kein Börsenprodukt; H2 wird bis dahin bilateral gehandelt.", korrekt: true, erklaerung: "Börsen brauchen viele Teilnehmer und Volumen; solange H2-Markt und -Infrastruktur klein sind, dominieren bilaterale Verträge." },
+        { text: "Das Handelsvolumen ist noch zu gering — ohne kritische Liquidität lohnt kein Börsenprodukt; H2 läuft bilateral.", korrekt: true, erklaerung: "Börsen brauchen viele Teilnehmer und Volumen; solange H2-Markt und -Infrastruktur klein sind, dominieren bilaterale Verträge." },
         { text: "Weil Wasserstoff physikalisch nicht handelbar ist.", korrekt: false, erklaerung: "H2 ist handelbar — es fehlt nur die Marktliquidität und Infrastruktur, nicht die grundsätzliche Handelbarkeit." },
         { text: "Weil die EU den H2-Handel verboten hat.", korrekt: false, erklaerung: "Die EU fördert den H2-Markt (RED III, H2Global) — das Hindernis ist fehlende Liquidität, kein Verbot." }
       ]
@@ -3239,7 +3239,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
     data: {
       frage: "Lokale Flexmärkte und §14a (Modul 3) lösen dasselbe Netzproblem auf gegensätzliche Weise. Wie?",
       optionen: [
-        { text: "Der lokale Flexmarkt kauft Flexibilität marktlich zum besten Gebot; §14a greift reguliert und ohne Markt per Zwangsdimmung ein — Markt vs. Hoheit für denselben Zweck (Engpassvermeidung ohne Netzausbau).", korrekt: true, erklaerung: "Beide vermeiden teuren Netzausbau, aber das eine über einen freiwilligen Preis, das andere über ein reguliertes Eingriffsrecht — genau deshalb konkurrieren sie." },
+        { text: "Der Flexmarkt kauft Flexibilität marktlich, §14a greift reguliert per Zwangsdimmung ein — Markt vs. Hoheit für denselben Zweck.", korrekt: true, erklaerung: "Beide vermeiden teuren Netzausbau, aber das eine über einen freiwilligen Preis, das andere über ein reguliertes Eingriffsrecht — genau deshalb konkurrieren sie." },
         { text: "Beide bauen zwingend einen neuen Trafo.", korrekt: false, erklaerung: "Beide vermeiden gerade den Trafo-Ausbau — das ist ihr gemeinsamer Zweck, nur der Weg (Markt vs. Regulierung) unterscheidet sich." },
         { text: "§14a ist ein Börsenprodukt, der Flexmarkt eine Behördenauflage.", korrekt: false, erklaerung: "Umgekehrt: §14a ist das regulierte Instrument, der lokale Flexmarkt der marktliche Mechanismus." }
       ]

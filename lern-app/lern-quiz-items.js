@@ -3750,7 +3750,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Utilities und Fonds kaufen ganze Projektpipelines im Voraus (Forward Deals) und drücken die Einzelverkaufsmarge; aggressive Flächensicherer treiben die Pachtpreise hoch.", korrekt: true, erklaerung: "Der Wettbewerb um Fläche und der Direktkauf von Pipelines verkleinern die Knappheitsprämie der Entwickler." },
         { text: "Durch ein Verbot des Projektrechte-Handels.", korrekt: false, erklaerung: "Der Handel mit genehmigten Projekten ist erlaubt und üblich — der Druck kommt aus Wettbewerb, nicht aus einem Verbot." },
-        { text: "Weil Genehmigungen inzwischen kostenlos erteilt werden.", korrekt: false, erklaerung: "Genehmigungsverfahren bleiben teuer und langwierig — genau darin liegt ja der Wert; angegriffen wird die Marge über Forward Deals und Flächenkonkurrenz." }
+        { text: "Weil die naturschutz- und immissionsrechtlichen Genehmigungen für Wind- und Solarparks inzwischen völlig kostenlos und ohne jedes Verfahren erteilt werden und deshalb keinen Wert mehr darstellen.", korrekt: false, erklaerung: "Genehmigungsverfahren bleiben teuer und langwierig — genau darin liegt ja der Wert; angegriffen wird die Marge über Forward Deals und Flächenkonkurrenz." }
       ]
     }
   },
@@ -3776,7 +3776,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Der Develop-to-Sell-Projektierer und der Offshore-Windentwickler (Modul 2) unterscheiden sich in einem entscheidenden Punkt. Welchem?",
       optionen: [
         { text: "Der Develop-to-Sell-Projektierer ist kapitalleicht (verkauft vor dem Bau, bindet nur Entwicklungskosten); der Offshore-Entwickler ist extrem kapitalintensiv (Milliarden-Capex) und behält oft den 20-jährigen O&M-Betrieb als profitabelste Phase.", korrekt: true, erklaerung: "Onshore-Projektentwicklung monetarisiert die Genehmigung und steigt aus; Offshore trägt Milliarden und verdient über Jahrzehnte am Betrieb — zwei gegensätzliche Kapitalstrategien." },
-        { text: "Beide behalten die Anlage 20 Jahre und betreiben sie selbst.", korrekt: false, erklaerung: "Der Develop-to-Sell-Projektierer verkauft gerade vor dem Betrieb — nur der Offshore-Entwickler behält oft den Betrieb." },
+        { text: "Beide Entwicklertypen behalten die fertig gebaute Anlage anschließend volle 20 Jahre in ihrem eigenen Bestand und betreiben sie über den kompletten Lebenszyklus selbst, statt sie nach der Fertigstellung an einen Investor zu verkaufen.", korrekt: false, erklaerung: "Der Develop-to-Sell-Projektierer verkauft gerade vor dem Betrieb — nur der Offshore-Entwickler behält oft den Betrieb." },
         { text: "Beide sind reine Merchant-Stromhändler.", korrekt: false, erklaerung: "Weder der eine noch der andere ist primär Stromhändler — der eine handelt Projektrechte, der andere baut und betreibt Anlagen." }
       ]
     }
@@ -3790,7 +3790,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was bedeutet 'Non-Recourse' bei der Projektfinanzierung?",
       optionen: [
         { text: "Das Darlehen ist ausschließlich durch die Projekt-Cashflows besichert — bei Ausfall hat die Bank keinen Rückgriff auf das sonstige Vermögen des Investors (Sponsor).", korrekt: true, erklaerung: "Das Risiko ist auf das Projekt begrenzt; genau deshalb sind die gesicherten EEG-Cashflows als Sicherheit so wichtig." },
-        { text: "Dass der Investor überhaupt kein Eigenkapital einbringen muss.", korrekt: false, erklaerung: "Der Sponsor bringt sehr wohl 20–30% Eigenkapital ein — 'Non-Recourse' betrifft die Haftung, nicht den Eigenkapitalanteil." },
+        { text: "Der entscheidende Punkt ist, dass der Investor bei der Projektfinanzierung überhaupt kein eigenes Eigenkapital einbringen muss, weil die Bank das Vorhaben zu 100 % fremdfinanziert und allein trägt.", korrekt: false, erklaerung: "Der Sponsor bringt sehr wohl 20–30% Eigenkapital ein — 'Non-Recourse' betrifft die Haftung, nicht den Eigenkapitalanteil." },
         { text: "Dass die Bank das Projekt selbst betreibt.", korrekt: false, erklaerung: "Die Bank finanziert nur — betrieben wird das Projekt vom SPV; Non-Recourse meint die begrenzte Haftung." }
       ]
     }
@@ -3803,7 +3803,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Leverage-Hebel: Weil 75% günstiges Fremdkapital (4–5%) eingesetzt wird, bleibt die Differenz zwischen Projekt- und Fremdkapitalrendite überproportional beim kleinen Eigenkapitalanteil.", korrekt: true, erklaerung: "Je höher der Fremdkapitalanteil bei positiver Zinsdifferenz, desto stärker der Hebel auf die Eigenkapitalrendite." },
         { text: "Weil die EEG-Vergütung 40% beträgt.", korrekt: false, erklaerung: "Die EEG-Vergütung sichert nur den Cashflow — die hohe EK-Rendite entsteht durch den Fremdkapitalhebel, nicht durch die Vergütungshöhe." },
-        { text: "Weil die Bank dem Investor einen Bonus zahlt.", korrekt: false, erklaerung: "Es gibt keinen Bonus — die hohe EK-Rendite ist ein rein rechnerischer Hebeleffekt der Kapitalstruktur." }
+        { text: "Weil die finanzierende Bank dem Investor bei erfolgreichem Projektabschluss einen zusätzlichen Bonus auf sein eingesetztes Kapital auszahlt und ihm damit einen Teil ihrer eigenen Zinsmarge abtritt.", korrekt: false, erklaerung: "Es gibt keinen Bonus — die hohe EK-Rendite ist ein rein rechnerischer Hebeleffekt der Kapitalstruktur." }
       ]
     }
   },
@@ -3839,7 +3839,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Wodurch geraten Banken im Projektfinanzierungsgeschäft unter Druck — und wo verteidigen sie sich?",
       optionen: [
         { text: "Debt Funds und institutionelle Direktkreditgeber bieten schneller und mit höherem Leverage; verteidigungsfähig ist die Strukturierungskompetenz bei neuen Asset-Klassen (BESS, H2, Ladeinfrastruktur), deren Cashflows noch nicht standardisiert sind.", korrekt: true, erklaerung: "Standardfinanzierung wird zur Ware; das komplexe Neuland (Speicher, H2) bleibt Bankgeschäft." },
-        { text: "Weil die BNetzA die Projektfinanzierung reguliert.", korrekt: false, erklaerung: "Projektfinanzierung ist Bankgeschäft, nicht BNetzA-reguliert — der Druck kommt von alternativen Kreditgebern." },
+        { text: "Weil die BNetzA die Konditionen der Projektfinanzierung für Erneuerbare-Anlagen unmittelbar reguliert, die zulässigen Zinssätze der Banken festlegt und damit den gesamten Finanzierungsmarkt behördlich steuert, sodass für freie Verhandlungen kein Raum bleibt.", korrekt: false, erklaerung: "Projektfinanzierung ist Bankgeschäft, nicht BNetzA-reguliert — der Druck kommt von alternativen Kreditgebern." },
         { text: "Weil EE-Projekte keine Finanzierung mehr brauchen.", korrekt: false, erklaerung: "Der Kapitalbedarf ist riesig — der Wettbewerb kommt von neuen Kreditgebern, nicht von wegfallendem Bedarf." }
       ]
     }
@@ -3866,7 +3866,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Projektfinanzierung (dieses Modul) und Corporate PPA (Modul 2) hängen eng zusammen. Wie verstärken sie sich?",
       optionen: [
         { text: "Ein PPA liefert den langfristig gesicherten Cashflow, den die Non-Recourse-Finanzierung als Sicherheit braucht — der PPA macht das Projekt bankfähig, die Finanzierung macht den Bau möglich.", korrekt: true, erklaerung: "PPA und Projektfinanzierung sind zwei Zahnräder desselben Getriebes: Cashflow-Sicherung ermöglicht günstige Fremdfinanzierung." },
-        { text: "Sie konkurrieren um dieselben Investoren und schließen sich aus.", korrekt: false, erklaerung: "Sie ergänzen sich — der PPA ist gerade die Cashflow-Grundlage für die Finanzierung, kein Konkurrent." },
+        { text: "Sie konkurrieren im Kern um dieselben knappen Investoren und schließen sich deshalb gegenseitig aus, sodass immer nur eines der beiden Finanzierungsmodelle pro Projekt zum Zuge kommen kann.", korrekt: false, erklaerung: "Sie ergänzen sich — der PPA ist gerade die Cashflow-Grundlage für die Finanzierung, kein Konkurrent." },
         { text: "Beide ersetzen die EEG-Förderung durch Börsenhandel.", korrekt: false, erklaerung: "Beide sichern Cashflows ab (statt sie dem Spotmarkt auszusetzen) — das Gegenteil von reinem Börsenhandel." }
       ]
     }
@@ -3880,7 +3880,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was bringt McKinsey in ein Kohleausstiegs-Mandat vor allem ein?",
       optionen: [
         { text: "Benchmarks aus 50+ vergleichbaren Transformationsprojekten weltweit — wie andere Versorger umgebaut haben, mit welchen Strukturen und Fehlern.", korrekt: true, erklaerung: "Die externe Vergleichsperspektive aus vielen Projekten ist ein Kernwert der Top-Beratung." },
-        { text: "Eigenes Kapital zur Finanzierung des Umbaus.", korrekt: false, erklaerung: "Berater bringen kein Kapital — sie bringen Wissen, Benchmarks und Legitimation." },
+        { text: "Vor allem eigenes Kapital, mit dem die Berater den kompletten Umbau des Energiesystems ihrer Klienten direkt selbst vorfinanzieren und das Investitionsrisiko übernehmen.", korrekt: false, erklaerung: "Berater bringen kein Kapital — sie bringen Wissen, Benchmarks und Legitimation." },
         { text: "Fertige Genehmigungen für neue Windparks.", korrekt: false, erklaerung: "Genehmigungen liefert der Projektentwickler, nicht der Strategieberater." }
       ]
     }
@@ -3893,7 +3893,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Eine unbequeme Entscheidung (z.B. profitable Kohleblöcke stilllegen) lässt sich im Vorstand mit dem Briefkopf einer Top-Beratung leichter gegen interne Widerstände durchsetzen als mit demselben Rat aus dem eigenen Haus.", korrekt: true, erklaerung: "Externe Autorität senkt den internen Widerstand — ein oft unterschätzter, aber realer Wert der Beratung." },
         { text: "Weil Berater die Entscheidung rechtlich verbindlich machen.", korrekt: false, erklaerung: "Berater haben keine rechtliche Entscheidungsgewalt — ihr Wert ist die Legitimation, nicht die Rechtsverbindlichkeit." },
-        { text: "Weil der Vorstand die Verantwortung vollständig an die Berater abgibt.", korrekt: false, erklaerung: "Die Verantwortung bleibt beim Vorstand — die Beratung erleichtert nur die interne Durchsetzung." }
+        { text: "Weil der Vorstand mit der Beauftragung einer großen Beratung die gesamte unternehmerische Verantwortung für die Transformation formal vollständig an die externen Berater abgibt und im Fall des Scheiterns selbst nicht mehr haftbar gemacht werden kann.", korrekt: false, erklaerung: "Die Verantwortung bleibt beim Vorstand — die Beratung erleichtert nur die interne Durchsetzung." }
       ]
     }
   },
@@ -3930,7 +3930,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Die Leverage-Pyramide aus Junior-Beratern (Analyse- und Slide-Arbeit) — genau diese kommoditisieren KI-Tools; verteidigungsfähig bleiben C-Level-Zugang und Transaktionsnähe.", korrekt: true, erklaerung: "Die standardisierbare Analysearbeit ist das erste Automatisierungsopfer; die Beziehungs- und Legitimationsebene bleibt." },
         { text: "Der Partner-Zugang zum Vorstand.", korrekt: false, erklaerung: "Gerade der C-Level-Zugang ist verteidigungsfähig — bedroht ist die Junior-Analysearbeit darunter." },
-        { text: "Die politische Legitimationsfunktion.", korrekt: false, erklaerung: "Legitimation lässt sich nicht automatisieren — sie ist Teil der verteidigungsfähigen Ebene." }
+        { text: "Vor allem die politische Legitimationsfunktion, denn ein teures Gutachten einer renommierten Beratung dient dem Vorstand in erster Linie als Absicherung gegenüber Aufsichtsrat und Öffentlichkeit.", korrekt: false, erklaerung: "Legitimation lässt sich nicht automatisieren — sie ist Teil der verteidigungsfähigen Ebene." }
       ]
     }
   },
@@ -3946,7 +3946,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Strategieberatung und Energieeinkaufsberatung (Modul 7) sind beide Beratung — aber mit gegensätzlichem Erlösmodell. Wie?",
       optionen: [
         { text: "Die Strategieberatung rechnet zeitbasiert (Tagessätze) für Grundsatzentscheidungen ab; die Einkaufsberatung arbeitet oft erfolgsbasiert (Honorar als % der nachgewiesenen Einsparung) — Zeit vs. Ergebnis.", korrekt: true, erklaerung: "Zwei Beratungsarten, zwei Vergütungslogiken: Die eine verkauft Urteil/Legitimation, die andere messbare Einsparung." },
-        { text: "Beide arbeiten ausschließlich auf Erfolgshonorar.", korrekt: false, erklaerung: "Die Strategieberatung rechnet gerade zeitbasiert ab — Erfolgshonorar ist typisch für die Einkaufsberatung." },
+        { text: "Beide Beratungstypen arbeiten ausschließlich auf reines Erfolgshonorar und bekommen nur dann Geld, wenn ihre Empfehlungen beim Klienten am Ende auch tatsächlich zu messbaren Einsparungen oder Mehrerlösen führen.", korrekt: false, erklaerung: "Die Strategieberatung rechnet gerade zeitbasiert ab — Erfolgshonorar ist typisch für die Einkaufsberatung." },
         { text: "Beide verkaufen Software statt Beratung.", korrekt: false, erklaerung: "Beide sind Beratungsmodelle, keine Softwareanbieter — der Unterschied liegt in der Vergütungslogik." }
       ]
     }
@@ -3961,7 +3961,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Ein einzelnes streitiges Verfahren kann sich über Jahre bis vor BGH/OLG ziehen und erzeugt kontinuierliche Mandatsumsätze weit über eine einmalige Vertragsberatung hinaus.", korrekt: true, erklaerung: "Hohe Streitwerte (Netzwert 100–500 Mio. €) plus jahrelange Verfahren ergeben Mehrjahresmandate." },
         { text: "Weil die Kanzlei am Netzwert prozentual beteiligt wird.", korrekt: false, erklaerung: "Kanzleien rechnen Stundensätze/Pauschalen ab, keine Netzwert-Beteiligung — der Hebel ist die Verfahrensdauer." },
-        { text: "Weil §46-Verfahren gesetzlich mit Mindesthonoraren belegt sind.", korrekt: false, erklaerung: "Es gibt keine gesetzlichen Mindesthonorare hier — der Wert entsteht aus Spezialisierung und Verfahrensdauer." }
+        { text: "Weil die §46-Konzessionsverfahren gesetzlich mit festen Mindesthonoraren für die beteiligten Kanzleien belegt sind, die den Anwälten unabhängig vom Aufwand ein garantiertes Einkommen sichern.", korrekt: false, erklaerung: "Es gibt keine gesetzlichen Mindesthonorare hier — der Wert entsteht aus Spezialisierung und Verfahrensdauer." }
       ]
     }
   },
@@ -3973,7 +3973,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "In der genauen Kenntnis der sich ständig ändernden BGH-Rechtsprechung zur Diskriminierungsfreiheit — sie erlaubt, Verfahren so zu gestalten, dass sie später nicht wegen Verfahrensfehlern angefochten werden können.", korrekt: true, erklaerung: "Aktuelle Rechtsprechungskenntnis ist die Eintrittsbarriere: Sie schützt sowohl Bieter als auch Kommunen vor teuren Verfahrensfehlern." },
         { text: "In der Fähigkeit, das Netz selbst zu betreiben.", korrekt: false, erklaerung: "Kanzleien betreiben keine Netze — ihr Wert ist die rechtliche Verfahrensführung." },
-        { text: "In günstigeren Netzentgelten für ihre Mandanten.", korrekt: false, erklaerung: "Netzentgelte setzt die BNetzA — die Kanzlei gestaltet das Konzessionsverfahren rechtssicher, nicht die Entgelte." }
+        { text: "Der eigentliche Hebel liegt in spürbar günstigeren Netzentgelten für ihre Mandanten, die die Kanzleien vor den Regulierungsbehörden direkt durchsetzen und als handfeste jährliche Ersparnis an ihre Industriekunden weiterreichen.", korrekt: false, erklaerung: "Netzentgelte setzt die BNetzA — die Kanzlei gestaltet das Konzessionsverfahren rechtssicher, nicht die Entgelte." }
       ]
     }
   },
@@ -4009,7 +4009,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum ist das §46-Geschäft trotz hoher Margen strukturell wackelig?",
       optionen: [
         { text: "Es ist ein zyklisches Nischenmonopol — zwischen den 20-jährigen Konzessionswellen bricht das Mandatsvolumen ein, und große Kanzleien kaufen sich per Lateral Hire in die Nische ein.", korrekt: true, erklaerung: "Die Nachfrage kommt in Wellen; in den Tälern trägt die Spezialisierung kaum, was das Modell verwundbar macht." },
-        { text: "Weil §46-Verfahren gesetzlich abgeschafft werden.", korrekt: false, erklaerung: "§46 bleibt bestehen (die Welle hält bis ~2030 an) — die Schwäche ist die Zyklizität, keine Abschaffung." },
+        { text: "Weil die §46-Konzessionsverfahren für die Vergabe von Verteilnetzen gesetzlich vollständig abgeschafft werden und den spezialisierten Kanzleien damit ihr wichtigstes und lukrativstes Mandatsfeld ersatzlos wegbricht.", korrekt: false, erklaerung: "§46 bleibt bestehen (die Welle hält bis ~2030 an) — die Schwäche ist die Zyklizität, keine Abschaffung." },
         { text: "Weil Kommunen keine Beratung mehr brauchen.", korrekt: false, erklaerung: "Kommunen brauchen weiterhin Beratung — das Problem ist die schwankende Verfahrensfrequenz, nicht wegfallende Nachfrage." }
       ]
     }
@@ -4036,7 +4036,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Die §46-Konzessionskanzlei (dieses Modul) und die Rekommunalisierung (Modul 3) beschreiben dieselbe Situation aus zwei Blickwinkeln. Welche?",
       optionen: [
         { text: "Das Auslaufen der Netzkonzession: Modul 3 sah den wirtschaftlich-strategischen Rückkauf durch die Kommune, dieses Modul die juristische Begleitung genau dieses jahrelangen Konzessionsverfahrens.", korrekt: true, erklaerung: "Rekommunalisierung ist der Anlass, das §46-Mandat die anwaltliche Dienstleistung dazu — zwei Seiten desselben Vorgangs." },
-        { text: "Beide beschreiben den Bau eines neuen Kraftwerks.", korrekt: false, erklaerung: "Es geht um die Netzkonzession, nicht um Kraftwerksbau." },
+        { text: "Beide Begriffe beschreiben letztlich denselben Vorgang, nämlich den physischen Bau eines komplett neuen Kraftwerks, und werden in der Praxis synonym füreinander verwendet, ohne dass ein Unterschied besteht.", korrekt: false, erklaerung: "Es geht um die Netzkonzession, nicht um Kraftwerksbau." },
         { text: "Beide betreffen den Stromvertrieb an Endkunden.", korrekt: false, erklaerung: "Beide betreffen das Netz (Konzession/Eigentum), nicht den Endkundenvertrieb." }
       ]
     }
@@ -4097,7 +4097,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Wodurch ist das EE-Versicherungsgeschäft angreifbar?",
       optionen: [
         { text: "Alternative Kapazitätsgeber (ILS, Captives großer Betreiber) umgehen die Underwriting-Marge, und InsurTechs bepreisen Klimarisiken datenbasiert (Sensordaten direkt aus den Anlagen) günstiger.", korrekt: true, erklaerung: "Datengetriebene Risikobepreisung und alternative Kapazität greifen die klassische Versicherungsmarge an." },
-        { text: "Durch ein Verbot von Windpark-Versicherungen.", korrekt: false, erklaerung: "Versicherungen sind für die Projektfinanzierung sogar Pflicht — der Druck kommt von neuen Anbietern/Kapazität, nicht von einem Verbot." },
+        { text: "Vor allem durch ein drohendes gesetzliches Verbot von Windpark-Versicherungen, das den gesamten Markt für die Absicherung erneuerbarer Erzeugungsanlagen schlagartig und ersatzlos zum Erliegen bringen würde.", korrekt: false, erklaerung: "Versicherungen sind für die Projektfinanzierung sogar Pflicht — der Druck kommt von neuen Anbietern/Kapazität, nicht von einem Verbot." },
         { text: "Weil Windparks nicht mehr ausfallen.", korrekt: false, erklaerung: "Klimarisiken steigen sogar — die Angreifbarkeit liegt in besserer Bepreisung durch InsurTechs, nicht in wegfallendem Risiko." }
       ]
     }
@@ -4125,7 +4125,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Die Bank finanziert nur gegen gesicherte Cashflows — eine BU-Versicherung schützt genau diese Erlöse bei Stillstand, weshalb Banken einen Versicherungsnachweis verlangen.", korrekt: true, erklaerung: "Versicherung und Finanzierung greifen ineinander: Ohne Absicherung des Cashflows kein günstiger Kredit." },
         { text: "Weil die Versicherung das Eigenkapital des Investors ersetzt.", korrekt: false, erklaerung: "Die Versicherung schützt den Cashflow, sie ersetzt kein Eigenkapital — sie ist eine Bedingung, kein Kapitalersatz." },
-        { text: "Weil die Bank ohne Versicherung das Netz nicht anschließen darf.", korrekt: false, erklaerung: "Der Netzanschluss hat mit der Versicherung nichts zu tun — die Bank verlangt sie zum Schutz des besicherten Cashflows." }
+        { text: "Weil die finanzierende Bank ohne eine vollständige Versicherung des Windparks den Netzanschluss gar nicht freigeben und der Netzbetreiber die Anlage deshalb nicht ans Netz nehmen darf.", korrekt: false, erklaerung: "Der Netzanschluss hat mit der Versicherung nichts zu tun — die Bank verlangt sie zum Schutz des besicherten Cashflows." }
       ]
     }
   },
@@ -4150,7 +4150,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum ist die Kraken-Plattform (~8,65 Mrd. $) mehr wert als mancher Versorger mit Millionen Kunden?",
       optionen: [
         { text: "Reine SaaS-Ökonomie: wiederkehrender Lizenzumsatz je Account bei minimalen Grenzkosten und enormen Wechselhürden — solche Software-Umsätze werden mit einem Vielfachen der margenschwachen Energievertriebs-Umsätze bewertet.", korrekt: true, erklaerung: "Der Markt bewertet skalierbare, klebrige Software-Umsätze deutlich höher als dünne Commodity-Margen." },
-        { text: "Weil Kraken mehr Strom verkauft als jeder Versorger.", korrekt: false, erklaerung: "Kraken verkauft gar keinen Strom — es verkauft Software; genau das ist der höher bewertete Umsatztyp." },
+        { text: "Weil die Plattform Kraken nach dieser Vorstellung selbst mehr Strom an Endkunden verkauft als jeder einzelne klassische Versorger und damit zum größten Energieanbieter überhaupt geworden ist, obwohl sie nur die Software liefert.", korrekt: false, erklaerung: "Kraken verkauft gar keinen Strom — es verkauft Software; genau das ist der höher bewertete Umsatztyp." },
         { text: "Weil die Plattform physische Kraftwerke besitzt.", korrekt: false, erklaerung: "Kraken besitzt keine Kraftwerke — der Wert liegt in der skalierbaren Software, nicht in Assets." }
       ]
     }
@@ -4187,7 +4187,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was war die größte Angriffsfläche von Kraken — und wie wird sie geschlossen?",
       optionen: [
         { text: "Der Interessenkonflikt: Versorger zögerten, ihr Kernsystem vom Wettbewerber Octopus zu mieten; der Spin-off 2026 macht Kraken zum unabhängigen Unternehmen und schließt genau diese Flanke.", korrekt: true, erklaerung: "Solange Kraken zu Octopus gehörte, finanzierte jeder Lizenznehmer seinen eigenen Angreifer — der Spin-off entkoppelt das." },
-        { text: "Dass Kraken technisch nicht funktioniert.", korrekt: false, erklaerung: "Kraken funktioniert nachweislich (Octopus läuft selbst darauf) — die Flanke war der Interessenkonflikt, nicht die Technik." },
+        { text: "Das größte Risiko besteht schlicht darin, dass die Kraken-Plattform technisch gar nicht zuverlässig funktioniert und die darauf migrierten Versorger deshalb reihenweise ihre Abrechnung und ihren Kundenservice verlieren.", korrekt: false, erklaerung: "Kraken funktioniert nachweislich (Octopus läuft selbst darauf) — die Flanke war der Interessenkonflikt, nicht die Technik." },
         { text: "Dass die Plattform zu billig ist.", korrekt: false, erklaerung: "Der Preis war nicht das Problem — der Interessenkonflikt mit dem Wettbewerber Octopus war die Angriffsfläche." }
       ]
     }
@@ -4214,7 +4214,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Utility-OS (dieses Modul) und Octopus als Versorger (Modul 4) sind zwei Seiten derselben Strategie. Welche — und was ist die 'strategische Ironie'?",
       optionen: [
         { text: "Octopus nutzt Kraken selbst als Cost-to-Serve-Waffe im Endkundenmarkt UND lizenziert sie an Wettbewerber — die Ironie: Jeder Incumbent, der lizenziert, finanziert die Weiterentwicklung genau der Plattform, die ihn als Octopus-Angreifer am meisten bedroht.", korrekt: true, erklaerung: "Doppelte Monetarisierung derselben Software — als eigene Waffe und als Produkt, das die Konkurrenz mitfinanziert." },
-        { text: "Octopus und Kraken sind völlig unabhängige Unternehmen ohne Bezug.", korrekt: false, erklaerung: "Kraken IST Octopus' Plattform — genau diese Verbindung ist der Kern (und wird durch den Spin-off entkoppelt)." },
+        { text: "Octopus Energy und die Plattform Kraken sind zwei völlig unabhängige und voneinander getrennte Unternehmen ganz ohne gegenseitigen Bezug, die rein zufällig im selben Markt tätig sind und strikt getrennt betrachtet werden müssen.", korrekt: false, erklaerung: "Kraken IST Octopus' Plattform — genau diese Verbindung ist der Kern (und wird durch den Spin-off entkoppelt)." },
         { text: "Kraken ersetzt den Stromvertrieb vollständig durch Software.", korrekt: false, erklaerung: "Kraken betreibt den Vertrieb effizienter, ersetzt ihn aber nicht — die Ironie liegt in der Doppelrolle als Waffe und Lizenzprodukt." }
       ]
     }

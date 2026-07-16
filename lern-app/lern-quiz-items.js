@@ -26,7 +26,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Weil beim Bestandskunden keine Akquisitionskosten anfallen und die Zusatzmarge dieser Produkte die dünne Strommarge um ein Vielfaches übersteigt.", korrekt: true, erklaerung: "Genau das ist der Cross-Selling-Hebel: Der Kunde ist schon da, und eine Wallbox oder ein PV-Pachtvertrag bringt mehr als viele Jahre Strommarge." },
         { text: "Weil die Wallbox den Stromverbrauch des Kunden erhöht und E.ON dadurch mehr kWh-Marge verdient.", korrekt: false, erklaerung: "Klingt plausibel, greift aber zu kurz: Bei 1–2 ct/kWh bringt selbst der Mehrverbrauch eines E-Autos (~2.500 kWh/Jahr) nur ~25–50 € zusätzlich – die Gerätemarge und Vertragsbindung sind der eigentliche Hebel." },
-        { text: "Weil §41a EnWG Versorger verpflichtet, ihren Kunden Komplettlösungen für Elektromobilität anzubieten.", korrekt: false, erklaerung: "§41a verpflichtet nur zu dynamischen Tarifen, nicht zu Hardware-Angeboten – das Cross-Selling ist eine rein wirtschaftliche Entscheidung." }
+        { text: "Weil §41a EnWG jeden Grundversorger gesetzlich verpflichtet, seinen Kunden aktiv Komplettlösungen für Elektromobilität und Wärmepumpen anzubieten.", korrekt: false, erklaerung: "§41a verpflichtet nur zu dynamischen Tarifen, nicht zu Hardware-Angeboten – das Cross-Selling ist eine rein wirtschaftliche Entscheidung." }
       ]
     }
   },
@@ -37,7 +37,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was bedeutet der Grundversorgungsstatus (§36 EnWG) für einen Versorger konkret?",
       optionen: [
         { text: "Er beliefert automatisch Haushalte ohne aktiven Vertrag zum Grundversorgungstarif – ohne dass der Kunde aktiv wechseln musste.", korrekt: true, erklaerung: "Richtig – Grundversorger ist per Gesetz der Anbieter mit den meisten Kunden im Netzgebiet, er übernimmt automatisch alle vertragslosen Haushalte." },
-        { text: "Er darf als einziger Anbieter in einer Region Strom verkaufen.", korrekt: false, erklaerung: "Der Strommarkt ist liberalisiert – jeder Haushalt kann frei zwischen Anbietern wechseln, der Grundversorger hat kein Exklusivrecht." },
+        { text: "Er darf als per Gesetz bestellter einziger Anbieter in seiner Region exklusiv Strom an alle Haushalte verkaufen und ist dabei vor jedem Wettbewerb geschützt.", korrekt: false, erklaerung: "Der Strommarkt ist liberalisiert – jeder Haushalt kann frei zwischen Anbietern wechseln, der Grundversorger hat kein Exklusivrecht." },
         { text: "Er muss seinen Strom günstiger als alle Wettbewerber anbieten.", korrekt: false, erklaerung: "Der GVT ist nicht staatlich reguliert und oft sogar teurer als Sondertarife – nur transparent kalkulierbar nach StromGVV." }
       ]
     }
@@ -102,7 +102,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Sind 'Vollversorger' und 'Grundversorger' dasselbe?",
       optionen: [
         { text: "Nein – Vollversorgung beschreibt die Vertragsform (Lieferant deckt den gesamten Bedarf), Grundversorgung ist ein gesetzlicher Status nach §36 EnWG. Jeder Grundversorger ist Vollversorger, aber nicht umgekehrt.", korrekt: true, erklaerung: "Genau: Auch Tibber oder Octopus liefern 'Vollversorgung' im Vertragssinn – Grundversorger ist aber nur, wer im Netzgebiet die meisten Haushaltskunden hat und deshalb per Gesetz jeden Vertragslosen beliefern muss." },
-        { text: "Ja – beide Begriffe bezeichnen den gesetzlich bestellten Lieferanten eines Netzgebiets, nur in unterschiedlichen Gesetzen.", korrekt: false, erklaerung: "Nein – nur die Grundversorgung ist ein gesetzlicher Status (§36 EnWG). 'Vollversorgung' ist keine gesetzliche Bestellung, sondern beschreibt lediglich, dass der Lieferant den kompletten Bedarf des Kunden deckt." },
+        { text: "Ja – beide Begriffe bezeichnen exakt denselben gesetzlich bestellten Lieferanten eines Netzgebiets, nur benannt in unterschiedlichen Gesetzen, sodass Grundversorger und Ersatzversorger immer dasselbe Unternehmen mit denselben Pflichten sind.", korrekt: false, erklaerung: "Nein – nur die Grundversorgung ist ein gesetzlicher Status (§36 EnWG). 'Vollversorgung' ist keine gesetzliche Bestellung, sondern beschreibt lediglich, dass der Lieferant den kompletten Bedarf des Kunden deckt." },
         { text: "Nein – Vollversorger beliefern Haushalte, Grundversorger ausschließlich Gewerbe- und Industriekunden.", korrekt: false, erklaerung: "Umgekehrt wird ein Schuh draus: Die Grundversorgung gilt gerade für Haushaltskunden (in Niederspannung); Industriekunden mit strukturierter Beschaffung sind das klassische Gegenbeispiel zur Vollversorgung." }
       ]
     }
@@ -176,7 +176,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "§41a EnWG – die Pflicht zu dynamischen Tarifen, zunächst für große Versorger, ab 2025 für alle Lieferanten.", korrekt: true, erklaerung: "Genau dieser Paragraph zwingt den gesamten Markt in Richtung stündlicher Preislogik, die Tibber schon vorher anbot." },
         { text: "Das EEG, weil es Ökostrom-Erzeugung fördert.", korrekt: false, erklaerung: "Das EEG betrifft die Förderung von Erneuerbaren-Erzeugung, nicht die Tarifstruktur von Lieferanten." },
-        { text: "Die CSRD-Berichtspflicht für Nachhaltigkeitsberichte.", korrekt: false, erklaerung: "CSRD betrifft Unternehmensberichterstattung zu ESG-Themen, nicht dynamische Stromtarife." }
+        { text: "Die CSRD-Berichtspflicht für unternehmerische Nachhaltigkeitsberichte, die Tibber zu aufwändigen jährlichen ESG-Reportings zwingt.", korrekt: false, erklaerung: "CSRD betrifft Unternehmensberichterstattung zu ESG-Themen, nicht dynamische Stromtarife." }
       ]
     }
   },
@@ -188,7 +188,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Weil dynamische Tarife zur Pflicht für alle Lieferanten werden – Stadtwerke und Vollversorger können das einstige Alleinstellungsmerkmal dann mit ihrer bestehenden Kundenbasis bündeln.", korrekt: true, erklaerung: "Genau das beschreibt die Angreifbarkeit: Der First-Mover-Vorteil verschwindet, wenn das Produkt zur Pflichtausstattung wird – verteidigungsfähig bleiben nur App-Qualität und Ökosystem." },
         { text: "Weil §41a Höchstgrenzen für Grundgebühren einführt, die Tibbers Abo-Modell direkt begrenzen.", korrekt: false, erklaerung: "§41a regelt keine Grundgebühren-Obergrenzen – er verpflichtet Lieferanten lediglich, dynamische Tarife anzubieten." },
-        { text: "Weil §41a die Weitergabe stündlicher Börsenpreise an Haushaltskunden an strenge Risikoprüfungen knüpft, die Tibbers Kostenvorteil auffressen.", korrekt: false, erklaerung: "Solche Risikoprüfungen sieht §41a nicht vor – die Bedrohung liegt nicht in Auflagen für Tibber, sondern darin, dass alle Wettbewerber dasselbe Produkt anbieten müssen." }
+        { text: "Weil §41a die Weitergabe stündlicher Börsenpreise an Haushaltskunden an so strenge Risikoprüfungen und Dokumentationspflichten knüpft, dass diese den gesamten Kostenvorteil von Tibbers schlankem Modell wieder auffressen.", korrekt: false, erklaerung: "Solche Risikoprüfungen sieht §41a nicht vor – die Bedrohung liegt nicht in Auflagen für Tibber, sondern darin, dass alle Wettbewerber dasselbe Produkt anbieten müssen." }
       ]
     }
   },
@@ -252,7 +252,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was ist das Alleinstellungsmerkmal von aWATTar gegenüber Tibber und Ostrom?",
       optionen: [
         { text: "Eine öffentliche, kostenlose API mit Preisen 24h im Voraus – bewusst keine eigene App, um jede Vendor-Lock-in zu vermeiden.", korrekt: true, erklaerung: "Genau das unterscheidet aWATTar: maximale Offenheit über eine Entwickler-Schnittstelle statt eines eigenen geschlossenen Ökosystems." },
-        { text: "aWATTar ist der einzige Anbieter mit einem eigenen Ökostrom-Kraftwerk.", korrekt: false, erklaerung: "aWATTar betreibt kein eigenes Kraftwerk – das Modell basiert auf reinem Preis-Pass-Through plus API." },
+        { text: "aWATTar ist als einziger dynamischer Anbieter Eigentümer eines eigenen Ökostrom-Kraftwerks und kann seinen Kunden den Strom deshalb ohne Zwischenhändler liefern.", korrekt: false, erklaerung: "aWATTar betreibt kein eigenes Kraftwerk – das Modell basiert auf reinem Preis-Pass-Through plus API." },
         { text: "aWATTar bietet als einziger Anbieter eine Preisgarantie über 5 Jahre.", korrekt: false, erklaerung: "Im Gegenteil – aWATTar verzichtet wie Ostrom bewusst auf Preisgarantien und Lockangebote." }
       ]
     }
@@ -304,7 +304,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Tibber verdient an einem Abo für Automatisierung, Ostrom an einem fixen Aufschlag für Transparenz. Was ist der gemeinsame strategische Nenner beider Modelle gegenüber einem klassischen Vollversorger?",
       optionen: [
         { text: "Beide verzichten auf verdeckte, variable Kalkulationslogik und machen den Kunden zum Partner statt zum reinen Abnehmer einer intransparenten Marge.", korrekt: true, erklaerung: "Beide Modelle sind eine bewusste Abkehr vom klassischen Modell – nur der Wertkern (Automatisierung vs. Vertrauen) unterscheidet sich." },
-        { text: "Beide verlangen als einzige Anbieter eine Mindestvertragslaufzeit von 24 Monaten.", korrekt: false, erklaerung: "Weder Tibber noch Ostrom verlangen lange Mindestvertragslaufzeiten – beide werben im Gegenteil mit Flexibilität." },
+        { text: "Beide verlangen als einzige Anbieter am Markt eine feste Mindestvertragslaufzeit von 24 Monaten und binden ihre Kunden damit deutlich länger als jeder klassische Vollversorger.", korrekt: false, erklaerung: "Weder Tibber noch Ostrom verlangen lange Mindestvertragslaufzeiten – beide werben im Gegenteil mit Flexibilität." },
         { text: "Beide sind reguliert wie Grundversorger.", korrekt: false, erklaerung: "Keiner von beiden hat Grundversorgungsstatus – sie sind reine Sondertarif-Anbieter im Wettbewerb." }
       ]
     }
@@ -331,7 +331,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Die eingesparten Betriebskosten fließen in aggressivere Tarife, die trotzdem Marge tragen – das Wachstum verstärkt wiederum die Skaleneffekte (Flywheel).", korrekt: true, erklaerung: "Genau diese Selbstverstärkung ist der Kern: niedrigere Kosten → bessere Preise → mehr Kunden → noch niedrigere Stückkosten." },
         { text: "Die Kraken-Lizenzerlöse von Wettbewerbern subventionieren die deutschen Kampftarife quer.", korrekt: false, erklaerung: "Plausibel, aber nicht die beschriebene Mechanik: Der deutsche Preisvorteil kommt aus den eigenen niedrigen Betriebskosten je Kunde, nicht aus einer Quersubvention durch Lizenzgeschäft." },
-        { text: "Octopus kauft mit den Einsparungen kleinere Wettbewerber samt Kundenbestand auf – das erklärt die Verdopplung.", korrekt: false, erklaerung: "Das deutsche Wachstum war organisch über Preis und Produkt, keine Übernahme-Serie – die Verdopplung binnen zwölf Monaten kam aus Neuakquise." }
+        { text: "Octopus kauft mit den erzielten Kosteneinsparungen laufend kleinere Wettbewerber samt deren gesamtem Kundenbestand auf – allein diese Zukäufe erklären die Verdopplung der Kundenzahl.", korrekt: false, erklaerung: "Das deutsche Wachstum war organisch über Preis und Produkt, keine Übernahme-Serie – die Verdopplung binnen zwölf Monaten kam aus Neuakquise." }
       ]
     }
   },
@@ -387,7 +387,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Ein Vollversorger mit SAP-IS-U-Altlasten beobachtet Octopus' Wachstum. Was aus der Vollversorger-Einheit erklärt, warum er Octopus' Kostenvorteil nicht einfach 'nachbauen' kann?",
       optionen: [
         { text: "Die Migration von Alt-IT zu einer Kraken-ähnlichen Architektur ist eine mehrjährige, teure Transformation – kein Software-Update über Nacht.", korrekt: true, erklaerung: "Das deckt sich mit der in der Vollversorger-Einheit genannten Herausforderung: IT-Legacy erfordert eine grundlegende Neuarchitektur, keine schnelle Anpassung." },
-        { text: "Vollversorger dürfen laut EnWG keine Cloud-Software nutzen.", korrekt: false, erklaerung: "Es gibt kein gesetzliches Verbot für Cloud-Software bei Energieversorgern." },
+        { text: "Vollversorger dürfen laut EnWG aus Gründen des Datenschutzes und der Versorgungssicherheit grundsätzlich keine cloudbasierte Abrechnungssoftware einsetzen.", korrekt: false, erklaerung: "Es gibt kein gesetzliches Verbot für Cloud-Software bei Energieversorgern." },
         { text: "Octopus hat ein Patent auf automatisierte Kundenprozesse.", korrekt: false, erklaerung: "Der Vorteil liegt in der Plattformarchitektur und Ausführung, nicht in einem rechtlichen Patentschutz." }
       ]
     }
@@ -435,7 +435,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Wie groß ist ungefähr LichtBlicks Kundenbasis, und was zeigt das über das Premium-Ökostrom-Segment?",
       optionen: [
         { text: "~1,7 Mio. Verträge – zeigt, dass Ökostrom-Spezialisierung auch im Massenmarkt skalieren kann, wenn auch mit weicheren Kriterien als Naturstrom.", korrekt: true, erklaerung: "LichtBlick ist unter den fünf größten Stromlieferanten Deutschlands – ein Beleg, dass Ökostrom-Fokus kein reines Nischenmodell bleiben muss." },
-        { text: "~20.000 Verträge – ein reines Nischenprodukt ohne Massenmarktrelevanz.", korrekt: false, erklaerung: "LichtBlick ist mit ~1,7 Mio. Verträgen tatsächlich einer der größten Lieferanten Deutschlands, kein Nischenanbieter." },
+        { text: "Nur rund 20.000 Verträge – damit ein reines, wirtschaftlich unbedeutendes Nischenprodukt ganz ohne Massenmarktrelevanz oder Wachstumsperspektive.", korrekt: false, erklaerung: "LichtBlick ist mit ~1,7 Mio. Verträgen tatsächlich einer der größten Lieferanten Deutschlands, kein Nischenanbieter." },
         { text: "LichtBlick beliefert ausschließlich Geschäftskunden.", korrekt: false, erklaerung: "LichtBlick ist primär auf den B2C-Massenmarkt ausgerichtet." }
       ]
     }
@@ -476,7 +476,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Beide suchen eine Differenzierung, die ein reiner Preisvergleich auf Vergleichsportalen nicht abbilden kann.", korrekt: true, erklaerung: "Beide Modelle entziehen sich bewusst dem reinen ct/kWh-Vergleich – einmal über operative Exzellenz, einmal über glaubwürdige Wirkung." },
         { text: "Beide verlangen den niedrigsten Preis am Markt.", korrekt: false, erklaerung: "Octopus ist preisaggressiv, aber Fünf Grad verlangt explizit einen Aufpreis – 'billigster Preis' ist nicht der gemeinsame Nenner." },
-        { text: "Beide sind Tochterunternehmen desselben Konzerns.", korrekt: false, erklaerung: "Octopus und Fünf Grad sind unabhängige, nicht verbundene Unternehmen." }
+        { text: "Beide sind in Wahrheit Tochterunternehmen desselben großen Energiekonzerns und stimmen ihre Ökostrom-Angebote zentral miteinander ab.", korrekt: false, erklaerung: "Octopus und Fünf Grad sind unabhängige, nicht verbundene Unternehmen." }
       ]
     }
   },
@@ -489,7 +489,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was genau erlaubt §4 Abs. 6 KStG einem Stadtwerk wie SWM – und was hätte ein privates Unternehmen so nicht?",
       optionen: [
         { text: "Die steuerliche Verrechnung von Gewinnen aus profitablen Sparten mit ÖPNV-Verlusten innerhalb desselben Konzerns – ein eigenständiges privates ÖPNV-Unternehmen könnte seine Verluste nicht mit branchenfremden Gewinnen verrechnen.", korrekt: true, erklaerung: "Das ist der Kern des Querverbunds: eine steuerliche Sonderstellung kommunaler Mehrsparten-Unternehmen." },
-        { text: "Einen staatlichen Verlustausgleich: Der Bund erstattet kommunalen Unternehmen die ÖPNV-Defizite aus Steuermitteln.", korrekt: false, erklaerung: "§4 Abs. 6 KStG ist keine Subvention – es fließt kein Geld vom Staat. Er erlaubt nur, dass Gewinne und Verluste verschiedener Sparten steuerlich saldiert werden." },
+        { text: "Einen staatlichen Verlustausgleich: Der Bund erstattet den kommunalen Stadtwerken sämtliche ÖPNV- und Bäder-Defizite vollständig aus Steuermitteln, sodass der Querverbund gar nicht nötig wäre und die Energiesparte ihre Gewinne behalten dürfte.", korrekt: false, erklaerung: "§4 Abs. 6 KStG ist keine Subvention – es fließt kein Geld vom Staat. Er erlaubt nur, dass Gewinne und Verluste verschiedener Sparten steuerlich saldiert werden." },
         { text: "Eine reduzierte Konzessionsabgabe für Stadtwerke, die gleichzeitig den ÖPNV betreiben.", korrekt: false, erklaerung: "Konzessionsabgaben sind ein anderes Instrument (Zahlung an die Kommune für Wegerechte) – §4 Abs. 6 KStG regelt ausschließlich die körperschaftsteuerliche Verlustverrechnung." }
       ]
     }
@@ -502,7 +502,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Investitionen in Fernwärme vs. ÖPNV werden intern im selben Konzern abgewogen statt zwischen zwei unabhängigen Unternehmen verhandelt.", korrekt: true, erklaerung: "Genau das erklärt, warum SWM sich z.B. eine ambitionierte Geothermie-Fernwärme-Strategie leisten kann, die ein rein gewinnorientierter Betreiber so kaum querfinanzieren würde." },
         { text: "Der Stadtrat hat gar keinen Einfluss auf diese Entscheidungen.", korrekt: false, erklaerung: "Der Stadtrat ist im Gegenteil die letzte politische Entscheidungsinstanz bei diesen Abwägungen." },
-        { text: "Fernwärme-Investitionen werden komplett eingestellt, sobald der ÖPNV Verluste macht.", korrekt: false, erklaerung: "Der Querverbund funktioniert in die andere Richtung: profitable Sparten stützen den defizitären ÖPNV, nicht umgekehrt." }
+        { text: "Die Fernwärme-Investitionen des Stadtwerks werden regelmäßig komplett eingestellt, sobald der defizitäre ÖPNV im Querverbund wieder Verluste schreibt.", korrekt: false, erklaerung: "Der Querverbund funktioniert in die andere Richtung: profitable Sparten stützen den defizitären ÖPNV, nicht umgekehrt." }
       ]
     }
   },
@@ -543,7 +543,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was macht das 'Rosinenpicken' durch Neolieferanten für Stadtwerke so gefährlich, obwohl die meisten Kunden gar nicht wechseln?",
       optionen: [
         { text: "Es gehen gezielt die margenstärksten, digitalaffinen Kunden verloren – zurück bleibt eine alternde Basis, während ÖPNV-Defizite weiter aus der schrumpfenden Energiemarge finanziert werden müssen.", korrekt: true, erklaerung: "Genau diese Asymmetrie ist das Problem: Der Querverbund trägt nur, solange die Energiemarge die Verluste deckt – und die wandert selektiv ab." },
-        { text: "Jeder gewechselte Kunde erhöht automatisch die Netzentgelte der verbleibenden Kunden, was eine Abwärtsspirale auslöst.", korrekt: false, erklaerung: "Der Lieferantenwechsel ändert nichts an den Netzentgelten – das Netzgeschäft (reguliert) bleibt vom Vertriebswettbewerb unberührt. Die Gefahr liegt in der Vertriebsmarge." },
+        { text: "Jeder abgewanderte Kunde erhöht automatisch und unmittelbar die Netzentgelte aller verbleibenden Kunden im Gebiet, was diese ebenfalls zum Wechsel treibt und so eine sich selbst verstärkende Abwärtsspirale auslöst.", korrekt: false, erklaerung: "Der Lieferantenwechsel ändert nichts an den Netzentgelten – das Netzgeschäft (reguliert) bleibt vom Vertriebswettbewerb unberührt. Die Gefahr liegt in der Vertriebsmarge." },
         { text: "Neolieferanten übernehmen mit den Kunden auch anteilig die Konzessionsrechte am Verteilnetz.", korrekt: false, erklaerung: "Konzessionen für das Netz sind vom Vertrieb völlig getrennt (Unbundling) – ein Lieferantenwechsel berührt keinerlei Netzrechte." }
       ]
     }
@@ -555,7 +555,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Sowohl ein klassischer Vollversorger als auch ein Stadtwerk haben eine 'träge' Kundenbasis. Was unterscheidet die Ursache dieser Trägheit strukturell?",
       optionen: [
         { text: "Beim Vollversorger entsteht Trägheit vor allem durch den automatischen Grundversorgungsstatus, beim Stadtwerk zusätzlich durch jahrzehntelange kommunale Identität und Vertrauen.", korrekt: true, erklaerung: "Beide Mechanismen erzeugen Trägheit, aber die Stadtwerke-Bindung ist zusätzlich emotional/lokal verankert, nicht nur administrativ-rechtlich wie beim GVT." },
-        { text: "Es gibt keinen Unterschied – beide Formen von Trägheit sind identisch und gesetzlich vorgeschrieben.", korrekt: false, erklaerung: "Der GVT-Mechanismus ist rechtlich (§36 EnWG), die Stadtwerke-Bindung ist primär kulturell/vertrauensbasiert – das sind unterschiedliche Ursachen." },
+        { text: "Es gibt keinen Unterschied – beide Formen von Trägheit sind vollkommen identisch, gesetzlich vorgeschrieben und lassen sich von den Anbietern in keiner Weise geschäftlich beeinflussen oder nutzen.", korrekt: false, erklaerung: "Der GVT-Mechanismus ist rechtlich (§36 EnWG), die Stadtwerke-Bindung ist primär kulturell/vertrauensbasiert – das sind unterschiedliche Ursachen." },
         { text: "Stadtwerke-Kunden sind gesetzlich zum Vertragsverbleib verpflichtet.", korrekt: false, erklaerung: "Es gibt keine gesetzliche Wechselpflicht oder -verbot – jeder Kunde kann frei wechseln." }
       ]
     }
@@ -569,7 +569,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Der Kunde hält die Liste für einen neutralen Marktvergleich. Was stimmt daran nicht ganz?",
       optionen: [
         { text: "Die Liste zeigt primär Tarife von Lieferanten mit Provisionsvereinbarung, und eine höhere CPA-Rate kann die Platzierung verbessern – Sichtbarkeit ist teilweise käuflich.", korrekt: true, erklaerung: "Genau das ist der Mechanismus: Das Portal optimiert auf vermittelte Verträge, nicht zwingend auf den günstigsten Preis am Gesamtmarkt. Seit einem Gerichtsverfahren 2016/2017 muss die Maklerrolle offengelegt werden." },
-        { text: "Die Liste ist nach Preis korrekt sortiert, unterschlägt aber grundsätzlich alle Ökostrom-Tarife, die eigene Vertriebswege bevorzugen.", korrekt: false, erklaerung: "Ökostromanbieter wie Naturstrom sind zwar tatsächlich kaum auf Portalen präsent – aber das ist deren eigene Entscheidung, kein systematisches Unterschlagen durch das Portal. Der Kernpunkt ist die provisionsgetriebene Sortierung." },
+        { text: "Die Liste ist zwar nach Preis korrekt sortiert, unterschlägt aber grundsätzlich alle Ökostrom-Tarife und solche Anbieter, die keine Provision zahlen, weil die eigenen Vertriebspartner bevorzugt werden.", korrekt: false, erklaerung: "Ökostromanbieter wie Naturstrom sind zwar tatsächlich kaum auf Portalen präsent – aber das ist deren eigene Entscheidung, kein systematisches Unterschlagen durch das Portal. Der Kernpunkt ist die provisionsgetriebene Sortierung." },
         { text: "Das Portal zeigt bewusst zuerst teurere Tarife, um beim späteren 'Rabatt' einen Anker-Effekt zu erzeugen.", korrekt: false, erklaerung: "Diese Anker-Taktik ist nicht der beschriebene Mechanismus – das Portal lebt von vermittelten Abschlüssen (CPA), nicht von psychologischen Preisankern." }
       ]
     }
@@ -592,7 +592,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Wechselpilot übernimmt per Kundenvollmacht den Tarifwechsel dauerhaft und jährlich, statt nur einmalig zu vermitteln.", korrekt: true, erklaerung: "Das ist die entscheidende Weiterentwicklung: Recurring Abo-Erlös statt einmaliger CPA-Provision." },
         { text: "Wechselpilot verlangt vom Kunden keine Vollmacht.", korrekt: false, erklaerung: "Im Gegenteil – die Kundenvollmacht ist die zentrale Grundlage des Wechselpilot-Modells." },
-        { text: "Wechselpilot arbeitet nur mit einem einzigen Lieferanten zusammen.", korrekt: false, erklaerung: "Wechselpilot vergleicht wie ein Portal über den gesamten Markt, überwacht diesen aber kontinuierlich statt nur punktuell." }
+        { text: "Wechselpilot arbeitet im Hintergrund nur mit einem einzigen, fest verbundenen Lieferanten zusammen und optimiert den Kunden deshalb ausschließlich in dessen Tarife.", korrekt: false, erklaerung: "Wechselpilot vergleicht wie ein Portal über den gesamten Markt, überwacht diesen aber kontinuierlich statt nur punktuell." }
       ]
     }
   },
@@ -616,7 +616,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum sind Vergleichsportale wie Verivox/Check24 selbst angreifbar, obwohl sie die Vollversorger-Marge angreifen?",
       optionen: [
         { text: "Neolieferanten, die bewusst nicht listen und über Direktmarketing wachsen, umgehen die CPA-Abhängigkeit – und Auto-Switching-Dienste brauchen das Portal nur noch zur Erstvermittlung.", korrekt: true, erklaerung: "Das sind zwei der drei im Steckbrief genannten Angriffsvektoren; der dritte ist regulatorischer Druck auf das Modell 'bezahlte Sichtbarkeit statt neutraler Vergleich'." },
-        { text: "Check24 und Verivox konkurrieren sich gegenseitig die CPA-Raten herunter, bis das Modell für beide unprofitabel wird.", korrekt: false, erklaerung: "Plausibel, aber nicht der beschriebene Vektor: Das Duopol ist eher stabil, die CPA-Raten werden von Lieferanten gezahlt und sind kein Preiskampf-Feld zwischen den Portalen selbst." },
+        { text: "Check24 und Verivox konkurrieren sich in einem ruinösen Preiskampf gegenseitig die CPA-Provisionsraten immer weiter herunter, bis das Vermittlungsmodell am Ende für beide Portale dauerhaft unprofitabel wird.", korrekt: false, erklaerung: "Plausibel, aber nicht der beschriebene Vektor: Das Duopol ist eher stabil, die CPA-Raten werden von Lieferanten gezahlt und sind kein Preiskampf-Feld zwischen den Portalen selbst." },
         { text: "Die Lieferanten bauen gemeinsame eigene Vergleichsplattformen auf, um die Provisionen zu sparen.", korrekt: false, erklaerung: "Ein herstellergetriebenes Gemeinschaftsportal gibt es nicht (und hätte ein Glaubwürdigkeitsproblem) – die realen Angreifer sind D2C-Neolieferanten, Auto-Switcher und die Regulierung." }
       ]
     }
@@ -643,7 +643,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Tibber vertreibt bewusst nicht über Vergleichsportale. Was aus dieser Lerneinheit erklärt, warum sich das für Tibber lohnen kann?",
       optionen: [
         { text: "Tibber spart die CPA-Provision (20-60 €/Kunde) komplett – und portalvermittelte Schnäppchenjäger wären für ein Abo-Modell mit 17 Monaten Breakeven ohnehin die falschen Kunden.", korrekt: true, erklaerung: "Beides greift ineinander: Direktvertrieb senkt die Akquisitionskosten, und die selbst gewonnenen, überzeugten Kunden bleiben länger – was bei Tibbers langer Amortisationszeit entscheidend ist." },
-        { text: "Ein dynamischer Tarif ohne Preisgarantie lässt sich in den Vergleichsrechnern der Portale technisch gar nicht abbilden.", korrekt: false, erklaerung: "Portale können und wollen zunehmend auch dynamische Tarife vergleichen (§41a schafft dafür sogar neuen Bedarf) – Tibbers Verzicht ist eine strategische Entscheidung, keine technische Notwendigkeit." },
+        { text: "Ein dynamischer Tarif ohne feste Preisgarantie lässt sich in den preisbasierten Vergleichsrechnern der Portale technisch gar nicht sauber abbilden und taucht deshalb in den Rankings grundsätzlich nicht auf.", korrekt: false, erklaerung: "Portale können und wollen zunehmend auch dynamische Tarife vergleichen (§41a schafft dafür sogar neuen Bedarf) – Tibbers Verzicht ist eine strategische Entscheidung, keine technische Notwendigkeit." },
         { text: "Tibber vermeidet die Portale, weil deren AGB eine parallele App-Bindung des Kunden untersagen.", korrekt: false, erklaerung: "Solche AGB-Klauseln gibt es nicht – der Grund ist wirtschaftlich: CPA-Kosten und die falsche Kundenzielgruppe für ein langfristiges Abo-Modell." }
       ]
     }

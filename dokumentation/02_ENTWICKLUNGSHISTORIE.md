@@ -246,3 +246,12 @@ Wichtige Lehre aus der Korrekturschleife in Session 13: "Konkretes Beispiel" und
 - **Methodik-Notiz:** Reines Kürzen der richtigen Optionen genügte NICHT (der Zähler „correct=längste" fällt erst, wenn ein Distraktor ≥ der richtigen Option wird) — daher der Distraktor-Verlängerungs-Ansatz. Verifikations-Skript zählt je Modul `correct.length > max(distraktor.length)`.
 - **Release:** `sw.js` CACHE_NAME v12 → v13.
 - **Doku:** `08_LERNAPP_UMSETZUNG.md`, `README.md`, diese Historie.
+
+### Session 28 — Neues Format: Szenario-Missionen (Juli 2026)
+- **Auftrag:** Nach dem QA-Fix das als Nächstes gewählte Feature bauen — **Szenario-Missionen** (Konzept §5): verbundene Fallstudien mit mehreren Entscheidungen und Konsequenz-Feedback (Bloom K4).
+- **Vorgehen:** Erst ein funktionierender vertikaler Schnitt (Engine + eine vollständige Mission + Integration), verifiziert, bevor weitere Missionen ausgeschrieben werden.
+- **Neue Dateien:** `lern-szenarien.js` (Datenschema `SZENARIO_MISSIONS` + erste Mission „Dein eigener Öko-Neo-Vertrieb": 6 Entscheidungen, 3 Dimensionen Wirtschaftlichkeit/Kundenvertrauen/Resilienz, verankert in Tibber/Octopus/Fünf Grad/Check24-Modellen); `szenario-engine.js` (Zustandsautomat Intro→Schritte→Debrief).
+- **Konzept des Formats:** Bewusst **keine eindeutig richtige Option** pro Schritt — jede Wahl ist ein Trade-off, der mehrere Kennzahlen verschiebt. Jede Option zeigt eine **Konsequenz** (Wirkungstext, farbcodiert gut/mittel/schlecht). Am Ende Normalisierung auf besten/schlechtesten Pfad → Dimensions-Balken + eine von 4 Ergebnisstufen (🚀/👍/😬/💀) + Pfad-Rückblick. Trainiert Synthese/Bewertung statt Faktenabruf.
+- **Integration:** Home-Sektion „🎯 Szenario-Missionen" (Karten mit Best-Score-Badge); `progressState.szenarien` (bestScorePct, attempts) via sanfter `migrateProgress`-Ergänzung; XP-Vergabe. `sw.js` CACHE_NAME v13 → v14, beide neuen Skripte in SHELL_FILES + `index.html`.
+- **Verifikation im Browser:** kompletter Durchlauf (Intro, 6 Entscheidungen mit Konsequenz-Feedback, Debrief), Best-/Schlechtest-Pfad → korrekte Stufe + Balkenfarben (grün/rot), Persistenz (Badge „✓ 67%", XP), keine Konsolenfehler.
+- **Offen / nächster Schritt:** weitere Missionen (Idee: je eine pro Modul-Thema) — Umfang mit Auftraggeber abzustimmen; die Engine ist datengetrieben, neue Missionen sind reine Redaktion in `lern-szenarien.js`.

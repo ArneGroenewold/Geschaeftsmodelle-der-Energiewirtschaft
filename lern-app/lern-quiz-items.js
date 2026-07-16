@@ -3285,7 +3285,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was regelt das Wärmeplanungsgesetz (WPG)?",
       optionen: [
         { text: "Kommunen müssen Wärmepläne erstellen (Großstädte bis 2026, alle bis 2028), die festlegen, wo Fernwärme, Wärmepumpe oder H2 die langfristige Lösung ist.", korrekt: true, erklaerung: "Das WPG schafft Planungssicherheit: Wo Fernwärme vorgesehen ist, sind Investitionen abgesichert." },
-        { text: "Es schreibt jedem Haushalt eine Wärmepumpe vor.", korrekt: false, erklaerung: "Das WPG plant Gebiete, es verordnet keine bestimmte Heizung je Haushalt — das regelt eher das GEG." },
+        { text: "Das Gebäudeenergiegesetz schreibt künftig jedem einzelnen Haushalt verpflichtend den Einbau einer elektrischen Wärmepumpe vor und verbietet praktisch jede andere Heizungsart.", korrekt: false, erklaerung: "Das WPG plant Gebiete, es verordnet keine bestimmte Heizung je Haushalt — das regelt eher das GEG." },
         { text: "Es deckelt bundesweit den Fernwärmepreis.", korrekt: false, erklaerung: "Das WPG betrifft die kommunale Gebietsplanung, keine Preisregulierung." }
       ]
     }
@@ -3310,7 +3310,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Wie verschärft die Preistransparenz-Pflicht (Fernwärme-Verordnung 2024) die 'Todesspirale' des Fernwärmenetzes?",
       optionen: [
         { text: "Sichtbare, hohe Preise motivieren zahlungskräftige Kunden zum Ausstieg auf eigene Wärmepumpen — die Netzfixkosten verteilen sich auf immer weniger Verbleibende, was den Preis weiter treibt.", korrekt: true, erklaerung: "Dieselbe Death-Spiral-Logik wie beim Gasnetz: sinkende Mengen bei fixen Kosten → steigende Preise → weitere Abwanderung." },
-        { text: "Transparente Preise senken automatisch die Kosten des Betreibers.", korrekt: false, erklaerung: "Transparenz senkt keine Kosten — sie macht hohe Preise nur sichtbar und beschleunigt den Ausstieg." },
+        { text: "Transparente und offengelegte Preise senken nach dieser Logik ganz automatisch auch die tatsächlichen Kosten des Fernwärmebetreibers, weil er sich seine Ineffizienzen dann schlicht nicht mehr leisten kann.", korrekt: false, erklaerung: "Transparenz senkt keine Kosten — sie macht hohe Preise nur sichtbar und beschleunigt den Ausstieg." },
         { text: "Sie verpflichtet Kunden, im Netz zu bleiben.", korrekt: false, erklaerung: "Das Gegenteil — Transparenz erleichtert dem Kunden die Ausstiegsentscheidung, sie bindet ihn nicht." }
       ]
     }
@@ -3338,7 +3338,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Die Death Spiral: Elektrifizierung (Wärmepumpe) entzieht beiden Netzen Mengen; bei fixen Netzkosten steigen die Entgelte je Verbleibendem, was weitere Abwanderung auslöst.", korrekt: true, erklaerung: "Beide sind netzgebundene Wärme-/Gasmonopole, die durch die Elektrifizierung von innen erodieren — dasselbe Muster in zwei Sektoren." },
         { text: "Beide werden durch neue Konkurrenznetze angegriffen.", korrekt: false, erklaerung: "Parallele Netze baut niemand — der Angriff ist die Substitution (Elektrifizierung), nicht ein Konkurrenznetz." },
-        { text: "Beide verlieren ihr Monopol durch Marktöffnung wie beim Strom.", korrekt: false, erklaerung: "Weder Fernwärme noch Gasverteilung werden für konkurrierende Lieferanten geöffnet — die Bedrohung ist die Mengenerosion, nicht Marktöffnung." }
+        { text: "Beide verlieren ihr angestammtes Monopol schon bald durch eine gesetzlich erzwungene Marktöffnung und Durchleitungspflicht, genau wie es beim Strommarkt in den 1990er-Jahren geschehen ist.", korrekt: false, erklaerung: "Weder Fernwärme noch Gasverteilung werden für konkurrierende Lieferanten geöffnet — die Bedrohung ist die Mengenerosion, nicht Marktöffnung." }
       ]
     }
   },
@@ -3361,7 +3361,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum ist der hohe Marktpreis von grünem H2 (6–10 €/kg) irreführend für die Wirtschaftlichkeit?",
       optionen: [
         { text: "Kein Industriekunde zahlt diesen Preis freiwillig, solange grauer H2 für 1,5–2 €/kg verfügbar ist — der 'Marktpreis' ist eher ein Angebotspreis, keine echte Zahlungsbereitschaft.", korrekt: true, erklaerung: "Die Zahlungsbereitschaft orientiert sich am fossilen Alternativpreis; die Differenz muss subventioniert werden, sonst gibt es keine Abnahme." },
-        { text: "Weil der Marktpreis die Stromkosten nicht enthält.", korrekt: false, erklaerung: "Die Gestehungskosten (2,70 €/kg) enthalten die Stromkosten bereits — das Problem ist die fehlende Zahlungsbereitschaft, nicht die Kalkulation." },
+        { text: "Weil der am Markt erzielbare Verkaufspreis für grünen Wasserstoff die hohen Stromkosten der Elektrolyse gar nicht mit einpreist und der Betreiber diese Differenz deshalb dauerhaft aus eigener Tasche zuschießen muss.", korrekt: false, erklaerung: "Die Gestehungskosten (2,70 €/kg) enthalten die Stromkosten bereits — das Problem ist die fehlende Zahlungsbereitschaft, nicht die Kalkulation." },
         { text: "Weil grüner H2 technisch minderwertig ist.", korrekt: false, erklaerung: "Grüner und grauer H2 sind chemisch identisch — der Unterschied ist die Herstellung (CO₂-frei vs. fossil), nicht die Qualität." }
       ]
     }
@@ -3398,7 +3398,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum kann ein Elektrolyseur zusätzlich als flexibler Großverbraucher Geld verdienen?",
       optionen: [
         { text: "Er kann bei negativen oder sehr niedrigen Strompreisen hochfahren und bei hohen Preisen drosseln — das macht ihn zu einem idealen Demand-Response-Asset (doppelter Nutzen).", korrekt: true, erklaerung: "Der Elektrolyseur verbindet H2-Produktion mit Systemdienstleistung — er nutzt genau die Stunden, in denen Strom im Überfluss da ist." },
-        { text: "Weil er den erzeugten Wasserstoff sofort wieder zu Strom macht.", korrekt: false, erklaerung: "Rückverstromung wäre hochgradig ineffizient — der Flexibilitätswert liegt im gesteuerten Stromverbrauch, nicht in der Rückwandlung." },
+        { text: "Weil der Betreiber den mühsam erzeugten Wasserstoff aus Effizienzgründen sofort wieder in Strom zurückverwandelt und ihn deshalb niemals als Gas verkauft oder speichert.", korrekt: false, erklaerung: "Rückverstromung wäre hochgradig ineffizient — der Flexibilitätswert liegt im gesteuerten Stromverbrauch, nicht in der Rückwandlung." },
         { text: "Weil er als Kraftwerk Regelenergie einspeist.", korrekt: false, erklaerung: "Der Elektrolyseur ist ein Verbraucher, kein Erzeuger — sein Flexibilitätswert liegt im steuerbaren Verbrauch (Demand Response)." }
       ]
     }
@@ -3425,7 +3425,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Die grüne H2-Produktion (dieses Modul) und das H2-Kernnetz (Modul 3) hängen voneinander ab. Wie?",
       optionen: [
         { text: "Henne-Ei: Elektrolyseure brauchen das Kernnetz, um H2 zu den Abnehmern zu bringen; das Kernnetz braucht Elektrolyseure als Einspeiser — beide werden nur durch staatliche Absicherung (Subvention bzw. Amortisationskonto) parallel hochgefahren.", korrekt: true, erklaerung: "Erzeugung und Transport sind wechselseitig abhängig — genau deshalb koordiniert der Staat beide Seiten über Fördermechanismen." },
-        { text: "Sie stehen in direkter Konkurrenz um dieselben Kunden.", korrekt: false, erklaerung: "Sie sind komplementär, nicht konkurrierend — der eine erzeugt, der andere transportiert denselben Wasserstoff." },
+        { text: "Sie stehen in direkter und unmittelbarer Konkurrenz um exakt dieselben Endkunden, weshalb sich beide Anbieter gegenseitig die Preise ruinieren und am Ende keiner von beiden ein tragfähiges Geschäft aufbauen kann, solange der Markt so klein bleibt.", korrekt: false, erklaerung: "Sie sind komplementär, nicht konkurrierend — der eine erzeugt, der andere transportiert denselben Wasserstoff." },
         { text: "Das Kernnetz ersetzt die Elektrolyseure vollständig.", korrekt: false, erklaerung: "Ein Netz erzeugt keinen Wasserstoff — es transportiert nur; die Elektrolyseure bleiben die Quelle." }
       ]
     }
@@ -3487,7 +3487,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Große Verbraucher bauen eigene Beschaffungsteams auf (Insourcing) und digitale Plattformen automatisieren das Standardgeschäft; die Marge hält nur in der Komplexität — Netzentgelt, Umlagenbefreiung, PPA-Strukturierung.", korrekt: true, erklaerung: "Die einfache Tranchenbeschaffung ist Commodity; verteidigungsfähig ist nur die regulatorisch-komplexe Optimierung." },
         { text: "Durch ein Verbot der Energieberatung.", korrekt: false, erklaerung: "Es gibt kein solches Verbot — die Angreifer sind Insourcing und Automatisierung, nicht die Regulierung." },
-        { text: "Weil die BNetzA die Beratungshonorare deckelt.", korrekt: false, erklaerung: "Beratungshonorare sind nicht gedeckelt — der Druck kommt aus Insourcing und Plattform-Automatisierung." }
+        { text: "Weil die BNetzA die zulässigen Beratungshonorare in diesem Segment gesetzlich strikt deckelt und den Dienstleistern damit von vornherein die Marge nimmt, aus der sie ihre aufwändige Analysearbeit eigentlich finanzieren müssten.", korrekt: false, erklaerung: "Beratungshonorare sind nicht gedeckelt — der Druck kommt aus Insourcing und Plattform-Automatisierung." }
       ]
     }
   },
@@ -3503,7 +3503,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Der Energieeinkaufsberater und die B2B-Ausschreibungsplattform (Modul 4) konkurrieren teils um dasselbe Geschäft. Wo liegt der Unterschied — und die Verteidigung des Beraters?",
       optionen: [
         { text: "Die Plattform automatisiert die standardisierbare Tranchenbeschaffung; der Berater verteidigt sich über die nicht-automatisierbare Komplexität (Netzentgelt-, §64-, PPA-Optimierung) — genau dort, wo die Margen liegen.", korrekt: true, erklaerung: "Digitalisierbar ist das Standardgeschäft; die individuelle regulatorische Optimierung bleibt Beratung — eine wiederkehrende Grenze zwischen Plattform und Beratung." },
-        { text: "Es gibt keinen Unterschied, beide machen dasselbe.", korrekt: false, erklaerung: "Die Plattform kann Standardausschreibungen, aber nicht die komplexe regulatorische Optimierung des Beraters." },
+        { text: "Es gibt zwischen den beiden Beschaffungsmodellen überhaupt keinen Unterschied, beide machen im Kern exakt dasselbe und unterscheiden sich lediglich im Namen, den die jeweiligen Anbieter aus Marketinggründen gewählt haben.", korrekt: false, erklaerung: "Die Plattform kann Standardausschreibungen, aber nicht die komplexe regulatorische Optimierung des Beraters." },
         { text: "Der Berater ist immer billiger als die Plattform.", korrekt: false, erklaerung: "Bei Standardbeschaffung ist die Plattform günstiger — der Berater rechtfertigt sich über Mehrwert in der Komplexität, nicht über den Preis." }
       ]
     }
@@ -3518,7 +3518,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Der Contractor finanziert vor; das Krankenhaus refinanziert die Investition aus den garantierten Energieeinsparungen — sein laufendes Budget ändert sich zunächst kaum, nur die Kostenstruktur verschiebt sich.", korrekt: true, erklaerung: "EPC verwandelt eine Investition in einen aus Einsparungen bezahlten Servicevertrag — das Kapital kommt vom Contractor." },
         { text: "Der Staat schenkt dem Krankenhaus die Anlage.", korrekt: false, erklaerung: "Es ist kein Geschenk — der Contractor finanziert vor und refinanziert sich aus den Einsparungen." },
-        { text: "Das Krankenhaus nimmt einen normalen Bankkredit auf.", korrekt: false, erklaerung: "Gerade nicht — der Witz des EPC ist, dass der Contractor die Finanzierung und das Risiko übernimmt, nicht das Krankenhaus." }
+        { text: "Das Krankenhaus nimmt für die Effizienzmaßnahmen einfach einen ganz normalen Bankkredit auf, trägt die gesamte Investition selbst in der Bilanz und beauftragt den Dienstleister nur mit der reinen Bauausführung.", korrekt: false, erklaerung: "Gerade nicht — der Witz des EPC ist, dass der Contractor die Finanzierung und das Risiko übernimmt, nicht das Krankenhaus." }
       ]
     }
   },
@@ -3529,7 +3529,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Wer trägt beim Guaranteed-Savings-Modell das Risiko, wenn die Einsparung ausbleibt?",
       optionen: [
         { text: "Der Contractor — er muss die Differenz zur garantierten Mindesteinsparung aus eigener Tasche ausgleichen; das Performance-Risiko liegt bei ihm.", korrekt: true, erklaerung: "Genau diese Garantie macht EPC für Kunden attraktiv: Sie zahlen nur, wenn die Einsparung wirklich eintritt." },
-        { text: "Das Krankenhaus trägt das volle Risiko.", korrekt: false, erklaerung: "Beim Guaranteed-Savings-Modell übernimmt gerade der Contractor das Performance-Risiko, nicht der Kunde." },
+        { text: "Das Krankenhaus trägt bei diesem Contracting-Modell weiterhin das volle wirtschaftliche und technische Risiko, während der Dienstleister lediglich beratend tätig ist und keinerlei Garantie übernimmt.", korrekt: false, erklaerung: "Beim Guaranteed-Savings-Modell übernimmt gerade der Contractor das Performance-Risiko, nicht der Kunde." },
         { text: "Der Staat springt bei Fehlbeträgen ein.", korrekt: false, erklaerung: "Keine Staatsgarantie — der Contractor haftet vertraglich für die garantierte Einsparung." }
       ]
     }
@@ -3566,7 +3566,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was ist die 'offene Flanke' des EPC-Modells?",
       optionen: [
         { text: "Messen & Verifizieren (M&V): Der Einsparungsnachweis ist aufwendig und streitanfällig — wer Einsparungen nicht wasserdicht belegt, verliert Marge und Reputation.", korrekt: true, erklaerung: "Da die ganze Refinanzierung an der nachgewiesenen Einsparung hängt, ist der M&V-Streit das zentrale Risiko." },
-        { text: "Dass Effizienztechnik technisch nicht funktioniert.", korrekt: false, erklaerung: "Die Technik funktioniert — die Schwierigkeit ist der belastbare NACHWEIS der Einsparung, nicht die Technik selbst." },
+        { text: "Das größte Risiko besteht darin, dass die installierte Effizienztechnik technisch schlicht nicht funktioniert und die versprochenen Einsparungen deshalb physikalisch gar nicht erreicht werden können.", korrekt: false, erklaerung: "Die Technik funktioniert — die Schwierigkeit ist der belastbare NACHWEIS der Einsparung, nicht die Technik selbst." },
         { text: "Dass Kunden kein Interesse an Effizienz haben.", korrekt: false, erklaerung: "Das Interesse ist da (Kosten sparen) — die Flanke ist der Nachweis der Einsparung über lange Vertragslaufzeiten." }
       ]
     }
@@ -3593,7 +3593,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "EPC (dieses Modul) und das Enpal-Mietmodell (Modul 6) folgen demselben Grundprinzip. Welchem?",
       optionen: [
         { text: "Beide nehmen dem Kunden die Vorabinvestition ab und refinanzieren sich aus dem laufenden Nutzen (Einsparung bzw. Miete < Stromkostenersparnis) — 'Energiewende ohne eigenes Kapital'.", korrekt: true, erklaerung: "Contracting und Miete lösen dasselbe Problem: Kapitalmangel des Kunden; der Anbieter finanziert vor und verdient über die Zeit." },
-        { text: "Beide verkaufen dem Kunden die Anlage sofort zum vollen Preis.", korrekt: false, erklaerung: "Genau das Gegenteil — beide vermeiden die Vorabinvestition des Kunden, das ist ihr gemeinsamer Kern." },
+        { text: "Beide Modelle verkaufen dem Kunden die komplette Anlage sofort zum vollen Kaufpreis und überlassen ihm danach den gesamten Betrieb, die Wartung und das Einsparrisiko vollständig selbst.", korrekt: false, erklaerung: "Genau das Gegenteil — beide vermeiden die Vorabinvestition des Kunden, das ist ihr gemeinsamer Kern." },
         { text: "Beide sind reine Beratungsmodelle ohne Finanzierung.", korrekt: false, erklaerung: "Beide beinhalten gerade die Vorfinanzierung durch den Anbieter — das unterscheidet sie von reiner Beratung." }
       ]
     }
@@ -3617,7 +3617,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum ist die regulatorische Vorprüfung (§3 Nr. 19 EEG) für das Eigenversorgungsprojekt so entscheidend?",
       optionen: [
         { text: "Nur bei striktem räumlichem Zusammenhang von Erzeugung und Verbrauch greift die Netzentgeltbefreiung — verfehlt das Projekt die Kriterien knapp, entfällt die gesamte 8-Mio.-Ersparnis.", korrekt: true, erklaerung: "Die ganze Wirtschaftlichkeit hängt an der korrekten Einordnung — deshalb verdient der Berater gerade an dieser Prüfung." },
-        { text: "Weil ohne Prüfung die Anlage technisch nicht läuft.", korrekt: false, erklaerung: "Technisch läuft sie auch ohne Prüfung — es geht um die regulatorische Anerkennung der Netzentgeltbefreiung." },
+        { text: "Weil die Eigenversorgungsanlage ohne die vorgeschriebene messtechnische Prüfung und Abnahme technisch überhaupt nicht in Betrieb gehen darf und der Betreiber sonst jeden Anspruch auf Vergütung verliert.", korrekt: false, erklaerung: "Technisch läuft sie auch ohne Prüfung — es geht um die regulatorische Anerkennung der Netzentgeltbefreiung." },
         { text: "Weil die BNetzA sonst den Bau verbietet.", korrekt: false, erklaerung: "Der Bau ist erlaubt — die Prüfung entscheidet über die Befreiung und damit die Wirtschaftlichkeit, nicht über die Genehmigung an sich." }
       ]
     }
@@ -3654,7 +3654,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum ist die industrielle Eigenversorgung selbst der Angreifer — und wo ist sie verwundbar?",
       optionen: [
         { text: "Sie entzieht Netz und Lieferanten die Mengen; verwundbar ist sie regulatorisch — jede Netzentgeltreform (AgNes: Kostenbeteiligung der Erzeuger, faire Kostenverteilung) kann die Wirtschaftlichkeit der Umgehung kippen.", korrekt: true, erklaerung: "Das Modell lebt von einer regulatorischen Lücke (Netzentgeltbefreiung), die durch die AgNes-Reform verkleinert werden könnte." },
-        { text: "Sie ist verwundbar, weil Eigenstrom technisch unzuverlässig ist.", korrekt: false, erklaerung: "Die Verwundbarkeit ist regulatorisch (Entgeltreform), nicht technisch — Eigenerzeugung erhöht sogar die Resilienz." },
+        { text: "Das Modell ist vor allem deshalb verwundbar, weil selbst erzeugter Eigenstrom technisch grundsätzlich unzuverlässig ist und die Anlagen ständig ausfallen, sodass sich Unternehmen niemals dauerhaft darauf verlassen können.", korrekt: false, erklaerung: "Die Verwundbarkeit ist regulatorisch (Entgeltreform), nicht technisch — Eigenerzeugung erhöht sogar die Resilienz." },
         { text: "Sie ist gar nicht angreifbar, weil sie unabhängig vom Netz ist.", korrekt: false, erklaerung: "Gerade die Netz-Unabhängigkeit ist der regulatorische Streitpunkt: Wer das Netz umgeht, aber im Notfall braucht, steht in der AgNes-Debatte." }
       ]
     }
@@ -3681,7 +3681,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Industrielle Eigenversorgung und der Stadtwerke-Querverbund (Modul 4) sind beide von Regulierungsreformen bedroht. Was ist der gemeinsame Kern der Bedrohung?",
       optionen: [
         { text: "Beide beruhen auf einem strukturellen Kostenvorteil, der aus der aktuellen Regel-/Steuersystematik stammt (Netzentgeltbefreiung bzw. §4-Abs.-6-KStG-Querverbund) — jede Reform dieser Systematik kann den Vorteil entwerten.", korrekt: true, erklaerung: "Beide Modelle sind 'regulatorische Konstruktionen': ihr Vorteil ist kein Marktvorteil, sondern ein Regel-Vorteil, der politisch angreifbar ist." },
-        { text: "Beide sind durch neue Wettbewerber am Markt bedroht.", korrekt: false, erklaerung: "Die Bedrohung ist regulatorisch (Reform der Systematik), nicht neue Marktkonkurrenz." },
+        { text: "Beide Geschäftsmodelle sind in erster Linie durch neue, aggressive Wettbewerber am Markt bedroht, die mit günstigeren Preisen in dasselbe Kundensegment drängen und den etablierten Anbietern nach und nach die Marktanteile abnehmen.", korrekt: false, erklaerung: "Die Bedrohung ist regulatorisch (Reform der Systematik), nicht neue Marktkonkurrenz." },
         { text: "Beide verlieren Kunden an Neolieferanten.", korrekt: false, erklaerung: "Der gemeinsame Nenner ist die Abhängigkeit von einer regulatorisch-steuerlichen Sonderstellung, nicht der Endkundenwettbewerb." }
       ]
     }

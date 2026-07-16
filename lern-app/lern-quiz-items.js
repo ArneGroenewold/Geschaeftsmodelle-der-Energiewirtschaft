@@ -1815,7 +1815,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Das VPP IST der Direktvermarkter aus der EEG-Einheit — es bündelt die Anlagen und erwirtschaftet die Outperformance gegenüber dem Referenzmarktwert, die dort beschrieben wurde.", korrekt: true, erklaerung: "Modul 2 sah es aus Sicht des Anlagenbetreibers (Marktprämie + Vermarkter), Modul 5 aus Sicht des Vermarkters (Portfolio + Outperformance) — dieselbe Mechanik." },
         { text: "Das VPP ersetzt die Marktprämie durch ein eigenes Fördersystem.", korrekt: false, erklaerung: "Das VPP fördert nichts — es vermarktet nur; die Marktprämie kommt weiterhin vom Staat an den Anlagenbetreiber." },
-        { text: "Beide sind völlig unabhängig; VPP handeln nur mit Speichern, nicht mit EE-Anlagen.", korrekt: false, erklaerung: "Das EE-Direktvermarktungs-VPP handelt gerade mit Wind-/Solar-/Biogasanlagen — es ist direkt mit der Marktprämie verbunden." }
+        { text: "Beide Modelle sind völlig unabhängig voneinander; ein VPP handelt ausschließlich mit Batteriespeichern und niemals mit Wind- oder Solaranlagen, weshalb es hier keinerlei Überschneidung gibt.", korrekt: false, erklaerung: "Das EE-Direktvermarktungs-VPP handelt gerade mit Wind-/Solar-/Biogasanlagen — es ist direkt mit der Marktprämie verbunden." }
       ]
     }
   },
@@ -1841,7 +1841,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Der Aggregator investiert nur in Steuerungssoftware und SCADA-Anbindung — die eigentliche Flex-Kapazität (die Industrielast) gehört dem Kunden; Skalierung über mehr Kunden ist margenkonstant.", korrekt: true, erklaerung: "Asset-leicht: Der Aggregator monetarisiert fremde Flexibilität gegen Revenue-Share, ohne eigenes Anlagen-Capex." },
         { text: "Weil der Aggregator die Industrieanlagen kauft und selbst betreibt.", korrekt: false, erklaerung: "Genau das nicht — der Aggregator besitzt keine Anlagen, das ist der Kern des asset-leichten Modells." },
-        { text: "Weil der ÜNB dem Aggregator die SCADA-Infrastruktur kostenlos stellt.", korrekt: false, erklaerung: "Die Anbindung zahlt der Aggregator selbst — sie ist aber im Verhältnis zu einem Kraftwerksbau minimal." }
+        { text: "Weil der ÜNB dem Aggregator die komplette SCADA- und Leittechnik-Infrastruktur kostenlos zur Verfügung stellt, dessen wesentliche Investitionskosten übernimmt und die Anlagen zusätzlich laufend wartet.", korrekt: false, erklaerung: "Die Anbindung zahlt der Aggregator selbst — sie ist aber im Verhältnis zu einem Kraftwerksbau minimal." }
       ]
     }
   },
@@ -1878,7 +1878,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Sobald der Industriekunde selbst marktfähig wird (eigener Flex-Desk) oder sein Lieferant/Contractor die Vermarktung mitbündelt, wird der Aggregator überflüssig; VPP-Software drückt zusätzlich die Vermittlungsmarge.", korrekt: true, erklaerung: "Verteidigungsfähig ist die Präqualifikations- und Prozesskompetenz, nicht der bloße Marktzugang." },
         { text: "Durch ein Verbot unabhängiger Aggregatoren in der gesamten EU.", korrekt: false, erklaerung: "Das Gegenteil — das EU Clean Energy Package stärkt die Aggregator-Rolle; Deutschland ist nur vergleichsweise restriktiv." },
-        { text: "Weil Industriekunden ihre Flexibilität technisch nicht bereitstellen können.", korrekt: false, erklaerung: "Sie können es (die Flex existiert), das ist ja die Geschäftsgrundlage — die Angreifbarkeit kommt vom möglichen Insourcing." }
+        { text: "Weil Industriekunden ihre Lastflexibilität aus prozesstechnischen Gründen in der Praxis gar nicht zuverlässig bereitstellen können und Aggregatoren deshalb kaum verwertbares Potenzial im Industriesegment vorfinden.", korrekt: false, erklaerung: "Sie können es (die Flex existiert), das ist ja die Geschäftsgrundlage — die Angreifbarkeit kommt vom möglichen Insourcing." }
       ]
     }
   },
@@ -1894,7 +1894,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Demand Response und thermische Regelenergie (Modul 2) konkurrieren im selben Markt. Wo hat die Industrielast einen strukturellen Vorteil?",
       optionen: [
         { text: "Sie monetarisiert bereits vorhandene Flexibilität ohne eigenes Erzeugungs-Capex — während das Gaskraftwerk Brennstoff verbrennen und CO₂-Zertifikate kaufen muss, um dieselbe Regelleistung zu liefern.", korrekt: true, erklaerung: "Grenzkosten nahe null (nur kurzzeitiger Produktionsverzicht) gegen echte Brennstoff-Grenzkosten — dieselbe Kannibalisierungslogik wie beim Batteriespeicher gegen FCR." },
-        { text: "Die Industrielast wird für Regelenergie gesetzlich bevorzugt vor Kraftwerken aktiviert.", korrekt: false, erklaerung: "Es gibt keine gesetzliche Bevorzugung — die Aktivierung folgt dem Merit-Order-Prinzip der Regelenergie, nicht einer Rangfolge nach Anbietertyp." },
+        { text: "Die flexible Industrielast wird für die Erbringung von Regelenergie gesetzlich immer bevorzugt vor konventionellen Kraftwerken aktiviert, weshalb Aggregatoren einen garantierten Vorrang am Markt genießen.", korrekt: false, erklaerung: "Es gibt keine gesetzliche Bevorzugung — die Aktivierung folgt dem Merit-Order-Prinzip der Regelenergie, nicht einer Rangfolge nach Anbietertyp." },
         { text: "Industrielasten müssen keine Präqualifikation durchlaufen.", korrekt: false, erklaerung: "Doch — die aFRR-Präqualifikation ist gerade eine der Hürden; der Vorteil liegt in den niedrigen Grenzkosten, nicht in Regelbefreiung." }
       ]
     }
@@ -1908,7 +1908,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum baut Kyon Energy Speicher, überlässt aber das Handeln Entrix und Enspired?",
       optionen: [
         { text: "Kyons Kompetenz ist Projektentwicklung und Bau; die margenentscheidende Multimarkt-Optimierung ist ein eigenes Spezialgeschäft, das man besser einkauft als selbst aufbaut.", korrekt: true, erklaerung: "Arbeitsteilung: Asset-Bauer und asset-leichter Optimierer — jeder macht, was er am besten kann, oft mit mehreren Optimierern parallel." },
-        { text: "Kyon darf als Projektentwickler gesetzlich nicht selbst an der Börse handeln.", korrekt: false, erklaerung: "Ein solches Verbot gibt es nicht — es ist eine strategische Arbeitsteilung, keine rechtliche Vorgabe." },
+        { text: "Kyon darf als reiner Projektentwickler gesetzlich gar nicht selbst an der Strombörse handeln und muss die Vermarktung deshalb zwingend an einen lizenzierten Dritten abgeben.", korrekt: false, erklaerung: "Ein solches Verbot gibt es nicht — es ist eine strategische Arbeitsteilung, keine rechtliche Vorgabe." },
         { text: "Entrix und Enspired stellen die Batterien kostenlos zur Verfügung.", korrekt: false, erklaerung: "Nein — Kyon baut und besitzt die Speicher; die Optimierer liefern nur die Vermarktung." }
       ]
     }
@@ -1920,7 +1920,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was ist der Kern des Tolling/Floor-Modells von terralayr?",
       optionen: [
         { text: "Der Eigentümer bekommt einen garantierten Festpreis/Mindesterlös, terralayr behält den Mehrerlös und trägt dafür das Marktrisiko — das macht das Speicherprojekt bankfähig.", korrekt: true, erklaerung: "Die Risikoübernahme wandert zu dem, der sie am besten bepreisen kann; im Gegenzug wird das Projekt finanzierbar." },
-        { text: "terralayr mietet die Batterie und zahlt eine umsatzabhängige Miete ohne jede Garantie.", korrekt: false, erklaerung: "Das Gegenteil des Tolling-Gedankens — der Witz ist gerade die GARANTIE für den Eigentümer, nicht eine variable Miete." },
+        { text: "terralayr mietet die Batterie lediglich an und zahlt dem Eigentümer eine rein umsatzabhängige Miete ohne jede feste Ertragsgarantie, sodass das gesamte Marktrisiko beim Batteriebesitzer verbleibt.", korrekt: false, erklaerung: "Das Gegenteil des Tolling-Gedankens — der Witz ist gerade die GARANTIE für den Eigentümer, nicht eine variable Miete." },
         { text: "Der Eigentümer trägt weiterhin das volle Marktrisiko, terralayr nur die Software.", korrekt: false, erklaerung: "Beim reinen Fee-Modell ja — aber Tolling/Floor verlagert das Marktrisiko explizit zum Optimierer, das ist der Unterschied." }
       ]
     }
@@ -1933,7 +1933,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Fremdkapitalgeber verlangen planbare Mindest-Cashflows; ein garantierter Erlös verwandelt unsicheres Merchant-Risiko in eine finanzierbare Größe.", korrekt: true, erklaerung: "Dieselbe Logik wie bei PPAs und Offshore-Ausschreibungen: Absicherung schafft Bankfähigkeit." },
         { text: "Weil die Bank dann Miteigentümerin der Batterie wird.", korrekt: false, erklaerung: "Die Bank finanziert gegen Cashflow, nicht gegen Miteigentum — der Floor sichert den Cashflow, mehr braucht es nicht." },
-        { text: "Weil ein Floor die Batterie vor technischem Ausfall schützt.", korrekt: false, erklaerung: "Ein Floor ist ein Erlös-, kein Technikversprechen — er sichert Einnahmen, nicht die Hardware." }
+        { text: "Weil ein garantierter Floor die Batterie technisch vor Tiefentladung und vorzeitigem Ausfall schützt und damit ihre Lebensdauer physisch verlängert.", korrekt: false, erklaerung: "Ein Floor ist ein Erlös-, kein Technikversprechen — er sichert Einnahmen, nicht die Hardware." }
       ]
     }
   },
@@ -1958,7 +1958,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Jeder BESS-Zubau glättet die Spreads, aus denen die Outperformance stammt — der Markt kannibalisiert die eigene Erlösquelle; die Spreads von 2023/24 sind kein verlässlicher Business Case für 2030.", korrekt: true, erklaerung: "Dieselbe Selbstkannibalisierung wie beim BESS selbst (Modul 2) — mehr Speicher, flachere Spreads." },
         { text: "Die BNetzA plant, Speicher-Optimierung zu verbieten.", korrekt: false, erklaerung: "Kein Verbot in Sicht — die Bedrohung ist ökonomisch (Spread-Kompression), nicht regulatorisch." },
-        { text: "Optimierer dürfen künftig nur noch einen einzigen Markt bedienen.", korrekt: false, erklaerung: "Multi-Market-Stacking bleibt erlaubt und ist gerade ihre Stärke — das Problem ist der schrumpfende Spread, nicht eine Marktbeschränkung." }
+        { text: "Optimierer dürfen künftig aus Gründen der Marktaufsicht nur noch einen einzigen Markt gleichzeitig bedienen und verlieren damit die Fähigkeit, flexibel zwischen FCR, Arbitrage und Regelenergie zu wechseln.", korrekt: false, erklaerung: "Multi-Market-Stacking bleibt erlaubt und ist gerade ihre Stärke — das Problem ist der schrumpfende Spread, nicht eine Marktbeschränkung." }
       ]
     }
   },
@@ -1984,7 +1984,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Das Tolling/Floor-Modell und der Financial PPA (Modul 2) lösen dasselbe Grundproblem. Welches?",
       optionen: [
         { text: "Beide verwandeln unsichere Markterlöse in einen gesicherten, planbaren Cashflow und machen so ein kapitalintensives Projekt (Speicher bzw. Windpark) bankfähig — die Absicherung ist das eigentliche Produkt.", korrekt: true, erklaerung: "Ob Strike Price beim PPA oder Floor beim Tolling: Beide sind Preissicherungsinstrumente, die Fremdkapital erst ermöglichen." },
-        { text: "Beide eliminieren jegliches Risiko vollständig aus dem Energiesystem.", korrekt: false, erklaerung: "Das Risiko verschwindet nicht — es wandert nur zu dem Akteur, der es am besten tragen kann (PPA-Gegenpartei bzw. Optimierer)." },
+        { text: "Beide Instrumente eliminieren jegliches wirtschaftliche und technische Risiko vollständig und dauerhaft aus dem Energiesystem, sodass weder Betreiber noch Optimierer noch Netz am Ende überhaupt ein Restrisiko tragen.", korrekt: false, erklaerung: "Das Risiko verschwindet nicht — es wandert nur zu dem Akteur, der es am besten tragen kann (PPA-Gegenpartei bzw. Optimierer)." },
         { text: "Beide sind reine Spotmarktgeschäfte ohne langfristige Bindung.", korrekt: false, erklaerung: "Das Gegenteil — beide sind gerade langfristige Absicherungen gegen den Spotmarkt." }
       ]
     }
@@ -1999,7 +1999,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Die App speist nur zurück, wenn genug Ladung übrig ist, und lädt das Auto vor der geplanten Abfahrt wieder voll — der Fahrer sieht nur die Gutschrift.", korrekt: true, erklaerung: "Intelligente Steuerung mit Abfahrtszeit-Vorgabe macht V2G für den Nutzer transparent — das ist Voraussetzung für Akzeptanz." },
         { text: "Weil V2G nur bei abgeschaltetem Fahrzeug funktioniert.", korrekt: false, erklaerung: "V2G funktioniert gerade im geparkten, angesteckten Zustand — der Punkt ist die Rückladung vor Fahrtbeginn, nicht ein Abschaltzwang." },
-        { text: "Weil die zurückgespeiste Menge zu klein ist, um messbar zu sein.", korrekt: false, erklaerung: "Die Mengen sind durchaus relevant (bis zu mehrere kWh) — der Fahrer merkt nichts, weil rechtzeitig nachgeladen wird, nicht weil es zu wenig wäre." }
+        { text: "Weil die aus dem Auto zurückgespeiste Strommenge technisch viel zu klein ist, um von den Messsystemen überhaupt erfasst und wirtschaftlich vergütet zu werden.", korrekt: false, erklaerung: "Die Mengen sind durchaus relevant (bis zu mehrere kWh) — der Fahrer merkt nichts, weil rechtzeitig nachgeladen wird, nicht weil es zu wenig wäre." }
       ]
     }
   },
@@ -2046,7 +2046,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Batteriedegradation durch bidirektionales Laden ist noch nicht vollständig gelöst — häufiges Rückspeisen könnte die Lebensdauer der teuren Fahrzeugbatterie beeinträchtigen.", korrekt: true, erklaerung: "Die Sorge um den Akku ist neben dem OEM-Gatekeeping die zweite Bremse; moderne Zellchemie und intelligente Zyklensteuerung mildern sie zunehmend." },
         { text: "Bidirektionales Laden ist physikalisch unmöglich.", korrekt: false, erklaerung: "Es funktioniert technisch bereits (Nissan Leaf, Hyundai, VW ID mit Update) — die Frage ist die Langzeitwirkung auf den Akku, nicht die Machbarkeit." },
-        { text: "V2G-Strom darf gesetzlich nicht ins öffentliche Netz eingespeist werden.", korrekt: false, erklaerung: "Einspeisung ist erlaubt und geregelt — das Hemmnis ist technisch/wirtschaftlich (Degradation, OEM-Zugang), nicht ein Einspeiseverbot." }
+        { text: "Der aus dem Fahrzeug stammende V2G-Strom darf aus energierechtlichen Gründen grundsätzlich nicht ins öffentliche Netz eingespeist, sondern nur im eigenen Haushalt selbst verbraucht werden.", korrekt: false, erklaerung: "Einspeisung ist erlaubt und geregelt — das Hemmnis ist technisch/wirtschaftlich (Degradation, OEM-Zugang), nicht ein Einspeiseverbot." }
       ]
     }
   },
@@ -2072,7 +2072,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "V2G und der Heimspeicher-VPP (Modul 2) folgen demselben Aggregationsmodell. Was macht V2G potenziell überlegen — und wo ist es zugleich schwächer?",
       optionen: [
         { text: "Überlegen durch die ~5× größere Batteriekapazität je Einheit; schwächer, weil der OEM die Fahrzeug-API kontrolliert, während der Heimspeicher-Hersteller sein eigenes Gerät steuert.", korrekt: true, erklaerung: "Größenvorteil trifft Gatekeeper-Nachteil — dieselbe VPP-Mechanik, aber mit verschobener Machtverteilung an der Schnittstelle." },
-        { text: "V2G ist in jeder Hinsicht überlegen, weil E-Autos ohnehin überall stehen.", korrekt: false, erklaerung: "Der OEM-Gatekeeper und die Degradationssorge sind reale Nachteile gegenüber dem stationären, herstellereigenen Heimspeicher." },
+        { text: "V2G ist dem stationären Heimspeicher in jeder Hinsicht überlegen, weil E-Autos ohnehin fast den ganzen Tag ungenutzt herumstehen und ihre Batterie kostenlos zur Verfügung stellen.", korrekt: false, erklaerung: "Der OEM-Gatekeeper und die Degradationssorge sind reale Nachteile gegenüber dem stationären, herstellereigenen Heimspeicher." },
         { text: "Beide sind identisch, nur mit anderem Batterietyp.", korrekt: false, erklaerung: "Die Machtverteilung an der Steuerungsschnittstelle unterscheidet sie fundamental — beim Heimspeicher hält der Hersteller die Kontrolle, bei V2G der Auto-OEM." }
       ]
     }
@@ -2099,7 +2099,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Ihre Ziele können sich direkt widersprechen: Der Aggregator will in einer teuren Börsenstunde einspeisen, genau dann kann aber ein lokaler Netzengpass die netzdienliche Drosselung erfordern — wessen Logik Vorrang hat, ist regulatorisch offen.", korrekt: true, erklaerung: "Marktoptimum und Netzoptimum fallen nicht immer zusammen — die Priorisierung ist die zentrale offene Frage der Flex-Regulierung." },
         { text: "Es ist kein echter Konflikt, weil beide immer dasselbe wollen.", korrekt: false, erklaerung: "Gerade nicht — Börsenpreis-Logik und Netzzustand-Logik können in derselben Stunde gegensätzliche Handlungen verlangen." },
-        { text: "Der Konflikt löst sich, weil §14a die Marktsteuerung grundsätzlich verbietet.", korrekt: false, erklaerung: "§14a verbietet die Marktsteuerung nicht — es gibt dem VNB nur ein Eingriffsrecht bei Engpässen; die Koexistenz beider ist ungelöst." }
+        { text: "Der Konflikt löst sich von selbst auf, weil §14a EnWG die marktgetriebene Steuerung flexibler Verbraucher grundsätzlich verbietet und damit Aggregatoren wie Netzbetreibern gleichermaßen jede kommerzielle Nutzung der Heimspeicher-Flexibilität dauerhaft untersagt.", korrekt: false, erklaerung: "§14a verbietet die Marktsteuerung nicht — es gibt dem VNB nur ein Eingriffsrecht bei Engpässen; die Koexistenz beider ist ungelöst." }
       ]
     }
   },
@@ -2110,7 +2110,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum ist der Heimspeicher-Hersteller (Sonnen, SENEC) durch offene Aggregatoren angreifbar?",
       optionen: [
         { text: "Herstellerübergreifende Aggregatoren und HEMS-Plattformen können Flex herstellerunabhängig bündeln — der Kunde muss dann nicht mehr beim Hardware-Verkäufer ins VPP, das Lock-in bröckelt.", korrekt: true, erklaerung: "Wer die Steuerungsschicht öffnet, entkoppelt Hardware-Verkauf und Flex-Vermarktung — die margenstärkere zweite Ebene wandert weg." },
-        { text: "Weil Heimspeicher gesetzlich nicht am VPP teilnehmen dürfen.", korrekt: false, erklaerung: "Sie dürfen — die Angreifbarkeit ist wirtschaftlich (offene Aggregatoren), nicht rechtlich." },
+        { text: "Weil private Heimspeicher aus regulatorischen und messtechnischen Gründen gesetzlich gar nicht an einem virtuellen Kraftwerk teilnehmen dürfen und deshalb für Aggregatoren vollständig unerreichbar bleiben.", korrekt: false, erklaerung: "Sie dürfen — die Angreifbarkeit ist wirtschaftlich (offene Aggregatoren), nicht rechtlich." },
         { text: "Weil offene Aggregatoren die Batterien billiger herstellen.", korrekt: false, erklaerung: "Aggregatoren stellen keine Hardware her — sie greifen die Vermarktungsschicht an, nicht die Fertigung." }
       ]
     }
@@ -2135,7 +2135,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Über alle Flex-Modelle (VPP, Demand Response, BESS, V2G, Heimspeicher) hinweg: Was ist der wiederkehrende Schlüsselfaktor für die Marge?",
       optionen: [
         { text: "Die Kontrolle der Steuerungs-/Kundenschnittstelle zum Asset — nicht der Besitz der Hardware. Wer die Schnittstelle hält (App, API, Präqualifikation), verdient; der Rest wird austauschbares Backend.", korrekt: true, erklaerung: "Das ist die Kernlektion von Modul 5: Flexibilität wird durch Software und Schnittstellenkontrolle monetarisiert, nicht durch Asset-Eigentum." },
-        { text: "Der physische Besitz möglichst vieler Batterien und Anlagen.", korrekt: false, erklaerung: "Gerade die asset-leichten Modelle (Optimierer, Aggregatoren) zeigen, dass Besitz nicht der Hebel ist — die Schnittstelle ist es." },
+        { text: "Entscheidend ist allein der physische Besitz möglichst vieler eigener Batterien und Erzeugungsanlagen, denn nur wer die Hardware selbst besitzt, kann in diesem Markt dauerhaft Geld verdienen und sich verteidigen.", korrekt: false, erklaerung: "Gerade die asset-leichten Modelle (Optimierer, Aggregatoren) zeigen, dass Besitz nicht der Hebel ist — die Schnittstelle ist es." },
         { text: "Die Nähe zum ÜNB-Hauptsitz.", korrekt: false, erklaerung: "Geografische Nähe ist irrelevant — Flex-Märkte sind digital und überregional." }
       ]
     }
@@ -2163,7 +2163,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Die Kontrolle über die steuerbaren Geräte im Haushalt (Wallbox, Wärmepumpe, Speicher, E-Auto) — wer diese Automatisierungsschnittstelle besitzt, macht die anderen zum austauschbaren Backend.", korrekt: true, erklaerung: "Genau davor warnt schon Tibbers Angreifbarkeit: HEMS-Plattformen und OEM-Apps besetzen dieselbe Schnittstelle. Modul 4 und Modul 5 kämpfen um denselben Kontrollpunkt." },
         { text: "Um den günstigsten Einkauf von Strom an der Börse.", korrekt: false, erklaerung: "Der Börseneinkauf ist für alle gleich — der Kampf geht um die Gerätesteuerung im Haushalt, nicht um den Beschaffungspreis." },
-        { text: "Um die meisten physischen Ladesäulen im öffentlichen Raum.", korrekt: false, erklaerung: "Öffentliche Ladesäulen sind ein anderes Geschäft (CPO) — hier geht es um die steuerbaren Assets beim Endkunden zuhause." }
+        { text: "Vor allem um den Besitz der meisten physischen Ladesäulen im öffentlichen Raum, denn wer die Ladeinfrastruktur kontrolliert, kontrolliert nach dieser Logik automatisch auch die gesamte Flexibilität der E-Autos.", korrekt: false, erklaerung: "Öffentliche Ladesäulen sind ein anderes Geschäft (CPO) — hier geht es um die steuerbaren Assets beim Endkunden zuhause." }
       ]
     }
   }

@@ -712,7 +712,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Batteriespeicher und Flex-Aggregatoren: Sie bedienen Preisspitzen schneller und mit geringeren Grenzkosten – und glätten damit genau die Stunden, aus denen sich das Merchant-Modell refinanziert.", korrekt: true, erklaerung: "Der Angreifer braucht kein Kraftwerk, sondern Prognose- und Handelskompetenz plus Speicher-Capex. Die Verteidigungslinie der Etablierten ist der kommende Kapazitätsmarkt (StromVKG)." },
         { text: "Kohlekraftwerke, die dank gesunkener CO₂-Preise wieder niedrigere Grenzkosten haben als Gas.", korrekt: false, erklaerung: "Das Gegenteil ist die Tendenz: CO₂-Preise über 80 €/t belasten Kohle stärker als Gas, und der Kohleausstieg verknappt diese Kapazität ohnehin." },
-        { text: "Neue Atomkraftwerke im EU-Ausland, deren Grundlaststrom die deutschen Preisspitzen über Interkonnektoren wegimportiert.", korrekt: false, erklaerung: "Importe dämpfen Spitzen zwar punktuell, aber der im Steckbrief beschriebene strukturelle Angreifer ist der heimische Speicherzubau mit nahezu null Grenzkosten." }
+        { text: "Neue Atomkraftwerke im benachbarten EU-Ausland, deren billiger Grundlaststrom über die Interkonnektoren nach Deutschland fließt und dort die abendlichen Preisspitzen zuverlässig wegimportiert, bevor Speicher reagieren.", korrekt: false, erklaerung: "Importe dämpfen Spitzen zwar punktuell, aber der im Steckbrief beschriebene strukturelle Angreifer ist der heimische Speicherzubau mit nahezu null Grenzkosten." }
       ]
     }
   },
@@ -764,7 +764,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was hat den FCR-Preisverfall von über 25 auf zeitweise unter 10 €/MW/h ausgelöst?",
       optionen: [
         { text: "Massiver Markteintritt von Batteriespeichern, die die Produktanforderung (Reaktion <30 s) schlicht besser erfüllen als thermische Kraftwerke.", korrekt: true, erklaerung: "Batterien reagieren in Millisekunden – für sie ist FCR das natürliche Produkt. Das Überangebot drückte den Auktionspreis." },
-        { text: "Die ÜNB haben ihren Regelenergiebedarf durch bessere Prognosen halbiert.", korrekt: false, erklaerung: "Der Bedarf ist relativ stabil – der Preisverfall kam von der Angebotsseite (mehr Anbieter), nicht von der Nachfrageseite." },
+        { text: "Die vier ÜNB haben ihren Regelenergiebedarf durch deutlich bessere Wind- und Solarprognosen in den letzten Jahren nahezu halbiert und in ruhigen Zeiten ganz ausgesetzt.", korrekt: false, erklaerung: "Der Bedarf ist relativ stabil – der Preisverfall kam von der Angebotsseite (mehr Anbieter), nicht von der Nachfrageseite." },
         { text: "Die EU hat Preisobergrenzen für Systemdienstleistungen eingeführt.", korrekt: false, erklaerung: "Es gibt keine solche Preisobergrenze – die europäische Integration (PICASSO/MARI) vergrößert zwar das Angebot, aber der Haupttreiber war der BESS-Zubau." }
       ]
     }
@@ -799,7 +799,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum weichen Großkraftwerke auf aFRR/mFRR aus, statt den FCR-Markt zurückzuerobern?",
       optionen: [
         { text: "Bei längeren Abrufen über Minuten bis Stunden sind Batterien wegen ihrer begrenzten Energiekapazität strukturell im Nachteil – dort zählt dauerhafte Lieferfähigkeit.", korrekt: true, erklaerung: "Eine 1-Stunden-Batterie ist nach einer Stunde Volllast-Abruf leer; ein Gaskraftwerk läuft weiter. Genau deshalb sind aFRR/mFRR die verteidigungsfähigen Segmente." },
-        { text: "aFRR und mFRR zahlen gesetzlich festgelegte, höhere Leistungspreise als FCR.", korrekt: false, erklaerung: "Es gibt keine gesetzlich festgelegten Preise – alle Produkte werden auktioniert. Der Unterschied liegt in der Wettbewerbsintensität, nicht in einer Preisgarantie." },
+        { text: "aFRR und mFRR zahlen gesetzlich festgelegte, deutlich höhere Leistungspreise als FCR, weil ihre Aktivierung technisch anspruchsvoller ist und länger vorgehalten werden muss.", korrekt: false, erklaerung: "Es gibt keine gesetzlich festgelegten Preise – alle Produkte werden auktioniert. Der Unterschied liegt in der Wettbewerbsintensität, nicht in einer Preisgarantie." },
         { text: "Batteriespeicher dürfen für aFRR und mFRR nicht präqualifiziert werden.", korrekt: false, erklaerung: "Doch, sie dürfen und tun es zunehmend – aber die Produktanforderung (Energie über längere Zeit) passt schlechter zu ihrer Physik als FCR." }
       ]
     }
@@ -811,7 +811,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Welche neuen Systemdienstleistungen bleiben voraussichtlich eine Domäne thermischer Kraftwerke – und warum?",
       optionen: [
         { text: "Trägheitsemulation, Kurzschlussleistung und Blindleistung – dafür braucht es rotierende Synchronmaschinen, die Wechselrichter-basierte Anlagen physikalisch nicht gleichwertig liefern.", korrekt: true, erklaerung: "Die rotierende Masse einer Turbine stabilisiert die Frequenz inhärent – das ist die verbleibende physikalische Nische der Thermalkraftwerke." },
-        { text: "Schwarzstartfähigkeit – nur Kohlekraftwerke können ein kollabiertes Netz wieder aufbauen.", korrekt: false, erklaerung: "Schwarzstart ist wichtig, aber gerade nicht kohlespezifisch – Wasserkraft, Gasturbinen und zunehmend auch Batterien mit Grid-Forming-Wechselrichtern können das." },
+        { text: "Schwarzstartfähigkeit – nur große Kohle- und Kernkraftwerke können nach einem Blackout ein vollständig kollabiertes Übertragungsnetz eigenständig und ohne Fremdspannung wieder aufbauen.", korrekt: false, erklaerung: "Schwarzstart ist wichtig, aber gerade nicht kohlespezifisch – Wasserkraft, Gasturbinen und zunehmend auch Batterien mit Grid-Forming-Wechselrichtern können das." },
         { text: "Die Spannungshaltung im Verteilnetz, die per Gesetz Großkraftwerken vorbehalten ist.", korrekt: false, erklaerung: "Eine solche gesetzliche Reservierung gibt es nicht – Spannungshaltung leisten zunehmend auch dezentrale Anlagen und regelbare Ortsnetztrafos." }
       ]
     }
@@ -824,7 +824,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Sie erfüllen die jeweilige Kernanforderung (Schnelligkeit bzw. Flexibilität) mit nahezu null Grenzkosten – und drücken damit genau die Preise, aus denen sich die etablierten Anbieter refinanzieren.", korrekt: true, erklaerung: "Ein Muster, zwei Märkte: Der Speicher braucht weder Brennstoff noch CO₂-Zertifikate und unterbietet damit strukturell jede thermische Anlage, wo immer seine Physik zum Produkt passt." },
         { text: "Sie werden über das EEG subventioniert und können deshalb unter ihren echten Kosten anbieten.", korrekt: false, erklaerung: "Grid-Scale-Batterien erhalten keine EEG-Vergütung – sie sind reine Merchant-Anlagen. Ihr Vorteil ist physikalisch-ökonomisch, nicht subventionsgetrieben." },
-        { text: "Sie umgehen die Präqualifikationspflicht und können dadurch schneller in die Märkte eintreten.", korrekt: false, erklaerung: "Auch Batterien müssen vollständig präqualifiziert werden – der Markteintritt ist regelkonform, nur eben technisch überlegen." }
+        { text: "Sie umgehen die aufwändige Präqualifikationspflicht der ÜNB und können dadurch schneller und mit weniger regulatorischem Aufwand als thermische Kraftwerke in die lukrativen Regelleistungsmärkte eintreten.", korrekt: false, erklaerung: "Auch Batterien müssen vollständig präqualifiziert werden – der Markteintritt ist regelkonform, nur eben technisch überlegen." }
       ]
     }
   },
@@ -847,7 +847,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Woran verdient der Direktvermarkter bei dieser Intraday-Optimierung?",
       optionen: [
         { text: "An der Outperformance: Verkauft er besser als der pauschale Monats-RMW unterstellt, behält er typischerweise 20–40% der Differenz als Erfolgsanteil – plus Managementfee.", korrekt: true, erklaerung: "Die Marktprämie geht vollständig an den Anlagenbetreiber – der Direktvermarkter lebt von Fee und Outperformance-Share." },
-        { text: "An der Marktprämie selbst, die er als Vermarktungsdienstleister vom ÜNB ausgezahlt bekommt.", korrekt: false, erklaerung: "Verbreiteter Irrtum: Die Prämie fließt an den Anlagenbetreiber, nicht an den Vermarkter – der verdient nur an seiner Vermarktungsleistung." },
+        { text: "An der Marktprämie selbst, die der Direktvermarkter als beauftragter Vermarktungsdienstleister direkt vom zuständigen ÜNB ausgezahlt bekommt und anteilig als Provision einbehält.", korrekt: false, erklaerung: "Verbreiteter Irrtum: Die Prämie fließt an den Anlagenbetreiber, nicht an den Vermarkter – der verdient nur an seiner Vermarktungsleistung." },
         { text: "Am Weiterverkauf des Windstroms mit Aufschlag an eigene Endkunden.", korrekt: false, erklaerung: "Direktvermarkter verkaufen an die Börse, nicht an Endkunden – das Endkundengeschäft ist ein völlig anderes Geschäftsmodell (Modul 4)." }
       ]
     }
@@ -872,7 +872,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was regelt §51 EEG (verschärft durch das Solarspitzengesetz 2025) – und wen trifft es?",
       optionen: [
         { text: "Bei negativen Börsenpreisen entfällt der anzulegende Wert – das Preisrisiko dieser Stunden liegt damit beim Anlagenbetreiber, für Neuanlagen praktisch ab der ersten negativen Stunde.", korrekt: true, erklaerung: "Je mehr EE einspeist, desto häufiger werden negative Stunden – §51 macht Speicher- und Flexibilitätskompetenz für Betreiber immer wichtiger." },
-        { text: "Anlagen müssen bei negativen Preisen zwangsabgeregelt werden, erhalten dafür aber eine Entschädigung vom ÜNB.", korrekt: false, erklaerung: "Verwechslung mit Redispatch/Einspeisemanagement: §51 regelt keinen Eingriff, sondern streicht schlicht die Förderung in negativen Stunden – abregeln oder weiterlaufen entscheidet der Betreiber wirtschaftlich selbst." },
+        { text: "Anlagen müssen bei negativen Börsenpreisen zwangsweise abgeregelt werden, erhalten dafür aber weiterhin eine volle Entschädigung vom ÜNB, sodass für den Betreiber praktisch kein Erlösrisiko entsteht.", korrekt: false, erklaerung: "Verwechslung mit Redispatch/Einspeisemanagement: §51 regelt keinen Eingriff, sondern streicht schlicht die Förderung in negativen Stunden – abregeln oder weiterlaufen entscheidet der Betreiber wirtschaftlich selbst." },
         { text: "Negative Gebote in BNetzA-Ausschreibungen sind unzulässig – kein Bieter darf unter 0 ct/kWh bieten.", korrekt: false, erklaerung: "§51 betrifft den laufenden Betrieb bei negativen BÖRSENpreisen, nicht die Ausschreibungsgebote." }
       ]
     }
@@ -884,7 +884,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum senkt ein Portfolio aus 10.000 Anlagen die Kosten des Direktvermarkters überproportional?",
       optionen: [
         { text: "Prognosefehler einzelner Anlagen gleichen sich statistisch aus (Wind Nord vs. Solar Süd) – die Abweichung zwischen Fahrplan und Ist sinkt auf 2–3%, und mit ihr die teuren Ausgleichsenergiekosten.", korrekt: true, erklaerung: "Diversifikation ist der Skaleneffekt dieses Geschäfts: Nicht der Einkauf wird billiger, sondern der Prognosefehler kleiner." },
-        { text: "Die Börse gewährt Großvermarktern Mengenrabatte auf die Handelsentgelte.", korrekt: false, erklaerung: "Handelsentgelte sind für alle gleich und ohnehin marginal – der echte Hebel liegt in der Ausgleichsenergie." },
+        { text: "Die Strombörse gewährt großen Direktvermarktern gestaffelte Mengenrabatte auf die Handelsentgelte, sodass mit jeder zusätzlich gebündelten Anlage die Transaktionskosten je MWh sinken und die Marge steigt.", korrekt: false, erklaerung: "Handelsentgelte sind für alle gleich und ohnehin marginal – der echte Hebel liegt in der Ausgleichsenergie." },
         { text: "Die BNetzA vergibt an große Portfolien höhere anzulegende Werte.", korrekt: false, erklaerung: "Der AW hängt am Ausschreibungsgebot der einzelnen Anlage, nicht an der Portfoliogröße des Vermarkters." }
       ]
     }
@@ -936,7 +936,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Die Bank sieht statt eines offenen Marktpreisrisikos einen kalkulierbaren, vertraglich gesicherten Cashflow – und bepreist das Kreditrisiko entsprechend niedriger.", korrekt: true, erklaerung: "Bei 20 Jahren Laufzeit summiert sich 1–2% Zinsvorteil zu einem erheblichen Teil der Projektrendite – der PPA ist primär ein Finanzierungsinstrument." },
         { text: "PPA-finanzierte Projekte erhalten von der KfW automatisch zinsvergünstigte Förderkredite.", korrekt: false, erklaerung: "Es gibt keine automatische KfW-Kopplung an PPAs – der Zinsvorteil entsteht rein aus der Risikobewertung der finanzierenden Bank." },
-        { text: "Die Bank erhält den erzeugten Strom als physische Sicherheit und kann ihn bei Ausfall selbst vermarkten.", korrekt: false, erklaerung: "Banken besichern über Projektrechte und Cashflow-Abtretung, nicht über physischen Strom – beim Financial PPA fließt ohnehin kein Strom an Vertragspartner." }
+        { text: "Die Bank erhält den erzeugten Strom als physische Sicherheit hinterlegt und kann ihn bei einem Zahlungsausfall des Projekts selbst am Markt vermarkten, was ihr Kreditrisiko absichert.", korrekt: false, erklaerung: "Banken besichern über Projektrechte und Cashflow-Abtretung, nicht über physischen Strom – beim Financial PPA fließt ohnehin kein Strom an Vertragspartner." }
       ]
     }
   },
@@ -947,7 +947,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was unterscheidet ein Financial PPA von einem Physical PPA?",
       optionen: [
         { text: "Beim Financial PPA fließt kein Strom zwischen den Parteien – nur die Differenz zum Strike Price wird bilateral ausgeglichen; Anlage und Abnehmer handeln physisch weiter mit Börse bzw. Lieferant.", korrekt: true, erklaerung: "Deshalb dominieren Financial PPAs in Deutschland: kein Lieferantenwechsel, keine Bilanzkreis-Komplexität – ein reines Preissicherungsgeschäft (CfD)." },
-        { text: "Financial PPAs sind kürzer (1–3 Jahre) und dienen der kurzfristigen Preisabsicherung, Physical PPAs der langfristigen.", korrekt: false, erklaerung: "Beide Formen laufen typisch 10–15 Jahre – der Unterschied liegt im Mechanismus (Differenzausgleich vs. physische Lieferung), nicht in der Laufzeit." },
+        { text: "Financial PPAs sind grundsätzlich kürzer (1–3 Jahre) und dienen nur der kurzfristigen Preisabsicherung, während Physical PPAs die langfristige, über zehn Jahre laufende Belieferung mit tatsächlichem Grünstrom regeln.", korrekt: false, erklaerung: "Beide Formen laufen typisch 10–15 Jahre – der Unterschied liegt im Mechanismus (Differenzausgleich vs. physische Lieferung), nicht in der Laufzeit." },
         { text: "Nur Physical PPAs erfüllen die RE100-Anforderungen, weil dort echter Grünstrom fließt.", korrekt: false, erklaerung: "Auch Financial PPAs zählen für RE100/CSRD – entscheidend ist der Herkunftsnachweis und die Zusätzlichkeit der Anlage, nicht der physische Lieferweg." }
       ]
     }
@@ -996,7 +996,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Corporate PPAs werben mit 'Additionality' (die Anlage entsteht nur durch den Vertrag). Welches Konzept aus Modul 4 entspricht dem – und mit demselben Gegner?",
       optionen: [
         { text: "Die Zusätzlichkeit bei Fünf Grad und Naturstrom: echte neue Klimawirkung bzw. Neuanlagen-Verträge – jeweils in Abgrenzung zum billigen HKN-Zertifikat ohne Zusatzeffekt.", korrekt: true, erklaerung: "Gleiches Muster auf B2B- wie B2C-Ebene: Der Premium-Preis rechtfertigt sich nur, wenn nachweislich etwas Neues entsteht – der gemeinsame Gegner ist das Altanlagen-HKN-Greenwashing." },
-        { text: "Ostroms Preistransparenz: Beide Modelle leben davon, dem Kunden die Kalkulation vollständig offenzulegen.", korrekt: false, erklaerung: "Transparenz ist ein anderes Wertversprechen – bei Additionality geht es um Wirkungsnachweis, nicht um Kalkulationsoffenlegung." },
+        { text: "Ostroms radikale Preistransparenz: Beide Modelle leben im Kern davon, dem Endkunden die gesamte Beschaffungs-Kalkulation bis auf den Cent vollständig offenzulegen und daraus Vertrauen zu schöpfen.", korrekt: false, erklaerung: "Transparenz ist ein anderes Wertversprechen – bei Additionality geht es um Wirkungsnachweis, nicht um Kalkulationsoffenlegung." },
         { text: "Der Stadtwerke-Querverbund: Beide sichern langfristige Investitionen durch interne Quersubvention ab.", korrekt: false, erklaerung: "Der Querverbund ist ein steuerlicher Verrechnungsmechanismus innerhalb eines Konzerns – mit dem Zusätzlichkeitsnachweis gegenüber Kunden hat er nichts zu tun." }
       ]
     }
@@ -1020,7 +1020,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Wie erklären sich 30–50% Erlösunterschied zwischen zwei baugleichen Batterien?",
       optionen: [
         { text: "Durch die Optimierungsgüte der Software: Sie entscheidet stündlich, welcher Markt (FCR, Arbitrage, aFRR) den höheren Grenzerlös bietet – schlechte Optimierung lässt Erlöse schlicht liegen.", korrekt: true, erklaerung: "Der Algorithmus ist der eigentliche Wettbewerbsvorteil, nicht die Hardware – deshalb entstehen asset-leichte Optimierer als eigenes Geschäftsmodell." },
-        { text: "Durch unterschiedliche Degradation: Die schlechtere Batterie hat bereits Kapazität verloren.", korrekt: false, erklaerung: "Degradation wirkt über Jahre und erklärt einstellige Prozentunterschiede – nicht 30–50% zwischen baugleichen, gleichaltrigen Anlagen." },
+        { text: "Durch unterschiedliche Zell-Degradation: Die ertragsschwächere Batterie hat über die Jahre bereits spürbar nutzbare Kapazität verloren und kann deshalb pro Zyklus weniger Energie vermarkten als die neuere Anlage.", korrekt: false, erklaerung: "Degradation wirkt über Jahre und erklärt einstellige Prozentunterschiede – nicht 30–50% zwischen baugleichen, gleichaltrigen Anlagen." },
         { text: "Durch die Netzentgelte, die je nach Anschlusspunkt stark variieren.", korrekt: false, erklaerung: "Am selben Netzknoten (wie im Szenario) sind die Anschlussbedingungen identisch – und der große Hebel liegt ohnehin auf der Erlös-, nicht der Kostenseite." }
       ]
     }
@@ -1058,7 +1058,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Die Präqualifikation erfordert Mindestgrößen und Nachweise, die nur ein gebündeltes Portfolio erfüllt – erst Tausende Einheiten ergeben ein marktfähiges Regelenergie-Asset.", korrekt: true, erklaerung: "Genau das ist die Existenzberechtigung des Aggregators: 10.000 Heimspeicher ≈ 100 MWh präqualifizierbare Flex-Kapazität." },
         { text: "Heimspeicher reagieren zu langsam für die 30-Sekunden-Anforderung von FCR.", korrekt: false, erklaerung: "Im Gegenteil – Batterien reagieren in Millisekunden. Das Problem ist die Größe, nicht die Geschwindigkeit." },
-        { text: "Privatpersonen dürfen aus energierechtlichen Gründen keine Systemdienstleistungen erbringen.", korrekt: false, erklaerung: "Ein grundsätzliches Verbot gibt es nicht – praktisch scheitert es an Mindestlosgrößen, Messtechnik und Prozessanforderungen, die der Aggregator übernimmt." }
+        { text: "Privatpersonen dürfen aus energierechtlichen und haftungsrechtlichen Gründen grundsätzlich keine netzstabilisierenden Systemdienstleistungen erbringen, das ist ausschließlich zertifizierten Netzbetreibern vorbehalten.", korrekt: false, erklaerung: "Ein grundsätzliches Verbot gibt es nicht – praktisch scheitert es an Mindestlosgrößen, Messtechnik und Prozessanforderungen, die der Aggregator übernimmt." }
       ]
     }
   },
@@ -1089,7 +1089,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Die Sonnen-Flatrate entkoppelt die Stromrechnung vom Verbrauch. Welches Modell aus Modul 4 folgt derselben Erlöslogik – und welches wäre das Gegenbeispiel?",
       optionen: [
         { text: "Tibber folgt derselben Logik (fixer Monatsbetrag, von der Energiemenge entkoppelt) – das Gegenbeispiel ist Ostrom, dessen fixer Aufschlag pro kWh gerade an der Menge hängt.", korrekt: true, erklaerung: "Die Unterscheidung Abo (mengenunabhängig) vs. Aufschlag je kWh (mengenabhängig) ist eine der wichtigsten Erlöslogik-Trennlinien im Energievertrieb." },
-        { text: "Check24 folgt derselben Logik – die CPA-Provision ist ebenfalls vom Stromverbrauch des Kunden entkoppelt.", korrekt: false, erklaerung: "Die CPA ist zwar verbrauchsunabhängig, aber einmalig pro Vermittlung – eine Flatrate ist dagegen ein wiederkehrender Erlös aus einer laufenden Beziehung. Die Logiken sind grundverschieden." },
+        { text: "Check24 folgt exakt derselben Logik – die einmalige CPA-Provision je vermitteltem Kunden ist ebenfalls vollständig vom späteren Stromverbrauch des Kunden entkoppelt und fällt nur bei Vertragsabschluss an.", korrekt: false, erklaerung: "Die CPA ist zwar verbrauchsunabhängig, aber einmalig pro Vermittlung – eine Flatrate ist dagegen ein wiederkehrender Erlös aus einer laufenden Beziehung. Die Logiken sind grundverschieden." },
         { text: "Der Stadtwerke-Querverbund – auch dort ist die Rechnung vom Verbrauch entkoppelt.", korrekt: false, erklaerung: "Nein, Stadtwerke rechnen klassisch je kWh ab – der Querverbund betrifft die interne Gewinnverwendung, nicht die Tarifstruktur." }
       ]
     }
@@ -1113,7 +1113,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was unterscheidet den EWS-Sonnencent strukturell von einem Konzern-Ökotarif?",
       optionen: [
         { text: "Der Mechanismus liegt im Tarif selbst: Ein fester Betrag je verkaufter kWh fließt automatisch in neue bürgereigene Anlagen – statt dass der grüne Charakter über zugekaufte HKN hergestellt wird.", korrekt: true, erklaerung: "Der Kunde finanziert Neuanlagen mit, ohne selbst aktiv zu werden – die Zahlung erzeugt direkt neue Erzeugung, nicht nur ein Zertifikat." },
-        { text: "Der Sonnencent ist eine freiwillige Spende, die Kunden zusätzlich zur Rechnung leisten können.", korrekt: false, erklaerung: "Gerade nicht – er ist fest in den Tarif eingebaut. Die Wirkung hängt nicht vom Spendenverhalten ab, das ist der Clou." },
+        { text: "Der Sonnencent ist eine rein freiwillige Spende, die umweltbewusste Kunden auf Wunsch zusätzlich zu ihrer normalen Stromrechnung leisten können und die der Anbieter dann gesammelt in neue Anlagen investiert.", korrekt: false, erklaerung: "Gerade nicht – er ist fest in den Tarif eingebaut. Die Wirkung hängt nicht vom Spendenverhalten ab, das ist der Clou." },
         { text: "Der Sonnencent ersetzt die EEG-Umlage für EWS-Kunden.", korrekt: false, erklaerung: "Die EEG-Finanzierung läuft seit 2022 über den Bundeshaushalt – der Sonnencent ist ein davon unabhängiges, genossenschaftseigenes Förderinstrument." }
       ]
     }
@@ -1125,7 +1125,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum gilt der O&M-Betrieb (Wartung) als profitabelste Phase eines Offshore-Projekts?",
       optionen: [
         { text: "Er macht 20–25% der gesamten Projekterlöse über 20 Jahre aus – und ohne funktionierende Wartung erreicht der Park seine 4.000–4.500 Volllaststunden gar nicht.", korrekt: true, erklaerung: "Bau ist Durchlaufgeschäft mit Lieferkettenrisiko – der planbare, margenstarke Teil ist der jahrzehntelange Betrieb." },
-        { text: "O&M-Verträge werden staatlich bezuschusst, um die Verfügbarkeit kritischer Infrastruktur zu sichern.", korrekt: false, erklaerung: "Es gibt keinen O&M-Zuschuss – die Marge entsteht aus langfristigen Serviceverträgen und Spezialisierungsvorteilen (Schiffe, Techniker, Ersatzteile)." },
+        { text: "O&M-Verträge für Windparks werden staatlich bezuschusst, um die dauerhafte Verfügbarkeit dieser kritischen Energie-Infrastruktur auch bei schwacher Marktlage abzusichern.", korrekt: false, erklaerung: "Es gibt keinen O&M-Zuschuss – die Marge entsteht aus langfristigen Serviceverträgen und Spezialisierungsvorteilen (Schiffe, Techniker, Ersatzteile)." },
         { text: "In der Betriebsphase entfallen die Netzentgelte, die während des Baus fällig waren.", korrekt: false, erklaerung: "Erzeuger zahlen in Deutschland ohnehin keine Einspeise-Netzentgelte – die O&M-Marge hat mit Netzentgelten nichts zu tun." }
       ]
     }
@@ -1138,7 +1138,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Vor Öl- und Gaskonzernen (BP, TotalEnergies) mit günstigerem Kapital, die die Gebotslogik in Auktionen verschoben haben – während die Marge zugleich in die Lieferkette (Turbinen, Kabel, Schiffe) wandert.", korrekt: true, erklaerung: "Der Angriff kommt nicht von unten (Startups), sondern von der Kapitalseite – und die Engpass-Lieferanten halten die Preissetzungsmacht." },
         { text: "Vor chinesischen Turbinenherstellern, die eigene Parks in der deutschen Nordsee entwickeln.", korrekt: false, erklaerung: "Chinesische Hersteller drücken auf die Turbinenpreise, treten aber bislang nicht als Parkentwickler in deutschen Ausschreibungen auf – der beschriebene Angreifer ist Big Oil." },
-        { text: "Vor Bürgerenergiegenossenschaften, die über Sonderquoten bevorzugten Zugang zu Offshore-Flächen erhalten.", korrekt: false, erklaerung: "Offshore-Sonderquoten für Genossenschaften gibt es nicht – die Kapitalintensität schließt kleine Akteure hier faktisch aus (anders als onshore)." }
+        { text: "Vor allem vor Bürgerenergiegenossenschaften, die über gesetzliche Sonderquoten einen bevorzugten und vergünstigten Zugang zu den knappen Offshore-Flächen erhalten und damit die Konzerne aus den Auktionen verdrängen.", korrekt: false, erklaerung: "Offshore-Sonderquoten für Genossenschaften gibt es nicht – die Kapitalintensität schließt kleine Akteure hier faktisch aus (anders als onshore)." }
       ]
     }
   },
@@ -1162,7 +1162,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Worin liegt der strukturelle Kapitalkostenvorteil einer Bürgerenergiegenossenschaft?",
       optionen: [
         { text: "Genossenschaftseinlagen sind günstiges, geduldiges Kapital: Mitglieder erwarten moderate Dividenden statt Marktrenditen – und sind zugleich loyale Kunden (Churn <5%).", korrekt: true, erklaerung: "Die Doppelrolle Mitglied = Kapitalgeber = Kunde ersetzt teures Fremdkapital und teures Marketing gleichzeitig." },
-        { text: "Genossenschaften sind von der Körperschaftsteuer befreit und können dadurch günstiger kalkulieren.", korrekt: false, erklaerung: "Eine generelle Steuerbefreiung gibt es nicht – Genossenschaften zahlen regulär Körperschaftsteuer (nur Rückvergütungen an Mitglieder sind teils begünstigt)." },
+        { text: "Genossenschaften sind grundsätzlich von der Körperschaft- und Gewerbesteuer befreit und können ihre Projekte dadurch strukturell günstiger kalkulieren als gewinnorientierte Konzerne.", korrekt: false, erklaerung: "Eine generelle Steuerbefreiung gibt es nicht – Genossenschaften zahlen regulär Körperschaftsteuer (nur Rückvergütungen an Mitglieder sind teils begünstigt)." },
         { text: "Die KfW vergibt an Energiegenossenschaften zinsfreie Sonderkredite.", korrekt: false, erklaerung: "Zinsfreie Sonderprogramme für Genossenschaften existieren nicht – der Vorteil kommt aus den Einlagen der eigenen Mitglieder." }
       ]
     }
@@ -1175,7 +1175,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Strukturelle Kriterien, die ein Konzern nicht erfüllen KANN: Konzernunabhängigkeit, demokratische Mitbestimmung, Neuanlagen-Direktverträge – kopierbar wäre nur das Marketing, nicht die Substanz.", korrekt: true, erklaerung: "Naturstroms 'kein Atom/Kohle im Mutterkonzern' und die Genossenschaftsstruktur schließen große Versorger per Definition aus – das ist der seltene Fall eines wirklich nicht kopierbaren Differenzierungsmerkmals." },
         { text: "Exklusive EEG-Fördersätze, die nur werteorientierten Anbietern zustehen.", korrekt: false, erklaerung: "Das EEG kennt keine Werte-Boni – die Förderlogik ist anbieterneutral. Der Schutz liegt in der Organisationsform, nicht in der Förderung." },
-        { text: "Beide sichern sich über langfristige Exklusivverträge mit den Netzbetreibern ihrer Region ab.", korrekt: false, erklaerung: "Exklusivverträge zwischen Lieferanten und Netzbetreibern wären ein Unbundling-Verstoß – Netz und Vertrieb sind strikt getrennt." }
+        { text: "Beide sichern ihre Position vor allem über langfristige Exklusivverträge mit den Verteilnetzbetreibern ihrer jeweiligen Region ab, die Wettbewerbern den Netzzugang über Jahre praktisch verwehren.", korrekt: false, erklaerung: "Exklusivverträge zwischen Lieferanten und Netzbetreibern wären ein Unbundling-Verstoß – Netz und Vertrieb sind strikt getrennt." }
       ]
     }
   }

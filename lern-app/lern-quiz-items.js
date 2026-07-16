@@ -2230,7 +2230,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum ist der PV-Eigenverbrauch 'kein Geschäftsmodell mit Burggraben, sondern ein regulatorisch begünstigter Arbitrage-Case'?",
       optionen: [
         { text: "Der Vorteil beruht auf der Differenz zwischen Bezugspreis und Einspeisevergütung; sinkt die Vergütung und greift die §51-Nullvergütung, wandert der Wert zur Flexibilität — und die Marge zu Ökosystem-Anbietern wie Enpal oder Tibber.", korrekt: true, erklaerung: "Der einzelne Prosumer hat keinen Schutzwall — die Wertschöpfung verschiebt sich zu denen, die Hardware, Tarif und Optimierung bündeln." },
-        { text: "Weil PV-Anlagen technisch leicht zu kopieren sind und deshalb jeder eine bauen kann.", korrekt: false, erklaerung: "Die Kopierbarkeit der Hardware ist nicht der Punkt — es geht um die regulatorisch getriebene Preisdifferenz, die den Case trägt und erodieren kann." },
+        { text: "Weil PV-Anlagen technisch so leicht zu kopieren sind, dass am Ende buchstäblich jeder Hausbesitzer und jeder Wettbewerber ohne besonderes Know-how eine eigene bauen kann und deshalb überhaupt kein verteidigungsfähiger Vorsprung entsteht.", korrekt: false, erklaerung: "Die Kopierbarkeit der Hardware ist nicht der Punkt — es geht um die regulatorisch getriebene Preisdifferenz, die den Case trägt und erodieren kann." },
         { text: "Weil der Eigenverbrauch gesetzlich verboten werden soll.", korrekt: false, erklaerung: "Eigenverbrauch bleibt erlaubt und gefördert — die Angreifbarkeit liegt in der schrumpfenden Arbitrage, nicht in einem Verbot." }
       ]
     }
@@ -2257,7 +2257,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Der Heimspeicher steigert beim Prosumer den Eigenverbrauch — beim Heimspeicher-VPP (Modul 2) wird dieselbe Batterie zusätzlich vermarktet. Wie ergänzen sich die beiden Werthebel?",
       optionen: [
         { text: "Der Speicher liefert zuerst den Eigenverbrauchsvorteil (~22 ct/kWh Differenz); die freigehaltene Restkapazität (z.B. 20%) bringt darüber hinaus VPP-Erlöse — zwei Erlösschichten auf demselben Gerät.", korrekt: true, erklaerung: "Genau dieses Stacking macht das Ökosystem-Modell (Sonnen-Flatrate) attraktiv: Eigenverbrauch plus Flex-Vermarktung aus einer Batterie." },
-        { text: "Sie schließen sich aus — ein Speicher kann entweder Eigenverbrauch ODER VPP, nie beides.", korrekt: false, erklaerung: "Sie koexistieren: Der Großteil dient dem Eigenverbrauch, ein reservierter Anteil dem VPP — genau das ist das Sonnen-Modell." },
+        { text: "Sie schließen sich vollständig gegenseitig aus — ein und derselbe Heimspeicher kann immer nur entweder für den Eigenverbrauch ODER für die VPP-Vermarktung genutzt werden, niemals für beides zugleich.", korrekt: false, erklaerung: "Sie koexistieren: Der Großteil dient dem Eigenverbrauch, ein reservierter Anteil dem VPP — genau das ist das Sonnen-Modell." },
         { text: "Die VPP-Vermarktung ersetzt den Eigenverbrauchsvorteil vollständig.", korrekt: false, erklaerung: "Der Eigenverbrauch bleibt der Haupthebel; die VPP-Erlöse kommen aus der kleinen freigehaltenen Reserve obendrauf." }
       ]
     }
@@ -2283,7 +2283,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum lohnt sich beim Balkonkraftwerk fast nur der direkte Eigenverbrauch, nicht die Einspeisung?",
       optionen: [
         { text: "Überschuss, der ins Netz zurückfließt, wird ohne Zweirichtungszähler praktisch nicht vergütet — der Wert entsteht nur, wenn der Strom sofort im Haushalt verbraucht wird.", korrekt: true, erklaerung: "Deshalb dimensioniert man Balkonkraftwerke auf die Grundlast (Kühlschrank, Router), die immer läuft." },
-        { text: "Weil eingespeister Balkonstrom gesetzlich verboten ist.", korrekt: false, erklaerung: "Einspeisung ist nicht verboten, sie wird nur ohne passenden Zähler nicht vergütet — ein wirtschaftlicher, kein rechtlicher Grund." },
+        { text: "Weil der ins Hausnetz eingespeiste Überschussstrom eines Balkonkraftwerks gesetzlich ausdrücklich verboten ist und deshalb ungenutzt verpuffen muss, solange niemand im Haushalt ihn gerade verbraucht.", korrekt: false, erklaerung: "Einspeisung ist nicht verboten, sie wird nur ohne passenden Zähler nicht vergütet — ein wirtschaftlicher, kein rechtlicher Grund." },
         { text: "Weil Balkonkraftwerke nur nachts Strom erzeugen.", korrekt: false, erklaerung: "Sie erzeugen tagsüber bei Sonne — der Punkt ist die fehlende Vergütung für Überschuss, nicht die Erzeugungszeit." }
       ]
     }
@@ -2296,7 +2296,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Hersteller (Anker, EcoFlow) an einer dünnen Hardware-Marge auf ein Massenprodukt, Plattformen (Amazon, Aldi) an der Verkaufs-/Marktplatz-Provision — der eigentliche Nutzen bleibt beim Kunden.", korrekt: true, erklaerung: "Reines Commodity mit Preisverfall: harte Konkurrenz, flache Marge, kaum Differenzierung." },
         { text: "Die Netzbetreiber über hohe Anmeldegebühren.", korrekt: false, erklaerung: "Die Netzbetreiber-Anmeldung ist gerade entfallen — sie verdienen daran nichts." },
-        { text: "Die Stromlieferanten über einen Balkonkraftwerk-Aufschlag im Tarif.", korrekt: false, erklaerung: "Es gibt keinen solchen Aufschlag — Balkonstrom senkt im Gegenteil den Netzbezug des Kunden." }
+        { text: "Finanziert wird das Ganze von den Stromlieferanten, die dafür einen eigenen Balkonkraftwerk-Aufschlag auf den Tarif aller Kunden erheben und so die Kosten auf die gesamte Kundschaft umlegen.", korrekt: false, erklaerung: "Es gibt keinen solchen Aufschlag — Balkonstrom senkt im Gegenteil den Netzbezug des Kunden." }
       ]
     }
   },
@@ -2321,7 +2321,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Sobald Mini-PV mit Speicher und Messkonzept wächst, konkurriert sie mit 'richtiger' Dach-PV samt professionellem Ökosystem — die Grenze zum größeren, margenstärkeren Segment verschwimmt.", korrekt: true, erklaerung: "Das Commodity-Segment wird von oben (Dach-PV-Ökosysteme) und von der Kostenseite (asiatische Hersteller, Discounter) zugleich gedrückt." },
         { text: "Durch ein drohendes EU-weites Verbot von Steckersolar.", korrekt: false, erklaerung: "Die EU-Solarstrategie fördert Prosumer-Modelle — ein Verbot steht nicht im Raum." },
-        { text: "Weil Balkonkraftwerke technisch nicht mit Smart Homes kompatibel sind.", korrekt: false, erklaerung: "Sie lassen sich in Smart-Home-Plattformen (Tibber, Home Assistant) integrieren — das ist sogar ein Wachstumspfad, kein Hindernis." }
+        { text: "Weil einfache Balkonkraftwerke technisch grundsätzlich nicht mit modernen Smart-Home-Systemen und Energiemanagern kompatibel sind und sich ihr Ertrag deshalb weder messen noch intelligent steuern lässt.", korrekt: false, erklaerung: "Sie lassen sich in Smart-Home-Plattformen (Tibber, Home Assistant) integrieren — das ist sogar ein Wachstumspfad, kein Hindernis." }
       ]
     }
   },
@@ -2348,7 +2348,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Beide sind Commodity-nah mit dünner Differenzierung: Das Balkonkraftwerk konkurriert über den Preis austauschbarer Hardware, das Portal über die Provisionshöhe austauschbarer Vermittlung — Marge entsteht nur über Skalierung, nicht über einen Burggraben.", korrekt: true, erklaerung: "Beide leben von Masse statt von Verteidigungsfähigkeit — ein wiederkehrendes Muster margenschwacher Intermediäre und Commodities." },
         { text: "Beide sind streng reguliert wie ein Netzbetreiber.", korrekt: false, erklaerung: "Beide sind gerade schwach reguliert — das ist Teil ihres harten Wettbewerbs, nicht ein Schutz." },
-        { text: "Beide brauchen Milliarden-Capex wie ein Offshore-Windpark.", korrekt: false, erklaerung: "Beide sind asset-leicht bzw. geringinvestiv — das Gegenteil kapitalintensiver Modelle." }
+        { text: "Beide Geschäftsmodelle benötigen für den Markteintritt zwingend einen Milliarden-Capex in derselben Größenordnung wie ein großer Offshore-Windpark, weshalb sie ausschließlich finanzstarken Großkonzernen offenstehen und für kleine Anbieter oder Privatpersonen von vornherein unerreichbar sind.", korrekt: false, erklaerung: "Beide sind asset-leicht bzw. geringinvestiv — das Gegenteil kapitalintensiver Modelle." }
       ]
     }
   },
@@ -2361,7 +2361,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Welche Rolle übernimmt der Mieterstrom-Dienstleister (z.B. Buzzn) für den Vermieter?",
       optionen: [
         { text: "Er wird für den Vermieter zum Energielieferanten mit allen EnWG-Pflichten (Bilanzkreis, Marktkommunikation, GPKE) — gegen eine Marge auf den an die Mieter verkauften Strom.", korrekt: true, erklaerung: "Der Vermieter will die Lieferantenrolle nicht selbst tragen; der Dienstleister nimmt sie ihm gegen Marge ab." },
-        { text: "Er kauft dem Vermieter die PV-Anlage ab und betreibt sie auf eigene Rechnung.", korrekt: false, erklaerung: "Die Anlage bleibt meist beim Vermieter — der Dienstleister übernimmt die Lieferanten- und Abrechnungsrolle, nicht das Anlageneigentum." },
+        { text: "Der Dienstleister kauft dem Vermieter die PV-Anlage komplett ab und betreibt sie danach vollständig auf eigene Rechnung und eigenes Risiko, während der Vermieter gar nicht mehr beteiligt ist.", korrekt: false, erklaerung: "Die Anlage bleibt meist beim Vermieter — der Dienstleister übernimmt die Lieferanten- und Abrechnungsrolle, nicht das Anlageneigentum." },
         { text: "Er senkt die Netzentgelte des gesamten Gebäudes.", korrekt: false, erklaerung: "Netzentgelte setzt der Dienstleister nicht — der Mieterstromvorteil kommt aus dem Direktverbrauch und dem Zuschlag, nicht aus Entgeltsenkung." }
       ]
     }
@@ -2374,7 +2374,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Bei der GGV wird niemand zum Energielieferanten — der Solarstrom wird nur über einen virtuellen Zähler anteilig gutgeschrieben; Lumenaza verkauft die Abrechnungsplattform als SaaS an die WEG, der Reststrom läuft über die eigenen Lieferanten der Mieter.", korrekt: true, erklaerung: "Kein GPKE, keine Bilanzkreispflicht — das Geschäft ist Software, nicht Stromhandel." },
         { text: "Weil Lumenaza gesetzlich keinen Strom verkaufen darf.", korrekt: false, erklaerung: "Nicht ein Verbot, sondern das GGV-Modell selbst verzichtet auf die Lieferantenrolle — deshalb bleibt nur die Software-Ebene." },
-        { text: "Weil Solarstrom in der GGV kostenlos abgegeben werden muss.", korrekt: false, erklaerung: "Der Strom wird sehr wohl bewertet und gutgeschrieben — nur eben ohne dass Lumenaza als Lieferant Marge nimmt; es verdient an der Plattformgebühr." }
+        { text: "Weil der lokal erzeugte Solarstrom im Rahmen der Gemeinschaftlichen Gebäudeversorgung (GGV) gesetzlich vollständig kostenlos an alle teilnehmenden Mietparteien abgegeben werden muss und der Betreiber daran deshalb grundsätzlich nichts verdienen darf.", korrekt: false, erklaerung: "Der Strom wird sehr wohl bewertet und gutgeschrieben — nur eben ohne dass Lumenaza als Lieferant Marge nimmt; es verdient an der Plattformgebühr." }
       ]
     }
   },
@@ -2410,7 +2410,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Wie 'unterhöhlt' die GGV das klassische Mieterstrommodell von innen?",
       optionen: [
         { text: "Vermieter, die nicht Energielieferant werden wollen, weichen auf die einfachere GGV aus; SaaS-Anbieter bieten die GGV-Abwicklung günstig an und nehmen den Vollservice-Mieterstromern ihr Kernargument 'wir nehmen euch die Komplexität ab'.", korrekt: true, erklaerung: "Die regulatorische Vereinfachung entwertet genau die Dienstleistung, für die Mieterstrom-Vollservicer bezahlt wurden." },
-        { text: "Die GGV verbietet klassischen Mieterstrom.", korrekt: false, erklaerung: "Beide bestehen parallel — die GGV verdrängt marktlich, nicht per Verbot." },
+        { text: "Die neue Gemeinschaftliche Gebäudeversorgung (GGV) verbietet den klassischen Mieterstrom künftig vollständig und zwingt sämtliche bestehenden Mieterstrom-Projekte, ihr Modell aufzugeben und ersatzlos auf das neue Regime umzustellen.", korrekt: false, erklaerung: "Beide bestehen parallel — die GGV verdrängt marktlich, nicht per Verbot." },
         { text: "Die GGV zahlt höhere Mieterstromzuschläge.", korrekt: false, erklaerung: "Die GGV verzichtet gerade auf das Lieferantenmodell; sie konkurriert über Einfachheit, nicht über höhere Zuschläge." }
       ]
     }
@@ -2422,7 +2422,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was ist der ökonomische Kern einer lokalen Energie-Community (EU EMD Art. 16)?",
       optionen: [
         { text: "Strom, der die Community nicht verlässt (lokal erzeugt und verbraucht), zahlt reduzierte Netzentgelte — die Einsparung (8–15 ct/kWh) wird zwischen Erzeuger und Verbraucher geteilt.", korrekt: true, erklaerung: "Ohne die Netzentgelt-Privilegierung lokalen Verbrauchs fehlt dem Modell der ökonomische Kern — genau das ist auch seine Angreifbarkeit (AgNes-Diskussion)." },
-        { text: "Die Community erhält eine staatliche Pauschalförderung pro Mitglied.", korrekt: false, erklaerung: "Es gibt keine Kopfpauschale — der Vorteil entsteht aus vermiedenen Netzentgelten für lokalen Stromfluss." },
+        { text: "Die Energy-Sharing-Community erhält vom Staat eine feste Pauschalförderung pro angeschlossenem Mitglied, die unabhängig vom tatsächlich geteilten Strom fließt und das Modell allein dadurch wirtschaftlich trägt.", korrekt: false, erklaerung: "Es gibt keine Kopfpauschale — der Vorteil entsteht aus vermiedenen Netzentgelten für lokalen Stromfluss." },
         { text: "Mitglieder werden von der Stromsteuer befreit.", korrekt: false, erklaerung: "Keine Stromsteuerbefreiung — der Hebel ist die Netzentgeltreduktion für lokal gehandelten Strom." }
       ]
     }
@@ -2439,7 +2439,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Die GGV-Plattform (Lumenaza) und Octopus' Kraken (Modul 4) folgen demselben strategischen Prinzip. Welchem?",
       optionen: [
         { text: "Beide verkaufen Software statt Strom: Sie kommoditisieren einen aufwendigen Abwicklungsprozess (GGV-Abrechnung bzw. Versorger-Backoffice) als skalierbare Plattform und verdienen an der Effizienz, nicht an der kWh.", korrekt: true, erklaerung: "Der Wandel von Commodity- zu Plattform-/SaaS-Erlösen ist ein Leitmotiv der ganzen Branche — von der WEG bis zum Millionen-Versorger." },
-        { text: "Beide werden zum Energielieferanten mit voller EnWG-Pflicht.", korrekt: false, erklaerung: "Gerade nicht — beide vermeiden bzw. modernisieren die Lieferantenlast und verkaufen die Abwicklung als Software." },
+        { text: "Beide werden in dem Moment selbst zum Energielieferanten mit sämtlichen vollen Pflichten nach dem EnWG, weshalb sie fortan Bilanzkreise führen, Messkonzepte betreiben und die komplette Lieferantenregulierung erfüllen müssen.", korrekt: false, erklaerung: "Gerade nicht — beide vermeiden bzw. modernisieren die Lieferantenlast und verkaufen die Abwicklung als Software." },
         { text: "Beide leben ausschließlich von staatlichen Zuschlägen.", korrekt: false, erklaerung: "Beide verdienen an Plattform-/SaaS-Erlösen, nicht an Subventionen." }
       ]
     }
@@ -2453,7 +2453,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum kann der Enpal-Kunde ab dem ersten Monat sparen, obwohl er eine Miete zahlt?",
       optionen: [
         { text: "Die eingesparten Stromkosten (weil ein Teil des Bedarfs aus eigener Solarerzeugung statt teurem Netzbezug kommt) übersteigen die monatliche Mietrate.", korrekt: true, erklaerung: "Miete < Einsparung ab Monat 1 — das ist das zentrale Verkaufsargument des Mietmodells ohne Kapitaleinsatz." },
-        { text: "Weil Enpal die Stromrechnung des Kunden komplett übernimmt.", korrekt: false, erklaerung: "Enpal übernimmt nicht die Stromrechnung — der Kunde spart, weil er weniger Netzstrom zukaufen muss." },
+        { text: "Weil Enpal im Rahmen des Rundum-sorglos-Pakets die komplette Stromrechnung des Kunden dauerhaft selbst übernimmt und ihm dadurch jede weitere Zahlung an den Netzbetreiber erspart.", korrekt: false, erklaerung: "Enpal übernimmt nicht die Stromrechnung — der Kunde spart, weil er weniger Netzstrom zukaufen muss." },
         { text: "Weil die Miete staatlich zu 100% erstattet wird.", korrekt: false, erklaerung: "Es gibt keine vollständige Mieterstattung — der Vorteil entsteht rein aus den vermiedenen Stromkosten." }
       ]
     }
@@ -2465,7 +2465,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum bekommt Enpal für die Vorfinanzierung besonders günstiges Kapital?",
       optionen: [
         { text: "Der über 20 Jahre durch EEG-Vergütung und Mietraten abgesicherte Cashflow gilt institutionellen Investoren (Green Bonds, KfW) als risikoarm — das senkt die Zinsen.", korrekt: true, erklaerung: "Planbare, langfristige Cashflows sind bankfähig — dasselbe Prinzip wie bei PPAs und Offshore-Ausschreibungen." },
-        { text: "Weil Enpal als Unicorn keine Zinsen zahlen muss.", korrekt: false, erklaerung: "Auch Unicorns zahlen Zinsen — der Vorteil kommt aus der Cashflow-Sicherheit, nicht aus dem Startup-Status." },
+        { text: "Weil Enpal als hoch bewertetes Unicorn von seinen Kapitalgebern grundsätzlich keine Zinsen verlangt bekommt und seine Anlagen deshalb praktisch zum Nulltarif finanzieren kann.", korrekt: false, erklaerung: "Auch Unicorns zahlen Zinsen — der Vorteil kommt aus der Cashflow-Sicherheit, nicht aus dem Startup-Status." },
         { text: "Weil der Staat alle Enpal-Kredite garantiert.", korrekt: false, erklaerung: "Es gibt keine pauschale Staatsgarantie — die niedrigen Zinsen resultieren aus der Risikobewertung des abgesicherten Cashflows." }
       ]
     }
@@ -2477,7 +2477,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was ist laut Steckbrief Enpals eigentlicher Wachstumsengpass?",
       optionen: [
         { text: "Die eigene Installationsflotte (3.000+ Mitarbeiter) — jeder Neukunde braucht physische Installateure vor Ort, und dieser Flaschenhals wächst langsamer als die Nachfrage.", korrekt: true, erklaerung: "Nicht Kapital, sondern Handwerkerkapazität limitiert das Wachstum — ein physischer Engpass in einem Finanzierungs-getriebenen Modell." },
-        { text: "Fehlende Nachfrage nach dem kapitalfreien Einstieg.", korrekt: false, erklaerung: "Die Nachfrage ist gerade der Treiber — der Engpass ist die Installationskapazität, sie zu bedienen." },
+        { text: "Die fehlende Nachfrage der Hausbesitzer nach einem kapitalfreien Einstieg, weil die allermeisten Eigenheimbesitzer ihre Solaranlage lieber sofort selbst kaufen als sie über Jahre zu mieten.", korrekt: false, erklaerung: "Die Nachfrage ist gerade der Treiber — der Engpass ist die Installationskapazität, sie zu bedienen." },
         { text: "Ein gesetzliches Verbot von PV-Mietmodellen.", korrekt: false, erklaerung: "PV-Miete ist erlaubt und wächst stark — kein Verbot; der Engpass ist operativ (Installateure)." }
       ]
     }
@@ -2503,7 +2503,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Fallende Hardwarepreise stärken den Kauf-Case: Warum 20 Jahre mieten, was deutlich billiger geworden ist? Dazu kommt die Zinsabhängigkeit des vorfinanzierten Modells.", korrekt: true, erklaerung: "Sinkende Anschaffungskosten untergraben die Grundlogik 'kein Kapital nötig' — die Verteidigung liegt im Ökosystem und der Installationskapazität." },
         { text: "Ein Verbot von Green Bonds in der EU.", korrekt: false, erklaerung: "Green Bonds werden gefördert, nicht verboten — die Bedrohung ist der attraktiver werdende Direktkauf, nicht ein Finanzierungsverbot." },
-        { text: "Der komplette Wegfall der EEG-Einspeisevergütung.", korrekt: false, erklaerung: "Die Vergütung sinkt, fällt aber nicht komplett weg; der Hauptangriff ist der günstiger werdende Kauf-Case." }
+        { text: "Der komplette und ersatzlose Wegfall der EEG-Einspeisevergütung für neue Dachanlagen, der dem Enpal-Modell schlagartig seine wichtigste garantierte Erlösquelle entziehen würde.", korrekt: false, erklaerung: "Die Vergütung sinkt, fällt aber nicht komplett weg; der Hauptangriff ist der günstiger werdende Kauf-Case." }
       ]
     }
   },
@@ -2529,7 +2529,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Enpal und ein Offshore-Windpark (Modul 2) sind völlig verschieden groß — nutzen aber dasselbe Finanzierungsprinzip. Welches?",
       optionen: [
         { text: "Beide verwandeln langfristig gesicherte Cashflows (Mietraten+EEG bzw. 20-Jahres-Ausschreibungspreis) in bankfähige Sicherheiten und finanzieren so kapitalintensive Vorleistungen günstig vor.", korrekt: true, erklaerung: "Ob Green Bond für tausende Hausanlagen oder Projektfinanzierung für einen Windpark: Cashflow-Sicherheit senkt die Kapitalkosten — dasselbe Prinzip in völlig anderem Maßstab." },
-        { text: "Beide verkaufen ihren Strom direkt an Endkunden mit Marge.", korrekt: false, erklaerung: "Enpal vermietet Hardware, der Windpark speist ins Netz ein — der gemeinsame Nenner ist die Finanzierungslogik, nicht der Vertrieb." },
+        { text: "Beide Geschäftsmodelle verkaufen ihren erzeugten Strom letztlich direkt an die Endkunden und verdienen an der Marge zwischen Erzeugungs- und Verkaufspreis, weshalb sie im Kern identische Lieferantenmodelle sind.", korrekt: false, erklaerung: "Enpal vermietet Hardware, der Windpark speist ins Netz ein — der gemeinsame Nenner ist die Finanzierungslogik, nicht der Vertrieb." },
         { text: "Beide sind reine Merchant-Modelle ohne jede Absicherung.", korrekt: false, erklaerung: "Das Gegenteil — beide beruhen gerade auf langfristiger Cashflow-Absicherung, die die Finanzierung erst ermöglicht." }
       ]
     }
@@ -2590,7 +2590,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum ist die asset-schwere CPO-Position gegen asset-leichte Angreifer strukturell schwach?",
       optionen: [
         { text: "eMSP-/Roaming-Aggregatoren übernehmen die margenstärkste Endkundenbeziehung und den App-Layer ohne eigenes Infrastruktur-Capex; OEMs (Tesla, VW/Elli) bauen parallel eigene Netze — der CPO kann zum reinen Hardware-Betreiber degradiert werden.", korrekt: true, erklaerung: "Wer Capex und Auslastungsrisiko trägt, aber nicht die Kundenschnittstelle hält, verliert die Marge an die Aggregatoren darüber." },
-        { text: "Weil CPOs gesetzlich keine eigenen Apps betreiben dürfen.", korrekt: false, erklaerung: "CPOs dürfen eigene Apps betreiben (EnBW mobility+) — die Schwäche ist wirtschaftlich (Roaming-Aggregatoren, OEM-Netze), nicht rechtlich." },
+        { text: "Weil Ladepunktbetreiber (CPOs) aus wettbewerbsrechtlichen Gründen gesetzlich gar keine eigenen Bezahl-Apps betreiben dürfen und die gesamte Kundenschnittstelle deshalb zwingend fremden Mobilitätsanbietern (EMPs) überlassen müssen, die den Kundenkontakt besitzen.", korrekt: false, erklaerung: "CPOs dürfen eigene Apps betreiben (EnBW mobility+) — die Schwäche ist wirtschaftlich (Roaming-Aggregatoren, OEM-Netze), nicht rechtlich." },
         { text: "Weil öffentliche Ladesäulen technisch schnell veralten.", korrekt: false, erklaerung: "Der Angriff kommt über die Kundenschnittstelle und parallele Netze, nicht primär über technische Veralterung." }
       ]
     }
@@ -2617,7 +2617,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Der CPO verliert Marge an die App-Schicht (eMSP), Octopus (Modul 4) verdient gerade AN der Software-Schicht (Kraken). Was lehrt der Vergleich?",
       optionen: [
         { text: "Wert und Marge wandern zur Software-/Kundenschnittstelle, weg von der physischen Infrastruktur — wer nur die Hardware betreibt (Säule, Kraftwerk), wird zum austauschbaren Backend derer, die die Schnittstelle kontrollieren.", korrekt: true, erklaerung: "Dasselbe Muster wie in Modul 5 (Kampf um die Flex-Schnittstelle): Die Plattform-/App-Ebene ist der strukturelle Gewinner." },
-        { text: "Physische Infrastruktur ist immer profitabler als Software.", korrekt: false, erklaerung: "Das Gegenteil zeigen beide Fälle — die asset-leichte Software-/App-Schicht gewinnt die Marge." },
+        { text: "Physische Ladeinfrastruktur ist grundsätzlich und in jedem Fall profitabler als reine Software, weil Hardware im Boden einen dauerhaften Vermögenswert darstellt, während Apps und Plattformen jederzeit beliebig kopierbar bleiben.", korrekt: false, erklaerung: "Das Gegenteil zeigen beide Fälle — die asset-leichte Software-/App-Schicht gewinnt die Marge." },
         { text: "Beide Modelle sind gescheitert.", korrekt: false, erklaerung: "Keins ist gescheitert — die Lehre ist die Verschiebung der Marge zur Schnittstelle, nicht ein Scheitern." }
       ]
     }
@@ -2631,7 +2631,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was genau verkauft der Pooler (carbonify) an das Mineralölunternehmen?",
       optionen: [
         { text: "Zertifizierte THG-Minderungen: Die (pauschale) Strommenge des E-Autos wird beim UBA als CO₂-Einsparung anerkannt und gebündelt an quotenverpflichtete Firmen verkauft.", korrekt: true, erklaerung: "Der Pooler handelt mit dem Nachweis vermiedener Emissionen — ein rein regulatorisch geschaffenes Gut." },
-        { text: "Den tatsächlichen Ladestrom des E-Autos physisch.", korrekt: false, erklaerung: "Es wird kein physischer Strom verkauft, sondern das Zertifikat über die anerkannte CO₂-Minderung." },
+        { text: "Vergütet wird der tatsächlich geladene Strom des E-Autos, der dafür physisch an jeder Ladesäule und Wallbox einzeln gemessen und dem jeweiligen Fahrzeughalter zugeordnet werden muss.", korrekt: false, erklaerung: "Es wird kein physischer Strom verkauft, sondern das Zertifikat über die anerkannte CO₂-Minderung." },
         { text: "Eine Beteiligung am E-Auto des Halters.", korrekt: false, erklaerung: "Der Halter behält sein Auto — verkauft wird nur der zertifizierte Umweltvorteil seiner E-Mobilität." }
       ]
     }
@@ -2644,7 +2644,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Ohne genügend zugekaufte Zertifikate müssten sie eine Pönale von 600 €/t CO₂ zahlen — dieser Strafpreis bildet die Obergrenze dessen, was sie für Zertifikate zu zahlen bereit sind.", korrekt: true, erklaerung: "Die Pönale ist der Anker: Zertifikate sind attraktiv, solange sie billiger als die Strafe sind." },
         { text: "Weil der Staat den Zertifikatspreis gesetzlich festsetzt.", korrekt: false, erklaerung: "Der Preis ist nicht festgesetzt, er schwankt stark — nur die Pönale bildet eine obere Orientierung." },
-        { text: "Weil Mineralölfirmen die Prämie steuerlich voll absetzen können.", korrekt: false, erklaerung: "Der Anker ist die Vermeidung der 600-€-Pönale, nicht ein Steuereffekt." }
+        { text: "Weil die quotenpflichtigen Mineralölkonzerne die an E-Auto-Halter gezahlte THG-Prämie steuerlich in voller Höhe absetzen können und sie deshalb ohne eigene Kosten großzügig auszahlen.", korrekt: false, erklaerung: "Der Anker ist die Vermeidung der 600-€-Pönale, nicht ein Steuereffekt." }
       ]
     }
   },
@@ -2656,7 +2656,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "§37a BImSchG — er verpflichtet Inverkehrbringer fossiler Kraftstoffe, ihre Treibhausgasintensität jährlich steigend zu mindern.", korrekt: true, erklaerung: "Die THG-Quote ist ein rein regulatorisch geschaffener Markt zwischen E-Mobilität und Mineralölwirtschaft." },
         { text: "Dem EEG §21 (Einspeisevergütung).", korrekt: false, erklaerung: "Das EEG betrifft Strom-Einspeisung, nicht die Kraftstoff-Treibhausgasminderung — das ist das BImSchG." },
-        { text: "Der ARegV (Anreizregulierung Netze).", korrekt: false, erklaerung: "Die ARegV regelt Netzentgelte, nicht die THG-Quote." }
+        { text: "Reguliert wird das Ganze über den ARegV, die Anreizregulierungsverordnung für die Stromnetze, die auch die Höhe der THG-Prämien für Ladepunkte jährlich neu festlegt.", korrekt: false, erklaerung: "Die ARegV regelt Netzentgelte, nicht die THG-Quote." }
       ]
     }
   },
@@ -2680,7 +2680,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum beschreibt der Steckbrief das THG-Geschäft als 'weniger Vermittlung als Rohstoffhandel mit Jahreszyklus'?",
       optionen: [
         { text: "Der Pooler kauft beim Fahrzeughalter zum Fixpreis (Garantieprämie) und verkauft in einen politisch gemachten, volatilen Markt — wer 2023 auf Höchstpreisbasis garantierte, verkaufte später in einen um zwei Drittel eingebrochenen Markt.", korrekt: true, erklaerung: "Garantiemodelle verlagern das Preisrisiko zum Pooler — genau wie bei einem Rohstoffhändler mit offener Position." },
-        { text: "Weil der Pooler physische Rohstoffe (Lithium, Kupfer) handelt.", korrekt: false, erklaerung: "Es geht um Zertifikate, nicht um physische Rohstoffe — die Analogie liegt im Preisrisiko der offenen Position, nicht im Handelsgut." },
+        { text: "Weil der THG-Pooler in Wirklichkeit mit physischen Rohstoffen wie Lithium und Kupfer handelt und seine Erlöse deshalb aus dem schwankenden Weltmarktpreis dieser Batteriematerialien statt aus der Quote selbst zieht, was ihn extrem konjunkturabhängig macht.", korrekt: false, erklaerung: "Es geht um Zertifikate, nicht um physische Rohstoffe — die Analogie liegt im Preisrisiko der offenen Position, nicht im Handelsgut." },
         { text: "Weil die Prämie täglich wie ein Aktienkurs schwankt.", korrekt: false, erklaerung: "Der Zyklus ist jährlich (UBA-Zertifizierung pro Jahr), nicht täglich — das Risiko ist die Preisentwicklung über Monate." }
       ]
     }
@@ -2708,7 +2708,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Die EEG-Marktprämie sichert dem Anlagenbetreiber einen anzulegenden Wert über 20 Jahre (planbar); die THG-Prämie hängt an einem jährlich neu volatilen, politisch getriebenen Quotenpreis ohne langfristige Garantie.", korrekt: true, erklaerung: "Beide sind regulatorisch, aber die eine ist langfristig gesichert, die andere kurzfristig-spekulativ — deshalb ist THG das viel wackeligere Geschäft." },
         { text: "Beide sind gleich sicher, weil beide vom Staat kommen.", korrekt: false, erklaerung: "Staatlicher Ursprung heißt nicht gleiche Sicherheit — die 20-Jahres-Garantie des AW unterscheidet sich fundamental vom volatilen Quotenpreis." },
-        { text: "Die THG-Quote ist über 20 Jahre garantiert, die EEG-Prämie nur jährlich.", korrekt: false, erklaerung: "Genau umgekehrt — der EEG-AW ist 20 Jahre gesichert, die THG-Prämie schwankt jährlich stark." }
+        { text: "Die THG-Quote ist dem Halter gesetzlich über volle 20 Jahre in gleicher Höhe garantiert, während die EEG-Einspeisevergütung nur jeweils für ein einziges Jahr zugesagt wird und danach frei neu verhandelt werden muss.", korrekt: false, erklaerung: "Genau umgekehrt — der EEG-AW ist 20 Jahre gesichert, die THG-Prämie schwankt jährlich stark." }
       ]
     }
   }

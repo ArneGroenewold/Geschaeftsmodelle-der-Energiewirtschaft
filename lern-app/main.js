@@ -135,6 +135,60 @@
 
       viewHome.appendChild(card);
     });
+
+    renderSzenarioSection();
+  }
+
+  // ── Home: Szenario-Missionen (K4-Fallstudien) ───────────────────
+  function renderSzenarioSection() {
+    const missions = (typeof SZENARIO_MISSIONS !== 'undefined') ? SZENARIO_MISSIONS : [];
+    if (!missions.length) return;
+    viewHome.appendChild(el(`<div class="sz-section-head"><h3>🎯 Szenario-Missionen</h3><p>Verbundene Fallstudien: Triff Entscheidungen und erlebe ihre Folgen.</p></div>`));
+    missions.forEach((m) => {
+      const rec = progressState.szenarien[m.id];
+      const badge = rec
+        ? `<span class="sz-card-badge">✓ ${Math.round(rec.bestScorePct * 100)}%</span>`
+        : '';
+      const card = el(`<div class="module-card sz-card">
+        <button class="module-header" type="button">
+          <div class="module-header-main">
+            <div class="module-card-title">${m.title} ${badge}</div>
+            <p class="module-card-desc">${m.kurz}</p>
+            <div class="sz-card-meta">${m.schritte.length} Entscheidungen · ${rec ? 'bester Lauf ' + Math.round(rec.bestScorePct * 100) + '%' : 'noch nicht gespielt'}</div>
+          </div>
+          <div class="module-chevron sz-play">▶</div>
+        </button>
+      </div>`);
+      card.querySelector('.module-header').addEventListener('click', () => startSzenario(m.id));
+      viewHome.appendChild(card);
+    });
+  }
+
+  function startSzenario(missionId) {
+    const mission = SZENARIO_MISSIONS.find((m) => m.id === missionId);
+    if (!mission) return;
+    showView('player');
+    viewPlayer.innerHTML = '';
+    window.SzenarioEngine.run({
+      container: viewPlayer,
+      mission,
+      onComplete(res) {
+        const prev = progressState.szenarien[missionId];
+        const bestScorePct = Math.max(res.scorePct, (prev && prev.bestScorePct) || 0);
+        progressState.szenarien[missionId] = {
+          bestScorePct,
+          lastScorePct: res.scorePct,
+          lastTierIndex: res.tierIndex,
+          attempts: ((prev && prev.attempts) || 0) + 1,
+          completedAt: new Date().toISOString()
+        };
+        // XP nur beim ersten Abschluss großzügig, danach kleiner Bonus für Verbesserung.
+        const firstTime = !prev;
+        progressState.xp = (progressState.xp || 0) + (firstTime ? 40 : 0) + Math.round(res.scorePct * 20);
+        persist();
+        showView('home');
+      }
+    });
   }
 
   function startUnit(unitId) {

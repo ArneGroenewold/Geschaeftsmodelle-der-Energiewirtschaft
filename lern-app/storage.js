@@ -12,7 +12,7 @@
     return { schemaVersion: 1, cards: {}, streak: { count: 0, lastReviewDate: null } };
   }
   function emptyProgressState() {
-    return { schemaVersion: 1, units: {}, xp: 0, bossQuizzes: {}, certification: null };
+    return { schemaVersion: 1, units: {}, xp: 0, bossQuizzes: {}, certification: null, szenarien: {} };
   }
 
   // Sanftes Nachrüsten neuer Felder bei bestehenden Speicherständen (Schema v1
@@ -21,6 +21,7 @@
   function migrateProgress(state) {
     if (!state.bossQuizzes) state.bossQuizzes = {};
     if (typeof state.certification === 'undefined') state.certification = null;
+    if (!state.szenarien) state.szenarien = {};
     return state;
   }
 

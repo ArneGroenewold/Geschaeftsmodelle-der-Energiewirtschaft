@@ -1242,7 +1242,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum trägt ein regulierter Netzbetreiber 'kein Marktrisiko, aber Regulierungsrisiko'?",
       optionen: [
         { text: "Sein Erlös hängt nicht vom Strompreis oder Wettbewerb ab, sondern von der BNetzA-Festlegung — deren Änderung (z.B. niedrigerer EK-Zins, neue NEST/AgNes-Regeln) ist das eigentliche Risiko.", korrekt: true, erklaerung: "Jede Regulierungsperiode ist faktisch eine Neuverhandlung der Marge — das ersetzt das Marktrisiko durch politisch-regulatorische Unsicherheit." },
-        { text: "Weil er per Termingeschäft gegen alle Strompreisschwankungen abgesichert ist.", korrekt: false, erklaerung: "Netzbetreiber handeln keinen Strom — sie haben schlicht gar kein Preis-Exposure, deshalb braucht es auch keine Absicherung." },
+        { text: "Weil der Netzbetreiber seine Erlöse per langfristigem Termingeschäft an der Börse gegen sämtliche Strompreisschwankungen vollständig absichert und dadurch unabhängig von der Marktentwicklung kalkulieren kann.", korrekt: false, erklaerung: "Netzbetreiber handeln keinen Strom — sie haben schlicht gar kein Preis-Exposure, deshalb braucht es auch keine Absicherung." },
         { text: "Weil der Staat jeden Verlust des Netzbetreibers ausgleicht.", korrekt: false, erklaerung: "Eine staatliche Verlustgarantie gibt es nicht — die Erlösobergrenze sichert die Erlösseite, aber die BNetzA kann die Konditionen verschärfen." }
       ]
     }
@@ -1274,7 +1274,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Ein Merchant-Gaskraftwerk (Modul 2) und ein Übertragungsnetzbetreiber stehen für zwei gegensätzliche Erlöslogiken. Worin?",
       optionen: [
         { text: "Das Kraftwerk trägt volles Marktrisiko (Erlös = schwankender Spread), der Netzbetreiber trägt keins (Erlös = regulierte Obergrenze) — dafür Regulierungsrisiko.", korrekt: true, erklaerung: "Merchant vs. Reguliert ist die grundlegendste Erlöstyp-Unterscheidung der Energiewirtschaft — maximales Marktrisiko gegen maximalen Regulierungsschutz." },
-        { text: "Beide verdienen an der Merit Order, nur auf unterschiedlichen Spannungsebenen.", korrekt: false, erklaerung: "Die Merit Order betrifft nur die Erzeugung — der Netzbetreiber verdient völlig unabhängig davon an regulierten Entgelten." },
+        { text: "Beide verdienen letztlich an der Merit Order, nur auf unterschiedlichen Spannungsebenen des Netzes – der ÜNB auf Höchstspannung, der VNB im Verteilnetz, jeweils über den Börsenpreis.", korrekt: false, erklaerung: "Die Merit Order betrifft nur die Erzeugung — der Netzbetreiber verdient völlig unabhängig davon an regulierten Entgelten." },
         { text: "Beide sind reguliert, das Kraftwerk über das EEG, das Netz über die ARegV.", korrekt: false, erklaerung: "Ein Merchant-Gaskraftwerk erhält gerade keine EEG-Förderung — es ist reines Marktgeschäft. Nur das Netz ist reguliert." }
       ]
     }
@@ -1364,7 +1364,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Lokale Flexmärkte und 'Nutzen statt Abregeln' sollen Redispatch teilweise ersetzen. Welches Asset aus Modul 2 profitiert davon am direktesten?",
       optionen: [
         { text: "Der Batteriespeicher: Er kann überschüssigen Windstrom vor dem Engpass aufnehmen, statt dass abgeregelt wird — und ihn später wieder abgeben.", korrekt: true, erklaerung: "'Nutzen statt Abregeln' verwandelt Redispatch-Kosten in ein Marktsignal, das Speicher am Engpass wirtschaftlich macht — Modul 2 trifft Modul 3." },
-        { text: "Das konventionelle PPA, weil es langfristige Festpreise bietet.", korrekt: false, erklaerung: "Ein PPA ist ein Preissicherungsvertrag ohne Bezug zum lokalen Netzengpass — es kann Redispatch nicht ersetzen." },
+        { text: "Das konventionelle PPA, weil es dem Betreiber langfristige Festpreise garantiert und ihn damit vollständig gegen jedes kurzfristige Redispatch-Risiko im Netz absichert.", korrekt: false, erklaerung: "Ein PPA ist ein Preissicherungsvertrag ohne Bezug zum lokalen Netzengpass — es kann Redispatch nicht ersetzen." },
         { text: "Die Bürgerenergiegenossenschaft, weil sie lokal verankert ist.", korrekt: false, erklaerung: "Lokale Verankerung allein löst keinen Netzengpass — dafür braucht es steuerbare Flexibilität (Speicher/Last), nicht eine Organisationsform." }
       ]
     }
@@ -1378,7 +1378,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was ist die 'Unterdeckung' im Bilanzkreis des Stadtwerks?",
       optionen: [
         { text: "Die Kunden verbrauchen mehr, als das Stadtwerk für diese Stunde angemeldet (prognostiziert) hatte — die Differenz muss als Ausgleichsenergie beschafft werden.", korrekt: true, erklaerung: "Der Bilanzkreis muss stündlich ausgeglichen sein; jede Abweichung nach oben ist eine teuer nachzukaufende Unterdeckung." },
-        { text: "Das Stadtwerk hat weniger Eigenkapital als gesetzlich für Lieferanten vorgeschrieben.", korrekt: false, erklaerung: "Unterdeckung ist ein energiewirtschaftlicher, kein bilanzieller Begriff — es geht um Strommengen pro Stunde, nicht um Eigenkapital." },
+        { text: "Das Stadtwerk hat weniger Eigenkapital hinterlegt, als gesetzlich für zugelassene Stromlieferanten vorgeschrieben ist, und verliert deshalb vorübergehend seine Belieferungserlaubnis.", korrekt: false, erklaerung: "Unterdeckung ist ein energiewirtschaftlicher, kein bilanzieller Begriff — es geht um Strommengen pro Stunde, nicht um Eigenkapital." },
         { text: "Das Stadtwerk hat zu wenige Kunden, um seinen Bilanzkreis zu füllen.", korrekt: false, erklaerung: "Die Kundenzahl ist irrelevant — Unterdeckung entsteht durch Prognosefehler, nicht durch Portfoliogröße." }
       ]
     }
@@ -1425,7 +1425,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Wodurch ist die Bilanzkreis-Wertschöpfung des ÜNB angreifbar?",
       optionen: [
         { text: "Durch 'BKV-as-a-Service'-Dienstleister: Über offene APIs (MaBiS 2.0) übernehmen Dritte für kleine Lieferanten die Prognose und das Ausgleichsenergie-Risikomanagement — die wertschöpfende Analytik entsteht bei ihnen, nicht beim ÜNB.", korrekt: true, erklaerung: "Dem ÜNB bleibt die Infrastrukturrolle; die margenträchtige Optimierung wandert zu spezialisierten Dienstleistern." },
-        { text: "Durch neue Wettbewerber, die eigene Bilanzkreissysteme parallel zum ÜNB betreiben.", korrekt: false, erklaerung: "Das Bilanzkreissystem ist ein natürliches Monopol des ÜNB — niemand baut ein Konkurrenzsystem; angegriffen wird die Analytik-Schnittstelle." },
+        { text: "Durch neue private Wettbewerber, die eigene Bilanzkreis- und Ausgleichsenergiesysteme vollständig parallel zum ÜNB aufbauen und betreiben, den Marktteilnehmern günstigere Konditionen anbieten und dem ÜNB so schrittweise sein reguliertes Monopol entziehen.", korrekt: false, erklaerung: "Das Bilanzkreissystem ist ein natürliches Monopol des ÜNB — niemand baut ein Konkurrenzsystem; angegriffen wird die Analytik-Schnittstelle." },
         { text: "Durch Verbraucher, die ihren Strom ohne Bilanzkreis direkt an der Börse kaufen.", korrekt: false, erklaerung: "Auch Börsenstrom läuft über Bilanzkreise — man kann das System nicht umgehen, nur die Dienstleistung darüber auslagern." }
       ]
     }
@@ -1453,7 +1453,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Gesteuerte Lasten sind besser prognostizierbar UND lassen sich gezielt dorthin verschieben, wo Tibber ohnehin Strom eingeplant hat — beides senkt die Ausgleichsenergiekosten.", korrekt: true, erklaerung: "Steuerbarkeit reduziert den Prognosefehler an der Wurzel — ein unterschätzter Nebeneffekt des Tibber-Modells, der direkt auf die Bilanzkreis-Marge wirkt." },
         { text: "Tibber muss als App-Anbieter keinen Bilanzkreis führen.", korrekt: false, erklaerung: "Doch — Tibber ist ein Stromlieferant und führt einen Bilanzkreis wie jeder andere; die Steuerbarkeit hilft ihm nur, ihn genauer zu treffen." },
-        { text: "Tibber kann durch die App die Ausgleichsenergiepreise des ÜNB senken.", korrekt: false, erklaerung: "Einzelne Lieferanten setzen die Ausgleichsenergiepreise nicht — Tibber kann nur die eigene Abweichung minimieren, nicht den Preis beeinflussen." }
+        { text: "Tibber kann durch seine App und die smarte Steuerung der Kundengeräte die Ausgleichsenergiepreise des ÜNB direkt senken und diese Einsparung als Erlösquelle an sich selbst weiterreichen.", korrekt: false, erklaerung: "Einzelne Lieferanten setzen die Ausgleichsenergiepreise nicht — Tibber kann nur die eigene Abweichung minimieren, nicht den Preis beeinflussen." }
       ]
     }
   },
@@ -1478,7 +1478,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum rechnet sich §14a für den VNB gleich doppelt?",
       optionen: [
         { text: "Er spart den teuren Trafo-Ausbau (30.000–100.000 €) UND die dafür nötige Steuer-Infrastruktur (CLS) wird regulatorisch als RAB-relevantes Betriebsmittel anerkannt — er darf sie also verzinsen.", korrekt: true, erklaerung: "Capex-Vermeidung plus verzinsbares Smart-Grid-Investment: der VNB gewinnt auf der Kosten- und der Erlösseite gleichzeitig." },
-        { text: "Er kassiert die Netzentgeltnachlässe der Kunden als zusätzliche Einnahme.", korrekt: false, erklaerung: "Umgekehrt — der Netzentgeltnachlass ist eine Zahlung AN den Kunden, keine Einnahme des VNB." },
+        { text: "Er kassiert die den Kunden gewährten Netzentgeltnachlässe im Gegenzug selbst als zusätzliche Einnahme, weil der Netzbetreiber ihm die reduzierten Entgelte über einen Ausgleichsmechanismus voll erstattet.", korrekt: false, erklaerung: "Umgekehrt — der Netzentgeltnachlass ist eine Zahlung AN den Kunden, keine Einnahme des VNB." },
         { text: "Er verkauft die abgeregelte Energie an der Börse weiter.", korrekt: false, erklaerung: "§14a regelt Netzsteuerung, keinen Energiehandel — der VNB handelt aus Unbundling-Gründen ohnehin keinen Strom." }
       ]
     }
@@ -1490,7 +1490,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was ist der Unterschied zwischen gMSB und iMSB beim Messstellenbetrieb?",
       optionen: [
         { text: "Der grundzuständige gMSB (per Default der VNB) baut automatisch ein; ein wettbewerblicher iMSB (z.B. inexogy, ista) kann den Kunden aktiv abwerben.", korrekt: true, erklaerung: "Der gMSB ist der Default mit reguliertem Entgelt, der iMSB muss über Mehrwertdienste überzeugen — eine klassische Opt-out-Hürde." },
-        { text: "gMSB messen Strom, iMSB messen Gas und Wärme.", korrekt: false, erklaerung: "Die Unterscheidung ist rechtlich (grundzuständig vs. wettbewerblich), nicht nach Energieträger." },
+        { text: "Der grundzuständige Messstellenbetreiber (gMSB) misst ausschließlich Strom, während der intelligente Messstellenbetreiber (iMSB) allein für Gas und Wärme zuständig ist.", korrekt: false, erklaerung: "Die Unterscheidung ist rechtlich (grundzuständig vs. wettbewerblich), nicht nach Energieträger." },
         { text: "gMSB sind privat, iMSB sind staatlich.", korrekt: false, erklaerung: "Beide sind Marktrollen; der gMSB ist meist der (kommunale oder private) VNB, der iMSB ein wettbewerblicher Anbieter — mit Eigentum hat das nichts zu tun." }
       ]
     }
@@ -1516,7 +1516,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Aggregatoren, HEMS-Anbieter und Neolieferanten wollen dieselben Geräte marktlich (nach Börsenpreis) statt netzdienlich steuern — wer die Kundenschnittstelle besitzt, bestimmt, wessen Optimierung Vorrang hat.", korrekt: true, erklaerung: "§14a ist eine Schnittstelle, kein fertiges Geschäftsmodell — der Kampf um die Gerätesteuerung ist ein Kampf um die Kundenschnittstelle." },
         { text: "Andere VNB, die in fremde Netzgebiete expandieren wollen.", korrekt: false, erklaerung: "VNB haben Gebietsmonopole und expandieren nicht in fremde Netze — der Angriff kommt von marktlichen Flex-Vermarktern, nicht von anderen Netzbetreibern." },
-        { text: "Die BNetzA, die den VNB die §14a-Steuerung wieder entziehen will.", korrekt: false, erklaerung: "Die BNetzA hat §14a gerade eingeführt — die Spannung liegt zwischen netzdienlicher (VNB) und marktlicher (Aggregator) Steuerung, nicht in einem Entzug." }
+        { text: "Die BNetzA selbst, die den Verteilnetzbetreibern die §14a-Steuerungsbefugnis über die Kundengeräte mittelfristig wieder entziehen und stattdessen zentral bei den Übertragungsnetzbetreibern bündeln will, um Missbrauch zu verhindern.", korrekt: false, erklaerung: "Die BNetzA hat §14a gerade eingeführt — die Spannung liegt zwischen netzdienlicher (VNB) und marktlicher (Aggregator) Steuerung, nicht in einem Entzug." }
       ]
     }
   },
@@ -1542,7 +1542,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Der Heimspeicher (Modul 2) wird vom Aggregator marktlich gesteuert, der VNB will ihn per §14a netzdienlich steuern. Worin besteht der Grundkonflikt?",
       optionen: [
         { text: "Beide wollen dasselbe Gerät steuern, aber nach unterschiedlicher Logik: der Aggregator nach Börsenpreis (maximaler Erlös), der VNB nach Netzzustand (Engpassvermeidung) — die Priorisierung ist regulatorisch noch nicht abschließend geklärt.", korrekt: true, erklaerung: "Genau diese Doppelsteuerung ist die offene Flanke: Modul 2 (Flex-Vermarktung) und Modul 3 (Netzsteuerung) greifen auf dasselbe physische Asset zu." },
-        { text: "Der Heimspeicher kann technisch nur von einer Partei gleichzeitig genutzt werden, nie von beiden.", korrekt: false, erklaerung: "Technisch ist geteilte Nutzung möglich (z.B. 20% für VPP, Rest für Eigenverbrauch) — der Konflikt ist die Steuerungspriorität, nicht die physische Exklusivität." },
+        { text: "Der Heimspeicher kann aus technischen und abrechnungsrechtlichen Gründen immer nur von einer einzigen Partei gleichzeitig genutzt werden, nie parallel vom Eigenheimbesitzer für den Eigenverbrauch und vom Aggregator für Netzdienstleistungen – beide Nutzungen schließen sich physikalisch aus.", korrekt: false, erklaerung: "Technisch ist geteilte Nutzung möglich (z.B. 20% für VPP, Rest für Eigenverbrauch) — der Konflikt ist die Steuerungspriorität, nicht die physische Exklusivität." },
         { text: "§14a verbietet Heimspeichern die Teilnahme an virtuellen Kraftwerken.", korrekt: false, erklaerung: "Kein solches Verbot — §14a und VPP-Teilnahme koexistieren, ihre Koordination ist nur noch nicht vollständig geregelt." }
       ]
     }
@@ -1556,7 +1556,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was ermöglicht der Kommune überhaupt, das Netz am Konzessionsende zurückzukaufen?",
       optionen: [
         { text: "Die Konzession (§46 EnWG) — das Wegerecht fürs Netz — wird nur befristet (meist 20 Jahre) vergeben; bei Auslauf kann die Kommune neu vergeben oder selbst übernehmen.", korrekt: true, erklaerung: "Das befristete Konzessionsrecht ist der einzige reguläre Hebel, mit dem ein sonst festes Netzmonopol den Betreiber wechseln kann." },
-        { text: "Die BNetzA versteigert die Netze alle 20 Jahre neu an den Meistbietenden.", korrekt: false, erklaerung: "Es gibt keine BNetzA-Versteigerung — die Kommune vergibt die Wegekonzession selbst, das ist ein kommunalrechtliches Verfahren." },
+        { text: "Die BNetzA versteigert die regionalen Verteilnetze alle 20 Jahre in einem offenen Bieterverfahren neu an den finanzstärksten Meistbietenden, unabhängig vom bisherigen Betreiber.", korrekt: false, erklaerung: "Es gibt keine BNetzA-Versteigerung — die Kommune vergibt die Wegekonzession selbst, das ist ein kommunalrechtliches Verfahren." },
         { text: "Jeder Netzbetreiber muss sein Netz nach 20 Jahren gesetzlich abgeben.", korrekt: false, erklaerung: "Es gibt keine Abgabepflicht — der Betreiber kann sich um die Konzession erneut bewerben; die Kommune entscheidet." }
       ]
     }
@@ -1568,7 +1568,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was ist die zentrale finanzielle Motivation hinter einer Rekommunalisierung?",
       optionen: [
         { text: "Der regulierte, planbare Return auf die RAB fließt in den kommunalen Haushalt statt an einen externen Netzkonzern — plus Steuerungshoheit über die lokale Wärme-/Energiewende.", korrekt: true, erklaerung: "Das Netz ist eine stabile, regulierte Ertragsquelle — sie in kommunale Hand zu holen, verbindet finanzielle mit strategischen Motiven." },
-        { text: "Die Kommune kann als Netzbetreiberin die Netzentgelte frei senken, um Wähler zu gewinnen.", korrekt: false, erklaerung: "Auch ein kommunaler VNB ist an die ARegV gebunden — die Entgelte sind reguliert, nicht politisch frei setzbar." },
+        { text: "Die Kommune kann als kommunale Netzbetreiberin die lokalen Netzentgelte politisch frei senken, um bei ihren Bürgern als Wählern zu punkten, und die Mindereinnahmen aus dem allgemeinen Haushalt ausgleichen.", korrekt: false, erklaerung: "Auch ein kommunaler VNB ist an die ARegV gebunden — die Entgelte sind reguliert, nicht politisch frei setzbar." },
         { text: "Rekommunalisierte Netze sind von der ARegV-Regulierung befreit.", korrekt: false, erklaerung: "Nein — die Regulierung gilt unabhängig vom Eigentümer; nur der Empfänger des Returns ändert sich." }
       ]
     }
@@ -1580,7 +1580,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was kennzeichnet den kommunalen Eigenbetrieb als Betreibermodell?",
       optionen: [
         { text: "Eigentum, operativer Betrieb und Konzession liegen vollständig in einer Hand (Kommune/Stadtwerk) — volle vertikale Integration, voller Return bleibt im Konzern.", korrekt: true, erklaerung: "Kein Pacht- oder Betriebsführungsentgelt geht an Dritte ab; dafür trägt die Kommune die volle Kapitalbindung." },
-        { text: "Die Kommune besitzt das Netz, lässt es aber von einem privaten Konzern betreiben.", korrekt: false, erklaerung: "Das wäre ein Pacht-/Betriebsführungsmodell — beim Eigenbetrieb macht die Kommune alles selbst." },
+        { text: "Die Kommune besitzt das Verteilnetz zwar formal selbst, lässt es aber vollständig von einem privaten Energiekonzern betreiben, der dafür die gesamte regulierte Rendite vereinnahmt.", korrekt: false, erklaerung: "Das wäre ein Pacht-/Betriebsführungsmodell — beim Eigenbetrieb macht die Kommune alles selbst." },
         { text: "Ein privater Investor besitzt das Netz, die Kommune hält nur die Konzession.", korrekt: false, erklaerung: "Das ist die Asset-Trennung (Pachtmodell) — der Eigenbetrieb hält gerade alles selbst zusammen." }
       ]
     }
@@ -1605,7 +1605,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Warum bestraft der ARegV-Effizienzbenchmark kleine kommunale Eigenbetriebe strukturell?",
       optionen: [
         { text: "Ihnen fehlen die Skaleneffekte größerer VNB; im Benchmarking gegen effizientere, größere Netzbetreiber schneiden sie schlechter ab und erhalten niedrigere anerkannte Kosten.", korrekt: true, erklaerung: "Genau deshalb suchen kleine Eigenbetriebe unter Capex-Druck zunehmend Kooperations- oder Betriebsführungsmodelle." },
-        { text: "Kleine Betreiber müssen einen gesetzlichen Strafzuschlag auf ihre Netzentgelte zahlen.", korrekt: false, erklaerung: "Einen Strafzuschlag gibt es nicht — der Nachteil entsteht indirekt über den Effizienzvergleich, nicht über eine Abgabe." },
+        { text: "Kleine Netzbetreiber müssen laut ARegV einen gesetzlich festgelegten Strafzuschlag auf ihre Netzentgelte zahlen, der sie gegenüber großen, effizienteren Betreibern gezielt benachteiligt.", korrekt: false, erklaerung: "Einen Strafzuschlag gibt es nicht — der Nachteil entsteht indirekt über den Effizienzvergleich, nicht über eine Abgabe." },
         { text: "Die BNetzA erlaubt kleinen Betreibern keine Investitionen in die RAB.", korrekt: false, erklaerung: "Auch kleine Betreiber dürfen investieren — das Problem ist die Effizienzbewertung ihrer Betriebskosten, nicht ein Investitionsverbot." }
       ]
     }
@@ -1618,7 +1618,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       optionen: [
         { text: "Weil das Netzmonopol sonst fest ist — nur beim Auslaufen der befristeten Konzession kann die Kommune neu vergeben, rekommunalisieren oder einen anderen Betreiber wählen.", korrekt: true, erklaerung: "Zwischen zwei Konzessionsrunden ist der Betreiber praktisch unangreifbar; die Vergabe alle ~20 Jahre ist das einzige reguläre Wechselfenster." },
         { text: "Weil die BNetzA am Konzessionsende die Erlösobergrenze auf null setzt.", korrekt: false, erklaerung: "Die ARegV-Regulierung läuft betreiberunabhängig weiter — sie wird durch das Konzessionsende nicht ausgesetzt." },
-        { text: "Weil Netze am Konzessionsende technisch erneuert werden müssen und dabei stillstehen.", korrekt: false, erklaerung: "Das Netz läuft im Betreiberübergang normal weiter — der Angriffspunkt ist rechtlich-wirtschaftlich (Vergabe), nicht technisch." }
+        { text: "Weil die Verteilnetze zum Konzessionsende gesetzlich vollständig technisch erneuert werden müssen und während dieser Umbauphase vorübergehend stillstehen, was ihren Wert drückt.", korrekt: false, erklaerung: "Das Netz läuft im Betreiberübergang normal weiter — der Angriffspunkt ist rechtlich-wirtschaftlich (Vergabe), nicht technisch." }
       ]
     }
   },
@@ -1629,7 +1629,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Der kommunale Netz-Eigenbetrieb und das Stadtwerke-Mehrsparten-Modell (Modul 4) teilen einen strukturellen Vorteil. Welchen?",
       optionen: [
         { text: "Den Querverbund: Das regulierte Netz liefert stabile Erträge, die im kommunalen Konzern mit anderen Sparten (Wärme, ÖPNV) verrechnet und für die lokale Energiewende eingesetzt werden können.", korrekt: true, erklaerung: "Beide Male ist die stabile, regulierte Netzbasis der Anker, der defizitärere Sparten und langfristige Investitionen trägt — Modul 3 und Modul 4 beschreiben zwei Seiten desselben Stadtwerke-Konstrukts." },
-        { text: "Beide sind vom Wettbewerb durch Neolieferanten vollständig geschützt.", korrekt: false, erklaerung: "Das Vertriebsgeschäft der Stadtwerke ist sehr wohl angreifbar (Rosinenpicken) — nur das Netz ist Monopol. Der gemeinsame Vorteil ist der Querverbund, nicht Wettbewerbsfreiheit." },
+        { text: "Beide sind als regulierte Monopole vom Wettbewerb durch Neolieferanten wie Tibber oder Octopus vollständig geschützt und müssen sich daher um Kundenabwanderung keinerlei Sorgen machen.", korrekt: false, erklaerung: "Das Vertriebsgeschäft der Stadtwerke ist sehr wohl angreifbar (Rosinenpicken) — nur das Netz ist Monopol. Der gemeinsame Vorteil ist der Querverbund, nicht Wettbewerbsfreiheit." },
         { text: "Beide dürfen ihre Preise frei kalkulieren.", korrekt: false, erklaerung: "Das Netz ist streng reguliert (ARegV) — gerade nicht frei kalkulierbar. Der Vorteil liegt in der Ertragsstabilität, nicht in Preisfreiheit." }
       ]
     }
@@ -1655,7 +1655,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Wer trägt beim Amortisationskonto das Hauptrisiko der Anlaufphase — und warum ist das clever?",
       optionen: [
         { text: "Der Staat trägt die frühe Kostenlücke vorübergehend; steigt die Auslastung, zahlt der FNB die Vorfinanzierung über höhere H2-Netzentgelte zurück — das senkt das FNB-Investitionsrisiko und beschleunigt den Netzbau.", korrekt: true, erklaerung: "Das Modell verlagert das Henne-Ei-Risiko auf den Staat, der es am besten tragen kann, ohne den FNB von der Rückzahlung zu entbinden." },
-        { text: "Die ersten H2-Kunden zahlen einen Strafaufschlag, der die gesamte Leitung sofort finanziert.", korrekt: false, erklaerung: "Das Gegenteil ist der Zweck: Die Anfangskunden zahlen zunächst niedrige Entgelte — genau deshalb springt der Staat als Zwischenfinanzierer ein." },
+        { text: "Die ersten angeschlossenen H2-Kunden zahlen einen einmaligen Strafaufschlag auf ihren Netzanschluss, der die gesamte Wasserstoff-Fernleitung sofort und vollständig finanziert, sodass spätere Kunden gar keine Netzentgelte mehr zahlen müssen.", korrekt: false, erklaerung: "Das Gegenteil ist der Zweck: Die Anfangskunden zahlen zunächst niedrige Entgelte — genau deshalb springt der Staat als Zwischenfinanzierer ein." },
         { text: "Der FNB verzichtet dauerhaft auf jede Rendite aus dem H2-Netz.", korrekt: false, erklaerung: "Der FNB erhält weiterhin einen regulierten Return — das Konto überbrückt nur die ertragsschwache Anlaufphase, es enteignet den Betreiber nicht." }
       ]
     }
@@ -1667,7 +1667,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Was ist die 'Death Spiral' des Erdgasnetzes?",
       optionen: [
         { text: "Sinkende Durchleitungsmengen (durch Elektrifizierung) bei fixen Netzkosten treiben das Entgelt je Kunde nach oben, was weitere Kunden zum Ausstieg motiviert — ein sich selbst verstärkender Sog.", korrekt: true, erklaerung: "Weil das Entgelt = Fixkosten / Menge ist, wirkt jede abwandernde Kilowattstunde verteuernd auf die verbleibenden — der klassische Netz-Teufelskreis." },
-        { text: "Ein plötzlicher technischer Totalausfall des gesamten Gasnetzes.", korrekt: false, erklaerung: "Death Spiral ist ein ökonomischer, kein technischer Begriff — es geht um die Entgeltdynamik, nicht um einen Blackout." },
+        { text: "Ein plötzlicher technischer Totalausfall des gesamten deutschen Gasnetzes, ausgelöst durch die gleichzeitige Umstellung aller Leitungen auf Wasserstoff, der die Versorgung schlagartig zusammenbrechen lässt.", korrekt: false, erklaerung: "Death Spiral ist ein ökonomischer, kein technischer Begriff — es geht um die Entgeltdynamik, nicht um einen Blackout." },
         { text: "Der Rückgang der Gaspreise unter die Förderkosten.", korrekt: false, erklaerung: "Es geht um Netzentgelte (Durchleitung), nicht um den Gas-Rohstoffpreis." }
       ]
     }
@@ -1692,7 +1692,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Wodurch könnte das H2-Kernnetz-Modell trotz staatlicher Absicherung angreifbar werden?",
       optionen: [
         { text: "Durch alternative Logistiken (Ammoniak-/LOHC-Importe über Häfen, On-site-Elektrolyse), die Ankerkunden abfangen, bevor das Netz sie erreicht — und durch einen H2-Hochlauf, der hinter dem Amortisationspfad zurückbleibt.", korrekt: true, erklaerung: "Bleibt die Nachfrage aus, wird die Refinanzierung politisch angreifbar — das Modell hängt am Vertrauen, dass künftige Nutzer die heutigen Vorleistungen tragen." },
-        { text: "Durch neue private H2-Fernleitungsnetze, die in direkte Preiskonkurrenz treten.", korrekt: false, erklaerung: "Das Kernnetz ist als nationales Monopol konzipiert — paralleler Netzbau ist unwahrscheinlich; die Konkurrenz kommt von anderen Transportformen, nicht von Konkurrenznetzen." },
+        { text: "Durch neue, komplett privat finanzierte H2-Fernleitungsnetze, die parallel zum regulierten Kernnetz verlegt werden und mit eigenen, ungeregelten Durchleitungstarifen in direkte Preiskonkurrenz zum staatlichen Netz treten.", korrekt: false, erklaerung: "Das Kernnetz ist als nationales Monopol konzipiert — paralleler Netzbau ist unwahrscheinlich; die Konkurrenz kommt von anderen Transportformen, nicht von Konkurrenznetzen." },
         { text: "Durch die BNetzA, die dem Kernnetz die Regulierung entzieht.", korrekt: false, erklaerung: "Die Regulierung ist die Grundlage des Modells — das Risiko liegt in der Marktnachfrage, nicht in einem Regulierungsentzug." }
       ]
     }
@@ -1719,7 +1719,7 @@ Object.assign(LERN_QUIZ_ITEMS, {
       frage: "Das H2-Kernnetz und die Offshore-Windprojekte (Modul 2) lösen dasselbe Grundproblem auf ähnliche Weise. Welches?",
       optionen: [
         { text: "Beide sind extrem kapitalintensiv und werden erst durch eine staatlich/regulatorisch abgesicherte, langfristige Erlösgarantie finanzierbar (Amortisationskonto bzw. 20-Jahres-Ausschreibungspreis).", korrekt: true, erklaerung: "Milliardeninfrastruktur mit langem Vorlauf braucht ein Instrument, das das offene Marktrisiko in einen bankfähigen Cashflow verwandelt — das eint H2-Netz und Offshore-Wind." },
-        { text: "Beide finanzieren sich vollständig über kurzfristige Spotmarkterlöse.", korrekt: false, erklaerung: "Das Gegenteil — gerade weil Spoterlöse zu unsicher wären, brauchen beide langfristige Absicherungsinstrumente." },
+        { text: "Beide finanzieren ihre milliardenschweren Infrastrukturinvestitionen vollständig über kurzfristige, volatile Spotmarkterlöse statt über langfristig regulierte Netzentgelte und tragen damit das volle Marktrisiko selbst.", korrekt: false, erklaerung: "Das Gegenteil — gerade weil Spoterlöse zu unsicher wären, brauchen beide langfristige Absicherungsinstrumente." },
         { text: "Beide sind reine Merchant-Geschäfte ohne staatliche Beteiligung.", korrekt: false, erklaerung: "Beide sind das Gegenteil von Merchant — reguliert bzw. staatlich abgesichert, um die Kapitalintensität überhaupt finanzierbar zu machen." }
       ]
     }

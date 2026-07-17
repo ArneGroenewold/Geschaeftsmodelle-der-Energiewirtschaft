@@ -124,6 +124,9 @@ Zusätzlich: Volltext-Suche über alle Felder (inkl. angreifbarkeit/fallbeispiel
 | v2.3 | Faktenkorrektur-Release (Next Kraftwerke/Shell, SuedLink, §41a, CSRD-Verschiebung u.v.m.) |
 | v2.4/v2.5 | Quellen-Feature: Register + Inline-Marker + Quellen-Seite (12 → 18 Quellen); window-Bugfix, Browser-QA |
 | v2.6 | **Fakten-Refresh Juli 2026** (CSRD-Omnibus final, NEST/AgNes, Kraftwerksstrategie/StromVKG), Timeline +11 Events, **Angreifbarkeit-Vollrollout (69)**, Quellen 21/Marker 34, Glossar ~111, `GM_FAKTEN_STAND`, Doku-Sync |
+| v2.7 | **Lücken-Review Akteure/Modelle:** 4 neue Steckbriefe → 75 (Octopus/Kraken, Utility-OS-Lizenzierung, BESS-Optimierung/Route-to-Market, THG-Quotenhandel); LichtBlick ergänzt (fehlte komplett!), Fastned/Tesla/Kyon/Tesvolt/Aira/trawa; Glossar ~115, Quellen 23/Marker 40, Timeline 43 |
+
+**Lern-App parallel (Sessions 21–28, eigene Versionierung über Git, nicht über `GM_WIKI_VERSION`):** MVP Modul 4 → alle 8 Module/337 Items → Bossquiz + Zertifizierung → QA → Längen-Bias-Fix → Szenario-Missionen.
 
 Vollständige Historie mit Begründungen und verworfenen Wegen: `02_ENTWICKLUNGSHISTORIE.md`.
 
@@ -131,14 +134,18 @@ Vollständige Historie mit Begründungen und verworfenen Wegen: `02_ENTWICKLUNGS
 
 ## 6. Offene Punkte / Roadmap
 
+> **➡️ Die vollständige, priorisierte Liste aller offenen Punkte (Wiki *und* Lern-App) inkl. gemessener inhaltlicher Lücken steht in [`09_BACKLOG.md`](09_BACKLOG.md).** Dieser Abschnitt ist nur die Kurzfassung.
+
 **Offen**
-1. **Verteilung an Kollegen** — für die **Lern-App gelöst** via GitHub Pages (siehe unten); für das Wiki selbst weiter offen (SharePoint vs. dieselbe GitHub-Pages-Route — technisch wäre das Wiki unter `/app/` bereits erreichbar, Entscheidung über Sichtbarkeit steht aus).
+1. **Verteilung an Kollegen** — für die **Lern-App gelöst** via GitHub Pages (siehe unten); für das Wiki selbst weiter offen (SharePoint vs. dieselbe GitHub-Pages-Route — technisch wäre das Wiki unter `/app/` bereits erreichbar, Entscheidung über Sichtbarkeit steht aus). **Größter verbleibender Hebel.**
 2. Ownership/Pflege klären, wenn das Wiki an Kollegen geht
 3. Ggf. Changelog-Mechanismus in der App selbst (wird mit Verteilung relevanter)
-4. Nächster **Fakten-Refresh** ca. Anfang 2027 (halbjährlicher Rhythmus) — **neu:** dabei auch die Lern-App-Checkliste aus `08_LERNAPP_UMSETZUNG.md` §3 abarbeiten (betroffene Quiz-Items über `steckbriefIds` finden)
+4. Nächster **Fakten-Refresh** ca. Anfang 2027 (halbjährlicher Rhythmus) — dabei auch die Lern-App-Checkliste aus `08_LERNAPP_UMSETZUNG.md` §3 abarbeiten (betroffene Quiz-Items über `steckbriefIds` finden)
+5. **Inhaltliche Lücke Lern-App:** 11 der 75 Steckbriefe sind von keinem Quiz-Item abgedeckt (gemessen, Liste + Prüfskript in `09_BACKLOG.md` §1.1)
+6. **Benchmarking-Konzept** (`06_BENCHMARKING_KONZEPT.md`) ist ausgearbeitet, aber nie umgesetzt — nächster Schritt wäre ein Pilot mit einem realen Kundenfall
 
 **Neu seit Juli 2026: Lern-App + Git/GitHub**
-- **Lern-App „Energiewirtschaft meistern"** (Ordner `lern-app/`): PWA-Lernanwendung auf Basis von `app/data.js` (unverändert geladen, Single Source of Truth). MVP = Modul 4 „Verkaufen", 54 Quiz-Items, Leitner-Spaced-Repetition, Vertiefungs-Lesemodus. Konzept: `07_LERNAPP_KONZEPT.md` · Istzustand/Pflege/Release: `08_LERNAPP_UMSETZUNG.md`.
+- **Lern-App „Energiewirtschaft meistern"** (Ordner `lern-app/`): PWA-Lernanwendung auf Basis von `app/data.js` (unverändert geladen, Single Source of Truth). **Vollständig umgesetzt (Sessions 21–28):** alle 8 Module, 47 Einheiten, **337 Quiz-Items** in 5 Formaten, Leitner-Spaced-Repetition, Vertiefungs-Lesemodus, Bossquiz je Modul, Zertifizierungsquiz mit druckbarem Zertifikat, **8 Szenario-Missionen** (K4-Fallstudien). Konzept: `07_LERNAPP_KONZEPT.md` · Istzustand/Pflege/Release: `08_LERNAPP_UMSETZUNG.md` · Offenes: `09_BACKLOG.md`.
 - **Der Projektordner ist jetzt ein Git-Repository:** https://github.com/ArneGroenewold/Geschaeftsmodelle-der-Energiewirtschaft — GitHub Pages deployt den Root; Lern-App live unter https://arnegroenewold.github.io/Geschaeftsmodelle-der-Energiewirtschaft/lern-app/. Änderungen werden committet und gepusht; für die Lern-App zusätzlich `lern-app/sw.js` → CACHE_NAME hochzählen (sonst bleibt die installierte PWA auf dem alten Stand).
 
 **Erledigt (nicht erneut vorschlagen)**
@@ -151,9 +158,16 @@ Vollständige Historie mit Begründungen und verworfenen Wegen: `02_ENTWICKLUNGS
 
 ## 7. Wie weiterarbeiten? (Hinweise für Claude in neuer Session)
 
-1. **Bei Inhalts-Änderungen:** immer `data.js` editieren, Datenmodell-Schema einhalten (`03_DATENMODELL_TECHNIK.md`), Quellen-Marker pflegen (`05_QUELLEN_KONZEPT.md`).
-2. **Nach Änderungen an data.js:** Syntax via Node prüfen; Marker-IDs gegen `GM_QUELLEN` prüfen (keine Waisen); Akteurs-Index wird automatisch aufgebaut.
-3. **Immer als ZIP ausliefern**, Version hochzählen, `GM_WIKI_VERSION` (und bei Fakten-Reviews `GM_FAKTEN_STAND`) aktualisieren.
-4. **Stil:** Deutsch, editorial, sachlich-fundiert, Lehrbuch-Anspruch. Zielgruppe ist fachkundig.
-5. **Bash-Mount-Staleness (wiederkehrend!):** Dateien ausschließlich über die Datei-Tools (Read/Edit/Write) ändern, niemals per Bash schreiben; bei Diskrepanzen ist der Read-Tool-Stand die Wahrheit. ZIP erst nach verifiziertem Sync bauen.
-6. **Diese Datei aktuell halten** — sie stand von v1.6 bis v2.5 ungepflegt und hat dadurch ihren Zweck verfehlt (behoben in v2.6).
+1. **Erst lesen:** diese Datei + `09_BACKLOG.md` (alles Offene an einem Ort).
+2. **Bei Inhalts-Änderungen:** immer `data.js` editieren, Datenmodell-Schema einhalten (`03_DATENMODELL_TECHNIK.md`), Quellen-Marker pflegen (`05_QUELLEN_KONZEPT.md`).
+3. **Nach Änderungen an data.js:** Syntax prüfen; Marker-IDs gegen `GM_QUELLEN` prüfen (keine Waisen); Akteurs-Index wird automatisch aufgebaut.
+   ⚠️ **Achtung (Stand Juli 2026): Auf diesem Rechner sind weder Node noch Python installiert** (`python` auf dem PATH ist nur der Microsoft-Store-Stub, kein Interpreter). Ältere Anweisungen „Syntax via Node prüfen" laufen ins Leere. **Stattdessen:** Datei im Browser laden und dort prüfen — fürs Wiki reicht `app/index.html` per Doppelklick (`file://`); für die **Lern-App braucht es HTTP** (Service Worker), Workaround ist ein PowerShell-`HttpListener`-Skript (Muster in `02_ENTWICKLUNGSHISTORIE.md`, Session 29). Ein Syntaxfehler zeigt sich sofort als leere App + Konsolenfehler.
+4. **Immer als ZIP ausliefern**, Version hochzählen, `GM_WIKI_VERSION` (und bei Fakten-Reviews `GM_FAKTEN_STAND`) aktualisieren. **Gilt nur fürs Wiki** — die Lern-App wird über Git/GitHub Pages versioniert (`lern-app/sw.js` → `CACHE_NAME` hochzählen!).
+5. **Stil:** Deutsch, editorial, sachlich-fundiert, Lehrbuch-Anspruch. Zielgruppe ist fachkundig.
+6. **Bash-Mount-Staleness (wiederkehrend!):** Dateien ausschließlich über die Datei-Tools (Read/Edit/Write) ändern, niemals per Bash schreiben; bei Diskrepanzen ist der Read-Tool-Stand die Wahrheit. ZIP erst nach verifiziertem Sync bauen.
+7. **Beim Testen der Lern-App:** Der Service Worker cached die JS-Dateien. Nach Datenänderungen **erst Caches leeren**, sonst testest du die alte Version und wunderst dich, warum nichts passiert:
+   ```js
+   for (const r of await navigator.serviceWorker.getRegistrations()) await r.unregister();
+   for (const k of await caches.keys()) await caches.delete(k);
+   ```
+8. **Diese Datei aktuell halten** — sie stand von v1.6 bis v2.5 ungepflegt und hat dadurch ihren Zweck verfehlt (behoben in v2.6).

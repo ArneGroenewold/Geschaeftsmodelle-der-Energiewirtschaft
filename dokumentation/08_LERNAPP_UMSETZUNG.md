@@ -131,14 +131,20 @@ Versionierung läuft über **Git** (Commits/History), nicht über ZIP-Stände wi
 
 ---
 
-## 8. Roadmap (Konzept §11, priorisierter Vorschlag)
+## 8. Roadmap
 
-Erledigt: ~~Module 1–8~~ (S21–25), ~~Bossquiz + Zertifizierungsquiz + QA~~ (S26). **Damit sind das komplette Curriculum, die Modul-Abschlussprüfungen und die Zertifizierung aus dem Konzept umgesetzt.**
+> **Die vollständige, priorisierte Liste aller offenen Punkte für Wiki *und* Lern-App steht in [`09_BACKLOG.md`](09_BACKLOG.md).** Dieser Abschnitt hält nur den Lern-App-spezifischen Stand fest.
 
-1. **Confidence-Rating** (Konzept §5): vor Auflösung „sicher / unsicher / geraten" — sicher+falsch = höchste Wiederholungspriorität. Kleiner Eingriff in `quiz-formats.js`/`leitner.js`.
-2. **Disruptor-Modus + Szenario-Missionen** (K4-Formate, machen laut Konzept „am meisten Spaß").
+Erledigt: ~~Module 1–8~~ (S21–25), ~~Bossquiz + Zertifizierungsquiz + QA~~ (S26), ~~Längen-Bias-Fix über alle 219 MC-Items~~ (S27), ~~Szenario-Missionen inkl. 8 Missionen~~ (S28). **Damit sind das komplette Curriculum, die Modul-Abschlussprüfungen, die Zertifizierung und das erste K4-Szenarioformat umgesetzt.**
+
+Nächste Ausbaustufen (Details + Begründung im Backlog):
+1. **Lücken-Items für 11 nicht abgedeckte Steckbriefe** (Backlog 1.1) — inhaltlich der wichtigste Punkt.
+2. **Confidence-Rating** (Konzept §5): vor Auflösung „sicher / unsicher / geraten" — sicher+falsch = höchste Wiederholungspriorität. Kleiner Eingriff in `quiz-formats.js`/`leitner.js`.
 3. **Kompetenz-Radar des Lerners** (Konzept §7): Ø-Leistung je Modul/Bloom-Stufe im 6-Achsen-Radar — die Daten (`bossQuizzes`, `certification.moduleScores`) liegen bereits vor.
-4. **Stufe 4:** Einstufungstest, Rollen-Lernpfade entlang der Personas (`01_PERSONAS.md`), Teilen von Ergebnissen.
-5. **Inhaltliche Pflege:** bei jedem Wiki-Fakten-Refresh die Checkliste aus §3 abarbeiten (337 Items über `steckbriefIds` rückverfolgbar). QA-Skript aus Session 26 (im Browser) vor jedem Release erneut laufen lassen.
+4. **BMC-Puzzle ausweiten** (nur 11 von 73 möglichen Steckbriefen genutzt, authoring-frei) und **Disruptor-Modus** (letztes offenes K4-Format, stützt sich auf `angreifbarkeit` — auf 73/73 vorhanden).
+5. **Stufe 4:** Einstufungstest, Rollen-Lernpfade entlang der Personas (`01_PERSONAS.md`), Teilen von Ergebnissen.
+6. **Inhaltliche Pflege:** bei jedem Wiki-Fakten-Refresh die Checkliste aus §3 abarbeiten (337 Items über `steckbriefIds` rückverfolgbar). **Vor jedem Release drei Browser-QA-Skripte laufen lassen:** Struktur-Check (S26), Längen-Bias-Check (S27), Abdeckungs-Check (Backlog 1.1).
+
+**Neue Szenario-Mission anlegen** (rein redaktionell, kein Code): Objekt in `SZENARIO_MISSIONS` (`lern-szenarien.js`) nach dem im Dateikopf dokumentierten Schema — `dimensionen` (2–3 Kennzahlen), `schritte` (je 3 Trade-off-Optionen mit `wirkung`, `bewertung`, `punkte`), `debrief.stufen` (absteigend nach `minPct`). Die Engine normalisiert automatisch auf den best-/schlechtestmöglichen Pfad. Wichtig: Jeder `punkte`-Key muss in `dimensionen` existieren.
 
 **Muster für ein neues Modul** (aus Session 23, als Blaupause): (1) Modulobjekt in `LERN_MODULES` (`lern-data.js`) mit `unitIds`; (2) Einheiten in `LERN_UNITS` mit `vertiefungSteckbriefIds` auf die realen Steckbrief-IDs; (3) Quiz-Items in `LERN_QUIZ_ITEMS` (`lern-quiz-items.js`) nach Feld→Format-Mapping (§6), jede Einheit ~7–8 Items, mindestens ein Transfer-Item das auf ein anderes Modul verweist; (4) `sw.js` CACHE_NAME +1; (5) Browser-Test (Validierungs-Log, ein Durchlauf je neuem Format), commit + push.

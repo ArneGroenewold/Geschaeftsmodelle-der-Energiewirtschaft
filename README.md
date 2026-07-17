@@ -19,6 +19,7 @@ Energiewirtschaft-GM-Wiki/
 ├── lern-app/                           ← die Lern-App „Energiewirtschaft meistern" (PWA, seit Juli 2026)
 │   ├── index.html / lern.css / main.js / …
 │   ├── lern-data.js / lern-quiz-items.js  ← redaktionelle Lernschicht (Curriculum + Quiz)
+│   ├── lern-szenarien.js / szenario-engine.js ← Szenario-Missionen (K4-Fallstudien, seit S28)
 │   ├── manifest.json / sw.js              ← PWA/Offline; Release: CACHE_NAME hochzählen!
 │   └── shared/ + assets/
 │
@@ -31,7 +32,8 @@ Energiewirtschaft-GM-Wiki/
 │   ├── 05_QUELLEN_KONZEPT.md
 │   ├── 06_BENCHMARKING_KONZEPT.md
 │   ├── 07_LERNAPP_KONZEPT.md           ← Lern-App: Sollkonzept
-│   └── 08_LERNAPP_UMSETZUNG.md         ← Lern-App: Istzustand, Sync-Regeln, Release-Prozess
+│   ├── 08_LERNAPP_UMSETZUNG.md         ← Lern-App: Istzustand, Sync-Regeln, Release-Prozess
+│   └── 09_BACKLOG.md                   ← alle offenen Ideen & inhaltlichen Lücken (Wiki + Lern-App)
 │
 └── archiv-aeltere-versionen/           ← frühere ZIP-Stände (v1.1–v2.5; v1.6, v2.0 und v2.2 fehlen)
 ```
@@ -107,6 +109,7 @@ Features: Steckbriefe mit Tiefenanalyse (Wertschöpfung/Herausforderungen/Ausbli
 | Wie soll das Kunden-Benchmarking funktionieren? | `dokumentation/06_BENCHMARKING_KONZEPT.md` |
 | Wie soll die Lern-App funktionieren? (Konzept) | `dokumentation/07_LERNAPP_KONZEPT.md` |
 | Wie ist die Lern-App gebaut, wie pflege/release ich sie? | `dokumentation/08_LERNAPP_UMSETZUNG.md` |
+| **Was ist noch offen? Woran arbeite ich als Nächstes?** | **`dokumentation/09_BACKLOG.md`** |
 
 ---
 
@@ -132,4 +135,17 @@ Features: Steckbriefe mit Tiefenanalyse (Wertschöpfung/Herausforderungen/Ausbli
 7. Ggf. Changelog-Mechanismus in der App selbst (wird mit Verteilung relevanter)
 8. Nächster **Fakten-Refresh** ca. Anfang 2027 (halbjährlicher Rhythmus, `GM_FAKTEN_STAND` pflegen)
 9. **Geschäftsmodell-Benchmarking als Kundenwerkzeug** — Konzept in `dokumentation/06_BENCHMARKING_KONZEPT.md` (neu, Juli 2026); nächster Schritt: Pilot mit einem realen Kundenfall
-10. ~~Lern-App~~ — **umgesetzt und live** (Juli 2026, Sessions 21–26): **alle 8 Module, 47 Einheiten, 337 Quiz-Items** (Das Spielfeld, Erzeugen & Speichern, Die Netze, Verkaufen, Flexibilität, Prosumer, Wärme/H2/Industrie, Ökosystem), 5 Aufgabenformate, Leitner-Review, Vertiefungs-Lesemodus, einklappbare Module + Prozentfortschritt, **Bossquiz je Modul + Zertifizierungsquiz mit druckbarem Zertifikat**, PWA auf GitHub Pages. QA: 0 strukturelle Fehler, 54% K3/K4. Istzustand + Pflege: `dokumentation/08_LERNAPP_UMSETZUNG.md`. **Nächste Ausbaustufen:** Confidence-Rating, Disruptor-Modus, Kompetenz-Radar des Lerners (Roadmap in 08, Abschnitt 8)
+10. ~~Lern-App~~ — **umgesetzt und live** (Juli 2026, Sessions 21–28): **alle 8 Module, 47 Einheiten, 337 Quiz-Items** (Das Spielfeld, Erzeugen & Speichern, Die Netze, Verkaufen, Flexibilität, Prosumer, Wärme/H2/Industrie, Ökosystem), 5 Aufgabenformate, Leitner-Review, Vertiefungs-Lesemodus, einklappbare Module + Prozentfortschritt, **Bossquiz je Modul + Zertifizierungsquiz mit druckbarem Zertifikat**, **8 Szenario-Missionen** (K4-Fallstudien, eine pro Modul), PWA auf GitHub Pages. QA: 0 strukturelle Fehler, 54% K3/K4, Längen-Bias behoben (richtige Antwort = längste Option: 97% → 32%). Istzustand + Pflege: `dokumentation/08_LERNAPP_UMSETZUNG.md`.
+
+---
+
+## 🗒 Backlog — alles Offene an einem Ort
+
+**Alle offenen Ideen und inhaltlichen Lücken für Wiki *und* Lern-App stehen ab sofort gebündelt in [`dokumentation/09_BACKLOG.md`](dokumentation/09_BACKLOG.md)** — inklusive Priorisierung, Prüfskripten und einer Liste bewusst verworfener Wege.
+
+Die wichtigsten offenen Punkte in Kurzform:
+1. **Verteilung an Kollegen klären** (Wiki, größter Hebel, seit Langem offen)
+2. **11 von 75 Steckbriefen sind in der Lern-App gar nicht abgedeckt** (gemessen — u.a. Energierechtskanzlei, Cyber-Versicherung, IT-/Digitaltransformation)
+3. **Confidence-Rating** in der Lern-App (kleiner Eingriff, großer didaktischer Effekt)
+4. **Fakten-Refresh ~Anfang 2027** (halbjährlicher Rhythmus, `GM_FAKTEN_STAND` pflegen)
+5. **Benchmarking-Konzept** (`06_BENCHMARKING_KONZEPT.md`) ist ausgearbeitet, aber nie umgesetzt
